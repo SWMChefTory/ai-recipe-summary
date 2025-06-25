@@ -9,8 +9,10 @@ from fastapi import (
 )
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field, field_validator
+from app.api.subtitles import router as subtitle_router
 
 app = FastAPI(title="Recipe Summarizer", version="1.0.0")
+app.include_router(subtitle_router)
 
 
 @app.get("/ping")
