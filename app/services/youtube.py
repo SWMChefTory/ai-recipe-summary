@@ -44,4 +44,3 @@ def get_subtitles(video_id: str) -> SubtitleResponse | None:
         print("자막 추출 중 오류:", e)
         return None
     
-print(get_subtitles("dwaHv5vENwk"))
