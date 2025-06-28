@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Dict
 from pydantic import BaseModel, Field
 
-from .subtitles import Subtitle
+from .subtitle import Subtitle
 from .recipe import RecipeSummary
 
 from enum import Enum

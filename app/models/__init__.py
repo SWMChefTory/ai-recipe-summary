@@ -1,5 +1,5 @@
 from .summary import SummaryRequest, SummaryResponse
-from .subtitles import Subtitle, SubtitleSegment
+from .subtitle import Subtitle, SubtitleSegment
 from .recipe import Ingredient, Step, RecipeSummary
 from .summary import SummaryResponse
 
@@ -14,6 +14,5 @@ __all__ = [
     # recipe
     "Ingredient",
     "Step",
-    "Phase",
     "RecipeSummary",
 ]
