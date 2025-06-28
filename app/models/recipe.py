@@ -12,7 +12,7 @@ class Ingredient(BaseModel):
 
 class Step(BaseModel):
     start: float = Field(..., ge=0)
-    end:   float = Field(..., ge=0)
+    end: float = Field(..., ge=0)
     description: str = Field(..., max_length=50, description="50자 이내, '~하기'")
 
 
@@ -21,4 +21,4 @@ class RecipeSummary(BaseModel):
     summary: str
     total_time_sec: Optional[int] = Field(None, ge=0)
     ingredients: List[Ingredient]
-    phases: Optional[List[Step]] = None
+    steps: Optional[List[Step]] = None
