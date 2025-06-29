@@ -1,6 +1,8 @@
 from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound, TranscriptsDisabled
 from app.models import *
 from typing import List, Dict
+import os
+import requests
 
 def get_subtitles_and_lang_code(video_id: str):
     """주어진 YouTube 영상 ID에서 자막을 추출"""
@@ -52,4 +54,28 @@ def fetch_transcript_by_generated_lang_code(transcripts, target_lang_code: str) 
             return transcript.fetch().to_raw_data()
     
     return None
+    
+
+def get_youtube_description(video_id: str) -> str:
+    key = os.getenv("GOOGLE_API_KEY")
+    if not key:
+        return "ERROR: GOOGLE_API_KEY가 설정되지 않음"
+
+    params = {
+        "part": "snippet",
+        "id": video_id,
+        "key": key
+    }
+
+    try:
+        response = requests.get("https://www.googleapis.com/youtube/v3/videos", params=params)
+        data = response.json()
+
+        # 예외 발생 가능 구간
+        return data["items"][0]["snippet"]["description"]
+
+    except IndexError:
+        return "ERROR: video ID가 잘못됐거나 결과가 없음"
+    except KeyError as e:
+        return f"ERROR: 응답에 예상된 키 없음 → {e}"
     
