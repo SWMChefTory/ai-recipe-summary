@@ -1,8 +1,12 @@
-from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound, TranscriptsDisabled
-from app.models import *
-from typing import List, Dict
 import os
+from typing import Dict, List
+
 import requests
+from youtube_transcript_api import (NoTranscriptFound, TranscriptsDisabled,
+                                    YouTubeTranscriptApi)
+
+from app.models import *
+
 
 def get_subtitles_and_lang_code(video_id: str):
     """주어진 YouTube 영상 ID에서 자막을 추출"""
