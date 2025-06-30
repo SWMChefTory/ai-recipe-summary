@@ -1,6 +1,8 @@
 import os
+from unittest.mock import MagicMock, patch
+
 import pytest
-from unittest.mock import patch, MagicMock
+
 from app.services.youtube import get_youtube_description
 
 
