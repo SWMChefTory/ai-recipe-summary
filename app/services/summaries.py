@@ -15,11 +15,11 @@ def load_template(name: str) -> str:
 
 env = jinja2.Environment(loader=jinja2.FunctionLoader(load_template), autoescape=False)
 
-def summarize(subtitles: List[Dict], description: str, client: OpenAI = client) -> str:
+def summarize(captions: List[Dict], description: str, client: OpenAI = client) -> str:
     try:
         tpl = env.get_template("recipe.jinja2")
         system_prompt = resources.files("app.prompts.system").joinpath("recipe.txt").read_text()
-        user_prompt = tpl.render(subtitles=subtitles, description=description)
+        user_prompt = tpl.render(captions=captions, description=description)
 
         messages = [
             {"role": "system", "content": system_prompt},
@@ -28,14 +28,16 @@ def summarize(subtitles: List[Dict], description: str, client: OpenAI = client) 
 
         response = client.chat.completions.create(
             model=MODEL_NAME,
-            messages=messages,
+            messages=messages,  # type: ignore
             max_tokens=4096,
             temperature=0.5,
             response_format={"type": "json_object"},
         )
 
-        result = response.choices[0].message.content.strip()
-        return result if result else "[요약 결과가 비어 있습니다]"
+        result = response.choices[0].message.content
+        if not result:
+            return "[요약 결과가 비어 있습니다]"
+        return result.strip()
 
     except Exception as e:
         logger.exception("요약 생성 중 오류 발생")

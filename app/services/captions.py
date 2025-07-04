@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from typing import List, Dict
-from app.models.subtitle import Subtitle
+from typing import Dict, List
+
+from app.models.caption import Caption
 
 _PRECISION = 2
 
@@ -22,9 +23,9 @@ def _seconds(val: float | str | None) -> float:
     return int(h) * 3600 + int(m) * 60 + float(s)
 
 
-def normalize_subtitles(raw: List[Dict]) -> List[Subtitle]:
+def normalize_captions(raw_captions: List[Dict]) -> List[Dict]:
     """
-    원본 자막 리스트를 정규화된 Subtitle 리스트로 변환
+    원본 자막 리스트를 정규화된 Caption 리스트로 변환
 
     변환 결과 스키마
     {
@@ -40,9 +41,9 @@ def normalize_subtitles(raw: List[Dict]) -> List[Subtitle]:
     - Whisper / OpenAI STT
         {"text": str, "start": float, "end": float}
     """
-    out: List[Subtitle] = []
+    out: List[Dict] = []
 
-    for seg in raw:
+    for seg in raw_captions:
         start_sec = _seconds(seg.get("start"))
 
         if "end" in seg:
@@ -50,7 +51,7 @@ def normalize_subtitles(raw: List[Dict]) -> List[Subtitle]:
         elif "duration" in seg:
             end_sec = start_sec + float(seg["duration"])
         else:
-            raise ValueError("Subtitle segment requires 'end' or 'duration'.")
+            raise ValueError("Caption segment requires 'end' or 'duration'.")
 
         start = round(start_sec, _PRECISION)
         end = round(end_sec, _PRECISION)
