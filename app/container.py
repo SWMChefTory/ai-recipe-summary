@@ -4,10 +4,11 @@ from dependency_injector import containers, providers
 from openai import OpenAI
 
 from app.services.audio import AudioService
+from app.services.audio_extractor import AudioExtractor
+from app.services.caption_extractor import CaptionExtractor
 from app.services.captions import CaptionService
 from app.services.ingredients import IngredientsService
-from app.services.recipe import RecipeService
-from app.services.summaries import SummaryService
+from app.services.summaries import SummariesService
 from app.services.youtube import YouTubeService
 
 
@@ -36,10 +37,20 @@ class Container(containers.DeclarativeContainer):
         model_name=model_name,
     )
     
+    caption_extractor = providers.Factory(
+        CaptionExtractor,
+    )
+    
+    audio_extractor = providers.Factory(
+        AudioExtractor,
+    )
+    
     youtube_service = providers.Factory(
         YouTubeService,
         google_api_key=google_api_key,
         audio_service=audio_service,
+        caption_extractor=caption_extractor,
+        audio_extractor=audio_extractor,
     )
 
     caption_service = providers.Factory(
@@ -52,18 +63,10 @@ class Container(containers.DeclarativeContainer):
         model_name=model_name,
     )
 
-    summary_service = providers.Factory(
-        SummaryService,
+    summaries_service = providers.Factory(
+        SummariesService,
         openai_client=openai_client,
         model_name=model_name,
-    )
-
-    recipe_service = providers.Factory(
-        RecipeService,
-        youtube_service=youtube_service,
-        caption_service=caption_service,
-        ingredients_service=ingredients_service,
-        summary_service=summary_service,
     )
 
 
