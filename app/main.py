@@ -35,7 +35,6 @@ app = FastAPI(
 # 라우터 등록
 app.include_router(recipe_router)
 
-
 @app.get("/")
 async def root():
     """루트 엔드포인트"""
