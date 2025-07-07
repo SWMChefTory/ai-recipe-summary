@@ -1,71 +1,86 @@
-import logging
-from importlib import resources
-from typing import Dict, List, Optional
+"""조리 단계 요약 생성 서비스"""
 
-import jinja2
+import json
+from typing import List, Optional
+
 from openai import OpenAI
 
-from app.services.base import BaseAIService
+from app.constants import AIConfig, ErrorMessages
+from app.models.captions import CaptionResponse
+from app.models.ingredients import Ingredient
+from app.models.summaries import CookingProcessSummary
+from app.services.base import BaseAIService, TemplateService
 
 
-class SummaryService(BaseAIService):
-    """요약 생성 서비스"""
+class SummariesService(BaseAIService):
+    """조리 단계 요약 생성 서비스"""
 
-    def __init__(self, openai_client: Optional[OpenAI] = None, model_name: str = "gpt-4o-mini"):
-        super().__init__(openai_client, model_name)
-        self.template_env = self._setup_template_env()
+    def __init__(self, openai_client: Optional[OpenAI] = None, model_name: Optional[str] = None):
+        super().__init__(openai_client, model_name or AIConfig.DEFAULT_MODEL)
 
-    def _setup_template_env(self) -> jinja2.Environment:
-        """템플릿 환경 설정"""
-        def load_template(name: str) -> str:
-            return resources.files("app.prompts.user").joinpath(name).read_text()
-
-        return jinja2.Environment(
-            loader=jinja2.FunctionLoader(load_template), 
-            autoescape=False
-        )
-
-    def summarize(self, captions: List[Dict], description: str) -> str:
-        """자막과 설명을 기반으로 레시피 요약 생성"""
+    async def create_summary(
+        self, 
+        video_id: str, 
+        video_type: str, 
+        caption_response: CaptionResponse, 
+        ingredients: List[Ingredient]
+    ) -> Optional[CookingProcessSummary]:
+        """자막과 재료 정보를 기반으로 조리 단계 요약을 생성합니다."""
         try:
-            tpl = self.template_env.get_template("recipe.jinja2")
-            system_prompt = self._get_system_prompt()
-            user_prompt = tpl.render(captions=captions, description=description)
+            ai_response = self._generate_ai_summary(caption_response, ingredients)
+            if not ai_response:
+                return None
+            
+            summary_data = json.loads(ai_response)
+            cooking_summary = CookingProcessSummary(
+                description=summary_data.get("description", ""),
+                steps=summary_data.get("steps", [])
+            )
 
-            messages = [
+            return cooking_summary
+
+        except json.JSONDecodeError as parsing_error:
+            self.logger.error(f"JSON 파싱 오류: {parsing_error}")
+            return None
+        except Exception as unexpected_error:
+            self.logger.exception(f"조리 단계 요약 생성 중 오류: {unexpected_error}")
+            return None
+
+    def _generate_ai_summary(
+        self, 
+        caption_response: CaptionResponse, 
+        ingredients: List[Ingredient]
+    ) -> Optional[str]:
+        """AI를 사용하여 조리 단계 요약을 생성합니다."""
+        try:
+            system_prompt = TemplateService.load_system_prompt("summaries.md")
+            user_prompt = self._create_user_prompt(caption_response, ingredients)
+
+            chat_messages = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ]
 
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=messages,  # type: ignore
-                max_tokens=4096,
-                temperature=0.5,
-                response_format={"type": "json_object"},
+            ai_result = self._create_chat_completion(
+                messages=chat_messages,
+                response_format={"type": "json_object"}
             )
 
-            result = response.choices[0].message.content
-            if not result:
-                return "[요약 결과가 비어 있습니다]"
-            return result.strip()
+            return ai_result or ErrorMessages.SUMMARY_EMPTY
 
-        except Exception as e:
-            self.logger.exception("요약 생성 중 오류 발생")
-            return "[요약 실패: 문제가 발생했습니다]"
+        except Exception as generation_error:
+            self.logger.exception("AI 요약 생성 중 오류 발생")
+            return ErrorMessages.SUMMARY_FAILED
 
-    def _get_system_prompt(self) -> str:
-        """시스템 프롬프트 반환"""
-        return resources.files("app.prompts.system").joinpath("recipe.txt").read_text()
-
-
-# 하위 호환성을 위한 함수 (추후 제거 예정)
-def load_template(name: str) -> str:
-    """@deprecated: SummaryService._setup_template_env() 사용 권장"""
-    return resources.files("app.prompts.user").joinpath(name).read_text()
-
-
-def summarize(captions: List[Dict], description: str, client: Optional[OpenAI] = None) -> str:
-    """@deprecated: SummaryService.summarize() 사용 권장"""
-    service = SummaryService(client)
-    return service.summarize(captions, description)
+    def _create_user_prompt(
+        self, 
+        caption_response: CaptionResponse, 
+        ingredients: List[Ingredient]
+    ) -> str:
+        """사용자 프롬프트를 생성합니다."""
+        template = self.template_env.get_template("summaries.jinja2")
+        return template.render(
+            captions=caption_response.captions, 
+            lang_code=caption_response.lang_code,
+            ingredients=ingredients
+        ) 
