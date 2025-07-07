@@ -1,83 +1,91 @@
+"""자막 처리 서비스"""
+
 from __future__ import annotations
 
+import logging
 from typing import Dict, List
 
-from app.models.caption import Caption
-from app.services.base import BaseService
-
-_PRECISION = 2
+from app.constants import CaptionConfig
 
 
-class CaptionService(BaseService):
-    """자막 처리 서비스"""
+class CaptionService:
+    """자막 정규화 처리 서비스"""
 
-    def __init__(self, precision: int = _PRECISION):
-        super().__init__()
+    def __init__(self, precision: int = CaptionConfig.DEFAULT_PRECISION) -> None:
         self.precision = precision
-
-    def seconds(self, val: float | str | None) -> float:
-        """
-        입력값을 초 단위의 실수로 변환
-
-        - float / int  : 이미 초 단위 숫자인 경우 ⇒ 그대로 반환
-        - "HH:MM:SS"   : 시·분·초 문자열 ⇒ 초로 환산해 반환
-        """
-        if val is None:
-            raise ValueError("time value missing")
-
-        if isinstance(val, (int, float)):
-            return float(val)
-
-        h, m, s = val.split(":")
-        return int(h) * 3600 + int(m) * 60 + float(s)
+        self.logger = logging.getLogger(__name__)
+        
 
     def normalize_captions(self, raw_captions: List[Dict]) -> List[Dict]:
-        """
-        원본 자막 리스트를 정규화된 Caption 리스트로 변환
+        """원본 자막 데이터를 정규화합니다 (start, end, text 형식)."""
+        if not raw_captions:
+            return []
+            
+        normalized_captions = []
+        
+        for caption_index, caption_segment in enumerate(raw_captions):
+            try:
+                start_time = self._convert_to_seconds(caption_segment.get("start", 0))
+                end_time = self._calculate_end_time(
+                    caption_segment, caption_index, raw_captions, start_time
+                )
+                
+                normalized_start = round(start_time, self.precision)
+                normalized_end = round(end_time, self.precision)
+                
+                # 시작과 끝 시간이 같으면 최소 0.1초 간격 보장
+                if normalized_end <= normalized_start:
+                    normalized_end = normalized_start + 0.1
+                
+                normalized_caption = {
+                    "start": normalized_start,
+                    "end": normalized_end,
+                    "text": caption_segment.get("text", "")
+                }
+                normalized_captions.append(normalized_caption)
+                
+            except Exception as processing_error:
+                self.logger.warning(
+                    f"자막 세그먼트 정규화 실패: {processing_error}, 데이터: {caption_segment}"
+                )
+                continue
+                
+        # 시작 시간순으로 정렬
+        normalized_captions.sort(key=lambda caption: caption["start"])
+        return normalized_captions
 
-        변환 결과 스키마
-        {
-            "start": float,  # 영상 시작 기준 초(second) — 소수점 2자리까지
-            "end":   float,  # 영상 시작 기준 초(second) — 소수점 2자리까지
-            "text":  str     # 자막 텍스트(원문 그대로)
-        }
+    def _calculate_end_time(
+        self, 
+        caption_segment: Dict, 
+        current_index: int, 
+        all_captions: List[Dict], 
+        start_time: float
+    ) -> float:
+        """자막 세그먼트의 종료 시간을 계산합니다."""
+        # end 시간이 명시되어 있는 경우
+        if ("end" in caption_segment and 
+            caption_segment["end"] is not None and 
+            caption_segment["end"] != 0):
+            return self._convert_to_seconds(caption_segment["end"])
+        
+        # duration이 명시되어 있는 경우
+        if ("duration" in caption_segment and 
+            caption_segment["duration"] is not None and 
+            caption_segment["duration"] != 0):
+            duration = self._convert_to_seconds(caption_segment["duration"])
+            return start_time + duration
+        
+        # 다음 자막의 시작 시간을 사용
+        if current_index + 1 < len(all_captions):
+            next_caption = all_captions[current_index + 1]
+            next_start_time = self._convert_to_seconds(next_caption.get("start", start_time + 3))
+            return next_start_time
+        
+        # 마지막 자막인 경우 기본 3초 추가
+        return start_time + 3.0
 
-        지원하는 입력 포맷
-        - YouTube‑Transcript‑API
-            {"text": str, "start": float, "duration": float}
-
-        - Whisper / OpenAI STT
-            {"text": str, "start": float, "end": float}
-        """
-        out: List[Dict] = []
-
-        for seg in raw_captions:
-            start_sec = self.seconds(seg.get("start"))
-
-            if "end" in seg:
-                end_sec = self.seconds(seg["end"])
-            elif "duration" in seg:
-                end_sec = start_sec + float(seg["duration"])
-            else:
-                raise ValueError("Caption segment requires 'end' or 'duration'.")
-
-            start = round(start_sec, self.precision)
-            end = round(end_sec, self.precision)
-
-            out.append({"start": start, "end": end, "text": seg["text"]})
-
-        out.sort(key=lambda x: x["start"])
-        return out
-
-
-# 하위 호환성을 위한 함수들 (추후 제거 예정)
-def _seconds(val: float | str | None) -> float:
-    """@deprecated: CaptionService.seconds() 사용 권장"""
-    service = CaptionService()
-    return service.seconds(val)
-
-
-def normalize_captions(raw_captions: List[Dict]) -> List[Dict]:
-    """@deprecated: CaptionService.normalize_captions() 사용 권장"""
-    service = CaptionService()
-    return service.normalize_captions(raw_captions)
+    def _convert_to_seconds(self, time_value: float | str | None) -> float:
+        """시간 값을 초 단위로 변환합니다."""
+        if time_value is None:
+            return 0.0
+        return float(time_value) 
