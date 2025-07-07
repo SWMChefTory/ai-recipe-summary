@@ -1,69 +1,47 @@
+import logging
 import re
-from uuid import uuid4
-from typing import Dict
-from fastapi import (
-    FastAPI,
-    status,
-    BackgroundTasks,
-    HTTPException,
-)
-from fastapi.responses import JSONResponse
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
 from pydantic import BaseModel, Field, field_validator
-from app.api.summaries import router as summary_router
 
-app = FastAPI(title="Recipe Summarizer", version="1.0.0")
-app.include_router(summary_router)
+from app.api.recipes import router as recipe_router
+from app.container import container
 
-
-@app.get("/ping")
-async def ping():
-    return {"msg": "pong"}
+# 로거 설정
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 
-# 유튜브 링크 패턴
-_YT_PATTERNS = [
-    re.compile(r"^https?://(www\.)?youtube\.com/watch\?v=[\w-]{11}"),
-    re.compile(r"^https?://(www\.)?youtu\.be/[\w-]{11}"),
-    re.compile(r"^https?://(www\.)?youtube\.com/shorts/[\w-]{11}"),
-]
-
-class SummaryRequest(BaseModel):
-    video_url: str = Field(..., description="Youtube or Youtube Shorts URL")
-
-    @field_validator("video_url")
-    @classmethod
-    def validate_youtube_url(cls, v: str) -> str:
-        if any(p.match(v) for p in _YT_PATTERNS):
-            return v
-        raise ValueError("Invalid Youtube URL")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """애플리케이션 라이프사이클 관리"""
+    # Startup
+    logger.info("🚀 Recipe Summarizer API 시작 중...")
+    # 의존성 주입 컨테이너 설정
+    container.wire(modules=[__name__])
+    yield
+    # Shutdown
+    logger.info("🔄 Recipe Summarizer API 종료 중...")
 
 
-TASKS: Dict[str, dict] = {}
+# FastAPI 앱 생성 (lifespan 이벤트 핸들러 포함)
+app = FastAPI(
+    title="Recipe Summarizer", 
+    version="1.0.0",
+    lifespan=lifespan
+)
 
-async def process_summary(task_id: str, video_url: str) -> None:
-    TASKS[task_id] = {
-        "status": "done",
-        "result": {"summary": "recipe"},
-    }
+# 라우터 등록
+app.include_router(recipe_router)
 
-
-@app.post("/summaries", status_code=status.HTTP_202_ACCEPTED)
-async def create_summary(req: SummaryRequest, bg: BackgroundTasks):
-    task_id = str(uuid4())
-    TASKS[task_id] = {"status": "pending"}
-
-    bg.add_task(process_summary, task_id, req.video_url)
-
-    return {"task_id": task_id}
+@app.get("/")
+async def root():
+    """루트 엔드포인트"""
+    return {"message": "Recipe Summarizer API - 객체지향 구조로 리팩토링 완료"}
 
 
-@app.get("/summaries/{task_id}")
-async def get_summary(task_id: str):
-    task = TASKS.get(task_id)
-    if task is None:
-        raise HTTPException(status_code=404, detail="Task not found")
-    
-    if task["status"] != "done":
-        return JSONResponse({"status": task["status"]}, status_code=202)
-    
-    return task["result"]
+@app.get("/health")
+async def health_check():
+    """헬스 체크 엔드포인트"""
+    return {"status": "healthy", "version": "1.0.0"}

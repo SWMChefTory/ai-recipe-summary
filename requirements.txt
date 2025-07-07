@@ -1,0 +1,31 @@
+# Web Framework
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+
+# YouTube API
+youtube-transcript-api==0.6.2
+requests==2.31.0
+
+# YouTube Audio Extraction
+yt-dlp==2025.6.30
+
+# Audio Processing
+pydub==0.25.1
+
+# AI/ML
+openai==1.93.0
+
+# Environment Variables
+python-dotenv==1.1.1
+
+# Template Engine
+jinja2==3.1.2
+
+# Dependency Injection
+dependency-injector==4.41.0
+
+# Testing (Development)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2 

@@ -1,85 +1,124 @@
 import os
-from typing import Dict, List
+
+# Type imports for better type hints
+from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
 
 import requests
-from youtube_transcript_api import (NoTranscriptFound, TranscriptsDisabled,
-                                    YouTubeTranscriptApi)
 
-from app.models import *
+from app.constants import ErrorMessages, YouTubeConfig
+from app.services.base import BaseService
+from app.utils.language import normalize_language_code
+
+if TYPE_CHECKING:
+    from app.services.audio_extractor import AudioExtractor
+    from app.services.caption_extractor import CaptionExtractor
 
 
-def get_subtitles_and_lang_code(video_id: str):
-    """주어진 YouTube 영상 ID에서 자막을 추출"""
-    try:
-        transcripts = YouTubeTranscriptApi.list_transcripts(video_id)
+class YouTubeService(BaseService):
+    """YouTube 관련 서비스 (자막 추출, 영상 정보 조회)"""
 
-        # 자동 생성된 자막 언어 코드 찾기
-        generated_lang_code = find_generated_language_code(transcripts)
-        if not generated_lang_code:
-            print("자동 생성 자막이 존재하지 않습니다.")
-            return None # 자동 생성 자막이 존재하지 않는 경우 None을 반환
+    def __init__(
+        self, 
+        google_api_key: Optional[str] = None, 
+        audio_service=None,
+        caption_extractor: Optional["CaptionExtractor"] = None,
+        audio_extractor: Optional["AudioExtractor"] = None
+    ) -> None:
+        super().__init__()
+        self.google_api_key = google_api_key or os.getenv("GOOGLE_API_KEY")
+        self.audio_service = audio_service
+        self.caption_extractor = caption_extractor
+        self.audio_extractor = audio_extractor
 
-        # 해당 언어의 자막 가져오기
-        subtitles = fetch_transcript_by_generated_lang_code(transcripts, generated_lang_code)
-        if subtitles is None:
-            print(f"{generated_lang_code} 언어의 자막을 찾을 수 없습니다.")
-            return None # 자막이 없거나 비활성화된 경우 None을 반환
+    def extract_captions_with_language(self, video_id: str) -> Optional[Tuple[List[Dict], str]]:
+        """3단계 fallback으로 자막과 언어 코드를 추출합니다.
+        
+        1단계: YouTube Transcript API
+        2단계: yt-dlp로 자막 다운로드  
+        3단계: 오디오 추출 후 STT
+        """
+        try:
+            # 1단계: YouTube Transcript API 시도
+            if self.caption_extractor:
+                transcript_result = self.caption_extractor.extract_captions(video_id)
+                if transcript_result:
+                    self.logger.info("YouTube Transcript API로 자막 추출 성공")
+                    return transcript_result
 
-        return subtitles, generated_lang_code
+            # 2단계: yt-dlp로 자막 다운로드 시도
+            if self.caption_extractor:
+                ytdlp_result = self.caption_extractor.extract_captions_with_ytdlp(video_id)
+                if ytdlp_result:
+                    self.logger.info("yt-dlp로 자막 추출 성공")
+                    return ytdlp_result
 
-    except (NoTranscriptFound, TranscriptsDisabled):
-        print("자막이 없거나 비활성화된 영상입니다.")
-        return None, None
-    except Exception as e:
-        print("자막 추출 중 예외 발생:", e)
-        return None, None
+            # 3단계: 오디오 추출 후 STT로 대체
+            self.logger.info("자막 파일이 없어 오디오 STT로 대체")
+            return self._extract_captions_from_audio(video_id)
 
-def find_generated_language_code(transcripts) -> str | None:
-    """자동으로 생성된 자막의 언어 코드를 반환"""
-    for transcript in transcripts:
-        if transcript.is_generated:
-            return transcript.language_code
-    return None
+        except Exception as e:
+            self.logger.exception(f"자막 추출 실패: {e}")
+            return self._extract_captions_from_audio(video_id)
 
-def fetch_transcript_by_generated_lang_code(transcripts, target_lang_code: str) -> List[Dict] | None:
-    """
-    지정된 언어 코드에 해당하는 자막 데이터 반환
+    def get_video_description(self, video_id: str) -> str:
+        """YouTube 동영상의 설명란을 가져옵니다."""
+        if not self.google_api_key:
+            return ErrorMessages.GOOGLE_API_KEY_MISSING
 
-        자막 선택 우선순위:
-        1. 자동 생성된 자막의 언어코드에 해당하는 직접 등록된 자막
-        2. 해당 언어의 자동 생성 자막
-    """
-    for transcript in transcripts:
-        if not transcript.is_generated and transcript.language_code == target_lang_code:
-            return transcript.fetch().to_raw_data()
+        request_params = {
+            "part": "snippet",
+            "id": video_id,
+            "key": self.google_api_key
+        }
 
-    for transcript in transcripts:
-        if transcript.is_generated and transcript.language_code == target_lang_code:
-            return transcript.fetch().to_raw_data()
-    
-    return None
-    
+        try:
+            response = requests.get(
+                "https://www.googleapis.com/youtube/v3/videos", 
+                params=request_params
+            )
+            response_data = response.json()
+            return response_data["items"][0]["snippet"]["description"]
 
-def get_youtube_description(video_id: str) -> str:
-    key = os.getenv("GOOGLE_API_KEY")
-    if not key:
-        return "ERROR: GOOGLE_API_KEY가 설정되지 않음"
+        except IndexError:
+            return ErrorMessages.VIDEO_NOT_FOUND
+        except KeyError as error:
+            return f"{ErrorMessages.RESPONSE_KEY_MISSING}: {error}"
 
-    params = {
-        "part": "snippet",
-        "id": video_id,
-        "key": key
-    }
+    def _extract_captions_from_audio(self, video_id: str) -> Optional[Tuple[List[Dict], str]]:
+        """오디오 추출 후 STT를 사용해 자막을 생성합니다."""
+        if not self.audio_service:
+            self.logger.warning(ErrorMessages.AUDIO_SERVICE_NOT_CONFIGURED)
+            return None
+            
+        if not self.audio_extractor:
+            self.logger.warning("Audio extractor가 설정되지 않았습니다")
+            return None
+        
+        audio_file_path = self.audio_extractor.extract_audio(video_id)
+        if not audio_file_path:
+            return None
+            
+        try:
+            return self._process_audio_file(audio_file_path)
+        finally:
+            self.audio_service.cleanup_temp_file(audio_file_path)
 
-    try:
-        response = requests.get("https://www.googleapis.com/youtube/v3/videos", params=params)
-        data = response.json()
-
-        # 예외 발생 가능 구간
-        return data["items"][0]["snippet"]["description"]
-
-    except IndexError:
-        return "ERROR: video ID가 잘못됐거나 결과가 없음"
-    except KeyError as e:
-        return f"ERROR: 응답에 예상된 키 없음 → {e}"
+    def _process_audio_file(self, audio_file_path: str) -> Optional[Tuple[List[Dict], str]]:
+        """추출된 오디오 파일을 처리하여 자막과 언어 코드를 반환합니다."""
+        if not self.audio_service:
+            return None
+            
+        detected_language = self.audio_service.detect_language_from_audio(audio_file_path)
+        language_code = normalize_language_code(
+            detected_language or YouTubeConfig.DEFAULT_LANGUAGE
+        )
+        
+        generated_captions = self.audio_service.extract_captions_from_audio(
+            audio_file_path, language=language_code
+        )
+        
+        if generated_captions:
+            return generated_captions, language_code
+        else:
+            return None
     

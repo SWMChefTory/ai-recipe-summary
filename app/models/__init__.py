@@ -1,18 +1,29 @@
-from .summary import SummaryRequest, SummaryResponse
-from .subtitle import Subtitle, SubtitleSegment
-from .recipe import Ingredient, Step, RecipeSummary
-from .summary import SummaryResponse
+from .captions import CaptionRequest, CaptionResponse, CaptionSegment, VideoType
+from .ingredients import Ingredient, IngredientsRequest, IngredientsResponse
+from .summaries import (
+    CookingProcessSummary,
+    StepGroup,
+    StepsSummaryRequest,
+    StepsSummaryResponse,
+)
 
 __all__ = [
-    "SummaryRequest",
-    "SummaryResponse",
-
-    # subtitles
-    "Subtitle",
-    "SubtitleSegment",
-
-    # recipe
+    # 공통
+    "VideoType",
+    
+    # 자막 관련
+    "CaptionSegment",
+    "CaptionRequest",
+    "CaptionResponse",
+    
+    # 재료 관련
     "Ingredient",
-    "Step",
-    "RecipeSummary",
+    "IngredientsRequest", 
+    "IngredientsResponse",
+    
+    # 레시피 요약(summaries) 관련
+    "StepGroup", 
+    "CookingProcessSummary",
+    "StepsSummaryRequest",
+    "StepsSummaryResponse",
 ]

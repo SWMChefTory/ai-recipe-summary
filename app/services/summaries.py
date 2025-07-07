@@ -1,42 +1,86 @@
-import logging
-from importlib import resources
-from typing import Dict, List
+"""조리 단계 요약 생성 서비스"""
 
-import jinja2
+import json
+from typing import List, Optional
+
 from openai import OpenAI
 
-logger = logging.getLogger(__name__)
-MODEL_NAME = "gpt-4o-mini"
+from app.constants import AIConfig, ErrorMessages
+from app.models.captions import CaptionResponse
+from app.models.ingredients import Ingredient
+from app.models.summaries import CookingProcessSummary
+from app.services.base import BaseAIService, TemplateService
 
-client = OpenAI()
 
-def load_template(name: str) -> str:
-    return resources.files("app.prompts.user").joinpath(name).read_text()
+class SummariesService(BaseAIService):
+    """조리 단계 요약 생성 서비스"""
 
-env = jinja2.Environment(loader=jinja2.FunctionLoader(load_template), autoescape=False)
+    def __init__(self, openai_client: Optional[OpenAI] = None, model_name: Optional[str] = None):
+        super().__init__(openai_client, model_name or AIConfig.DEFAULT_MODEL)
 
-def summarize(subtitles: List[Dict], description: str, client: OpenAI = client) -> str:
-    try:
-        tpl = env.get_template("recipe.jinja2")
-        system_prompt = resources.files("app.prompts.system").joinpath("recipe.txt").read_text()
-        user_prompt = tpl.render(subtitles=subtitles, description=description)
+    async def create_summary(
+        self, 
+        video_id: str, 
+        video_type: str, 
+        caption_response: CaptionResponse, 
+        ingredients: List[Ingredient]
+    ) -> Optional[CookingProcessSummary]:
+        """자막과 재료 정보를 기반으로 조리 단계 요약을 생성합니다."""
+        try:
+            ai_response = self._generate_ai_summary(caption_response, ingredients)
+            if not ai_response:
+                return None
+            
+            summary_data = json.loads(ai_response)
+            cooking_summary = CookingProcessSummary(
+                description=summary_data.get("description", ""),
+                steps=summary_data.get("steps", [])
+            )
 
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ]
+            return cooking_summary
 
-        response = client.chat.completions.create(
-            model=MODEL_NAME,
-            messages=messages,
-            max_tokens=4096,
-            temperature=0.5,
-            response_format={"type": "json_object"},
-        )
+        except json.JSONDecodeError as parsing_error:
+            self.logger.error(f"JSON 파싱 오류: {parsing_error}")
+            return None
+        except Exception as unexpected_error:
+            self.logger.exception(f"조리 단계 요약 생성 중 오류: {unexpected_error}")
+            return None
 
-        result = response.choices[0].message.content.strip()
-        return result if result else "[요약 결과가 비어 있습니다]"
+    def _generate_ai_summary(
+        self, 
+        caption_response: CaptionResponse, 
+        ingredients: List[Ingredient]
+    ) -> Optional[str]:
+        """AI를 사용하여 조리 단계 요약을 생성합니다."""
+        try:
+            system_prompt = TemplateService.load_system_prompt("summaries.md")
+            user_prompt = self._create_user_prompt(caption_response, ingredients)
 
-    except Exception as e:
-        logger.exception("요약 생성 중 오류 발생")
-        return "[요약 실패: 문제가 발생했습니다]"
+            chat_messages = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ]
+
+            ai_result = self._create_chat_completion(
+                messages=chat_messages,
+                response_format={"type": "json_object"}
+            )
+
+            return ai_result or ErrorMessages.SUMMARY_EMPTY
+
+        except Exception as generation_error:
+            self.logger.exception("AI 요약 생성 중 오류 발생")
+            return ErrorMessages.SUMMARY_FAILED
+
+    def _create_user_prompt(
+        self, 
+        caption_response: CaptionResponse, 
+        ingredients: List[Ingredient]
+    ) -> str:
+        """사용자 프롬프트를 생성합니다."""
+        template = self.template_env.get_template("summaries.jinja2")
+        return template.render(
+            captions=caption_response.captions, 
+            lang_code=caption_response.lang_code,
+            ingredients=ingredients
+        ) 
