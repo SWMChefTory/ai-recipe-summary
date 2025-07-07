@@ -1,39 +1,29 @@
-from .caption import Caption, CaptionSegment
-from .recipe import Ingredient, RecipeSummary, Step
-from .summary import (
-    CaptionRequest,
-    CaptionResponse,
-    IngredientsRequest,
-    IngredientsResponse,
-    IntegrationRequest,
-    IntegrationResponse,
-    RecipeSummaryRequest,
-    RecipeSummaryResponse,
-    SummaryRequest,
-    SummaryResponse,
+from .captions import CaptionRequest, CaptionResponse, CaptionSegment, VideoType
+from .ingredients import Ingredient, IngredientsRequest, IngredientsResponse
+from .summaries import (
+    CookingProcessSummary,
+    StepGroup,
+    StepsSummaryRequest,
+    StepsSummaryResponse,
 )
 
 __all__ = [
-    # 기존 모델들
-    "SummaryRequest",
-    "SummaryResponse",
+    # 공통
+    "VideoType",
     
-    # 새로운 분리된 API 모델들
+    # 자막 관련
+    "CaptionSegment",
     "CaptionRequest",
     "CaptionResponse",
+    
+    # 재료 관련
+    "Ingredient",
     "IngredientsRequest", 
     "IngredientsResponse",
-    "RecipeSummaryRequest",
-    "RecipeSummaryResponse",
-    "IntegrationRequest",
-    "IntegrationResponse",
-
-    # captions
-    "Caption",
-    "CaptionSegment",
-
-    # recipe
-    "Ingredient",
-    "Step",
-    "RecipeSummary",
+    
+    # 레시피 요약(summaries) 관련
+    "StepGroup", 
+    "CookingProcessSummary",
+    "StepsSummaryRequest",
+    "StepsSummaryResponse",
 ]
