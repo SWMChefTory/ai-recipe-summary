@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        uses: docker/login-action@3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
     steps:
 
       - name: SSH to EC2 and create folder
-        uses: appleboy/ssh-action@v0.1.3
+        uses: appleboy/ssh-action@v2
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -49,7 +49,7 @@ jobs:
   
 
       - name: Copy docker-compose.yml to EC2
-        uses: appleboy/scp-action@v0.1.1
+        uses: appleboy/scp-action@v2
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -58,7 +58,7 @@ jobs:
           target: "/home/ubuntu/cheftory-ai-recipe-summary-server/"
 
       - name: SSH to EC2 and deploy
-        uses: appleboy/ssh-action@v0.1.3
+        uses: appleboy/ssh-action@v2
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
