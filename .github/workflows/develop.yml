@@ -58,8 +58,15 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd cheftory-ai-recipe-summary-server
-            sudo docker-compose pull
-            sudo docker-compose stop
-            sudo docker-compose rm -f
+            
+            # Docker Hub에 로그인
+            echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+            
+            # 기존 컨테이너 정리
+            sudo docker-compose stop || true
+            sudo docker-compose rm -f || true
             sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest || true
+            
+            # 새 이미지 pull 및 실행
+            sudo docker-compose pull
             sudo docker-compose up -d
