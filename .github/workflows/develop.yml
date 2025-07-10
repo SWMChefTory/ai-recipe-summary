@@ -60,22 +60,19 @@ jobs:
             cd cheftory-ai-recipe-summary-server
             
             # Docker Hub에 로그인
-            echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+            echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
             
             # 현재 docker-compose.yml 내용 확인
             cat docker-compose.yml
             
-            # Docker Hub에서 이미지 확인
-            docker search ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev
-            
-            # 환경변수 설정
-            export DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
+            # 환경변수 파일 생성
+            echo "DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}" > .env
             
             # 기존 컨테이너 정리
             sudo docker-compose stop || true
             sudo docker-compose rm -f || true
             sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest || true
             
-            # 새 이미지 pull 및 실행
-            sudo DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }} docker-compose pull
-            sudo DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }} docker-compose up -d
+            # 새 이미지 pull 및 실행 (환경변수 파일 사용)
+            sudo docker-compose --env-file .env pull
+            sudo docker-compose --env-file .env up -d
