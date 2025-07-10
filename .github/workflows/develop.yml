@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: SSH to EC2 and create folder
-        uses: appleboy/ssh-action@v2
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -60,7 +60,7 @@ jobs:
           strip_components: 0
 
       - name: SSH to EC2 and deploy
-        uses: appleboy/ssh-action@v2
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -71,8 +71,16 @@ jobs:
             # Docker Hub에 로그인
             echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
             
+            # 현재 docker-compose.yml 확인
+            echo "=== Before modification ==="
+            cat docker-compose.yml
+            
             # docker-compose.yml에서 이미지 이름 수정
             sed -i "s|image: cheftory-ai-recipe-summary-server-dev:latest|image: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest|g" docker-compose.yml
+            
+            # 수정된 내용 확인
+            echo "=== After modification ==="
+            cat docker-compose.yml
             
             # 기존 컨테이너 정리
             sudo docker-compose stop || true
@@ -82,3 +90,6 @@ jobs:
             # 새 이미지 pull 및 실행
             sudo docker-compose pull
             sudo docker-compose up -d
+            
+            # 컨테이너 상태 확인
+            sudo docker-compose ps
