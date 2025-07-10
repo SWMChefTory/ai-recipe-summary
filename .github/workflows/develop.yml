@@ -37,6 +37,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+
+      - name: SSH to EC2 and create folder
+        uses: appleboy/ssh-action@v0.1.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            mkdir -p cheftory-ai-recipe-summary-server
+  
+
       - name: Copy docker-compose.yml to EC2
         uses: appleboy/scp-action@v0.1.1
         with:
@@ -53,7 +64,6 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            mkdir -p cheftory-ai-recipe-summary-server
             cd cheftory-ai-recipe-summary-server
             sudo docker-compose pull
             sudo docker-compose stop
