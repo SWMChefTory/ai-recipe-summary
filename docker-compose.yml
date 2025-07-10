@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  ai-recipe-summary:
+    image: cheftory-ai-recipe-summary-server-dev:latest
+    ports:
+      - "8000"
+    networks:
+      - cheftory_network
+    restart: always
+
+networks:
+  cheftory_network:
+    name: dev_cheftory_network
+    driver: bridge
