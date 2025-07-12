@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   ai-recipe-summary:
     image: cheftory-ai-recipe-summary-server-dev:latest
