@@ -143,8 +143,9 @@ class CaptionExtractor(BaseService):
                     f"https://www.youtube.com/watch?v={video_id}",
                     "--skip-download",
                     "--write-info-json",
-                    "--cookies", "app/assets/yt_cookies/cookies.txt",
+                    "--cookies", "/app/app/assets/yt_cookies/cookies.txt",
                 ]
+                self.logger.info(f"[yt-dlp CMD] {' '.join(cmd)}")
                 
                 # 자막 유형에 따른 옵션 추가
                 if caption_type == "manual":
