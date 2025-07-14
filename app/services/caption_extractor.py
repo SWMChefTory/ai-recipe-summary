@@ -143,7 +143,7 @@ class CaptionExtractor(BaseService):
                     f"https://www.youtube.com/watch?v={video_id}",
                     "--skip-download",
                     "--write-info-json",
-                    "--cookies-from-browser", "chrome",
+                    "--cookies", "app/assets/yt_cookies/cookies.txt",
                 ]
                 
                 # 자막 유형에 따른 옵션 추가
