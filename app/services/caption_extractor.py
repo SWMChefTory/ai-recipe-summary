@@ -143,7 +143,7 @@ class CaptionExtractor(BaseService):
                     f"https://www.youtube.com/watch?v={video_id}",
                     "--skip-download",
                     "--write-info-json",
-                    "--cookies", "/app/app/assets/yt_cookies/cookies.txt",
+                    "--cookies", "/app/assets/yt_cookies/cookies.txt",
                 ]
                 self.logger.info(f"[yt-dlp CMD] {' '.join(cmd)}")
                 
