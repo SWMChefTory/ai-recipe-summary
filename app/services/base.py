@@ -37,7 +37,7 @@ class TemplateService:
     
     @staticmethod
     def load_system_prompt(prompt_filename: str) -> str:
-        """시스템 프롬프트 파일을 로드합니다."""
+        """시스템 프롬프트 파일을 로드"""
         return resources.files("app.prompts.system").joinpath(prompt_filename).read_text()
 
 
