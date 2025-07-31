@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./app/assets/yt_cookies:/app/app/assets/yt_cookies
+      - ./app/assets/yt_cookies:/app/assets/yt_cookies
     networks:
       - cheftory_network
     restart: always
