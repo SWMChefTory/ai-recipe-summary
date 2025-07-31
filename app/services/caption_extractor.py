@@ -144,6 +144,8 @@ class CaptionExtractor(BaseService):
                     "--skip-download",
                     "--write-info-json",
                     "--cookies", "/app/assets/yt_cookies/cookies.txt",
+                    "--add-header", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+                    "--add-header", "Referer: https://www.youtube.com/"
                 ]
                 self.logger.info(f"[yt-dlp CMD] {' '.join(cmd)}")
                 
