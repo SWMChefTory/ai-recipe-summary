@@ -139,14 +139,14 @@ class CaptionExtractor(BaseService):
             try:
                 # yt-dlp 명령어 구성
                 cmd = [
-                    "yt-dlp",
-                    f"https://www.youtube.com/watch?v={video_id}",
-                    "--skip-download",
-                    "--write-info-json",
-                    "--cookies", "/app/assets/yt_cookies/cookies.txt",
-                    "--add-header", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-                    "--add-header", "Referer: https://www.youtube.com/"
-                ]
+                  "yt-dlp",
+                  "--skip-download",
+                  "--write-info-json",
+                  "--cookies", "/app/assets/yt_cookies/cookies.txt",
+                  "--add-header", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+                  "--add-header", "Referer: https://www.youtube.com/",
+                  f"https://www.youtube.com/watch?v={video_id}"
+]
                 self.logger.info(f"[yt-dlp CMD] {' '.join(cmd)}")
                 
                 # 자막 유형에 따른 옵션 추가
