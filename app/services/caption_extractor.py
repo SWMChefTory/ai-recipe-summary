@@ -143,10 +143,9 @@ class CaptionExtractor(BaseService):
                   "--skip-download",
                   "--write-info-json",
                   "--cookies", "/app/assets/yt_cookies/cookies.txt",
-                  "--add-header", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-                  "--add-header", "Referer: https://www.youtube.com/",
                   f"https://www.youtube.com/watch?v={video_id}"
-]
+                ]
+
                 self.logger.info(f"[yt-dlp CMD] {' '.join(cmd)}")
                 
                 # 자막 유형에 따른 옵션 추가
@@ -369,10 +368,11 @@ class CaptionExtractor(BaseService):
             try:
                 # 영상 정보만 가져오기
                 cmd = [
-                    "yt-dlp",
-                    f"https://www.youtube.com/watch?v={video_id}",
-                    "--dump-json",
-                    "--no-download"
+                  "yt-dlp",
+                  "--cookies", "/app/assets/yt_cookies/cookies.txt",
+                  "--dump-json",
+                  "--no-download",
+                  f"https://www.youtube.com/watch?v={video_id}"
                 ]
                 
                 result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
