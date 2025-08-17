@@ -133,6 +133,7 @@ class CaptionExtractor(BaseService):
         cmd = [
           "yt-dlp", 
           "--list-subs", 
+          "--cookies", "/app/assets/yt_cookies/cookies.txt",
           url
         ]
         res = subprocess.run(cmd, capture_output=True, text=True)
@@ -166,7 +167,7 @@ class CaptionExtractor(BaseService):
                 cmd = [
                   "yt-dlp",
                   "--skip-download",
-                  f"https://www.youtube.com/watch?v={video_id}"
+                  "--cookies", "/app/assets/yt_cookies/cookies.txt",
                 ]
 
                 self.logger.info(f"[yt-dlp] CMD: {' '.join(cmd)}")
@@ -178,6 +179,8 @@ class CaptionExtractor(BaseService):
                     cmd.extend(["--write-auto-subs", "--sub-langs", language])
                 
                 cmd.extend(["-o", os.path.join(temp_dir, "%(title)s.%(ext)s")])
+
+                cmd.extend([f"https://www.youtube.com/watch?v={video_id}"])
                 
                 # yt-dlp 실행
                 result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
