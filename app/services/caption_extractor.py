@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import subprocess
 import tempfile
 from typing import Dict, List, Optional, Tuple
@@ -46,7 +47,7 @@ class CaptionExtractor(BaseService):
                 
                 captions = self._fetch_transcript_by_type_and_language(transcripts, transcript_type, lang_code)
                 if captions:
-                    self.logger.info(f"YouTube Transcript API로 {transcript_type} {lang_code} 자막 추출 성공")
+                    self.logger.info(f"[YouTube Transcript API] {transcript_type} {lang_code} 자막 추출 성공")
                     return captions, normalize_language_code(lang_code)
                 
             return None
@@ -106,31 +107,55 @@ class CaptionExtractor(BaseService):
         return None
 
     def extract_captions_with_ytdlp(self, video_id: str) -> Optional[Tuple[List[Dict], str]]:
-        """yt-dlp로 자막 추출 - 우선순위: 수동영어 > 수동원본 > 자동영어 > 자동원본"""
-        # 먼저 영상의 원본 언어 감지
-        original_lang = self._detect_video_language(video_id)
-        
-        extraction_methods = [
-            ("manual", "en"),              # 1. 수동 자막 (영어)
-            ("manual", original_lang),     # 2. 수동 자막 (원본 언어)
-            ("auto", "en"),                # 3. 자동 자막 (영어)
-            ("auto", original_lang),       # 4. 자동 자막 (원본 언어)
+        """yt-dlp로 자막 추출 - 우선순위: 수동 ko > 수동 en > 기본 자동 자막"""
+
+        # 자동 자막 언어 리스트 가져오기
+        auto_langs = self._get_youtube_auto_sub_langs(f"https://www.youtube.com/watch?v={video_id}")
+        default_auto_lang = auto_langs if auto_langs else "ko-orig"
+
+        extraction_methods: list[tuple[str, Optional[str]]] = [
+            ("manual", "ko"),          # 1. 수동 한국어
+            ("manual", "en"),          # 2. 수동 영어
+            ("auto", default_auto_lang)  # 3. 기본 자동 자막 (첫 번째)
         ]
-        
+
         for caption_type, language in extraction_methods:
-            if not language:
-                continue
-            
-            # 중복 방지: 영어와 원본이 같으면 중복 건너뛰기
-            if language == original_lang and original_lang == "en" and caption_type == "manual":
-                # 두 번째 시도인데 영어와 원본이 같으므로 건너뛰기
-                continue
-            
             result = self._try_extract_with_ytdlp(video_id, caption_type, language)
             if result:
-                self.logger.info(f"yt-dlp로 자막 추출 성공: {caption_type} ({language})")
+                self.logger.info(
+                    f"[yt-dlp] 자막 추출 성공: {caption_type} ({language or 'no-lang'})"
+                )
                 return result
-                
+
+        return None
+
+    def _get_youtube_auto_sub_langs(self, url: str) -> str | None:
+        cmd = [
+          "yt-dlp", 
+          "--list-subs", 
+          url
+        ]
+        res = subprocess.run(cmd, capture_output=True, text=True)
+
+        if res.returncode != 0:
+            self.logger.warning(f"[yt-dlp] 자동 생성 자막 리스트 추출 실패: {res.stderr}")
+            return None
+
+        for line in res.stdout.splitlines():
+            line = line.strip()
+            # 헤더/정보 줄은 패스
+            if not line or line.startswith("[") or line.startswith("Available") or line.startswith("Language"):
+                continue
+              
+            # 언어코드(맨앞 알파벳/하이픈 조합)만 추출
+            match = re.match(r"^([a-zA-Z0-9\-]+)\s+", line)
+            if not match:
+                continue
+              
+            lang_code = match.group(1)
+            if lang_code.endswith("-orig"):
+                return lang_code
+
         return None
 
     def _try_extract_with_ytdlp(self, video_id: str, caption_type: str, language: str) -> Optional[Tuple[List[Dict], str]]:
@@ -141,20 +166,16 @@ class CaptionExtractor(BaseService):
                 cmd = [
                   "yt-dlp",
                   "--skip-download",
-                  "--write-info-json",
-                  "--cookies", "/app/assets/yt_cookies/cookies.txt",
                   f"https://www.youtube.com/watch?v={video_id}"
                 ]
 
-                self.logger.info(f"[yt-dlp CMD] {' '.join(cmd)}")
+                self.logger.info(f"[yt-dlp] CMD: {' '.join(cmd)}")
                 
                 # 자막 유형에 따른 옵션 추가
                 if caption_type == "manual":
-                    cmd.append("--write-subs")
-                    cmd.extend(["--sub-langs", language])
+                    cmd.extend(["--write-subs", "--sub-langs", language])
                 else:  # auto
-                    cmd.append("--write-auto-subs")
-                    cmd.extend(["--sub-langs", language])
+                    cmd.extend(["--write-auto-subs", "--sub-langs", language])
                 
                 cmd.extend(["-o", os.path.join(temp_dir, "%(title)s.%(ext)s")])
                 
@@ -162,6 +183,7 @@ class CaptionExtractor(BaseService):
                 result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
                 
                 if result.returncode != 0:
+                    self.logger.warning(f"[yt-dlp] 자막 추출 실패: {result.stderr}")
                     return None
                 
                 # 다운로드된 자막 파일 찾기
@@ -174,10 +196,10 @@ class CaptionExtractor(BaseService):
                 return None
                 
             except subprocess.TimeoutExpired:
-                self.logger.warning(f"yt-dlp 자막 추출 타임아웃: {video_id}")
+                self.logger.warning(f"[yt-dlp] 자막 추출 타임아웃: {video_id}")
                 return None
             except Exception as e:
-                self.logger.warning(f"yt-dlp 자막 추출 실패: {e}")
+                self.logger.warning(f"[yt-dlp] 자막 추출 실패: {e}")
                 return None
 
     def _find_and_parse_subtitle_file(self, temp_dir: str) -> Optional[List[Dict]]:
@@ -185,9 +207,11 @@ class CaptionExtractor(BaseService):
         for filename in os.listdir(temp_dir):
             if filename.endswith('.vtt'):
                 file_path = os.path.join(temp_dir, filename)
+                self.logger.info(f"VTT 파일 다운로드 성공: {file_path}")
                 return self._parse_vtt_file(file_path)
             elif filename.endswith('.srt'):
                 file_path = os.path.join(temp_dir, filename)
+                self.logger.info(f"SRT 파일 다운로드 성공: {file_path}")
                 return self._parse_srt_file(file_path)
         return None
 
@@ -361,51 +385,3 @@ class CaptionExtractor(BaseService):
         text = re.sub(r'\s+', ' ', text)
         
         return text.strip()
-
-    def _detect_video_language(self, video_id: str) -> Optional[str]:
-        """영상의 원본 언어 감지"""
-        with tempfile.TemporaryDirectory() as temp_dir:
-            try:
-                # 영상 정보만 가져오기
-                cmd = [
-                  "yt-dlp",
-                  "--cookies", "/app/assets/yt_cookies/cookies.txt",
-                  "--dump-json",
-                  "--no-download",
-                  f"https://www.youtube.com/watch?v={video_id}"
-                ]
-                
-                result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
-                
-                if result.returncode == 0:
-                    import json
-                    video_info = json.loads(result.stdout)
-                    
-                    # 1. 영상의 language 필드 확인
-                    if 'language' in video_info and video_info['language']:
-                        lang = video_info['language']
-                        if len(lang) == 2:  # ISO 639-1 코드
-                            return lang
-                    
-                    # 2. 자막 정보에서 가장 많이 사용되는 언어 확인
-                    available_langs = []
-                    if 'subtitles' in video_info:
-                        available_langs.extend(video_info['subtitles'].keys())
-                    if 'automatic_captions' in video_info:
-                        available_langs.extend(video_info['automatic_captions'].keys())
-                    
-                    # 영어 > 한국어 우선, 그 다음 기타 언어
-                    for preferred_lang in ['en', 'ko', 'ja', 'zh', 'zh-CN', 'zh-TW']:
-                        if preferred_lang in available_langs:
-                            return preferred_lang[:2]  # 2자리 코드로 통일
-                    
-                    # 그 외 언어 중 첫 번째
-                    if available_langs:
-                        return available_langs[0][:2]
-                
-                return None
-                
-            except (subprocess.TimeoutExpired, json.JSONDecodeError, Exception) as e:
-                self.logger.warning(f"영상 언어 감지 실패: {e}")
-                return "ko"  # 기본값으로 한국어 반환
- 

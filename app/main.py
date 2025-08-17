@@ -1,9 +1,7 @@
 import logging
-import re
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
-from pydantic import BaseModel, Field, field_validator
 
 from app.api.recipes import router as recipe_router
 from app.container import container
@@ -38,7 +36,7 @@ app.include_router(recipe_router)
 @app.get("/")
 async def root():
     """루트 엔드포인트"""
-    return {"message": "Recipe Summarizer API - 객체지향 구조로 리팩토링 완료"}
+    return {"message": "Recipe Summarizer API"}
 
 
 @app.get("/health")
