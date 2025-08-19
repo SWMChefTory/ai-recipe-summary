@@ -35,7 +35,7 @@ class IngredientsService(BaseAIService):
             ai_response = self._create_chat_completion(
                 messages=chat_messages,
                 max_tokens=2048,
-                temperature=0.3,
+                temperature=0,
                 response_format={"type": "json_object"}
             )
 
