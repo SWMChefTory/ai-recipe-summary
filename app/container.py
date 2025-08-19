@@ -27,7 +27,7 @@ class Container(containers.DeclarativeContainer):
     openai_client = providers.Singleton(OpenAI)
     
     # Configuration values
-    model_name = providers.Object("gpt-4o-mini")
+    model_name = providers.Object("gpt-4o")
     google_api_key = providers.Object(os.getenv("GOOGLE_API_KEY"))
 
     # Services
