@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
@@ -69,6 +69,11 @@ jobs:
             cat <<EOF > /home/ubuntu/cheftory-ai-recipe-summary-server/.env
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
             GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
+            AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION=${{ secrets.AWS_REGION }}
+            BEDROCK_MODEL_ID=${{ secrets.BEDROCK_MODEL_ID }}
+            BEDROCK_INFERENCE_PROFILE_ARN=${{ secrets.BEDROCK_INFERENCE_PROFILE_ARN }}
             EOF
 
       - name: SSH to EC2 and deploy
@@ -79,29 +84,29 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd cheftory-ai-recipe-summary-server
-            
+
             # Docker Hub에 로그인
             echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-            
+
             # 현재 docker-compose.yml 확인
             echo "=== Before modification ==="
             cat docker-compose.yml
-            
+
             # docker-compose.yml에서 이미지 이름 수정
             sed -i "s|image: cheftory-ai-recipe-summary-server-dev:latest|image: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest|g" docker-compose.yml
-            
+
             # 수정된 내용 확인
             echo "=== After modification ==="
             cat docker-compose.yml
-            
+
             # 기존 컨테이너 정리
             sudo docker-compose stop || true
             sudo docker-compose rm -f || true
             sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest || true
-            
+
             # 새 이미지 pull 및 실행
             sudo docker-compose pull
             sudo docker-compose up -d
-            
+
             # 컨테이너 상태 확인
             sudo docker-compose ps
