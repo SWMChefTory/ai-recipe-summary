@@ -1,13 +1,14 @@
-다음은 레시피 자막과 재료 목록입니다.
-재료 정보를 참고해서 자막을 분석하고 JSON 포맷에 맞게 요약하세요.
-**자막이 어떤 언어라도 모든 출력은 한국어로 작성해주세요.**
+Below is the recipe captions and ingredients.
+Analyze the captions and ingredients, and summarize them into the specified JSON format.
+Regardless of the subtitle language, all output must be in Korean.
 
-자막 언어: {{ lang_code }}
+Captions Language: 
+{{ lang_code }}
 
-재료 목록:
+Captions:
+{{ captions }}
+
+Ingredients:
 {% for ingredient in ingredients %}
 - {{ ingredient.name }} ({{ ingredient.amount }})
 {% endfor %}
-
-captions:
-{{ captions | truncate(4000, end=' …(생략)…') }}

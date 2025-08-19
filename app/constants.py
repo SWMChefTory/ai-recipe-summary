@@ -30,7 +30,7 @@ class YouTubeConfig:
 
 class AIConfig:
     """AI 모델 관련 설정"""
-    DEFAULT_MODEL = "gpt-4o-mini"
+    DEFAULT_MODEL = "gpt-4o"
     MAX_TOKENS = 4096
     TEMPERATURE = 0.5
     
