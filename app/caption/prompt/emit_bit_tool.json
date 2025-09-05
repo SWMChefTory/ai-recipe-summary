@@ -1,0 +1,18 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "emit_bit",
+      "description": "Return whether the captions contain cooking instructions.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "bit": { "type": "integer", "enum": [0, 1] }
+        },
+        "required": ["bit"],
+        "additionalProperties": false
+      },
+      "strict": true
+    }
+  }
+]

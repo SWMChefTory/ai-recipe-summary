@@ -1,15 +1,18 @@
-import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+from pathlib import Path
 
 from dependency_injector import containers, providers
-from openai import OpenAI
+from openai import AsyncOpenAI
 
-from app.services.audio import AudioService
-from app.services.audio_extractor import AudioExtractor
-from app.services.caption_extractor import CaptionExtractor
-from app.services.captions import CaptionService
-from app.services.ingredients import IngredientsService
-from app.services.summaries import SummariesService
-from app.services.youtube import YouTubeService
+from app.caption.client import CaptionClient
+from app.caption.recipe_validator import CaptionRecipeValidator
+from app.caption.service import CaptionService
+from app.ingredient.client import IngredientClient
+from app.ingredient.extractor import IngredientExtractor
+from app.ingredient.service import IngredientService
 
 
 class Container(containers.DeclarativeContainer):
@@ -18,55 +21,57 @@ class Container(containers.DeclarativeContainer):
     # Configuration
     wiring_config = containers.WiringConfiguration(
         packages=[
-            "app.api",
-            "app.services",
+            "app.caption",
+            "app.ingredient",
         ]
     )
 
-    # External dependencies
-    openai_client = providers.Singleton(OpenAI)
-    
-    # Configuration values
-    model_name = providers.Object("gpt-4o")
-    google_api_key = providers.Object(os.getenv("GOOGLE_API_KEY"))
+    config = providers.Configuration()
+    config.openai.api_key.from_env("OPENAI_API_KEY")
+    config.google.api_key.from_env("GOOGLE_API_KEY")
 
-    # Services
-    audio_service = providers.Factory(
-        AudioService,
+    config.aws.access_key.from_env("AWS_ACCESS_KEY_ID")
+    config.aws.secret_key.from_env("AWS_SECRET_ACCESS_KEY")
+    config.aws.region.from_env("AWS_REGION")
+
+    config.bedrock.model_id.from_env("BEDROCK_MODEL_ID")
+    config.bedrock.profile.from_env("BEDROCK_INFERENCE_PROFILE_ARN")
+
+    openai_client = providers.Singleton(
+        AsyncOpenAI,
+        api_key=config.openai.api_key,
+        timeout=20.0,
+    )
+
+    caption_client = providers.Factory(CaptionClient)
+    recipe_validator = providers.Factory(
+        CaptionRecipeValidator,
         openai_client=openai_client,
-        model_name=model_name,
     )
-    
-    caption_extractor = providers.Factory(
-        CaptionExtractor,
-    )
-    
-    audio_extractor = providers.Factory(
-        AudioExtractor,
-    )
-    
-    youtube_service = providers.Factory(
-        YouTubeService,
-        google_api_key=google_api_key,
-        audio_service=audio_service,
-        caption_extractor=caption_extractor,
-        audio_extractor=audio_extractor,
-    )
-
     caption_service = providers.Factory(
         CaptionService,
+        client=caption_client,
+        recipe_validator=recipe_validator,
     )
 
-    ingredients_service = providers.Factory(
-        IngredientsService,
-        openai_client=openai_client,
-        model_name=model_name,
+    ingredient_client = providers.Factory(
+        IngredientClient,
+        api_key=config.google.api_key,
+        timeout=20.0,
     )
-
-    summaries_service = providers.Factory(
-        SummariesService,
-        openai_client=openai_client,
-        model_name=model_name,
+    ingredient_extractor = providers.Factory(
+        IngredientExtractor,
+        model_id=config.bedrock.model_id,
+        region=config.aws.region,
+        inference_profile_arn=config.bedrock.profile,
+        system_path=Path("app/ingredient/prompt/system.md"),
+        description_user_path=Path("app/ingredient/prompt/description_user.md"),
+        caption_user_path=Path("app/ingredient/prompt/caption_user.md"),
+    )
+    ingredient_service = providers.Factory(
+        IngredientService,
+        extractor=ingredient_extractor,
+        client=ingredient_client,
     )
 
 
