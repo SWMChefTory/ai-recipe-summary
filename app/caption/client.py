@@ -7,7 +7,7 @@ import subprocess
 import tempfile
 from typing import List
 
-import webvtt
+import pysrt
 
 from app.caption.exception import CaptionErrorCode, CaptionException
 from app.caption.schema import CaptionSegment
@@ -97,7 +97,7 @@ class CaptionClient:
                 '''
                 yt-dlp 명령어 구성
                 --skip-download : 영상 파일은 다운로드하지 않음
-                --sub-format : 자막 형식 지정
+                --sub-format : 자막 형식 지정 (srt)
                 -o : 자막 파일 저장 경로
                 --cookies : 쿠키 파일 지정
                 --write-subs : 수동 자막 추출 or--write-auto-subs : 자동 자막 추출
@@ -107,7 +107,7 @@ class CaptionClient:
                 cmd = [
                   "yt-dlp",
                   "--skip-download",
-                  "--sub-format", "vtt",
+                  "--sub-format", "srt",
                   "-o", out_template,
                   # TODO "--cookies", "/app/assets/yt_cookies/cookies.txt",
                 ]
@@ -127,12 +127,12 @@ class CaptionClient:
                 pattern = os.path.join(temp_dir, f"{video_id}.{caption_type}.*")
                 files = glob.glob(pattern)
 
-                # VTT 파일 파싱 -> 세그먼트 변환
+                # SRT 파일 파싱 -> 세그먼트 변환
                 segments: List[CaptionSegment] = []
-                for cue in webvtt.read(files[0]):
-                    start = self._ts_to_seconds(cue.start)
-                    end = self._ts_to_seconds(cue.end)
-                    text = self._clean_vtt_text(cue.text)
+                for sub in pysrt.open(files[0], encoding='utf-8'):
+                    start = sub.start.ordinal / 1000.0
+                    end = sub.end.ordinal / 1000.0
+                    text = sub.text
                     if text:
                         segments.append(CaptionSegment(start=start, end=end, text=text))
 
@@ -145,29 +145,3 @@ class CaptionClient:
             except Exception as e:
                 self.logger.error(f"자막 추출 중 오류가 발생했습니다: {e}")
                 raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
-
-    def _ts_to_seconds(self, ts: str) -> float:
-        # "HH:MM:SS.mmm" 형식으로 들어온 문자열을 ":" 기준으로 분리
-        h, m, s = ts.split(":")      # h = "HH", m = "MM", s = "SS.mmm"
-
-        # 초와 밀리초를 "." 기준으로 다시 분리
-        sec, ms = s.split(".")       # sec = "SS", ms = "mmm"
-
-        # 초 단위(float)로 환산
-        return (int(h) * 3600) + (int(m) * 60) + int(sec) + (int(ms) / 1000.0)  
-
-    def _clean_vtt_text(self, txt: str, join_lines: bool = False) -> str:
-        # <c.colorE> 같은 스타일 태그, <i> 등의 HTML 태그 제거
-        txt = re.sub(r"</?[^>]+>", "", txt)
-
-        # 제어 문자 제거 (zero-width space, LTR/RTL marker 등)
-        txt = re.sub(r"[\u200b\u200e\u200f]", "", txt)
-
-        if join_lines:
-            # 여러 줄을 하나의 문장으로 합치기 → 줄바꿈을 공백으로 대체
-            txt = re.sub(r"\s*\n\s*", " ", txt)
-            # 연속된 공백을 하나의 공백으로 축소
-            txt = re.sub(r"\s{2,}", " ", txt)
-
-        # 앞뒤 공백 제거 후 반환
-        return txt.strip()
