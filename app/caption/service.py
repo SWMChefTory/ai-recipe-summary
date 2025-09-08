@@ -26,4 +26,7 @@ class CaptionService:
 
         await self.recipe_validator.validate(captions_text, caption_lang)
 
+        if caption_lang.endswith("-orig"):
+            caption_lang = caption_lang[:-5]
+
         return captions, caption_lang
