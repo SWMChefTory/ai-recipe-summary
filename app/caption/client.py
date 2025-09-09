@@ -18,63 +18,71 @@ class CaptionClient:
         self.logger = logging.getLogger(__name__)
 
     def _get_manual_captions_lang(self, video_id: str) -> str | None:
-        url = f"https://www.youtube.com/watch?v={video_id}"
+        try:
+            url = f"https://www.youtube.com/watch?v={video_id}"
 
-        '''
-        yt-dlp 명령어 구성
-        -J : 메타데이터를 JSON 형태로 출력
-        --skip-download : 영상 파일은 다운로드하지 않음
-        --extractor-args "youtube:skip=translated_subs" : 자동 번역된 자막은 제외
-        --cookies : 쿠키 파일 지정
-        url : 유튜브 영상 주소
-        '''
-        cmd = [
-            "yt-dlp",
-            "-J",
-            "--skip-download",
-            "--extractor-args", "youtube:skip=translated_subs",
-            # TODO "--cookies", "/app/assets/yt_cookies/cookies.txt",
-            url,
-        ]
-        res = subprocess.run(cmd, capture_output=True, text=True)
-        data = json.loads(res.stdout)
+            '''
+            yt-dlp 명령어 구성
+            -J : 메타데이터를 JSON 형태로 출력
+            --skip-download : 영상 파일은 다운로드하지 않음
+            --extractor-args "youtube:skip=translated_subs" : 자동 번역된 자막은 제외
+            --cookies : 쿠키 파일 지정
+            url : 유튜브 영상 주소
+            '''
+            cmd = [
+                "yt-dlp",
+                "-J",
+                "--skip-download",
+                "--extractor-args", "youtube:skip=translated_subs",
+                "--cookies", "/app/assets/yt_cookies/cookies.txt",
+                url,
+            ]
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            data = json.loads(res.stdout)
 
-        # dict 구조 중 subtitles 키에 수동 자막 정보가 들어 있음
-        manual_subs = data.get("subtitles") or {}
+            # dict 구조 중 subtitles 키에 수동 자막 정보가 들어 있음
+            manual_subs = data.get("subtitles") or {}
 
-        # 한국어("ko") 우선, 없으면 영어("en"), 둘 다 없으면 None
-        if "ko" in manual_subs:
-            return "ko"
-        if "en" in manual_subs:
-            return "en"
-        return None
+            # 한국어("ko") 우선, 없으면 영어("en"), 둘 다 없으면 None
+            if "ko" in manual_subs:
+                return "ko"
+            if "en" in manual_subs:
+                return "en"
+            return None
+        except Exception as e:
+            self.logger.error(f"수동 자막 언어 추출 중 오류가 발생했습니다: {e}")
+            return None
 
     def _get_auto_captions_lang(self, video_id: str) -> str | None:
-        url = f"https://www.youtube.com/watch?v={video_id}"
-
-        '''
-        yt-dlp 명령어 구성
-        --skip-download : 영상 파일은 다운로드하지 않음
-        --list-subs : 자동 생성 자막 리스트 출력
-        --cookies : 쿠키 파일 지정
-        url : 유튜브 영상 주소
-        '''
-        cmd = [
-          "yt-dlp", 
-          "--skip-download", 
-          "--list-subs",
-          # TODO "--cookies", "/app/assets/yt_cookies/cookies.txt",
-          url
-        ]
-        res = subprocess.run(cmd, capture_output=True, text=True)
-        output = res.stdout
-
-        # 한국어("ko") 우선, 없으면 영어("en"), 둘 다 없으면 None
-        if re.search(r"^ko-orig\s+", output, re.MULTILINE):
-            return "ko-orig"
-        if re.search(r"^en-orig\s+", output, re.MULTILINE):
-            return "en-orig"
-        return None
+        try:
+            url = f"https://www.youtube.com/watch?v={video_id}"
+  
+            '''
+            yt-dlp 명령어 구성
+            --skip-download : 영상 파일은 다운로드하지 않음
+            --list-subs : 자동 생성 자막 리스트 출력
+            --cookies : 쿠키 파일 지정
+            url : 유튜브 영상 주소
+            '''
+            cmd = [
+              "yt-dlp", 
+              "--skip-download", 
+              "--list-subs",
+              "--cookies", "/app/assets/yt_cookies/cookies.txt",
+              url
+            ]
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            output = res.stdout
+  
+            # 한국어("ko") 우선, 없으면 영어("en"), 둘 다 없으면 None
+            if re.search(r"^ko-orig\s+", output, re.MULTILINE):
+                return "ko-orig"
+            if re.search(r"^en-orig\s+", output, re.MULTILINE):
+                return "en-orig"
+            return None
+        except Exception as e:
+            self.logger.error(f"자동 자막 언어 추출 중 오류가 발생했습니다: {e}")
+            return None
 
     def get_captions_lang_with_ytdlp(self, video_id: str) -> tuple[str, str]:
         manual_lang = self._get_manual_captions_lang(video_id)
