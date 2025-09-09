@@ -1,10 +1,14 @@
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 
-from app.api.recipes import router as recipe_router
+from app.caption.router import router as caption_router
 from app.container import container
+from app.exception import BusinessException
+from app.meta.router import router as meta_router
+from app.step.router import router as step_router
 
 # 로거 설정
 logger = logging.getLogger(__name__)
@@ -30,16 +34,12 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+@app.exception_handler(BusinessException)
+async def business_exception_handler(request: Request, exc: BusinessException):
+    logger.info("business_exception", extra={"path": str(request.url), "error_code": exc.error_code})
+    return JSONResponse(status_code=exc.status_code, content=exc.to_dict())
+
 # 라우터 등록
-app.include_router(recipe_router)
-
-@app.get("/")
-async def root():
-    """루트 엔드포인트"""
-    return {"message": "Recipe Summarizer API"}
-
-
-@app.get("/health")
-async def health_check():
-    """헬스 체크 엔드포인트"""
-    return {"status": "healthy", "version": "1.0.0"}
+app.include_router(caption_router)
+app.include_router(meta_router)
+app.include_router(step_router)
