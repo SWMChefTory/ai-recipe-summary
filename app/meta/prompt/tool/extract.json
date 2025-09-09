@@ -1,0 +1,43 @@
+[
+  {
+    "toolSpec": {
+      "name": "emit_meta",
+      "description": "Emit structured recipe metadata extracted from captions (Korean).",
+      "inputSchema": {
+        "json": {
+          "type": "object",
+          "required": [
+            "description",
+            "ingredients",
+            "tags",
+            "servings",
+            "cook_time"
+          ],
+          "properties": {
+            "description": { "type": "string", "maxLength": 60 },
+            "ingredients": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "amount", "unit"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "amount": { "type": "number" },
+                  "unit": { "type": "string" }
+                }
+              }
+            },
+            "tags": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": { "type": "string" }
+            },
+            "servings": { "type": "integer", "minimum": 1 },
+            "cook_time": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    }
+  }
+]

@@ -1,11 +1,9 @@
-# app/ingredient/client.py (동기 유지)
 import logging
-import os
 
 import requests
 
 
-class IngredientClient:
+class MetaClient:
     def __init__(self, api_key: str, timeout: float = 20.0):
         self.logger = logging.getLogger(__name__)
         self.api_key = api_key
