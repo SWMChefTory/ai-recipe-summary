@@ -7,7 +7,7 @@ from app.container import Container
 
 router = APIRouter()
 
-@router.post("/v1/captions", response_model=CaptionResponse)
+@router.post("/captions", response_model=CaptionResponse)
 @inject
 async def extract_captions(
     request: CaptionRequest,

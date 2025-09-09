@@ -10,7 +10,7 @@ from typing import List
 import pysrt
 
 from app.caption.exception import CaptionErrorCode, CaptionException
-from app.caption.schema import CaptionSegment
+from app.caption.schema import Caption
 
 
 class CaptionClient:
@@ -109,7 +109,7 @@ class CaptionClient:
                   "--skip-download",
                   "--sub-format", "srt",
                   "-o", out_template,
-                  # TODO "--cookies", "/app/assets/yt_cookies/cookies.txt",
+                  "--cookies", "/app/assets/yt_cookies/cookies.txt",
                 ]
                 
                 if caption_type == "manual":
@@ -128,13 +128,13 @@ class CaptionClient:
                 files = glob.glob(pattern)
 
                 # SRT 파일 파싱 -> 세그먼트 변환
-                segments: List[CaptionSegment] = []
+                segments: List[Caption] = []
                 for sub in pysrt.open(files[0], encoding='utf-8'):
                     start = sub.start.ordinal / 1000.0
                     end = sub.end.ordinal / 1000.0
                     text = sub.text
                     if text:
-                        segments.append(CaptionSegment(start=start, end=end, text=text))
+                        segments.append(Caption(start=start, end=end, text=text))
 
                 return segments
 

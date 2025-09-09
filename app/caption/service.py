@@ -4,7 +4,7 @@ from typing import List, Tuple
 
 from app.caption.client import CaptionClient
 from app.caption.recipe_validator import CaptionRecipeValidator
-from app.caption.schema import CaptionSegment
+from app.caption.schema import Caption
 
 
 class CaptionService:
@@ -13,7 +13,7 @@ class CaptionService:
         self.client = client
         self.recipe_validator = recipe_validator
 
-    async def extract(self, video_id: str) -> Tuple[List[CaptionSegment], str]:
+    async def extract(self, video_id: str) -> Tuple[List[Caption], str]:
         caption_lang, caption_type = await asyncio.to_thread(
             self.client.get_captions_lang_with_ytdlp, video_id
         )
