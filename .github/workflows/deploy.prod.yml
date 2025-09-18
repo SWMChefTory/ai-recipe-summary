@@ -10,20 +10,19 @@ jobs:
     environment: production
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       #  Docker 이미지 빌드
       - name: docker image build
         run: docker build -f ./docker/Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/cheftory-ai-recipe-summary-server .
 
+      # Docker Hub 로그인
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
 
       #  Docker Hub 이미지 푸시
       - name: docker Hub push
@@ -84,15 +83,15 @@ jobs:
             cd /home/ubuntu/cheftory-ai-recipe-summary-server
 
             # Docker Hub 로그인
-            echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+            echo ${{ secrets.DOCKERHUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
             # compose 내 이미지 이름 치환 (placeholder → 실제 레지스트리)
-            sed -i "s|image: cheftory-ai-recipe-summary-server:latest|image: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest|g" docker-compose.prod.yml
+            sed -i "s|image: cheftory-ai-recipe-summary-server:latest|image: ${{ secrets.DOCKERHUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest|g" docker-compose.prod.yml
 
             # 기존 컨테이너 정리
             sudo docker-compose -f docker-compose.prod.yml stop || true
             sudo docker-compose -f docker-compose.prod.yml rm -f || true
-            sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest || true
+            sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest || true
 
             # 새 이미지 pull 및 실행
             sudo docker-compose -f docker-compose.prod.yml --env-file ../.env pull
