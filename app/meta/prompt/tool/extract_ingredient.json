@@ -1,0 +1,28 @@
+[
+  {
+    "toolSpec": {
+      "name": "emit_ingredients",
+      "description": "Emit a normalized list of ingredients from the video description (Korean values allowed).",
+      "inputSchema": {
+        "json": {
+          "type": "object",
+          "required": ["ingredients"],
+          "properties": {
+            "ingredients": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "amount", "unit"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "amount": { "type": "number" },
+                  "unit": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]

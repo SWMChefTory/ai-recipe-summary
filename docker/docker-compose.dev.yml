@@ -1,0 +1,17 @@
+services:
+  ai-recipe-summary:
+    image: cheftory-ai-recipe-summary-server-dev:latest
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    volumes:
+      - ./app/assets/yt_cookies:/app/assets/yt_cookies
+    networks:
+      - cheftory_network
+    restart: always
+
+networks:
+  cheftory_network:
+    name: dev_cheftory_network
+    driver: bridge
