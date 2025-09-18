@@ -13,20 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      #  Docker 이미지 빌드
-      - name: docker image build
-        run: docker build -f ./docker/Dockerfile -t ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server .
-
-      # Docker Hub 로그인
-      - name: Login to DOCKER_HUB
+      - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      #  Docker Hub 이미지 푸시
-      - name: docker Hub push
-        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server
+      - name: Build and Push Docker image
+        run: |
+          docker build -f ./docker/Dockerfile -t ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest .
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest
 
   deploy:
     environment: production
@@ -79,7 +75,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ubuntu/cheftory-ai-recipe-summary-server
+            cd cheftory-ai-recipe-summary-server/docker
 
             # Docker Hub 로그인
             echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
