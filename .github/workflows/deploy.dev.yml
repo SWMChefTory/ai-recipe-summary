@@ -30,7 +30,7 @@ jobs:
 
       - name: Build and Push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest .
+          docker build -f docker/Dockerfile -t ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest .
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest
 
   deploy:
@@ -55,7 +55,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "docker-compose.yml"
+          source: "./docker/docker-compose.dev.yml"
           target: "/home/ubuntu/cheftory-ai-recipe-summary-server/"
           strip_components: 0
 
@@ -88,16 +88,8 @@ jobs:
             # Docker Hub에 로그인
             echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
-            # 현재 docker-compose.yml 확인
-            echo "=== Before modification ==="
-            cat docker-compose.yml
-
             # docker-compose.yml에서 이미지 이름 수정
             sed -i "s|image: cheftory-ai-recipe-summary-server-dev:latest|image: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest|g" docker-compose.yml
-
-            # 수정된 내용 확인
-            echo "=== After modification ==="
-            cat docker-compose.yml
 
             # 기존 컨테이너 정리
             sudo docker-compose stop || true
@@ -107,6 +99,3 @@ jobs:
             # 새 이미지 pull 및 실행
             sudo docker-compose pull
             sudo docker-compose up -d
-
-            # 컨테이너 상태 확인
-            sudo docker-compose ps
