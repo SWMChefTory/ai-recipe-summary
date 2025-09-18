@@ -89,5 +89,5 @@ jobs:
             sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest || true
 
             # 새 이미지 pull 및 실행
-            sudo docker-compose -f docker-compose.prod.yml --env-file ../.env pull
-            sudo docker-compose -f docker-compose.prod.yml --env-file ../.env up -d
+            sudo docker-compose -f docker-compose.prod.yml pull
+            sudo docker-compose -f docker-compose.prod.yml up -d
