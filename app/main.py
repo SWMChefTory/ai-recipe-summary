@@ -4,7 +4,6 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-from app.briefing.router import router as briefing_router
 from app.caption.router import router as caption_router
 from app.container import container
 from app.exception import BusinessException
@@ -44,4 +43,3 @@ async def business_exception_handler(request: Request, exc: BusinessException):
 app.include_router(caption_router)
 app.include_router(meta_router)
 app.include_router(step_router)
-app.include_router(briefing_router)

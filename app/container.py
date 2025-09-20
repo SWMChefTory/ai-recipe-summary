@@ -7,9 +7,6 @@ from pathlib import Path
 from dependency_injector import containers, providers
 from openai import AsyncOpenAI
 
-from app.briefing.client import BriefingClient
-from app.briefing.generator import BriefingGenerator
-from app.briefing.service import BriefingService
 from app.caption.client import CaptionClient
 from app.caption.recipe_validator import CaptionRecipeValidator
 from app.caption.service import CaptionService
@@ -29,7 +26,6 @@ class Container(containers.DeclarativeContainer):
             "app.caption",
             "app.meta",
             "app.step",
-            "app.briefing",
         ]
     )
 
@@ -100,27 +96,6 @@ class Container(containers.DeclarativeContainer):
     step_service = providers.Factory(
         StepService,
         generator=step_generator,
-    )
-
-    # Briefing
-    briefing_client = providers.Singleton(
-        BriefingClient,
-        api_key=config.google.api_key,
-        timeout=20.0,
-    )
-    briefing_generator = providers.Singleton(
-        BriefingGenerator,
-        model_id=config.bedrock.model_id,
-        region=config.aws.region,
-        inference_profile_arn=config.bedrock.profile,
-        
-        briefing_tool_path=Path("app/briefing/prompt/tool.json"),
-        briefing_user_prompt_path=Path("app/briefing/prompt/generate.md"),
-    )
-    briefing_service = providers.Factory(
-        BriefingService,
-        client=briefing_client,
-        generator=briefing_generator,
     )
 
 
