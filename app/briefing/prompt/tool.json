@@ -1,0 +1,28 @@
+[
+  {
+    "toolSpec": {
+      "name": "emit_briefing",
+      "description": "Summarize viewer comments about a recipe video into concise Korean briefing lines (2–5 items). Each item must be a complete Korean sentence between 5 and 50 characters. The items field must always be a JSON array, never a string.",
+      "inputSchema": {
+        "json": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "description": "Direct JSON array of Korean briefing lines. Example: {\"items\": [\"첫 번째 문장.\", \"두 번째 문장.\"]}. Never return as a quoted string.",
+              "items": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 50
+              },
+              "minItems": 0,
+              "maxItems": 5
+            }
+          },
+          "required": ["items"],
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+]
