@@ -3,7 +3,7 @@ name: cheftory-ai-recipe-summary-server dev CI/CD Pipeline
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   build-docker-image:
@@ -21,10 +21,11 @@ jobs:
 
       - name: Build and Push Docker image
         run: |
-          docker build -f ./docker/Dockerfile -t ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest .
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest
+          docker build -f ./docker/Dockerfile -t ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest .
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest
 
   deploy:
+    environment: dev
     runs-on: ubuntu-latest
     needs: build-docker-image
     steps:
@@ -38,7 +39,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            mkdir -p cheftory-ai-recipe-summary-server-dev/docker
+            mkdir -p cheftory-ai-recipe-summary-server/docker
 
       - name: Create .env on EC2
         uses: appleboy/ssh-action@v1
@@ -47,7 +48,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cat <<EOF > /home/ubuntu/cheftory-ai-recipe-summary-server-dev/.env
+            cat <<EOF > /home/ubuntu/cheftory-ai-recipe-summary-server/.env
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
             GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
             AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -64,7 +65,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "./docker/docker-compose.dev.yml"
-          target: "/home/ubuntu/cheftory-ai-recipe-summary-server-dev/"
+          target: "/home/ubuntu/cheftory-ai-recipe-summary-server/"
           strip_components: 0
 
       - name: SSH to EC2 and deploy
@@ -74,19 +75,19 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd cheftory-ai-recipe-summary-server-dev/docker
+            cd cheftory-ai-recipe-summary-server/docker
 
             # Docker Hub 로그인
             echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
             # compose 내 이미지 이름 치환 (placeholder → 실제 레지스트리)
-            sed -i "s|image: cheftory-ai-recipe-summary-server-dev:latest|image: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest|g" docker-compose.dev.yml
+            sed -i "s|image: cheftory-ai-recipe-summary-server:latest|image: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest|g" docker-compose.dev.yml
 
             # 기존 컨테이너 정리
             sudo docker-compose -f docker-compose.dev.yml stop || true
             sudo docker-compose -f docker-compose.dev.yml rm -f || true
-            sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server-dev:latest || true
+            sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest || true
 
             # 새 이미지 pull 및 실행
-            sudo docker-compose -f docker-compose.dev.yml --env-file ../.env pull
-            sudo docker-compose -f docker-compose.dev.yml --env-file ../.env up -d
+            sudo docker-compose -f docker-compose.dev.yml pull
+            sudo docker-compose -f docker-compose.dev.yml up -d

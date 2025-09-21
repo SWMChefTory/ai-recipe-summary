@@ -1,6 +1,6 @@
 services:
   ai-recipe-summary:
-    image: cheftory-ai-recipe-summary-server-dev:latest
+    image: cheftory-ai-recipe-summary-server:latest
     container_name: cheftory-ai-recipe-summary-server
     ports:
       - "8000:8000"
