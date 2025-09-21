@@ -51,7 +51,7 @@ class CaptionClient:
             return None
         except Exception as e:
             self.logger.error(f"수동 자막 언어 추출 중 오류가 발생했습니다: {e}")
-            return None
+            raise CaptionException(CaptionErrorCode.CAPTION_LANGUAGE_EXTRACT_FAILED)
 
     def _get_auto_captions_lang(self, video_id: str) -> str | None:
         try:
@@ -82,7 +82,7 @@ class CaptionClient:
             return None
         except Exception as e:
             self.logger.error(f"자동 자막 언어 추출 중 오류가 발생했습니다: {e}")
-            return None
+            raise CaptionException(CaptionErrorCode.CAPTION_LANGUAGE_EXTRACT_FAILED)
 
     def get_captions_lang_with_ytdlp(self, video_id: str) -> tuple[str, str]:
         manual_lang = self._get_manual_captions_lang(video_id)
@@ -126,8 +126,6 @@ class CaptionClient:
                     cmd.extend(["--write-auto-subs", "--sub-langs", caption_lang])
                 
                 cmd.extend([url])
-
-                self.logger.info(f"[yt-dlp] CMD: {' '.join(cmd)}")
                 
                 # yt-dlp 실행
                 subprocess.run(cmd, capture_output=True, text=True)
@@ -145,10 +143,6 @@ class CaptionClient:
                         segments.append(Caption(start=start, end=end, text=text))
 
                 return segments
-
-            except FileNotFoundError as e:
-                self.logger.error(f"자막 다운로드 중 오류가 발생했습니다: {e}")
-                raise CaptionException(CaptionErrorCode.CAPTION_DOWNLOAD_FAILED)
 
             except Exception as e:
                 self.logger.error(f"자막 추출 중 오류가 발생했습니다: {e}")
