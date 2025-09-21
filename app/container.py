@@ -114,8 +114,11 @@ class Container(containers.DeclarativeContainer):
         region=config.aws.region,
         inference_profile_arn=config.bedrock.profile,
 
-        briefing_tool_path=Path("app/briefing/prompt/tool.json"),
-        generate_user_prompt_path=Path("app/briefing/prompt/generate.md"),
+        filter_user_prompt_path=Path("app/briefing/prompt/filter/user_prompt.md"),
+        filter_tool_path=Path("app/briefing/prompt/filter/emit_comment.json"),
+
+        generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
+        generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
     )
     briefing_service = providers.Factory(
         BriefingService,
