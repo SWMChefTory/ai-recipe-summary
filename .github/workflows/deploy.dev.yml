@@ -3,7 +3,7 @@ name: cheftory-ai-recipe-summary-server dev CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   build-docker-image:
