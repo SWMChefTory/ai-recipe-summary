@@ -18,10 +18,6 @@ from app.meta.extractor import MetaExtractor
 from app.meta.service import MetaService
 from app.step.generator import StepGenerator
 from app.step.service import StepService
-from app.vision.client import VisionClient
-from app.vision.extractor import VisionExtractor
-from app.vision.generator import VisionGenerator
-from app.vision.service import VisionService
 
 
 class Container(containers.DeclarativeContainer):
