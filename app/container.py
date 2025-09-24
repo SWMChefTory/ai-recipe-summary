@@ -32,7 +32,6 @@ class Container(containers.DeclarativeContainer):
             "app.briefing",
         ]
     )
-
     config = providers.Configuration()
     config.openai.api_key.from_env("OPENAI_API_KEY")
     config.google.api_key.from_env("GOOGLE_API_KEY")
@@ -113,6 +112,7 @@ class Container(containers.DeclarativeContainer):
         model_id=config.bedrock.model_id,
         region=config.aws.region,
         inference_profile_arn=config.bedrock.profile,
+        max_tokens=2048,
 
         filter_user_prompt_path=Path("app/briefing/prompt/filter/user_prompt.md"),
         filter_tool_path=Path("app/briefing/prompt/filter/emit_comment.json"),
