@@ -34,10 +34,9 @@ class Container(containers.DeclarativeContainer):
             "app.meta",
             "app.step",
             "app.briefing",
-            "app.vision",
         ]
     )
-    # TODO dev랑 prod 나누기
+
     config = providers.Configuration()
     config.openai.api_key.from_env("OPENAI_API_KEY")
     config.google.api_key.from_env("GOOGLE_API_KEY")
@@ -130,31 +129,6 @@ class Container(containers.DeclarativeContainer):
         BriefingService,
         client=briefing_client,
         generator=briefing_generator,
-    )
-
-    # Vision
-    vision_client = providers.Singleton(
-        VisionClient, 
-        download_dir=Path("downloads")
-    )
-    vision_extractor = providers.Singleton(
-        VisionExtractor,
-        model_id=config.bedrock.model_id,
-        region=config.aws.region,
-        inference_profile_arn=config.bedrock.profile,
-    )
-    vision_generator = providers.Singleton(
-        VisionGenerator,
-        model_id=config.bedrock.model_id,
-        region=config.aws.region,
-        inference_profile_arn=config.bedrock.profile,
-    )
-
-    vision_service = providers.Factory(
-        VisionService,
-        client=vision_client,
-        extractor=vision_extractor,
-        generator=vision_generator,
     )
 
 
