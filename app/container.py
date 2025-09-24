@@ -36,7 +36,6 @@ class Container(containers.DeclarativeContainer):
             "app.briefing",
         ]
     )
-
     config = providers.Configuration()
     config.openai.api_key.from_env("OPENAI_API_KEY")
     config.google.api_key.from_env("GOOGLE_API_KEY")
