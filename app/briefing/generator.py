@@ -36,7 +36,7 @@ class BriefingGenerator(IBriefingGenerator):
         model_id: str,
         region: str,
         inference_profile_arn: str,
-        max_tokens: int = 8192,
+        max_tokens: int,
         temperature: float = 0.0,
         generate_user_prompt_path: Path,
         generate_tool_path: Path,
@@ -59,7 +59,12 @@ class BriefingGenerator(IBriefingGenerator):
 
         self.client = boto3.client(
             "bedrock-runtime",
-            config=Config(region_name=region, retries={"max_attempts": 3, "mode": "adaptive"})
+            config=Config(
+                region_name=region,
+                retries={"max_attempts": 3, "mode": "adaptive"},
+                connect_timeout=10,
+                read_timeout=180,
+            ),
         )
 
     def _converse_briefing(self, user_prompt: str, tool: List[dict]) -> List[str]:
