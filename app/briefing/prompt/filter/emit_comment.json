@@ -1,0 +1,27 @@
+[
+  {
+    "toolSpec": {
+      "name": "emit_comment",
+      "inputSchema": {
+        "json": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000,
+                "pattern": "\\S"
+              },
+              "minItems": 0,
+              "default": []
+            }
+          },
+          "required": ["items"],
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+]

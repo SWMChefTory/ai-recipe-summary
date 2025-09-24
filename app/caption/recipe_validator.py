@@ -47,7 +47,7 @@ class CaptionRecipeValidator:
                 raise CaptionException(CaptionErrorCode.CAPTION_VALIDATE_FAILED)
 
             if bit != 1:
-                raise CaptionException(CaptionErrorCode.CAPTION_NOT_RECIPE)
+                raise CaptionException(CaptionErrorCode.CAPTION_RECIPE_NOT_FOUND)
 
         except CaptionException:
             raise

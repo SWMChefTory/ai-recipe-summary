@@ -21,9 +21,6 @@ class CaptionService:
         captions = await asyncio.to_thread(
             self.client.extract_captions_with_ytdlp, video_id, caption_type, caption_lang
         )
-
-        # 자막 검증을 위해 초반 10개만 로깅
-        self.logger.info(f"초반 10개 자막: {captions[:10]}")
         
         captions_text = " ".join(seg.text for seg in captions)
 
