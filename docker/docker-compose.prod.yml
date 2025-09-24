@@ -15,4 +15,4 @@ services:
 networks:
   cheftory_network:
     external: true
-    name: dev_cheftory_network
+    name: cheftory_network
