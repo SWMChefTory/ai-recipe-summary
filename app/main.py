@@ -16,6 +16,20 @@ from app.step.router import router as step_router
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
+# Uvicorn access log에서 /metrics 필터링
+class UvicornMetricsFilter(logging.Filter):
+    def filter(self, record: logging.LogRecord) -> bool:
+        request_line = getattr(record, "request_line", "")
+        if isinstance(request_line, str) and " /metrics" in request_line:
+            return False
+        # 포매팅된 메시지 기준의 백업 체크 (환경에 따라 formatter가 다를 수 있음)
+        try:
+            message = record.getMessage()
+        except Exception:
+            message = ""
+        return "/metrics" not in message
+
+logging.getLogger("uvicorn.access").addFilter(UvicornMetricsFilter())
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
