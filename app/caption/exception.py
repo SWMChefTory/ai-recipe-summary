@@ -5,10 +5,9 @@ from app.exception import RecipeSummaryException
 
 class CaptionErrorCode(Enum):
     CAPTION_NOT_FOUND = ("CAPTION_001", "자막이 존재하지 않습니다.")
-    CAPTION_LANGUAGE_EXTRACT_FAILED = ("CAPTION_002", "자막 언어 추출 중 오류가 발생했습니다.")
-    CAPTION_EXTRACT_FAILED = ("CAPTION_003", "자막 추출 중 오류가 발생했습니다.")
+    CAPTION_EXTRACT_FAILED = ("CAPTION_002", "자막 추출 중 오류가 발생했습니다.")
+    
     CAPTION_RECIPE_NOT_FOUND = ("CAPTION_004", "자막에서 레시피를 찾을 수 없습니다.")
-    CAPTION_VALIDATE_FAILED = ("CAPTION_005", "자막에서 레시피 여부 검증 중 오류가 발생했습니다.")
     
     def __init__(self, code: str, message: str):
         self._code = code
