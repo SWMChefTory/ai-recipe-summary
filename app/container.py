@@ -5,7 +5,6 @@ load_dotenv()
 from pathlib import Path
 
 from dependency_injector import containers, providers
-from openai import AsyncOpenAI
 
 from app.briefing.client import BriefingClient
 from app.briefing.generator import BriefingGenerator
@@ -33,7 +32,6 @@ class Container(containers.DeclarativeContainer):
         ]
     )
     config = providers.Configuration()
-    config.openai.api_key.from_env("OPENAI_API_KEY")
     config.google.api_key.from_env("GOOGLE_API_KEY")
 
     config.aws.access_key.from_env("AWS_ACCESS_KEY_ID")
@@ -43,17 +41,13 @@ class Container(containers.DeclarativeContainer):
     config.bedrock.model_id.from_env("BEDROCK_MODEL_ID")
     config.bedrock.profile.from_env("BEDROCK_INFERENCE_PROFILE_ARN")
 
-    openai_client = providers.Singleton(
-        AsyncOpenAI,
-        api_key=config.openai.api_key,
-        timeout=20.0,
-    )
-
     # Caption
     caption_client = providers.Singleton(CaptionClient)
     recipe_validator = providers.Singleton(
         CaptionRecipeValidator,
-        openai_client=openai_client,
+        model_id=config.bedrock.model_id,
+        region=config.aws.region,
+        inference_profile_arn=config.bedrock.profile,
     )
     caption_service = providers.Factory(
         CaptionService,
