@@ -38,9 +38,10 @@ class BriefingService:
         # 2) 댓글 정리
         cleaned_comments = [
             c for c in (self.__clean_comment(x) for x in raw_comments) 
-            if c and 10 <= len(c) <= 300
+            if c and 6 <= len(c) <= 300
         ]
-        self.logger.info(f"댓글 정리 후 남은 댓글: {len(cleaned_comments)}개")
+        self.logger.info(f"태그 및 길이 필터링 후 남은 댓글: {len(cleaned_comments)}개")
+        self.logger.info(f"댓글 평균 길이: {sum(len(c) for c in cleaned_comments) / len(cleaned_comments)}")
 
         # 3) 레시피 관련 댓글만 필터링
         filtered_comments = await asyncio.to_thread(
