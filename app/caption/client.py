@@ -1,149 +1,178 @@
+
 import glob
 import json
 import logging
 import os
-import re
 import subprocess
 import tempfile
-from typing import List
+import time
+from pathlib import Path
+from typing import List, Optional, Tuple
+from urllib.parse import parse_qs, urlparse
 
-import pysrt
+import requests
 
+from app.caption.enum import CaptionType
 from app.caption.exception import CaptionErrorCode, CaptionException
-from app.caption.schema import Caption
 
 
 class CaptionClient:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
 
-    def _get_manual_captions_lang(self, video_id: str) -> str | None:
+    def __run_yt_dlp(self, cmd: List[str], timeout: int = 60, retries: int = 2, backoff: float = 0.6) -> subprocess.CompletedProcess[str]:
+        last_err = None
+        for attempt in range(retries + 1):
+            try:
+                res = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+
+                if res.returncode == 0 and res.stdout:
+                    return res
+                self.logger.warning(
+                    "yt-dlp 실행 중 오류가 발생했습니다. (attempt %d/%d): rc=%d, stderr=%s",
+                    attempt + 1, retries + 1, res.returncode,
+                    (res.stderr or ""),
+                )
+                last_err = RuntimeError(f"yt-dlp rc={res.returncode}")
+            except Exception as e:
+                last_err = e
+                self.logger.warning(f"yt-dlp 실행 중 예외가 발생했습니다. (attempt {attempt+1}/{retries+1}): {e}")
+
+            if attempt < retries:
+                time.sleep(backoff * (2 ** attempt))
+
+        self.logger.error(f"yt-dlp 실패: {' '.join(cmd)}; last_err={last_err} 오류가 발생했습니다.")
+        raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
+
+
+    def __get_video_info_json(self, video_id: str) -> dict:
+        url = f"https://www.youtube.com/watch?v={video_id}"
+        cmd = [
+            "yt-dlp",
+            "-J",
+            "--skip-download",
+            "--cookies", "/app/assets/yt_cookies/cookies.txt",
+            url,
+        ]
+        self.logger.info(f"[1차] yt-dlp 실행 명령어: {' '.join(cmd)}")
+        res = self.__run_yt_dlp(cmd)
         try:
-            url = f"https://www.youtube.com/watch?v={video_id}"
-
-            '''
-            yt-dlp 명령어 구성
-            -J : 메타데이터를 JSON 형태로 출력
-            --skip-download : 영상 파일은 다운로드하지 않음
-            --extractor-args "youtube:skip=translated_subs" : 자동 번역된 자막은 제외
-            --cookies : 쿠키 파일 지정
-            url : 유튜브 영상 주소
-            '''
-            cmd = [
-                "yt-dlp",
-                "-J",
-                "--skip-download",
-                "--extractor-args", "youtube:skip=translated_subs",
-                "--cookies", "/app/assets/yt_cookies/cookies.txt",
-                url,
-            ]
-            res = subprocess.run(cmd, capture_output=True, text=True)
-            data = json.loads(res.stdout)
-
-            # dict 구조 중 subtitles 키에 수동 자막 정보가 들어 있음
-            manual_subs = data.get("subtitles") or {}
-
-            # 한국어("ko") 우선, 없으면 영어("en"), 둘 다 없으면 None
-            if "ko" in manual_subs:
-                return "ko"
-            if "en" in manual_subs:
-                return "en"
-            return None
+            return json.loads(res.stdout)
         except Exception as e:
-            self.logger.error(f"수동 자막 언어 추출 중 오류가 발생했습니다: {e}")
-            raise CaptionException(CaptionErrorCode.CAPTION_LANGUAGE_EXTRACT_FAILED)
+            self.logger.error(f"info.json 파싱 중 오류가 발생했습니다. video_id={video_id}, err={e}")
+            raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
 
-    def _get_auto_captions_lang(self, video_id: str) -> str | None:
-        try:
-            url = f"https://www.youtube.com/watch?v={video_id}"
-  
-            '''
-            yt-dlp 명령어 구성
-            --skip-download : 영상 파일은 다운로드하지 않음
-            --list-subs : 자동 생성 자막 리스트 출력
-            --cookies : 쿠키 파일 지정
-            url : 유튜브 영상 주소
-            '''
-            cmd = [
-              "yt-dlp", 
-              "--skip-download", 
-              "--list-subs",
-              "--cookies", "/app/assets/yt_cookies/cookies.txt",
-              url
-            ]
-            res = subprocess.run(cmd, capture_output=True, text=True)
-            output = res.stdout
-  
-            # 한국어("ko") 우선, 없으면 영어("en"), 둘 다 없으면 None
-            if re.search(r"^ko-orig\s+", output, re.MULTILINE):
-                return "ko-orig"
-            if re.search(r"^en-orig\s+", output, re.MULTILINE):
-                return "en-orig"
+
+    def __extract_captions_info(self, video_info: dict, video_id: str) -> Tuple[str, str, CaptionType]:
+        def is_translated_url(url: str) -> bool:
+            q = parse_qs(urlparse(url).query or "")
+            return "tlang" in q and q["tlang"]
+
+        def pick_captions_info(mapping: dict) -> Optional[Tuple[str, str]]:
+            for lang_code in ("ko", "en"):
+                captions_info_list = mapping.get(lang_code)
+                
+                if not captions_info_list:
+                    continue
+
+                srt_captions_info = None
+                for captions_info in captions_info_list:
+                    ext = captions_info.get("ext")
+                    download_url = captions_info.get("url")
+
+                    if ext == "srt" and download_url and not is_translated_url(download_url):
+                        srt_captions_info = captions_info
+                        break
+
+                if srt_captions_info:
+                    return srt_captions_info["url"], lang_code
+                
             return None
-        except Exception as e:
-            self.logger.error(f"자동 자막 언어 추출 중 오류가 발생했습니다: {e}")
-            raise CaptionException(CaptionErrorCode.CAPTION_LANGUAGE_EXTRACT_FAILED)
 
-    def get_captions_lang_with_ytdlp(self, video_id: str) -> tuple[str, str]:
-        manual_lang = self._get_manual_captions_lang(video_id)
-        if manual_lang:
-            return manual_lang, "manual"
+        manual_captions_info = video_info.get(CaptionType.MANUAL.value) or {}
+        picked_captions_info = pick_captions_info(manual_captions_info)
+        
+        if picked_captions_info:
+            return picked_captions_info[0], picked_captions_info[1], CaptionType.MANUAL
 
-        auto_lang = self._get_auto_captions_lang(video_id)
-        if auto_lang:
-            return auto_lang, "auto"
+        auto_captions_info = video_info.get(CaptionType.AUTO.value) or {}
+        picked_captions_info = pick_captions_info(auto_captions_info)
 
+        if picked_captions_info:
+            return picked_captions_info[0], picked_captions_info[1], CaptionType.AUTO
+
+        self.logger.info(f"자막이 존재하지 않습니다. video_id={video_id}")
         raise CaptionException(CaptionErrorCode.CAPTION_NOT_FOUND)
 
-    def extract_captions_with_ytdlp(self, video_id: str, caption_type: str, caption_lang: str):
+
+    def __download_captions_from_url(self, download_url: str, timeout: int = 30) -> str:
+        try:
+            r = requests.get(download_url, timeout=timeout)
+            r.raise_for_status()
+            return r.text
+        except Exception as e:
+            self.logger.error(f"[1차] 자막 다운로드 중 오류가 발생했습니다. error={e}")
+            return ""
+
+    def __download_captions_from_ytdlp(self, video_id: str, captions_type: CaptionType, lang_code: str):
         with tempfile.TemporaryDirectory() as temp_dir:
             try:
                 url = f"https://www.youtube.com/watch?v={video_id}"
-                out_template = os.path.join(temp_dir, f"{video_id}.{caption_type}")
+                out_template = os.path.join(temp_dir, f"{video_id}.{captions_type}")
 
-
-                '''
-                yt-dlp 명령어 구성
-                --skip-download : 영상 파일은 다운로드하지 않음
-                --sub-format : 자막 형식 지정 (srt)
-                -o : 자막 파일 저장 경로
-                --cookies : 쿠키 파일 지정
-                --write-subs : 수동 자막 추출 or--write-auto-subs : 자동 자막 추출
-                --sub-langs : 자막 언어 지정
-                url : 유튜브 영상 주소
-                '''
                 cmd = [
-                  "yt-dlp",
-                  "--skip-download",
-                  "--sub-format", "srt",
-                  "-o", out_template,
-                  "--cookies", "/app/assets/yt_cookies/cookies.txt",
+                    "yt-dlp",
+                    "--skip-download",
+                    "--sub-format", "srt",
+                    "-o", out_template,
+                    "--cookies", "/app/assets/yt_cookies/cookies.txt",
                 ]
-                
-                if caption_type == "manual":
-                    cmd.extend(["--write-subs", "--sub-langs", caption_lang])
-                else:
-                    cmd.extend(["--write-auto-subs", "--sub-langs", caption_lang])
-                
-                cmd.extend([url])
-                
-                # yt-dlp 실행
-                subprocess.run(cmd, capture_output=True, text=True)
 
-                pattern = os.path.join(temp_dir, f"{video_id}.{caption_type}.*")
+                if captions_type == CaptionType.MANUAL:
+                    cmd.extend(["--write-subs", "--sub-langs", lang_code])
+                elif captions_type == CaptionType.AUTO:
+                    cmd.extend(["--write-auto-subs", "--sub-langs", lang_code])
+
+                cmd.append(url)
+
+                self.__run_yt_dlp(cmd)
+                self.logger.info(f"[2차] yt-dlp 실행 명령어: {' '.join(cmd)}")
+
+                pattern = os.path.join(temp_dir, f"{video_id}.{captions_type}.*.srt")
                 files = glob.glob(pattern)
 
-                # SRT 파일 파싱 -> 세그먼트 변환
-                segments: List[Caption] = []
-                for sub in pysrt.open(files[0], encoding='utf-8'):
-                    start = sub.start.ordinal / 1000.0
-                    end = sub.end.ordinal / 1000.0
-                    text = sub.text
-                    if text:
-                        segments.append(Caption(start=start, end=end, text=text))
+                target_file = files[0]
+                with open(target_file, "r", encoding="utf-8") as f:
+                    return f.read()
 
-                return segments
+            except CaptionException as e:
+                return ""
 
             except Exception as e:
-                self.logger.error(f"자막 추출 중 오류가 발생했습니다: {e}")
-                raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
+                self.logger.error(f"[2차] 자막 다운로드 중 오류가 발생했습니다. error={e}")
+                return ""
+
+
+    def get_captions_with_lang_code(self, video_id: str) -> Tuple[str, str]:
+        # 1) 영상 정보 조회
+        video_info = self.__get_video_info_json(video_id)
+
+        # 2) 자막 정보 추출
+        download_url, lang_code, captions_type = self.__extract_captions_info(video_info, video_id)
+
+        # 3) url로 자막 다운로드
+        raw_captions = self.__download_captions_from_url(download_url)
+        if raw_captions:
+            self.logger.info(f"[1차] 자막 다운로드 성공: video_id={video_id}")
+            return raw_captions, lang_code
+
+        # 4) yt-dlp로 자막 다운로드
+        effective_lang = f"{lang_code}-orig" if captions_type == CaptionType.AUTO else lang_code
+        raw_captions = self.__download_captions_from_ytdlp(video_id, captions_type, effective_lang)
+
+        if raw_captions:
+            self.logger.info(f"[2차] 자막 다운로드 성공: video_id={video_id}")
+            return raw_captions, lang_code
+
+        self.logger.error(f"자막 다운로드 실패: video_id={video_id}")
+        raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
