@@ -22,7 +22,7 @@ You are an expert at extracting structured metadata from recipe video subtitles.
 - ingredients: Extract all the materials specified in the caption. Explicitly using the amount given. Empty string and zero if there are no quantities and units, respectively.
 - tags: choose 2 to 4 representative keywords (e.g. cooking type, main ingredient, cooking style). Make sure all tags use correct Korean spelling and spacing.
 - servings: Extract one serving (e.g. "two serving") from the caption, otherwise the default is 2.
-- cook_time: extracting cooking time from the caption, otherwise default is 30.
+- cook_time: extracting cooking time from the caption and convert to minutes, otherwise default is 30.
 
 ### Input
 
