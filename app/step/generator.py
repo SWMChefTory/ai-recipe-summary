@@ -1,7 +1,7 @@
 import json
 import logging
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import List
 
 import boto3
 from botocore.config import Config
@@ -40,8 +40,7 @@ class StepGenerator:
         )
 
 
-    def _call_converse_for_steps(self, user_prompt: str) -> List[StepGroup]:
-        """공통 호출: 단일 툴 emit_steps 사용"""
+    def __call_converse_for_steps(self, user_prompt: str) -> List[StepGroup]:
         model_identifier = self.inference_profile_arn or self.model_id
         try:
             resp = self.client.converse(
@@ -53,27 +52,27 @@ class StepGenerator:
             )
             content = resp["output"]["message"]["content"]
             for item in content:
-                tu = item.get("toolUse")
-                if tu and tu.get("name") == "emit_steps":
-                    raw_steps = (tu.get("input") or {}).get("steps", []) or []
+                tool_use = item.get("toolUse")
+                if tool_use and tool_use.get("name").lower() == "emit_steps":
+                    raw_steps = (tool_use.get("input") or {}).get("steps", []) or []
                     return [StepGroup(**s) for s in raw_steps]
         except ClientError as e:
-            self.logger.error("Bedrock converse failed: %s", e, exc_info=True)
+            self.logger.error(f"Bedrock converse failed: {e}")
             return []
         except Exception:
-            self.logger.exception("Unexpected converse response")
+            self.logger.error("Unexpected converse response")
             return []
         return []
 
 
     def summarize(self, captions_json_str: str) -> List[StepGroup]:
         user_prompt = self.summarize_user_prompt.replace("{{ captions }}", captions_json_str)
-        return self._call_converse_for_steps(user_prompt)
+        return self.__call_converse_for_steps(user_prompt)
 
 
     def merge(self, flat_steps_json_str: str) -> List[StepGroup]:
         user_prompt = self.merge_user_prompt.replace("{{ steps }}", flat_steps_json_str)
-        result = self._call_converse_for_steps(user_prompt)
+        result = self.__call_converse_for_steps(user_prompt)
         if not result:
             raise StepException(StepErrorCode.STEP_GENERATE_FAILED)
         return result

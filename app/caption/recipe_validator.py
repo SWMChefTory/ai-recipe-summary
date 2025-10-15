@@ -35,8 +35,7 @@ class CaptionRecipeValidator:
             config=Config(region_name=region, retries={"max_attempts": 3, "mode": "adaptive"}),
         )
 
-    def _converse(self, user_prompt: str) -> int:
-        """Bedrock Claude Sonnet 4 호출해서 bit 추출"""
+    def __converse(self, user_prompt: str) -> int:
         model_identifier = self.inference_profile_arn or self.model_id
 
         try:
@@ -53,9 +52,9 @@ class CaptionRecipeValidator:
             content = resp.get("output", {}).get("message", {}).get("content", [])
 
             for item in content:
-                tu = item.get("toolUse")
-                if tu and tu.get("name") == "emit_bit":
-                    obj = tu.get("input") or {}
+                tool_use = item.get("toolUse")
+                if tool_use and tool_use.get("name").lower() == "emit_bit":
+                    obj = tool_use.get("input") or {}
                     return obj.get("bit")
 
         except ClientError as e:
@@ -76,7 +75,7 @@ class CaptionRecipeValidator:
             )
 
             # 2) Bedrock 호출
-            bit = self._converse(prompt)
+            bit = self.__converse(prompt)
 
             # 3) 검증
             if bit not in (0, 1):

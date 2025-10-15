@@ -22,6 +22,8 @@ class CaptionService:
             srt_captions = pysrt.from_string(raw_captions)
 
             captions: List[Caption] = []
+            
+            # pysrt는 밀리초(ms) 단위이므로 초(sec) 단위로 변환
             for srt_cap in srt_captions:
                 start = srt_cap.start.ordinal / 1000.0
                 end = srt_cap.end.ordinal / 1000.0
