@@ -5,9 +5,7 @@ import logging
 import os
 import subprocess
 import tempfile
-import time
-from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import Optional, Tuple
 from urllib.parse import parse_qs, urlparse
 
 import requests
@@ -20,43 +18,20 @@ class CaptionClient:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
 
-    def __run_yt_dlp(self, cmd: List[str], timeout: int = 60, retries: int = 2, backoff: float = 0.6) -> subprocess.CompletedProcess[str]:
-        last_err = None
-        for attempt in range(retries + 1):
-            try:
-                res = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
-
-                if res.returncode == 0 and res.stdout:
-                    return res
-                self.logger.warning(
-                    "yt-dlp 실행 중 오류가 발생했습니다. (attempt %d/%d): rc=%d, stderr=%s",
-                    attempt + 1, retries + 1, res.returncode,
-                    (res.stderr or ""),
-                )
-                last_err = RuntimeError(f"yt-dlp rc={res.returncode}")
-            except Exception as e:
-                last_err = e
-                self.logger.warning(f"yt-dlp 실행 중 예외가 발생했습니다. (attempt {attempt+1}/{retries+1}): {e}")
-
-            if attempt < retries:
-                time.sleep(backoff * (2 ** attempt))
-
-        self.logger.error(f"yt-dlp 실패: {' '.join(cmd)}; last_err={last_err} 오류가 발생했습니다.")
-        raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
-
 
     def __get_video_info_json(self, video_id: str) -> dict:
-        url = f"https://www.youtube.com/watch?v={video_id}"
-        cmd = [
-            "yt-dlp",
-            "-J",
-            "--skip-download",
-            "--cookies", "/app/assets/yt_cookies/cookies.txt",
-            url,
-        ]
-        self.logger.info(f"[1차] yt-dlp 실행 명령어: {' '.join(cmd)}")
-        res = self.__run_yt_dlp(cmd)
         try:
+            url = f"https://www.youtube.com/watch?v={video_id}"
+            cmd = [
+                "yt-dlp",
+                "-J",
+                "--skip-download",
+                "--retries", "2",
+                "--cookies", "/app/assets/yt_cookies/cookies.txt",
+                url,
+            ]
+            self.logger.info(f"[1차] yt-dlp 실행 명령어: {' '.join(cmd)}")
+            res = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
             return json.loads(res.stdout)
         except Exception as e:
             self.logger.error(f"info.json 파싱 중 오류가 발생했습니다. video_id={video_id}, err={e}")
@@ -125,6 +100,7 @@ class CaptionClient:
                     "--skip-download",
                     "--sub-format", "srt",
                     "-o", out_template,
+                    "--retries", "2",
                     "--cookies", "/app/assets/yt_cookies/cookies.txt",
                 ]
 
@@ -135,7 +111,7 @@ class CaptionClient:
 
                 cmd.append(url)
 
-                self.__run_yt_dlp(cmd)
+                subprocess.run(cmd, capture_output=True, text=True, timeout=60)
                 self.logger.info(f"[2차] yt-dlp 실행 명령어: {' '.join(cmd)}")
 
                 pattern = os.path.join(temp_dir, f"{video_id}.{captions_type}.*.srt")

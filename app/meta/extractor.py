@@ -32,7 +32,6 @@ class MetaExtractor:
         self.max_tokens = max_tokens
         self.temperature = temperature
 
-        # ---- 프롬프트/툴 로드 (파일 → 문자열/JSON) ----
         self.extract_prompt = extract_prompt_path.read_text(encoding="utf-8")
         self.extract_tool = json.loads(extract_tool_path.read_text(encoding="utf-8"))
 
@@ -45,7 +44,7 @@ class MetaExtractor:
         )
 
 
-    def _converse_ingredients_from_description(self, user_prompt: str) -> List[Ingredient]:
+    def __converse_ingredients_from_description(self, user_prompt: str) -> List[Ingredient]:
         model_identifier = self.inference_profile_arn or self.model_id
         try:
             resp = self.client.converse(
@@ -60,9 +59,9 @@ class MetaExtractor:
 
             content = resp.get("output").get("message").get("content")
             for item in content:
-                tu = item.get("toolUse")
-                if tu and tu.get("name") == "emit_ingredients":
-                    obj = tu.get("input")
+                tool_use = item.get("toolUse")
+                if tool_use and tool_use.get("name").lower() == "emit_ingredients":
+                    obj = tool_use.get("input")
                     arr = obj.get("ingredients")
                     out = []
                     for ing in arr:
@@ -83,12 +82,12 @@ class MetaExtractor:
         """유튜브 설명란에서 재료를 추출"""
         prompt = self.extract_ingredient_prompt.replace("{{ description }}", description)
         try:
-            return self._converse_ingredients_from_description(prompt)
+            return self.__converse_ingredients_from_description(prompt)
         except MetaException:
             return []
 
 
-    def _converse(self, user_prompt: str) -> MetaResponse:
+    def __converse(self, user_prompt: str) -> MetaResponse:
         """Bedrock API"""
         model_identifier = self.inference_profile_arn or self.model_id
         try:
@@ -104,9 +103,9 @@ class MetaExtractor:
 
             content = resp.get("output", {}).get("message", {}).get("content", [])
             for item in content:
-                tu = item.get("toolUse")
-                if tu and tu.get("name") == "emit_meta":
-                    meta = tu.get("input")
+                tool_use = item.get("toolUse")
+                if tool_use and tool_use.get("name").lower() == "emit_meta":
+                    meta = tool_use.get("input")
 
                     description = meta.get("description").strip()
                     ingredients = meta.get("ingredients")
@@ -135,4 +134,4 @@ class MetaExtractor:
     def extract(self, captions: str) -> MetaResponse:
         """자막에서 메타데이터 추출"""
         prompt = self.extract_prompt.replace("{{ captions }}", captions)
-        return self._converse(prompt)
+        return self.__converse(prompt)
