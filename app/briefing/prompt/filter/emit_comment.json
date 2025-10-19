@@ -10,8 +10,8 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "minLength": 1,
-                "maxLength": 1000,
+                "minLength": 6,
+                "maxLength": 300,
                 "pattern": "\\S"
               },
               "minItems": 0,

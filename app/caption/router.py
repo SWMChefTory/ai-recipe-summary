@@ -13,8 +13,8 @@ async def extract_captions(
     request: CaptionRequest,
     caption_service: CaptionService = Depends(Provide[Container.caption_service])
 ):
-    captions, language = await caption_service.extract(request.video_id)
+    captions, lang_code = await caption_service.get_captions_with_lang_code(request.video_id)
     return CaptionResponse(
-        lang_code=language,
+        lang_code=lang_code,
         captions=captions
     )

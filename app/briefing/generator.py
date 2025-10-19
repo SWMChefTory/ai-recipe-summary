@@ -67,7 +67,7 @@ class BriefingGenerator(IBriefingGenerator):
             ),
         )
 
-    def _converse_briefing(self, user_prompt: str, tool: List[dict]) -> List[str]:
+    def __converse_briefing(self, user_prompt: str, tool: List[dict]) -> List[str]:
         try:
             model_identifier = self.inference_profile_arn or self.model_id
             tool_name = tool[0].get("toolSpec", {}).get("name")
@@ -90,7 +90,7 @@ class BriefingGenerator(IBriefingGenerator):
 
         except Exception as e:
             self.logger.error(f"LLM 호출 중 오류가 발생했습니다: {e}")
-            raise BriefingException(BriefingErrorCode.BRIEFING_GENERATE_FAILED)
+            raise
 
     def filter_comments(self, comments: List[str]) -> List[str]:
         """
@@ -102,11 +102,11 @@ class BriefingGenerator(IBriefingGenerator):
                 ensure_ascii=False
             )
             prompt = self.filter_prompt.replace("{{ comments_json }}", comments_json)
-            return self._converse_briefing(prompt, self.filter_tool)
+            return self.__converse_briefing(prompt, self.filter_tool)
 
         except Exception as e:
             self.logger.error(f'댓글 필터링 중 오류가 발생했습니다: {e}')
-            raise BriefingException(BriefingErrorCode.BRIEFING_COMMENTS_FILTER_FAILED)
+            raise BriefingException(BriefingErrorCode.BRIEFING_GENERATE_FAILED)
 
     def generate(self, comments: List[str]) -> List[str]:
         """
@@ -120,13 +120,11 @@ class BriefingGenerator(IBriefingGenerator):
                 ensure_ascii=False
             )
             prompt = self.briefing_prompt.replace("{{ comments_json }}", comments_json)
-            result = self._converse_briefing(prompt, self.briefing_tool)
+            result = self.__converse_briefing(prompt, self.briefing_tool)
 
-            # 최대 5개로 제한
-            if len(result) > 5:
-                result = result[:5]
+            if len(result) > 4:
+                result = result[:4]
 
-            # 2개 미만이면 빈 리스트 반환
             if len(result) < 2:
                 return []
 

@@ -1,18 +1,18 @@
 [
   {
-    "type": "function",
-    "function": {
+    "toolSpec": {
       "name": "emit_bit",
-      "description": "Return whether the captions contain cooking instructions.",
-      "parameters": {
-        "type": "object",
-        "properties": {
-          "bit": { "type": "integer", "enum": [0, 1] }
-        },
-        "required": ["bit"],
-        "additionalProperties": false
-      },
-      "strict": true
+      "description": "Return 0 or 1 indicating whether captions describe a cooking recipe.",
+      "inputSchema": {
+        "json": {
+          "type": "object",
+          "properties": {
+            "bit": { "type": "integer", "enum": [0, 1] }
+          },
+          "required": ["bit"],
+          "additionalProperties": false
+        }
+      }
     }
   }
 ]
