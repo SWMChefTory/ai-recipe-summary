@@ -30,8 +30,13 @@ class CaptionClient:
                 "--cookies", "/app/assets/yt_cookies/cookies.txt",
                 url,
             ]
-            self.logger.info(f"[1차] yt-dlp 실행 명령어: {' '.join(cmd)}")
+            self.logger.info(f"[Step 0] yt-dlp 실행 명령어: {' '.join(cmd)}")
             res = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+
+            if res.returncode != 0:
+                self.logger.error(f"[Step 0] yt-dlp 실행 중 오류가 발생했습니다. error={res.stderr}")
+                raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
+
             return json.loads(res.stdout)
         except Exception as e:
             self.logger.error(f"info.json 파싱 중 오류가 발생했습니다. video_id={video_id}, err={e}")
@@ -86,7 +91,7 @@ class CaptionClient:
             r.raise_for_status()
             return r.text
         except Exception as e:
-            self.logger.error(f"[1차] 자막 다운로드 중 오류가 발생했습니다. error={e}")
+            self.logger.error(f"[Step 1] 자막 다운로드 중 오류가 발생했습니다. error={e}")
             return ""
 
     def __download_captions_from_ytdlp(self, video_id: str, captions_type: CaptionType, lang_code: str):
@@ -111,21 +116,38 @@ class CaptionClient:
 
                 cmd.append(url)
 
-                subprocess.run(cmd, capture_output=True, text=True, timeout=60)
-                self.logger.info(f"[2차] yt-dlp 실행 명령어: {' '.join(cmd)}")
+                proc = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+                self.logger.info(f"[Step 2] yt-dlp 실행 명령어: {' '.join(cmd)}")
+
+                if proc.returncode != 0:
+                    self.logger.error(f"[Step 2] yt-dlp 실행 중 오류가 발생했습니다. error={proc.stderr}")
+                    return ""
 
                 pattern = os.path.join(temp_dir, f"{video_id}.{captions_type}.*.srt")
                 files = glob.glob(pattern)
+
+                if not files:
+                    self.logger.error(f"[Step 2] 자막 파일이 존재하지 않습니다. pattern={pattern}")
+                    return ""
 
                 target_file = files[0]
                 with open(target_file, "r", encoding="utf-8") as f:
                     return f.read()
 
-            except CaptionException as e:
+
+            except subprocess.TimeoutExpired as e:
+                self.logger.error(f"[Step 2] yt-dlp 실행 중 시간 초과가 발생했습니다. error={e}")
                 return ""
 
+            except UnicodeDecodeError as e:
+                self.logger.error(f"[Step 2] UTF-8 디코딩 중 오류가 발생했습니다. error={e}")
+                return ""
+
+            except CaptionException as e:
+                return ""
+            
             except Exception as e:
-                self.logger.error(f"[2차] 자막 다운로드 중 오류가 발생했습니다. error={e}")
+                self.logger.error(f"[Step 2] 자막 다운로드 중 오류가 발생했습니다. error={e}")
                 return ""
 
 
@@ -147,7 +169,7 @@ class CaptionClient:
         raw_captions = self.__download_captions_from_ytdlp(video_id, captions_type, effective_lang)
 
         if raw_captions:
-            self.logger.info(f"[2차] 자막 다운로드 성공: video_id={video_id}")
+            self.logger.info(f"[Step 2] 자막 다운로드 성공: video_id={video_id}")
             return raw_captions, lang_code
 
         self.logger.error(f"자막 다운로드 실패: video_id={video_id}")
