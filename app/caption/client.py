@@ -26,7 +26,7 @@ class CaptionClient:
                 "yt-dlp",
                 "-J",
                 "--skip-download",
-                "--extractor-arg", "youtube:skip=hls,dash;player_client=web;player_skip=configs,js;formats=missing_pot",
+                "--extractor-arg", "youtube:skip=hls,dash",
                 "--ignore-no-formats",
                 "--force-ipv4",
                 "--retries", "2",
@@ -107,7 +107,7 @@ class CaptionClient:
                     "yt-dlp",
                     "--skip-download",
                     "--sub-format", "srt",
-                    "--extractor-arg", "youtube:skip=hls,dash;player_client=web;player_skip=configs,js;formats=missing_pot",
+                    "--extractor-arg", "youtube:skip=hls,dash",
                     "--ignore-no-formats",
                     "-o", out_template,
                     "--force-ipv4",
@@ -165,10 +165,10 @@ class CaptionClient:
         download_url, lang_code, captions_type = self.__extract_captions_info(video_info, video_id)
 
         # 3) url로 자막 다운로드
-        raw_captions = self.__download_captions_from_url(download_url)
-        if raw_captions:
-            self.logger.info(f"[1차] 자막 다운로드 성공: video_id={video_id}")
-            return raw_captions, lang_code
+        # raw_captions = self.__download_captions_from_url(download_url)
+        # if raw_captions:
+        #     self.logger.info(f"[1차] 자막 다운로드 성공: video_id={video_id}")
+        #     return raw_captions, lang_code
 
         # 4) yt-dlp로 자막 다운로드
         effective_lang = f"{lang_code}-orig" if captions_type == CaptionType.AUTO else lang_code
