@@ -41,8 +41,16 @@ class Container(containers.DeclarativeContainer):
     config.bedrock.model_id.from_env("BEDROCK_MODEL_ID")
     config.bedrock.profile.from_env("BEDROCK_INFERENCE_PROFILE_ARN")
 
+    config.aws_lambda.function_url.from_env("AWS_LAMBDA_FUNCTION_URL")
+
     # Caption
-    caption_client = providers.Singleton(CaptionClient)
+    caption_client = providers.Singleton(
+      CaptionClient,
+      region=config.aws.region,
+      aws_lambda_function_url=config.aws_lambda.function_url,
+      aws_access_key_id=config.aws.access_key,
+      aws_secret_access_key=config.aws.secret_key,
+    )
     recipe_validator = providers.Singleton(
         CaptionRecipeValidator,
         model_id=config.bedrock.model_id,

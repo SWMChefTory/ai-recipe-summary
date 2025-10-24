@@ -1,4 +1,4 @@
-
+import asyncio
 import glob
 import json
 import logging
@@ -8,16 +8,28 @@ import tempfile
 from typing import Optional, Tuple
 from urllib.parse import parse_qs, urlparse
 
+import boto3
 import requests
+from botocore.auth import SigV4Auth
+from botocore.awsrequest import AWSRequest
 
 from app.caption.enum import CaptionType
 from app.caption.exception import CaptionErrorCode, CaptionException
 
 
 class CaptionClient:
-    def __init__(self):
+    def __init__(
+        self,
+        region: str,
+        aws_lambda_function_url: str,
+        aws_access_key_id: str,
+        aws_secret_access_key: str,
+    ):
         self.logger = logging.getLogger(__name__)
-
+        self.region = region
+        self.aws_lambda_function_url = aws_lambda_function_url
+        self.aws_access_key_id = aws_access_key_id
+        self.aws_secret_access_key = aws_secret_access_key
 
     def __get_video_info_json(self, video_id: str) -> dict:
         try:
@@ -152,6 +164,52 @@ class CaptionClient:
             except Exception as e:
                 self.logger.error(f"[Step 2] 자막 다운로드 중 오류가 발생했습니다. error={e}")
                 return ""
+
+    async def fetch_captions_from_lambda(self, video_id: str):
+        """Lambda Function URL (AWS_IAM 인증) 호출"""
+        def call():
+            payload = {"video_id": video_id}
+
+            session = boto3.Session(
+                aws_access_key_id=self.aws_access_key_id,
+                aws_secret_access_key=self.aws_secret_access_key,
+                region_name=self.region,
+            )
+            creds = session.get_credentials().get_frozen_credentials()
+
+            # 요청은 JSON으로
+            req = AWSRequest(
+                method="POST",
+                url=self.aws_lambda_function_url,
+                data=json.dumps(payload),
+                headers={"Content-Type": "application/json"},
+            )
+            SigV4Auth(creds, "lambda", self.region).add_auth(req)
+
+            res = requests.post(self.aws_lambda_function_url, json=payload, headers=dict(req.headers))
+            res.raise_for_status()
+            data = res.json()
+
+            # 1) API Gateway/Lambda proxy 형식
+            if isinstance(data, dict) and "body" in data:
+                body = data["body"]
+                if isinstance(body, str):
+                    try:
+                        body = json.loads(body)
+                    except Exception:
+                        pass
+                captions = body["captions"]
+                lang_code = body["lang_code"]
+                return captions, lang_code
+
+            # 2) Function URL 직반환 형식
+            if isinstance(data, dict) and "captions" in data and "lang_code" in data:
+                return data["captions"], data["lang_code"]
+
+            # 3) 그 외는 에러
+            raise RuntimeError(f"Unexpected Lambda response: {data}")
+
+        return await asyncio.to_thread(call)
 
 
     def get_captions_with_lang_code(self, video_id: str) -> Tuple[str, str]:
