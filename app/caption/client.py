@@ -3,9 +3,10 @@ import glob
 import json
 import logging
 import os
+import random
 import subprocess
 import tempfile
-from typing import Optional, Tuple
+from typing import List, Optional, Tuple
 from urllib.parse import parse_qs, urlparse
 
 import boto3
@@ -21,13 +22,13 @@ class CaptionClient:
     def __init__(
         self,
         region: str,
-        aws_lambda_function_url: str,
+        aws_lambda_function_urls: List[str],
         aws_access_key_id: str,
         aws_secret_access_key: str,
     ):
         self.logger = logging.getLogger(__name__)
         self.region = region
-        self.aws_lambda_function_url = aws_lambda_function_url
+        self.aws_lambda_function_urls = aws_lambda_function_urls
         self.aws_access_key_id = aws_access_key_id
         self.aws_secret_access_key = aws_secret_access_key
 
@@ -168,29 +169,41 @@ class CaptionClient:
     async def fetch_captions_from_lambda(self, video_id: str):
         """Lambda Function URL (AWS_IAM 인증) 호출"""
         def call():
-            payload = {"video_id": video_id}
+            # 1) payload는 문자열로 "한 번만" 직렬화 (서명=전송 동일)
+            payload_json = json.dumps({"video_id": video_id}, separators=(",", ":"))
 
+            # 2) URL 랜덤 선택
+            url = random.choice(self.aws_lambda_function_urls)
+
+            # 3) URL에서 region 파싱 (ex: id.lambda-url.ap-northeast-1.on.aws)
+            host = urlparse(url).netloc
+            # host 분해: '<id>.lambda-url.<region>.on.aws'
+            region_from_url = host.split(".lambda-url.")[1].split(".on.aws")[0]
+
+            # 4) 자격증명
             session = boto3.Session(
                 aws_access_key_id=self.aws_access_key_id,
                 aws_secret_access_key=self.aws_secret_access_key,
-                region_name=self.region,
+                region_name=self.region,  # 세션 리전은 아무거나 OK
             )
             creds = session.get_credentials().get_frozen_credentials()
 
-            # 요청은 JSON으로
+            # 5) 같은 바디로 서명 + 같은 바디로 전송
             req = AWSRequest(
                 method="POST",
-                url=self.aws_lambda_function_url,
-                data=json.dumps(payload),
+                url=url,
+                data=payload_json,
                 headers={"Content-Type": "application/json"},
             )
-            SigV4Auth(creds, "lambda", self.region).add_auth(req)
+            SigV4Auth(creds, "lambda", region_from_url).add_auth(req)
 
-            res = requests.post(self.aws_lambda_function_url, json=payload, headers=dict(req.headers))
+            self.logger.info(f"Lambda region: {region_from_url}")
+
+            res = requests.post(url, data=payload_json, headers=dict(req.headers), timeout=90)
             res.raise_for_status()
             data = res.json()
 
-            # 1) API Gateway/Lambda proxy 형식
+            # Lambda proxy 형식
             if isinstance(data, dict) and "body" in data:
                 body = data["body"]
                 if isinstance(body, str):
@@ -198,19 +211,16 @@ class CaptionClient:
                         body = json.loads(body)
                     except Exception:
                         pass
-                captions = body["captions"]
-                lang_code = body["lang_code"]
-                return captions, lang_code
-
-            # 2) Function URL 직반환 형식
+                return body["captions"], body["lang_code"]
+    
+            # Function URL 직반환 형식
             if isinstance(data, dict) and "captions" in data and "lang_code" in data:
                 return data["captions"], data["lang_code"]
-
-            # 3) 그 외는 에러
-            raise RuntimeError(f"Unexpected Lambda response: {data}")
+    
+            self.logger.error(f"Unexpected Lambda response: {data}")
+            raise CaptionException(CaptionErrorCode.CAPTION_EXTRACT_FAILED)
 
         return await asyncio.to_thread(call)
-
 
     def get_captions_with_lang_code(self, video_id: str) -> Tuple[str, str]:
         # 1) 영상 정보 조회

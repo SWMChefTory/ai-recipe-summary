@@ -41,13 +41,19 @@ class Container(containers.DeclarativeContainer):
     config.bedrock.model_id.from_env("BEDROCK_MODEL_ID")
     config.bedrock.profile.from_env("BEDROCK_INFERENCE_PROFILE_ARN")
 
-    config.aws_lambda.function_url.from_env("AWS_LAMBDA_FUNCTION_URL")
+    config.aws_lambda.function_url_1.from_env("AWS_LAMBDA_FUNCTION_URL_1")
+    config.aws_lambda.function_url_2.from_env("AWS_LAMBDA_FUNCTION_URL_2")
+    config.aws_lambda.function_url_3.from_env("AWS_LAMBDA_FUNCTION_URL_3")
 
     # Caption
     caption_client = providers.Singleton(
       CaptionClient,
       region=config.aws.region,
-      aws_lambda_function_url=config.aws_lambda.function_url,
+      aws_lambda_function_urls=providers.List(
+          config.aws_lambda.function_url_1, 
+          config.aws_lambda.function_url_2,
+          config.aws_lambda.function_url_3
+      ),
       aws_access_key_id=config.aws.access_key,
       aws_secret_access_key=config.aws.secret_key,
     )
