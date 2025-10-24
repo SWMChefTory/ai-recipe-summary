@@ -56,7 +56,9 @@ jobs:
             AWS_REGION=${{ secrets.AWS_REGION }}
             BEDROCK_MODEL_ID=${{ secrets.BEDROCK_MODEL_ID }}
             BEDROCK_INFERENCE_PROFILE_ARN=${{ secrets.BEDROCK_INFERENCE_PROFILE_ARN }}
-            AWS_LAMBDA_FUNCTION_URL=${{ secrets.AWS_LAMBDA_FUNCTION_URL }}
+            AWS_LAMBDA_FUNCTION_URL_1=${{ secrets.AWS_LAMBDA_FUNCTION_URL_1 }}
+            AWS_LAMBDA_FUNCTION_URL_2=${{ secrets.AWS_LAMBDA_FUNCTION_URL_2 }}
+            AWS_LAMBDA_FUNCTION_URL_3=${{ secrets.AWS_LAMBDA_FUNCTION_URL_3 }}
             EOF
 
       - name: Copy docker-compose.prod.yml to EC2
