@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import os
 from typing import List, Tuple
 
 import pysrt
@@ -38,10 +37,8 @@ class CaptionService:
 
 
     async def get_captions_with_lang_code(self, video_id: str) -> Tuple[List[Caption], str]:
-        # 1) 원본 자막 다운로드
-        raw_captions, lang_code = await asyncio.to_thread(
-            self.client.get_captions_with_lang_code, video_id
-        )
+        # 1) Lambda Function URL 호출로 자막 다운로드
+        raw_captions, lang_code = await self.client.fetch_captions_from_lambda(video_id)
 
         # 2) 원본 자막을 Caption 객체 변환
         captions = self.__srt_str_to_captions(raw_captions)

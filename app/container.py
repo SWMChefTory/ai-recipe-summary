@@ -41,8 +41,28 @@ class Container(containers.DeclarativeContainer):
     config.bedrock.model_id.from_env("BEDROCK_MODEL_ID")
     config.bedrock.profile.from_env("BEDROCK_INFERENCE_PROFILE_ARN")
 
+    config.aws_lambda.function_url_seoul.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL")
+    config.aws_lambda.function_url_tokyo.from_env("AWS_LAMBDA_FUNCTION_URL_TOKYO")
+    config.aws_lambda.function_url_osaka.from_env("AWS_LAMBDA_FUNCTION_URL_OSAKA")
+    config.aws_lambda.function_url_singapore.from_env("AWS_LAMBDA_FUNCTION_URL_SINGAPORE")
+    config.aws_lambda.function_url_oregon.from_env("AWS_LAMBDA_FUNCTION_URL_OREGON")
+    config.aws_lambda.function_url_virginia.from_env("AWS_LAMBDA_FUNCTION_URL_VIRGINIA")
+
     # Caption
-    caption_client = providers.Singleton(CaptionClient)
+    caption_client = providers.Singleton(
+      CaptionClient,
+      region=config.aws.region,
+      aws_lambda_function_urls=providers.List(
+          config.aws_lambda.function_url_seoul, 
+          config.aws_lambda.function_url_tokyo,
+          config.aws_lambda.function_url_osaka,
+          config.aws_lambda.function_url_singapore,
+          config.aws_lambda.function_url_oregon,
+          config.aws_lambda.function_url_virginia,
+      ),
+      aws_access_key_id=config.aws.access_key,
+      aws_secret_access_key=config.aws.secret_key,
+    )
     recipe_validator = providers.Singleton(
         CaptionRecipeValidator,
         model_id=config.bedrock.model_id,
