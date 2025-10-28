@@ -49,6 +49,7 @@ class MetaExtractor:
         try:
             resp = self.client.converse(
                 modelId=model_identifier,
+                system=[{"text": "You must call the provided tool only. Do not produce free-form text. All natural-language must be Korean. Use proper UTF-8 encoding for all Korean characters. Ensure complete Unicode characters, especially for Korean syllables like 좋, 않, 됐, etc."}],
                 messages=[{"role": "user", "content": [{"text": user_prompt}]}],
                 toolConfig={
                     "tools": self.extract_ingredient_tool,
@@ -93,6 +94,7 @@ class MetaExtractor:
         try:
             resp = self.client.converse(
                 modelId=model_identifier,
+                system=[{"text": "You must call the provided tool only. Do not produce free-form text. Use proper UTF-8 encoding for all Korean characters. Ensure complete Unicode characters, especially for Korean syllables like 좋, 않, 됐, etc."}],
                 messages=[{"role": "user", "content": [{"text": user_prompt}]}],
                 toolConfig={
                     "tools": self.extract_tool,
