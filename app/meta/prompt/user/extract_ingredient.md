@@ -1,4 +1,4 @@
-Extract all cooking ingredients from the video description below.
+Extract all cooking ingredients from the video description and comments of the channel owner below.
 
 Return ONLY a JSON object with this exact structure:
 [
@@ -15,3 +15,6 @@ Rules:
 
 Description:
 {{ description }}
+
+Comments of the channel owner:
+{{ channel_owner_top_level_comments }}
