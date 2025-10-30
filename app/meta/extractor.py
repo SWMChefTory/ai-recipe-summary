@@ -79,9 +79,9 @@ class MetaExtractor:
             self.logger.error(f'{e}')
             raise MetaException(MetaErrorCode.META_INGREDIENTS_EXTRACT_FAILED)
 
-    def extract_ingredients_from_description(self, description: str) -> List[Ingredient]:
-        """유튜브 설명란에서 재료를 추출"""
+    def extract_ingredients_from_description(self, description: str, channel_owner_top_level_comments: List[str]) -> List[Ingredient]:
         prompt = self.extract_ingredient_prompt.replace("{{ description }}", description)
+        prompt = prompt.replace("{{ channel_owner_top_level_comments }}", "\n".join(channel_owner_top_level_comments))
         try:
             return self.__converse_ingredients_from_description(prompt)
         except MetaException:
@@ -89,7 +89,6 @@ class MetaExtractor:
 
 
     def __converse(self, user_prompt: str) -> MetaResponse:
-        """Bedrock API"""
         model_identifier = self.inference_profile_arn or self.model_id
         try:
             resp = self.client.converse(
@@ -134,6 +133,5 @@ class MetaExtractor:
         
 
     def extract(self, captions: str) -> MetaResponse:
-        """자막에서 메타데이터 추출"""
         prompt = self.extract_prompt.replace("{{ captions }}", captions)
         return self.__converse(prompt)
