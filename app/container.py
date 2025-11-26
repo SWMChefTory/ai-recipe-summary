@@ -1,4 +1,8 @@
+from tokenize import Comment
+
 from dotenv import load_dotenv
+
+from app.briefing.comment_classifier import CommentClassifier
 
 load_dotenv()
 
@@ -128,16 +132,19 @@ class Container(containers.DeclarativeContainer):
         inference_profile_arn=config.bedrock.profile,
         max_tokens=2048,
 
-        filter_user_prompt_path=Path("app/briefing/prompt/filter/user_prompt.md"),
-        filter_tool_path=Path("app/briefing/prompt/filter/emit_comment.json"),
-
         generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
         generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
     )
+    comment_classifier = providers.Singleton(
+        CommentClassifier,
+        model_id = "NamYunje/recipe-comment-classifier"
+    )
+    
     briefing_service = providers.Factory(
         BriefingService,
         client=briefing_client,
         generator=briefing_generator,
+        classifier=comment_classifier
     )
 
 
