@@ -14,13 +14,6 @@ class IBriefingGenerator(ABC):
     """레시피 관련 댓글 필터링 및 브리핑 생성을 담당하는 인터페이스"""
 
     @abstractmethod
-    def filter_comments(self, comments: List[str]) -> List[str]:
-        """
-        댓글(List[str])을 입력받아 레시피 관련 댓글만 반환.
-        """
-        pass
-
-    @abstractmethod
     def generate(self, comments: List[str]) -> List[str]:
         """
         댓글(List[str])을 입력받아 브리핑 문장 리스트를 반환.
@@ -40,8 +33,6 @@ class BriefingGenerator(IBriefingGenerator):
         temperature: float = 0.0,
         generate_user_prompt_path: Path,
         generate_tool_path: Path,
-        filter_user_prompt_path: Path,
-        filter_tool_path: Path,
     ):
         self.logger = logging.getLogger(__name__)
         self.model_id = model_id
@@ -51,9 +42,6 @@ class BriefingGenerator(IBriefingGenerator):
         self.temperature = temperature
 
         # ---- 프롬프트/툴 로드 ----
-        self.filter_prompt = filter_user_prompt_path.read_text(encoding="utf-8")
-        self.filter_tool = json.loads(filter_tool_path.read_text(encoding="utf-8"))
-
         self.briefing_prompt = generate_user_prompt_path.read_text(encoding="utf-8")
         self.briefing_tool = json.loads(generate_tool_path.read_text(encoding="utf-8"))
 
@@ -92,28 +80,8 @@ class BriefingGenerator(IBriefingGenerator):
             self.logger.error(f"LLM 호출 중 오류가 발생했습니다: {e}")
             raise
 
-    def filter_comments(self, comments: List[str]) -> List[str]:
-        """
-        댓글(List[str])을 입력받아 레시피 관련 댓글만 반환.
-        """
-        try:
-            comments_json = json.dumps(
-                [c for c in comments if isinstance(c, str) and c.strip()],
-                ensure_ascii=False
-            )
-            prompt = self.filter_prompt.replace("{{ comments_json }}", comments_json)
-            return self.__converse_briefing(prompt, self.filter_tool)
-
-        except Exception as e:
-            self.logger.error(f'댓글 필터링 중 오류가 발생했습니다: {e}')
-            raise BriefingException(BriefingErrorCode.BRIEFING_GENERATE_FAILED)
 
     def generate(self, comments: List[str]) -> List[str]:
-        """
-        댓글(List[str])을 입력받아 브리핑 문장 리스트를 반환.
-        - 레시피 관련 2~5문장
-        - 2개 미만이면 빈 리스트 반환
-        """
         try:
             comments_json = json.dumps(
                 [c for c in comments if isinstance(c, str) and c.strip()],
