@@ -44,7 +44,11 @@ class CaptionService:
         captions = self.__srt_str_to_captions(raw_captions)
 
         # 3) 레시피 관련 자막인지 검증
-        captions_text = " ".join(seg.text for seg in captions)
+        captions_text = " ".join(
+            seg.text 
+            for seg in captions 
+            if seg.start <= 300
+        )
         await asyncio.to_thread(
           self.recipe_validator.validate, captions_text, lang_code, video_id
         )
