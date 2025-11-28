@@ -85,7 +85,7 @@ class MetaExtractor:
                         name = raw_name.strip()
 
                         raw_amount = ing.get("amount")
-                        amount = self.__safe_int(raw_amount, 0.0)
+                        amount = self.__safe_int(raw_amount, 0)
 
                         unit = ing.get("unit") or ""
 
@@ -151,7 +151,7 @@ class MetaExtractor:
                     ingredients = []
                     for ing in raw_ingredients:
                         name = (ing.get("name") or "").strip()
-                        amount = self.__safe_int(ing.get("amount"), 0.0)
+                        amount = self.__safe_int(ing.get("amount"), 0)
                         unit = ing.get("unit") or ""
                         if name:
                             ingredients.append(
