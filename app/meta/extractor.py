@@ -44,6 +44,15 @@ class MetaExtractor:
         )
 
     @staticmethod
+    def __safe_float(value, default: float = 0.0) -> float:
+        if value is None:
+            return default
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return default
+
+    @staticmethod
     def __safe_int(value, default: int = 0) -> int:
         if value is None:
             return default
@@ -85,7 +94,7 @@ class MetaExtractor:
                         name = raw_name.strip()
 
                         raw_amount = ing.get("amount")
-                        amount = self.__safe_int(raw_amount, 0)
+                        amount = self.__safe_float(raw_amount, 0.0)
 
                         unit = ing.get("unit") or ""
 
@@ -151,7 +160,7 @@ class MetaExtractor:
                     ingredients = []
                     for ing in raw_ingredients:
                         name = (ing.get("name") or "").strip()
-                        amount = self.__safe_int(ing.get("amount"), 0)
+                        amount = self.__safe_float(ing.get("amount"), 0.0)
                         unit = ing.get("unit") or ""
                         if name:
                             ingredients.append(
