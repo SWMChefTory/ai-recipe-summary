@@ -26,7 +26,7 @@ class MetaService:
                 self.client.get_video_description, video_id
             )
 
-            # 유튜브 영상 채널 소유자 댓글(대댓글 제외 ) 가져오기
+            # 유튜브 영상 채널 소유자 댓글(대댓글 제외) 가져오기
             channel_owner_top_level_comments = await asyncio.to_thread(
                 self.client.get_channel_owner_top_level_comments, video_id
             )
