@@ -10,7 +10,7 @@ from app.step.schema import StepGroup
 
 
 class StepService:
-    def __init__(self, generator: StepGenerator, max_concurrency: int = 6):
+    def __init__(self, generator: StepGenerator, max_concurrency: int = 2):
         self.logger = logging.getLogger(__name__)
         self.generator = generator
         self.semaphore = asyncio.Semaphore(max_concurrency)
@@ -18,7 +18,7 @@ class StepService:
     def chunk_captions_by_lines(
         self,
         captions: List[Caption],
-        chunk_size: int = 100,
+        chunk_size: int = 150,
         overlap: int = 15,
     ) -> List[List[Caption]]:
         chunks: List[List[Caption]] = []
@@ -36,7 +36,7 @@ class StepService:
 
     async def generate(self, captions: List[Caption]) -> List[StepGroup]:
         # 1) 분할
-        chunks = self.chunk_captions_by_lines(captions, 100, 15)
+        chunks = self.chunk_captions_by_lines(captions, 150, 15)
         if not chunks:
             raise StepException(StepErrorCode.CHUNK_NOT_FOUND)
 
