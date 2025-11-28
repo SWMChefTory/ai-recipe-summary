@@ -100,7 +100,7 @@ class Container(containers.DeclarativeContainer):
         MetaExtractor,
         model_id=config.bedrock.meta.model_id,
         region=config.aws.region,
-        inference_profile_arn=config.bedrock.meta. profile,
+        inference_profile_arn=config.bedrock.meta.profile,
 
         extract_prompt_path=Path("app/meta/prompt/user/extract.md"),
         extract_tool_path=Path("app/meta/prompt/tool/extract.json"),
