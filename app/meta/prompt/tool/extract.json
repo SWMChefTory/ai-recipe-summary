@@ -14,7 +14,11 @@
             "cook_time"
           ],
           "properties": {
-            "description": { "type": "string", "maxLength": 60 },
+            "description": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "레시피의 핵심 특징을 담은 한국어 한 문장 (60자 이내)"
+            },
             "ingredients": {
               "type": "array",
               "items": {

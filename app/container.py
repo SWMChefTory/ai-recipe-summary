@@ -42,8 +42,19 @@ class Container(containers.DeclarativeContainer):
     config.aws.secret_key.from_env("AWS_SECRET_ACCESS_KEY")
     config.aws.region.from_env("AWS_REGION")
 
-    config.bedrock.model_id.from_env("BEDROCK_MODEL_ID")
-    config.bedrock.profile.from_env("BEDROCK_INFERENCE_PROFILE_ARN")
+    # Bedrock - 모델 설정
+    config.bedrock.step.model_id.from_env("BEDROCK_STEP_MODEL_ID")
+    config.bedrock.step.profile.from_env("BEDROCK_STEP_INFERENCE_PROFILE_ARN")
+    
+    config.bedrock.meta.model_id.from_env("BEDROCK_META_MODEL_ID")
+    config.bedrock.meta.profile.from_env("BEDROCK_META_INFERENCE_PROFILE_ARN")
+    
+    config.bedrock.validator.model_id.from_env("BEDROCK_VALIDATOR_MODEL_ID")
+    config.bedrock.validator.profile.from_env("BEDROCK_VALIDATOR_INFERENCE_PROFILE_ARN")
+    
+    config.bedrock.briefing.model_id.from_env("BEDROCK_BRIEFING_MODEL_ID")
+    config.bedrock.briefing.profile.from_env("BEDROCK_BRIEFING_INFERENCE_PROFILE_ARN")
+
 
     config.aws_lambda.function_url_seoul.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL")
     config.aws_lambda.function_url_tokyo.from_env("AWS_LAMBDA_FUNCTION_URL_TOKYO")
@@ -69,9 +80,9 @@ class Container(containers.DeclarativeContainer):
     )
     recipe_validator = providers.Singleton(
         CaptionRecipeValidator,
-        model_id=config.bedrock.model_id,
+        model_id=config.bedrock.validator.model_id,
         region=config.aws.region,
-        inference_profile_arn=config.bedrock.profile,
+        inference_profile_arn=config.bedrock.validator.profile,
     )
     caption_service = providers.Factory(
         CaptionService,
@@ -87,9 +98,9 @@ class Container(containers.DeclarativeContainer):
     )
     meta_extractor = providers.Singleton(
         MetaExtractor,
-        model_id=config.bedrock.model_id,
+        model_id=config.bedrock.meta.model_id,
         region=config.aws.region,
-        inference_profile_arn=config.bedrock.profile,
+        inference_profile_arn=config.bedrock.meta.profile,
 
         extract_prompt_path=Path("app/meta/prompt/user/extract.md"),
         extract_tool_path=Path("app/meta/prompt/tool/extract.json"),
@@ -106,9 +117,9 @@ class Container(containers.DeclarativeContainer):
     # Summary
     step_generator = providers.Singleton(
         StepGenerator,
-        model_id=config.bedrock.model_id,
+        model_id=config.bedrock.step.model_id,
         region=config.aws.region,
-        inference_profile_arn=config.bedrock.profile,
+        inference_profile_arn=config.bedrock.step.profile,
 
         step_tool_path=Path("app/step/prompt/tool/step.json"),
         summarize_user_prompt_path=Path("app/step/prompt/user/summarize.md"),
@@ -127,9 +138,9 @@ class Container(containers.DeclarativeContainer):
     )
     briefing_generator = providers.Singleton(
         BriefingGenerator,
-        model_id=config.bedrock.model_id,
+        model_id=config.bedrock.briefing.model_id,
         region=config.aws.region,
-        inference_profile_arn=config.bedrock.profile,
+        inference_profile_arn=config.bedrock.briefing.profile,
         max_tokens=2048,
 
         generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
