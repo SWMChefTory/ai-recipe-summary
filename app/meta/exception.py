@@ -5,7 +5,7 @@ from app.exception import RecipeSummaryException
 
 class MetaErrorCode(Enum):
     META_EXTRACT_FAILED = ("META_001", "메타데이터 추출 중 오류가 발생했습니다.")
-    META_BEDROCK_INVOKE_FAILED = ("META_002", "Bedrock API 호출 중 오류가 발생했습니다.")
+    META_API_INVOKE_FAILED = ("META_002", "API 호출 중 오류가 발생했습니다.")
     META_NOT_FOUND = ("META_003", "메타데이터를 찾을 수 없습니다.")
     META_INGREDIENTS_EXTRACT_FAILED = ("META_004", "재료 추출 중 오류가 발생했습니다.")
 

@@ -1,6 +1,6 @@
-from tokenize import Comment
 
 from dotenv import load_dotenv
+from google import genai
 
 from app.briefing.comment_classifier import CommentClassifier
 
@@ -37,6 +37,9 @@ class Container(containers.DeclarativeContainer):
     )
     config = providers.Configuration()
     config.google.api_key.from_env("GOOGLE_API_KEY")
+    config.google.ai_api_key.from_env("GOOGLE_AI_API_KEY")
+
+    config.google.gemini.model_id.from_env("GEMINI_MODEL_ID")
 
     config.aws.access_key.from_env("AWS_ACCESS_KEY_ID")
     config.aws.secret_key.from_env("AWS_SECRET_ACCESS_KEY")
@@ -62,6 +65,12 @@ class Container(containers.DeclarativeContainer):
     config.aws_lambda.function_url_singapore.from_env("AWS_LAMBDA_FUNCTION_URL_SINGAPORE")
     config.aws_lambda.function_url_oregon.from_env("AWS_LAMBDA_FUNCTION_URL_OREGON")
     config.aws_lambda.function_url_virginia.from_env("AWS_LAMBDA_FUNCTION_URL_VIRGINIA")
+
+    # Gemini - Client 설정
+    genai_client = providers.Singleton(
+        genai.Client,
+        api_key=config.google.ai_api_key,
+    )
 
     # Caption
     caption_client = providers.Singleton(
@@ -98,9 +107,8 @@ class Container(containers.DeclarativeContainer):
     )
     meta_extractor = providers.Singleton(
         MetaExtractor,
-        model_id=config.bedrock.meta.model_id,
-        region=config.aws.region,
-        inference_profile_arn=config.bedrock.meta.profile,
+        client=genai_client,
+        model=config.google.gemini.model_id,
 
         extract_prompt_path=Path("app/meta/prompt/user/extract.md"),
         extract_tool_path=Path("app/meta/prompt/tool/extract.json"),
@@ -117,10 +125,8 @@ class Container(containers.DeclarativeContainer):
     # Summary
     step_generator = providers.Singleton(
         StepGenerator,
-        model_id=config.bedrock.step.model_id,
-        region=config.aws.region,
-        inference_profile_arn=config.bedrock.step.profile,
-
+        client=genai_client,
+        model=config.google.gemini.model_id,
         step_tool_path=Path("app/step/prompt/tool/step.json"),
         summarize_user_prompt_path=Path("app/step/prompt/user/summarize.md"),
         merge_user_prompt_path=Path("app/step/prompt/user/merge.md"),
