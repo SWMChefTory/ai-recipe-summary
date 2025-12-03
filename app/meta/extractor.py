@@ -164,7 +164,7 @@ class MetaExtractor:
 
         except genai_errors.ClientError as e:
             self.logger.error(f"Gemini API invoke failed (ingredients): {e}")
-            raise MetaException(MetaErrorCode.META_BEDROCK_INVOKE_FAILED)
+            raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED)
         except Exception as e:
             self.logger.error(f"Ingredient extraction failed: {e}")
             raise MetaException(MetaErrorCode.META_INGREDIENTS_EXTRACT_FAILED)
@@ -247,7 +247,7 @@ class MetaExtractor:
 
         except genai_errors.ClientError as e:
             self.logger.error(f"Gemini API invoke failed (meta): {e}")
-            raise MetaException(MetaErrorCode.META_BEDROCK_INVOKE_FAILED)
+            raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED)
         except MetaException:
             raise
         except Exception as e:
