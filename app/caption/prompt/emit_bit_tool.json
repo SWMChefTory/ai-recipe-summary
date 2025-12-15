@@ -9,8 +9,7 @@
           "properties": {
             "bit": { "type": "integer", "enum": [0, 1] }
           },
-          "required": ["bit"],
-          "additionalProperties": false
+          "required": ["bit"]
         }
       }
     }
