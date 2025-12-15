@@ -144,11 +144,8 @@ class Container(containers.DeclarativeContainer):
     )
     briefing_generator = providers.Singleton(
         BriefingGenerator,
-        model_id=config.bedrock.briefing.model_id,
-        region=config.aws.region,
-        inference_profile_arn=config.bedrock.briefing.profile,
-        max_tokens=2048,
-
+        client=genai_client,
+        model=config.google.gemini.model_id,
         generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
         generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
     )
