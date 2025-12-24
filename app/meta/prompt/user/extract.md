@@ -1,35 +1,49 @@
 You are an expert at extracting structured metadata from recipe video subtitles.
 
-### Result Format
+### Task
+Extract recipe details from the subtitles and format them into the specified JSON structure.
 
+### Result Format (JSON Only)
 {
-"description": string
-"ingredients": [
-{
-"name": string,
-"amount": number,
-"unit": string
+  "description": "string",
+  "ingredients": [
+    {
+      "name": "string",
+      "amount": 0.0,       // Must be a number (float). Use 0 if missing.
+      "unit": "string"     // Use "" (empty string) if missing.
+    }
+  ],
+  "tags": ["string"],
+  "servings": 2,           // integer
+  "cook_time": 30          // integer (minutes)
 }
-],
-"tags": [string]
-"servings": number
-"cook_time": number
-}
 
-### extraction rule
+### Extraction Rules
 
-- description: one sentence that captures the key features of the recipe. A natural Korean sentence of no more than 60 characters.
-- ingredients: Extract all the materials specified in the caption. Explicitly using the amount given. Empty string and zero if there are no quantities and units, respectively.
-- Tags: From the following list [한식, 중식, 일식, 양식, 분식, 디저트, 간편식, 유아식, 건강식], select the tags relevant to this recipe.
-  - If multiple tags from this list are relevant, select a maximum of 2.
-  - Then, select representative keywords (e.g., dish type, main ingredient, cooking style).
-  - The total number of tags (combining the list tags and the keywords) must not exceed a maximum of 4.
-  - Ensure all tags are in Korean with correct spelling.
-  - Do not use spaces in the tags.
-  - If no tags from the list or any representative keywords are relevant, do not generate any tags.
-- servings: Extract one serving (e.g. "two serving") from the caption, otherwise the default is 2.
-- cook_time: extracting cooking time from the caption and convert to minutes, otherwise default is 30.
+1. **Description:**
+   - Write one natural sentence capturing the key features.
+   - Length: **Maximum 100 characters.**
 
-### Input
+2. **Ingredients:**
+   - Extract all ingredients mentioned.
+   - **Amount:** Use a number (float). Convert fractions (e.g., "1/2") to decimals (0.5). If no amount is specified, use 0.
+   - **Unit:** If no unit is specified, use "" (empty string).
 
+3. **Tags:**
+   - Step 1: Select up to 2 tags from this list: {{ tag_options }}
+   - Step 2: Select up to 2 additional keywords (e.g., main ingredient, cooking style).
+   - **Total tags must not exceed 4.**
+   - Keep the spelling exactly as shown in the list.
+
+4. **Servings & Time:**
+   - **Servings:** Extract the number. Default to `2` if not mentioned.
+   - **Cook Time:** Extract time and convert to **minutes** (integer). Default to `30` if not mentioned.
+
+5. **Language Constraint:**
+   - All string values (description, ingredient names, units, tags) **MUST be translated into {{ language }}**.
+
+### Input Subtitles
 {{ captions }}
+
+### Target Language
+{{ language }}

@@ -2,12 +2,14 @@ import json
 import logging
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
-import boto3
-from botocore.config import Config
+from google import genai
+from google.genai import errors as genai_errors
+from google.genai import types
 
 from app.briefing.exception import BriefingErrorCode, BriefingException
+from app.enum import LanguageType
 
 
 class IBriefingGenerator(ABC):
@@ -26,69 +28,123 @@ class BriefingGenerator(IBriefingGenerator):
     def __init__(
         self,
         *,
-        model_id: str,
-        region: str,
-        inference_profile_arn: str,
-        max_tokens: int,
-        temperature: float = 0.0,
+        client: genai.Client,
+        model: str,
         generate_user_prompt_path: Path,
         generate_tool_path: Path,
     ):
         self.logger = logging.getLogger(__name__)
-        self.model_id = model_id
-        self.region = region
-        self.inference_profile_arn = inference_profile_arn
-        self.max_tokens = max_tokens
-        self.temperature = temperature
+        self.client = client
+        self.model = model
 
-        # ---- 프롬프트/툴 로드 ----
         self.briefing_prompt = generate_user_prompt_path.read_text(encoding="utf-8")
-        self.briefing_tool = json.loads(generate_tool_path.read_text(encoding="utf-8"))
+        self.briefing_tool_spec = json.loads(generate_tool_path.read_text(encoding="utf-8"))
 
-        self.client = boto3.client(
-            "bedrock-runtime",
-            config=Config(
-                region_name=region,
-                retries={"max_attempts": 3, "mode": "adaptive"},
-                connect_timeout=10,
-                read_timeout=180,
+        self.system_instruction = (
+            "You are a specialized AI assistant for summarizing cooking review. "
+            "You must ONLY call the provided function (`emit_briefing`) with the extracted data. "
+            "Do not output any conversational text, markdown blocks, or explanations outside the function call."
+        )
+
+        def _build_tool_from_spec(tool_list: list) -> types.Tool:
+            if not tool_list:
+                raise ValueError("Briefing tool spec list is empty")
+
+            tool_spec = tool_list[0].get("toolSpec") or {}
+            name = tool_spec.get("name")
+            description = tool_spec.get("description", "")
+            json_schema = (tool_spec.get("inputSchema") or {}).get("json") or {}
+
+            if not name:
+                raise ValueError("toolSpec.name is required in briefing tool spec JSON")
+
+            fn_decl = {
+                "name": name,
+                "description": description,
+                "parameters": json_schema,
+            }
+
+            return types.Tool(function_declarations=[fn_decl])
+
+        def _get_function_name(tool_list: list) -> Optional[str]:
+            try:
+                return tool_list[0].get("toolSpec", {}).get("name")
+            except Exception:
+                return None
+
+        self.tool_name = _get_function_name(self.briefing_tool_spec)
+        self.briefing_tool = _build_tool_from_spec(self.briefing_tool_spec)
+
+        allowed_functions = [self.tool_name] if self.tool_name else []
+        self.briefing_conf = types.GenerateContentConfig(
+            system_instruction=self.system_instruction,
+            temperature=0.0,
+            tools=[self.briefing_tool],
+            tool_config=types.ToolConfig(
+                function_calling_config=types.FunctionCallingConfig(
+                    mode="ANY",
+                    allowed_function_names=allowed_functions or None,
+                )
             ),
         )
 
-    def __converse_briefing(self, user_prompt: str, tool: List[dict]) -> List[str]:
+    def __converse_briefing(self, user_prompt: str) -> List[str]:
         try:
-            model_identifier = self.inference_profile_arn or self.model_id
-            tool_name = tool[0].get("toolSpec", {}).get("name")
-        
-            resp = self.client.converse(
-                modelId=model_identifier,
-                system=[{"text": "Summarize recipe comments into Korean tips. You must ONLY use the tool emit_briefing. DO NOT generate free-form text. Ensure all output is in natural Korean."}],
-                messages=[{"role": "user", "content": [{"text": user_prompt}]}],
-                toolConfig={"tools": tool, "toolChoice": {"tool": {"name": tool_name}}},
-                inferenceConfig={"maxTokens": self.max_tokens, "temperature": self.temperature},
+            response = self.client.models.generate_content(
+                model=self.model,
+                contents=user_prompt,
+                config=self.briefing_conf,
             )
-            content = resp["output"]["message"]["content"]
 
-            for item in content:
-                tu = item.get("toolUse")
-                if tu and tu.get("name") == tool_name:
-                    obj = tu.get("input", {})
-                    items = obj.get("items", [])
-                    return [str(item) for item in items]
+            calls = getattr(response, "function_calls", None) or []
+            if not calls and getattr(response, "candidates", None):
+                calls = []
+                for cand in response.candidates:
+                    content = getattr(cand, "content", None)
+                    if not content:
+                        continue
+                    for part in content.parts:
+                        fc = getattr(part, "function_call", None)
+                        if fc:
+                            calls.append(fc)
 
+            if not calls:
+                self.logger.error("No function call returned from Gemini (emit_briefing)")
+                return []
+
+            briefing_args = None
+            for call in calls:
+                if call.name == self.tool_name:
+                    briefing_args = call.args or {}
+                    break
+
+            if not briefing_args:
+                self.logger.error("emit_briefing not found in function calls")
+                return []
+
+            items = briefing_args.get("items") or []
+            return [str(item) for item in items if isinstance(item, str)]
+
+        except genai_errors.ClientError as e:
+            self.logger.error(f"Gemini API failed (emit_briefing): {e}")
+            return []
         except Exception as e:
-            self.logger.error(f"LLM 호출 중 오류가 발생했습니다: {e}")
-            raise
+            self.logger.error(f"Unexpected converse response (emit_briefing): {e}")
+            return []
 
 
-    def generate(self, comments: List[str]) -> List[str]:
+    def generate(self, comments: List[str], language: LanguageType) -> List[str]:
         try:
             comments_json = json.dumps(
-                [c for c in comments if isinstance(c, str) and c.strip()],
+                [comment for comment in comments if isinstance(comment, str) and comment.strip()],
                 ensure_ascii=False
             )
-            prompt = self.briefing_prompt.replace("{{ comments_json }}", comments_json)
-            result = self.__converse_briefing(prompt, self.briefing_tool)
+            prompt = (
+                self.briefing_prompt
+                .replace("{{ comments_json }}", comments_json)
+                .replace("{{ language }}", language)
+            )
+            result = self.__converse_briefing(prompt)
 
             if len(result) > 4:
                 result = result[:4]

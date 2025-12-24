@@ -14,5 +14,5 @@ services:
 
 networks:
   cheftory_network:
+    external: true
     name: cheftory_network
-    driver: bridge

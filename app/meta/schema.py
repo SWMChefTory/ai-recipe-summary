@@ -10,7 +10,7 @@ from app.caption.schema import Caption
 class Ingredient(BaseModel):
     name: str = Field(..., description="재료명")
     amount: Optional[float] = Field(None, ge=0)
-    unit: Optional[str] = Field(None, max_length=10)
+    unit: Optional[str] = Field(None, max_length=20)
 
 
 class MetaRequest(BaseModel):
@@ -21,7 +21,7 @@ class MetaRequest(BaseModel):
 
 class MetaResponse(BaseModel):
     """메타데이터 추출 응답"""
-    description: str = Field(..., description="요리에 대한 간단한 설명(최대 60자)")
+    description: str = Field(..., description="요리에 대한 간단한 설명(최대 80자)")
     ingredients: List[Ingredient]
     tags: List[str] = Field(description="태그(2~4개)")
     servings: int = Field(ge=1, description="몇 인분")
