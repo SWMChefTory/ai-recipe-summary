@@ -1,17 +1,23 @@
 import json
 import logging
 from pathlib import Path
-from typing import List
+from typing import Any, Iterable, List
 
 from google import genai
 from google.genai import errors as genai_errors
 from google.genai import types
 
+from app.enum import LanguageType
 from app.meta.exception import MetaErrorCode, MetaException
 from app.meta.schema import Ingredient, MetaResponse
 
 
 class MetaExtractor:
+    META_FN = "emit_meta"
+    INGREDIENTS_FN = "emit_ingredients"
+    TAGS_KR = "[한식, 중식, 일식, 양식, 분식, 디저트, 간편식, 유아식, 건강식]"
+    TAGS_EN = "[Korean, Chinese, Japanese, Western, Street Food, Dessert, Quick Meals, Baby Food, Healthy]"
+
     def __init__(
         self,
         *,
@@ -23,77 +29,76 @@ class MetaExtractor:
         extract_ingredient_tool_path: Path,
     ):
         self.logger = logging.getLogger(__name__)
-
         self.client = client
         self.model = model
 
         # ----- 프롬프트 / 툴 스펙 로드 -----
         self.extract_prompt = extract_prompt_path.read_text(encoding="utf-8")
-        self.extract_tool = json.loads(extract_tool_path.read_text(encoding="utf-8"))
+        self.extract_ingredient_prompt = extract_ingredient_prompt_path.read_text(
+            encoding="utf-8"
+        )
 
-        self.extract_ingredient_prompt = extract_ingredient_prompt_path.read_text(encoding="utf-8")
-        self.extract_ingredient_tool = json.loads(
+        extract_tool_spec = json.loads(extract_tool_path.read_text(encoding="utf-8"))
+        extract_ingredient_tool_spec = json.loads(
             extract_ingredient_tool_path.read_text(encoding="utf-8")
         )
 
-        self.system_instruction = """
-            You must call the provided function only. Do not output any free-form text.
-
-            All natural-language content in the function arguments must be written in Korean only.
-            Avoid using English entirely.
-            Fields such as description, ingredients.name, and tags must all be natural Korean expressions.
-            """.strip()
-
-        def _build_tool_from_spec(tool_list: list) -> types.Tool:
-            if not tool_list:
-                raise ValueError("Tool spec list is empty")
-
-            tool_spec = tool_list[0].get("toolSpec") or {}
-            name = tool_spec.get("name")
-            description = tool_spec.get("description", "")
-            json_schema = (tool_spec.get("inputSchema") or {}).get("json") or {}
-
-            if not name:
-                raise ValueError("toolSpec.name is required in tool spec JSON")
-
-            fn_decl = {
-                "name": name,
-                "description": description,
-                "parameters": json_schema,
-            }
-
-            return types.Tool(function_declarations=[fn_decl])
-
-        self.ingredients_tool = _build_tool_from_spec(self.extract_ingredient_tool)
-        self.meta_tool = _build_tool_from_spec(self.extract_tool)
-
-        self.ingredients_conf = types.GenerateContentConfig(
-            system_instruction=self.system_instruction,
-            temperature=0.0,
-            tools=[self.ingredients_tool],
-            tool_config=types.ToolConfig(
-                function_calling_config=types.FunctionCallingConfig(
-                    mode="ANY",
-                    allowed_function_names=["emit_ingredients"],
-                )
-            ),
+        self.system_instruction = (
+            "You must call the provided function only. Do not output any free-form text.\n"
         )
 
-        self.meta_conf = types.GenerateContentConfig(
-            system_instruction=self.system_instruction,
-            temperature=0.0,
-            tools=[self.meta_tool],
-            tool_config=types.ToolConfig(
-                function_calling_config=types.FunctionCallingConfig(
-                    mode="ANY",
-                    allowed_function_names=["emit_meta"],
-                )
-            ),
+        self.meta_tool = self._build_tool_from_spec(extract_tool_spec)
+        self.ingredients_tool = self._build_tool_from_spec(extract_ingredient_tool_spec)
+
+        self.meta_conf = self._build_conf(
+            tool=self.meta_tool,
+            allowed_fn=self.META_FN,
+        )
+        self.ingredients_conf = self._build_conf(
+            tool=self.ingredients_tool,
+            allowed_fn=self.INGREDIENTS_FN,
         )
 
 
     @staticmethod
-    def __safe_float(value, default: float = 0.0) -> float:
+    def _build_tool_from_spec(tool_list: list) -> types.Tool:
+        if not tool_list:
+            raise ValueError("Tool spec list is empty")
+
+        tool_spec = tool_list[0].get("toolSpec") or {}
+        name = tool_spec.get("name")
+        description = tool_spec.get("description", "")
+        json_schema = (tool_spec.get("inputSchema") or {}).get("json") or {}
+
+        if not name:
+            raise ValueError("toolSpec.name is required in tool spec JSON")
+
+        fn_decl = {"name": name, "description": description, "parameters": json_schema}
+        return types.Tool(function_declarations=[fn_decl])
+
+    def _build_conf(self, *, tool: types.Tool, allowed_fn: str) -> types.GenerateContentConfig:
+        return types.GenerateContentConfig(
+            system_instruction=self.system_instruction,
+            temperature=0.0,
+            tools=[tool],
+            tool_config=types.ToolConfig(
+                function_calling_config=types.FunctionCallingConfig(
+                    mode="ANY",
+                    allowed_function_names=[allowed_fn],
+                )
+            ),
+        )
+
+    @staticmethod
+    def _render_prompt(template: str, **vars: str) -> str:
+        out = template
+        for k, v in vars.items():
+            out = out.replace(f"{{{{ {k} }}}}", v)
+
+        return out
+
+    @staticmethod
+    def _safe_float(value: Any, default: float = 0.0) -> float:
         if value is None:
             return default
         try:
@@ -102,7 +107,7 @@ class MetaExtractor:
             return default
 
     @staticmethod
-    def __safe_int(value, default: int = 0) -> int:
+    def _safe_int(value: Any, default: int = 0) -> int:
         if value is None:
             return default
         try:
@@ -110,150 +115,138 @@ class MetaExtractor:
         except (TypeError, ValueError):
             return default
 
+    @staticmethod
+    def _iter_function_calls(response) -> Iterable[Any]:
+        calls = getattr(response, "function_calls", None) or []
+        if calls:
+            return calls
 
-    def __converse_ingredients_from_description(self, user_prompt: str) -> List[Ingredient]:
-        try:
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=user_prompt,
-                config=self.ingredients_conf,
-            )
-
-            # 1) python-genai의 편의 속성 먼저 시도
-            calls = getattr(response, "function_calls", None) or []
-
-            # 2) fallback: candidates[*].content.parts[*].function_call 에서 수동 파싱 
-            if not calls and getattr(response, "candidates", None):
-                calls = []
-                for cand in response.candidates:
-                    content = getattr(cand, "content", None)
-                    if not content:
-                        continue
-                    for part in content.parts:
-                        fc = getattr(part, "function_call", None)
-                        if fc:
-                            calls.append(fc)
-
-            if not calls:
-                # 함수 호출이 없으면 "빈 리스트"로 처리 (기존 로직과 동일)
-                return []
-
-            for call in calls:
-                if call.name != "emit_ingredients":
+        if getattr(response, "candidates", None):
+            out: list[Any] = []
+            for cand in response.candidates:
+                content = getattr(cand, "content", None)
+                if not content:
                     continue
+                for part in getattr(content, "parts", []) or []:
+                    fc = getattr(part, "function_call", None)
+                    if fc:
+                        out.append(fc)
+            return out
 
-                args = call.args or {}
-                arr = args.get("ingredients") or []
-                out: List[Ingredient] = []
+        return []
 
-                for ing in arr:
-                    raw_name = ing.get("name") or ""
-                    name = raw_name.strip()
+    @classmethod
+    def _find_call_args(cls, calls: Iterable[Any], fn_name: str) -> dict:
+        for call in calls:
+            if getattr(call, "name", None) == fn_name:
+                return call.args or {}
+        return {}
 
-                    raw_amount = ing.get("amount")
-                    amount = self.__safe_float(raw_amount, 0.0)
 
-                    unit = ing.get("unit") or ""
-
-                    if name:
-                        out.append(Ingredient(name=name, amount=amount, unit=unit))
-
-                return out
-
-            return []
-
+    def _generate_content(self, *, prompt: str, conf: types.GenerateContentConfig, err_code: MetaErrorCode):
+        try:
+            return self.client.models.generate_content(
+                model=self.model,
+                contents=prompt,
+                config=conf,
+            )
         except genai_errors.ClientError as e:
-            self.logger.error(f"Gemini API invoke failed (ingredients): {e}")
-            raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED)
+            self.logger.exception("Gemini API invoke failed")
+            raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from e
         except Exception as e:
-            self.logger.error(f"Ingredient extraction failed: {e}")
-            raise MetaException(MetaErrorCode.META_INGREDIENTS_EXTRACT_FAILED)
+            self.logger.exception("Unexpected error during Gemini call")
+            raise MetaException(err_code) from e
+
 
     def extract_ingredients_from_description(
         self,
         description: str,
         channel_owner_top_level_comments: List[str],
+        language: LanguageType
     ) -> List[Ingredient]:
-        prompt = self.extract_ingredient_prompt.replace("{{ description }}", description)
-        prompt = prompt.replace(
-            "{{ channel_owner_top_level_comments }}",
-            "\n".join(channel_owner_top_level_comments),
+        prompt = self._render_prompt(
+            self.extract_ingredient_prompt,
+            description=description,
+            channel_owner_top_level_comments="\n".join(channel_owner_top_level_comments),
+            language=language
         )
+
         try:
-            return self.__converse_ingredients_from_description(prompt)
+            response = self._generate_content(
+                prompt=prompt,
+                conf=self.ingredients_conf,
+                err_code=MetaErrorCode.META_INGREDIENTS_EXTRACT_FAILED,
+            )
+
+            calls = self._iter_function_calls(response)
+            args = self._find_call_args(calls, self.INGREDIENTS_FN)
+
+            arr = args.get("ingredients") or []
+            out: List[Ingredient] = []
+
+            for ing in arr:
+                name = (ing.get("name") or "").strip()
+                if not name:
+                    continue
+                amount = self._safe_float(ing.get("amount"), 0.0)
+                unit = ing.get("unit") or ""
+                out.append(Ingredient(name=name, amount=amount, unit=unit))
+
+            return out
+
         except MetaException:
             return []
 
-    def __converse(self, user_prompt: str) -> MetaResponse:
-        try:
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=user_prompt,
-                config=self.meta_conf,
-            )
+    def extract(self, captions: str, language: LanguageType) -> MetaResponse:
+        if language == LanguageType.KR:
+            tag_options = self.TAGS_KR
+        else:
+            tag_options = self.TAGS_EN
 
-            calls = getattr(response, "function_calls", None) or []
+        prompt = self._render_prompt(
+            self.extract_prompt, 
+            captions=captions,
+            language=language,
+            tag_options=tag_options
+        )
 
-            if not calls and getattr(response, "candidates", None):
-                calls = []
-                for cand in response.candidates:
-                    content = getattr(cand, "content", None)
-                    if not content:
-                        continue
-                    for part in content.parts:
-                        fc = getattr(part, "function_call", None)
-                        if fc:
-                            calls.append(fc)
+        response = self._generate_content(
+            prompt=prompt,
+            conf=self.meta_conf,
+            err_code=MetaErrorCode.META_EXTRACT_FAILED,
+        )
 
-            if not calls:
-                raise MetaException(MetaErrorCode.META_EXTRACT_FAILED)
-
-            meta_args = None
-            for call in calls:
-                if call.name == "emit_meta":
-                    meta_args = call.args or {}
-                    break
-
-            if meta_args is None:
-                raise MetaException(MetaErrorCode.META_EXTRACT_FAILED)
-
-            raw_description = meta_args.get("description") or ""
-            description = raw_description.strip()
-
-            raw_ingredients = meta_args.get("ingredients") or []
-            ingredients = []
-            for ing in raw_ingredients:
-                name = (ing.get("name") or "").strip()
-                amount = self.__safe_float(ing.get("amount"), 0.0)
-                unit = ing.get("unit") or ""
-                if name:
-                    ingredients.append(
-                        {"name": name, "amount": amount, "unit": unit}
-                    )
-
-            raw_tags = meta_args.get("tags") or []
-            tags = [t for t in raw_tags if t]
-
-            servings = self.__safe_int(meta_args.get("servings"), 2)
-            cook_time = self.__safe_int(meta_args.get("cook_time"), 30)
-
-            return MetaResponse(
-                description=description,
-                ingredients=ingredients,
-                tags=tags,
-                servings=servings,
-                cook_time=cook_time,
-            )
-
-        except genai_errors.ClientError as e:
-            self.logger.error(f"Gemini API invoke failed (meta): {e}")
-            raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED)
-        except MetaException:
-            raise
-        except Exception as e:
-            self.logger.error(f"Meta extraction failed: {e}")
+        calls = self._iter_function_calls(response)
+        args = self._find_call_args(calls, self.META_FN)
+        if not args:
             raise MetaException(MetaErrorCode.META_EXTRACT_FAILED)
 
-    def extract(self, captions: str) -> MetaResponse:
-        prompt = self.extract_prompt.replace("{{ captions }}", captions)
-        return self.__converse(prompt)
+        description = (args.get("description") or "").strip()
+
+        raw_ingredients = args.get("ingredients") or []
+        ingredients = []
+        for ing in raw_ingredients:
+            name = (ing.get("name") or "").strip()
+            if not name:
+                continue
+            ingredients.append(
+                {
+                    "name": name,
+                    "amount": self._safe_float(ing.get("amount"), 0.0),
+                    "unit": ing.get("unit") or "",
+                }
+            )
+
+        raw_tags = args.get("tags") or []
+        tags = [tag.replace(" ", "") for tag in raw_tags if tag]
+
+        servings = self._safe_int(args.get("servings"), 2)
+        cook_time = self._safe_int(args.get("cook_time"), 30)
+
+        return MetaResponse(
+            description=description,
+            ingredients=ingredients,
+            tags=tags,
+            servings=servings,
+            cook_time=cook_time,
+        )
