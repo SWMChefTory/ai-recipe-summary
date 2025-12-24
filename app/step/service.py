@@ -70,4 +70,8 @@ class StepService:
             language,
         )
 
+        preview_steps = [s.model_dump() for s in merged_steps[:3]]
+        
+        self.logger.info(f"{len(merged_steps)}개의 스텝 생성 완료. Preview(Top 3): {json.dumps(preview_steps, ensure_ascii=False)}")
+
         return merged_steps
