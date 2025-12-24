@@ -2,7 +2,7 @@
   {
     "toolSpec": {
       "name": "emit_steps",
-      "description": "Emit step groups extracted/merged from captions in Korean (~요).",
+      "description": "Emit step groups extracted/merged from captions",
       "inputSchema": {
         "json": {
           "type": "object",
@@ -22,7 +22,7 @@
                       "type": "object",
                       "required": ["text", "start"],
                       "properties": {
-                        "text": { "type": "string", "maxLength": 50 },
+                        "text": { "type": "string", "maxLength": 90 },
                         "start": { "type": "number" }
                       }
                     }

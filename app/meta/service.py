@@ -3,6 +3,7 @@ import logging
 from typing import List
 
 from app.caption.schema import Caption
+from app.enum import LanguageType
 from app.meta.client import MetaClient
 from app.meta.exception import MetaErrorCode, MetaException
 from app.meta.extractor import MetaExtractor
@@ -15,10 +16,11 @@ class MetaService:
         self.client = client
         self.extractor = extractor
 
-    async def extract(self, video_id: str, captions: List[Caption]) -> MetaResponse:
+    async def extract(self, video_id: str, captions: List[Caption], language: LanguageType) -> MetaResponse:
         try:
             meta = await asyncio.to_thread(
-                self.extractor.extract, " ".join([cap.text for cap in captions])
+                self.extractor.extract, " ".join([cap.text for cap in captions]),
+                language
             )
             
             # 유튜브 영상 설명 가져오기
@@ -33,11 +35,16 @@ class MetaService:
 
             # 설명란과 채널 소유자 댓글에서 재료 리스트 추출
             ingredients = await asyncio.to_thread(
-                self.extractor.extract_ingredients_from_description, description, channel_owner_top_level_comments
+                self.extractor.extract_ingredients_from_description, 
+                description, 
+                channel_owner_top_level_comments,
+                language
             )
 
             if ingredients:
+                self.logger.info(f"자막에서 재료 리스트 추출 결과: {meta.ingredients}")
                 meta.ingredients = ingredients
+                self.logger.info(f"설명란&댓글에서 재료 리스트 추출 결과(최종): {meta.ingredients}")
 
             return MetaResponse(
                 description=meta.description,

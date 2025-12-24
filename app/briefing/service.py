@@ -9,6 +9,7 @@ import emoji
 from app.briefing.client import BriefingClient
 from app.briefing.comment_classifier import CommentClassifier
 from app.briefing.generator import BriefingGenerator
+from app.enum import LanguageType
 
 
 class BriefingService:
@@ -37,7 +38,7 @@ class BriefingService:
         
         return text
 
-    async def get(self, video_id: str) -> List[str]:
+    async def get(self, video_id: str, language: LanguageType) -> List[str]:
         # 1) 댓글 추출
         raw_comments = await asyncio.to_thread(
             self.client.get_video_comments, video_id
@@ -65,5 +66,5 @@ class BriefingService:
 
         # 4) 브리핑 생성
         return await asyncio.to_thread(
-            self.generator.generate, filtered_comments
+            self.generator.generate, filtered_comments, language
         )

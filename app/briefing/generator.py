@@ -9,6 +9,7 @@ from google.genai import errors as genai_errors
 from google.genai import types
 
 from app.briefing.exception import BriefingErrorCode, BriefingException
+from app.enum import LanguageType
 
 
 class IBriefingGenerator(ABC):
@@ -40,10 +41,9 @@ class BriefingGenerator(IBriefingGenerator):
         self.briefing_tool_spec = json.loads(generate_tool_path.read_text(encoding="utf-8"))
 
         self.system_instruction = (
-            "You must call the provided function only. Do not produce free-form text.\n"
-            "All natural-language must be Korean. Use proper UTF-8 encoding for all "
-            "Korean characters. Ensure complete Unicode characters, especially for "
-            "Korean syllables like 좋, 않, 됐, etc."
+            "You are a specialized AI assistant for summarizing cooking review. "
+            "You must ONLY call the provided function (`emit_briefing`) with the extracted data. "
+            "Do not output any conversational text, markdown blocks, or explanations outside the function call."
         )
 
         def _build_tool_from_spec(tool_list: list) -> types.Tool:
@@ -133,13 +133,17 @@ class BriefingGenerator(IBriefingGenerator):
             return []
 
 
-    def generate(self, comments: List[str]) -> List[str]:
+    def generate(self, comments: List[str], language: LanguageType) -> List[str]:
         try:
             comments_json = json.dumps(
-                [c for c in comments if isinstance(c, str) and c.strip()],
+                [comment for comment in comments if isinstance(comment, str) and comment.strip()],
                 ensure_ascii=False
             )
-            prompt = self.briefing_prompt.replace("{{ comments_json }}", comments_json)
+            prompt = (
+                self.briefing_prompt
+                .replace("{{ comments_json }}", comments_json)
+                .replace("{{ language }}", language)
+            )
             result = self.__converse_briefing(prompt)
 
             if len(result) > 4:
