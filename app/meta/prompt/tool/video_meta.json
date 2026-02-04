@@ -1,0 +1,45 @@
+[
+  {
+    "toolSpec": {
+      "name": "emit_video_meta",
+      "description": "Extract recipe metadata (description, ingredients, tags, servings, cook_time) from video.",
+      "inputSchema": {
+        "json": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Rich description of the dish including flavor and texture (max 150 chars)."
+            },
+            "ingredients": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "amount": { "type": "number" },
+                  "unit": { "type": "string" }
+                },
+                "required": ["name"]
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "2-4 tags categorizing the dish."
+            },
+            "servings": {
+              "type": "integer",
+              "description": "Number of servings."
+            },
+            "cook_time": {
+              "type": "integer",
+              "description": "Total cooking time in minutes."
+            }
+          },
+          "required": ["description", "ingredients", "tags", "servings", "cook_time"]
+        }
+      }
+    }
+  }
+]
