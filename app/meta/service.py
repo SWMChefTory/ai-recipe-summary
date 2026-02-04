@@ -34,16 +34,16 @@ class MetaService:
             )
 
             # 설명란과 채널 소유자 댓글에서 재료 리스트 추출
-            ingredients = await asyncio.to_thread(
+            ingredients_from_text = await asyncio.to_thread(
                 self.extractor.extract_ingredients_from_description, 
                 description, 
                 channel_owner_top_level_comments,
                 language
             )
 
-            if ingredients:
+            if ingredients_from_text:
                 self.logger.info(f"자막에서 재료 리스트 추출 결과: {meta.ingredients}")
-                meta.ingredients = ingredients
+                meta.ingredients = ingredients_from_text
                 self.logger.info(f"설명란&댓글에서 재료 리스트 추출 결과(최종): {meta.ingredients}")
 
             return MetaResponse(
@@ -60,8 +60,8 @@ class MetaService:
 
     async def extract_by_video(self, video_id: str, file_uri: str, mime_type: str, language: LanguageType) -> MetaResponse:
         try:
-            # 1. 영상 자체에서 메타데이터 추출 (Gemini)
-            meta = await asyncio.to_thread(
+            # 1. 영상 자체에서 메타데이터 추출 (보조 정보)
+            meta_from_video = await asyncio.to_thread(
                 self.extractor.extract_video,
                 file_uri,
                 mime_type,
@@ -78,8 +78,7 @@ class MetaService:
                 self.client.get_channel_owner_top_level_comments, video_id
             )
 
-            # 4. 설명란과 채널 소유자 댓글에서 재료 리스트 추출 (보정)
-            # 영상 인식보다 텍스트(설명란/댓글)가 재료 정보에 더 정확할 수 있으므로 보완
+            # 4. 설명란과 채널 소유자 댓글에서 재료 리스트 추출 (주 정보)
             ingredients_from_text = await asyncio.to_thread(
                 self.extractor.extract_ingredients_from_description, 
                 description, 
@@ -87,19 +86,34 @@ class MetaService:
                 language
             )
 
+            final_ingredients = []
             if ingredients_from_text:
-                self.logger.info(f"영상 인식 재료 리스트: {meta.ingredients}")
-                # 텍스트 기반 재료가 있으면 덮어쓰기 (또는 병합 전략 고려 가능)
-                # 현재 로직은 텍스트 기반 정보를 우선시하여 덮어씀
-                meta.ingredients = ingredients_from_text
-                self.logger.info(f"설명란&댓글 기반 재료 리스트(최종): {meta.ingredients}")
+                self.logger.info(f"영상 인식 재료 리스트: {meta_from_video.ingredients}")
+                self.logger.info(f"설명란/댓글 기반 재료 리스트: {ingredients_from_text}")
+
+                # --- 병합 로직 시작 (설명란 우선, 영상 정보로 보완) ---
+                video_ingredients_map = {ing.name: ing for ing in meta_from_video.ingredients}
+                
+                for text_ing in ingredients_from_text:
+                    # 설명란/댓글 정보를 기준으로 하되, unit이 비어있으면 영상 정보로 채움
+                    if not text_ing.unit and text_ing.name in video_ingredients_map:
+                        video_ing = video_ingredients_map[text_ing.name]
+                        if video_ing.unit:
+                            text_ing.unit = video_ing.unit
+                    final_ingredients.append(text_ing)
+                # --- 병합 로직 끝 ---
+                
+                self.logger.info(f"병합된 최종 재료 리스트: {final_ingredients}")
+            else:
+                # 설명란/댓글 정보가 없으면 영상 인식 결과만 사용
+                final_ingredients = meta_from_video.ingredients
 
             return MetaResponse(
-                description=meta.description,
-                ingredients=meta.ingredients,
-                tags=meta.tags,
-                servings=meta.servings,
-                cook_time=meta.cook_time
+                description=meta_from_video.description,
+                ingredients=final_ingredients,
+                tags=meta_from_video.tags,
+                servings=meta_from_video.servings,
+                cook_time=meta_from_video.cook_time
             )
 
         except Exception as e:

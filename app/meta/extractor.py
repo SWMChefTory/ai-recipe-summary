@@ -62,17 +62,13 @@ class MetaExtractor:
             allowed_fn=self.INGREDIENTS_FN,
         )
 
-        # Video Meta Extraction Setup
-        self.video_extract_prompt = None
-        self.video_meta_conf = None
-        if video_extract_prompt_path and video_extract_tool_path:
-            self.video_extract_prompt = video_extract_prompt_path.read_text(encoding="utf-8")
-            video_extract_tool_spec = json.loads(video_extract_tool_path.read_text(encoding="utf-8"))
-            self.video_meta_tool = self._build_tool_from_spec(video_extract_tool_spec)
-            self.video_meta_conf = self._build_conf(
-                tool=self.video_meta_tool,
-                allowed_fn=self.VIDEO_META_FN,
-            )
+        self.video_extract_prompt = video_extract_prompt_path.read_text(encoding="utf-8")
+        video_extract_tool_spec = json.loads(video_extract_tool_path.read_text(encoding="utf-8"))
+        self.video_meta_tool = self._build_tool_from_spec(video_extract_tool_spec)
+        self.video_meta_conf = self._build_conf(
+            tool=self.video_meta_tool,
+            allowed_fn=self.VIDEO_META_FN,
+        )
 
 
     @staticmethod
