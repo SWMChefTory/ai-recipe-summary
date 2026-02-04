@@ -4,7 +4,6 @@ pydantic>=2.7
 requests>=2.31
 python-dotenv>=1.0
 prometheus-fastapi-instrumentator>=7.1
-yt-dlp==2025.10.22
 dependency-injector>=4.42
 boto3>=1.34
 pysrt>=1.1.2

@@ -26,3 +26,10 @@ class MetaResponse(BaseModel):
     tags: List[str] = Field(description="태그(2~4개)")
     servings: int = Field(ge=1, description="몇 인분")
     cook_time: int = Field(..., description="요리 시간(분)")
+
+
+class VideoMetaRequest(BaseModel):
+    """영상 기반 메타데이터 추출 요청"""
+    video_id: str = Field(..., description="영상 ID")
+    file_uri: str = Field(..., description="Gemini File URI")
+    mime_type: str = Field(..., description="MIME Type")

@@ -21,6 +21,9 @@ from app.meta.extractor import MetaExtractor
 from app.meta.service import MetaService
 from app.step.generator import StepGenerator
 from app.step.service import StepService
+from app.verify.service import VerifyService
+from app.verify.client import VerifyClient
+from app.verify.generator import VerifyGenerator
 
 
 class Container(containers.DeclarativeContainer):
@@ -33,6 +36,7 @@ class Container(containers.DeclarativeContainer):
             "app.meta",
             "app.step",
             "app.briefing",
+            "app.verify",
         ]
     )
     config = providers.Configuration()
@@ -116,6 +120,9 @@ class Container(containers.DeclarativeContainer):
 
         extract_ingredient_prompt_path=Path("app/meta/prompt/user/extract_ingredient.md"),
         extract_ingredient_tool_path=Path("app/meta/prompt/tool/extract_ingredient.json"),
+
+        video_extract_prompt_path=Path("app/meta/prompt/user/video_extract.md"),
+        video_extract_tool_path=Path("app/meta/prompt/tool/video_meta.json"),
     )
     meta_service = providers.Factory(
         MetaService,
@@ -131,6 +138,8 @@ class Container(containers.DeclarativeContainer):
         step_tool_path=Path("app/step/prompt/tool/step.json"),
         summarize_user_prompt_path=Path("app/step/prompt/user/summarize.md"),
         merge_user_prompt_path=Path("app/step/prompt/user/merge.md"),
+        video_step_tool_path=Path("app/step/prompt/tool/video_step.json"),
+        video_summarize_user_prompt_path=Path("app/step/prompt/user/video_summarize.md"),
     )
     step_service = providers.Factory(
         StepService,
@@ -160,6 +169,45 @@ class Container(containers.DeclarativeContainer):
         client=briefing_client,
         generator=briefing_generator,
         classifier=comment_classifier
+    )
+
+    # Verify
+    verify_client = providers.Singleton(
+        VerifyClient,
+        region=config.aws.region,
+        aws_lambda_function_urls=providers.List(
+            config.aws_lambda.function_url_seoul,
+            config.aws_lambda.function_url_seoul_no_cookie,
+            config.aws_lambda.function_url_seoul_no_cookie_2,
+            config.aws_lambda.function_url_seoul_no_cookie_3,
+            config.aws_lambda.function_url_seoul_no_cookie_4,
+            config.aws_lambda.function_url_seoul_no_cookie_5,
+            config.aws_lambda.function_url_seoul_no_cookie_6,
+            config.aws_lambda.function_url_seoul_no_cookie_7,
+            config.aws_lambda.function_url_seoul_no_cookie_8,
+            config.aws_lambda.function_url_tokyo,
+            config.aws_lambda.function_url_osaka,
+            config.aws_lambda.function_url_singapore,
+            config.aws_lambda.function_url_oregon,
+            config.aws_lambda.function_url_virginia,
+        ),
+        aws_access_key_id=config.aws.access_key,
+        aws_secret_access_key=config.aws.secret_key,
+    )
+
+    verify_generator = providers.Singleton(
+        VerifyGenerator,
+        client=genai_client,
+        model=config.google.gemini.model_id,
+        verify_user_prompt_path=Path("app/verify/prompt/user/verify.md"),
+        verify_tool_path=Path("app/verify/prompt/tool/verify.json"),
+    )
+
+    verify_service = providers.Factory(
+        VerifyService,
+        client=verify_client,
+        generator=verify_generator,
+        genai_client=genai_client, # genai_client 주입 추가
     )
 
 

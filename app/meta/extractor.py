@@ -1,7 +1,7 @@
 import json
 import logging
 from pathlib import Path
-from typing import Any, Iterable, List
+from typing import Any, Iterable, List, Optional
 
 from google import genai
 from google.genai import errors as genai_errors
@@ -14,6 +14,7 @@ from app.meta.schema import Ingredient, MetaResponse
 
 class MetaExtractor:
     META_FN = "emit_meta"
+    VIDEO_META_FN = "emit_video_meta"
     INGREDIENTS_FN = "emit_ingredients"
     TAGS_KR = "[한식, 중식, 일식, 양식, 분식, 디저트, 간편식, 유아식, 건강식]"
     TAGS_EN = "[Korean, Chinese, Japanese, Western, Street Food, Dessert, Quick Meals, Baby Food, Healthy]"
@@ -27,6 +28,8 @@ class MetaExtractor:
         extract_tool_path: Path,
         extract_ingredient_prompt_path: Path,
         extract_ingredient_tool_path: Path,
+        video_extract_prompt_path: Optional[Path] = None,
+        video_extract_tool_path: Optional[Path] = None,
     ):
         self.logger = logging.getLogger(__name__)
         self.client = client
@@ -59,6 +62,18 @@ class MetaExtractor:
             allowed_fn=self.INGREDIENTS_FN,
         )
 
+        # Video Meta Extraction Setup
+        self.video_extract_prompt = None
+        self.video_meta_conf = None
+        if video_extract_prompt_path and video_extract_tool_path:
+            self.video_extract_prompt = video_extract_prompt_path.read_text(encoding="utf-8")
+            video_extract_tool_spec = json.loads(video_extract_tool_path.read_text(encoding="utf-8"))
+            self.video_meta_tool = self._build_tool_from_spec(video_extract_tool_spec)
+            self.video_meta_conf = self._build_conf(
+                tool=self.video_meta_tool,
+                allowed_fn=self.VIDEO_META_FN,
+            )
+
 
     @staticmethod
     def _build_tool_from_spec(tool_list: list) -> types.Tool:
@@ -73,7 +88,11 @@ class MetaExtractor:
         if not name:
             raise ValueError("toolSpec.name is required in tool spec JSON")
 
-        fn_decl = {"name": name, "description": description, "parameters": json_schema}
+        fn_decl = types.FunctionDeclaration(
+            name=name,
+            description=description,
+            parameters=json_schema
+        )
         return types.Tool(function_declarations=[fn_decl])
 
     def _build_conf(self, *, tool: types.Tool, allowed_fn: str) -> types.GenerateContentConfig:
@@ -218,6 +237,76 @@ class MetaExtractor:
 
         calls = self._iter_function_calls(response)
         args = self._find_call_args(calls, self.META_FN)
+        if not args:
+            raise MetaException(MetaErrorCode.META_EXTRACT_FAILED)
+
+        description = (args.get("description") or "").strip()
+
+        raw_ingredients = args.get("ingredients") or []
+        ingredients = []
+        for ing in raw_ingredients:
+            name = (ing.get("name") or "").strip()
+            if not name:
+                continue
+            ingredients.append(
+                {
+                    "name": name,
+                    "amount": self._safe_float(ing.get("amount"), 0.0),
+                    "unit": ing.get("unit") or "",
+                }
+            )
+
+        raw_tags = args.get("tags") or []
+        tags = [tag.replace(" ", "") for tag in raw_tags if tag]
+
+        servings = self._safe_int(args.get("servings"), 2)
+        cook_time = self._safe_int(args.get("cook_time"), 30)
+
+        return MetaResponse(
+            description=description,
+            ingredients=ingredients,
+            tags=tags,
+            servings=servings,
+            cook_time=cook_time,
+        )
+
+    def extract_video(self, file_uri: str, mime_type: str, language: LanguageType) -> MetaResponse:
+        if not self.video_extract_prompt or not self.video_meta_conf:
+            raise MetaException(MetaErrorCode.META_EXTRACT_FAILED, "Video extraction not configured")
+
+        if language == LanguageType.KR:
+            tag_options = self.TAGS_KR
+        else:
+            tag_options = self.TAGS_EN
+
+        prompt = self._render_prompt(
+            self.video_extract_prompt,
+            language=language.value,
+            tag_options=tag_options
+        )
+
+        try:
+            response = self.client.models.generate_content(
+                model=self.model,
+                contents=[
+                    types.Content(
+                        parts=[
+                            types.Part.from_uri(file_uri=file_uri, mime_type=mime_type),
+                            types.Part.from_text(text=prompt),
+                        ]
+                    )
+                ],
+                config=self.video_meta_conf,
+            )
+        except genai_errors.ClientError as e:
+            self.logger.exception("Gemini API invoke failed")
+            raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from e
+        except Exception as e:
+            self.logger.exception("Unexpected error during Gemini call")
+            raise MetaException(MetaErrorCode.META_EXTRACT_FAILED) from e
+
+        calls = self._iter_function_calls(response)
+        args = self._find_call_args(calls, self.VIDEO_META_FN)
         if not args:
             raise MetaException(MetaErrorCode.META_EXTRACT_FAILED)
 

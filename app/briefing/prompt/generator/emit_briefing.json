@@ -2,7 +2,7 @@
   {
     "toolSpec": {
       "name": "emit_briefing",
-      "description": "Emit up to 5 short Korean briefing bullet items.",
+      "description": "Emit 2-4 short briefing bullet items in the specified language.",
       "inputSchema": {
         "json": {
           "type": "object",
@@ -12,10 +12,10 @@
               "items": {
                 "type": "string",
                 "minLength": 5,
-                "maxLength": 50
+                "maxLength": 100
               },
-              "minItems": 0,
-              "maxItems": 5
+              "minItems": 2,
+              "maxItems": 4
             }
           },
           "required": ["items"]

@@ -6,8 +6,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt \
-    && pip install --no-cache-dir -U yt-dlp
+    && pip install --no-cache-dir -r requirements.txt
 
 # 앱 코드 복사 (레포 루트의 app/ → 컨테이너 /app/app)
 COPY app ./app

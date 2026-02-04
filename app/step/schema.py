@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -24,3 +24,8 @@ class StepRequest(BaseModel):
 
 class StepResponse(BaseModel):
     steps: List[StepGroup] = Field(..., description="조리단계 그룹 목록")
+
+
+class VideoStepRequest(BaseModel):
+    file_uri: str = Field(..., description="Gemini File URI")
+    mime_type: str = Field(..., description="MIME Type")
