@@ -85,7 +85,7 @@ class VerifyService:
         """파일이 ACTIVE 상태가 될 때까지 대기합니다."""
         self.logger.info(f"[VerifyService] ▶ 파일 처리 대기 시작 | file_name={file_name}")
         
-        for _ in range(30): # 최대 30번 시도 (약 60~90초)
+        for _ in range(120): # 최대 60번 시도 (약 2분)
             try:
                 # google.genai 라이브러리 사용
                 file_obj = self.genai_client.files.get(name=file_name)
