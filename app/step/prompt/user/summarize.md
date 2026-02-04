@@ -21,11 +21,12 @@ Apply the following style based on the `Target Language`:
   - **Opinions/Tips:** "Great to make in advance," "This is a delicious dessert."
   - **Simple Utensil Operation:** "Open the oven," "Turn off the heat." (Include only if heat control is the core action).
   - **Hypothetical/Alternative Actions:** Exclude actions described as "If you want...", "You could also...", or "Don't do this unless..." if they deviate from the main recipe flow. (e.g., "Making individual cups instead of a whole cake").
+  - **Non-Cooking Related Content:** Exclude greetings, introductions, outros, promotional messages, channel-related commentary, or any text not directly describing a cooking action or ingredient state change. This includes meta-commentary about the video itself (e.g., "My deleted jeyuk-bokkeum recipe", "remade with clean editing").
 
 ## Grouping & Chronology Rules
   1. **Strict Chronology:** Sort strictly by `start` time.
-  2. **Grouping:** Group consecutive actions using the same tool/purpose.
-  3. **Max Count Limit:** If `descriptions` in a group exceed **5**, split into a new group.
+  2. **Meaningful Grouping & Granularity:** Group consecutive, related actions into a single step. Each step should represent a distinct, logical phase of the cooking process. If multiple distinct actions or very short observations occur within a very brief time frame (e.g., less than 1-2 seconds), combine them into a single coherent step, focusing on the primary objective or outcome of that short segment. Avoid creating excessively short or fragmented steps that do not convey a complete action or state change.
+  3. **Max Count Limit:** If `descriptions` in a group exceed **5**, split into a new group, ensuring logical separation.
 
 ## Timestamp Settings
   - `description.start`: The start time of the subtitle describing the action.

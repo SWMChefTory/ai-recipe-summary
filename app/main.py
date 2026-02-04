@@ -11,6 +11,7 @@ from app.container import container
 from app.exception import BusinessException
 from app.meta.router import router as meta_router
 from app.step.router import router as step_router
+from app.verify.router import router as verify_router
 
 # 로거 설정
 logger = logging.getLogger(__name__)
@@ -62,3 +63,4 @@ app.include_router(caption_router)
 app.include_router(meta_router)
 app.include_router(step_router)
 app.include_router(briefing_router)
+app.include_router(verify_router)

@@ -1,0 +1,22 @@
+{
+  "name": "verify_recipe_content",
+  "description": "비디오가 레시피인지 검증하고 결과를 반환합니다.",
+  "parameters": {
+    "type": "OBJECT",
+    "properties": {
+      "is_recipe": {
+        "type": "BOOLEAN",
+        "description": "비디오가 요리 레시피인지 여부"
+      },
+      "confidence": {
+        "type": "NUMBER",
+        "description": "판단에 대한 신뢰도 (0.0 ~ 1.0)"
+      },
+      "reason": {
+        "type": "STRING",
+        "description": "판단 이유"
+      }
+    },
+    "required": ["is_recipe", "confidence", "reason"]
+  }
+}
