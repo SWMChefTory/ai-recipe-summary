@@ -44,6 +44,7 @@ class Container(containers.DeclarativeContainer):
     config.google.ai_api_key.from_env("GOOGLE_AI_API_KEY")
 
     config.google.gemini.model_id.from_env("GEMINI_MODEL_ID")
+    config.google.gemini.model_id_lite.from_env("GEMINI_MODEL_ID_LITE")
 
     config.aws.access_key.from_env("AWS_ACCESS_KEY_ID")
     config.aws.secret_key.from_env("AWS_SECRET_ACCESS_KEY")
@@ -96,7 +97,7 @@ class Container(containers.DeclarativeContainer):
     recipe_validator = providers.Singleton(
         CaptionRecipeValidator,
         client=genai_client,
-        model=config.google.gemini.model_id,
+        model=config.google.gemini.model_id_lite,
     )
     caption_service = providers.Factory(
         CaptionService,
@@ -155,7 +156,7 @@ class Container(containers.DeclarativeContainer):
     briefing_generator = providers.Singleton(
         BriefingGenerator,
         client=genai_client,
-        model=config.google.gemini.model_id,
+        model=config.google.gemini.model_id_lite,
         generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
         generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
     )
@@ -198,7 +199,7 @@ class Container(containers.DeclarativeContainer):
     verify_generator = providers.Singleton(
         VerifyGenerator,
         client=genai_client,
-        model=config.google.gemini.model_id,
+        model=config.google.gemini.model_id_lite,
         verify_user_prompt_path=Path("app/verify/prompt/user/verify.md"),
         verify_tool_path=Path("app/verify/prompt/tool/verify.json"),
     )
