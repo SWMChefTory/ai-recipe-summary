@@ -1,4 +1,6 @@
 import logging
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -37,10 +39,16 @@ async def lifespan(app: FastAPI):
     """애플리케이션 라이프사이클 관리"""
     # Startup
     logger.info("🚀 Recipe Summarizer API 시작 중...")
+    max_workers = 96
+    loop = asyncio.get_running_loop()
+    executor = ThreadPoolExecutor(max_workers=max_workers)
+    loop.set_default_executor(executor)
+    logger.info(f"🔧 asyncio default thread pool 설정 완료 | max_workers={max_workers}")
     # 의존성 주입 컨테이너 설정
     container.wire(modules=[__name__])
     yield
     # Shutdown
+    executor.shutdown(wait=False, cancel_futures=False)
     logger.info("🔄 Recipe Summarizer API 종료 중...")
 
 

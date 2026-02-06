@@ -55,7 +55,7 @@ class VerifyService:
 
             # 2. Gemini API로 레시피 검증 (VerifyGenerator 사용)
             try:
-                args = self.generator.generate(file_uri, mime_type)
+                args = await asyncio.to_thread(self.generator.generate, file_uri, mime_type)
             except Exception as e:
                 self.logger.error(f"[VerifyService] ▶ Gemini 검증 실패 | video_id={video_id} | error={e}")
                 raise VerifyException(VerifyErrorCode.VERIFY_FAILED)
@@ -69,6 +69,7 @@ class VerifyService:
 
             if not is_recipe:
                 # 레시피가 아님
+                await self.delete_file_by_url(file_uri)
                 raise VerifyException(VerifyErrorCode.VERIFY_NOT_RECIPE)
 
             return {
@@ -88,8 +89,8 @@ class VerifyService:
         
         for _ in range(150): # 최대 150번 시도 (약 5분)
             try:
-                # google.genai 라이브러리 사용
-                file_obj = self.genai_client.files.get(name=file_name)
+                # google.genai 라이브러리의 동기 호출을 별도 스레드에서 실행하여 이벤트 루프 차단 방지
+                file_obj = await asyncio.to_thread(self.genai_client.files.get, name=file_name)
                 
                 if file_obj.state.name == "ACTIVE":
                     self.logger.info(f"[VerifyService] ▶ 파일 처리 완료 (ACTIVE) | file_name={file_name}")
@@ -116,11 +117,12 @@ class VerifyService:
             parsed_url = urlparse(file_uri)
             path_parts = parsed_url.path.split('/')
             
-            # "files/..." 형태 추출
+            # "files" 키워드 이후의 경로를 추출
             if "files" in path_parts:
                 idx = path_parts.index("files")
                 file_name = "/".join(path_parts[idx:])
                 
+                # 동기 삭제 호출을 별도 스레드에서 실행
                 await asyncio.to_thread(self.genai_client.files.delete, name=file_name)
                 self.logger.info(f"[VerifyService] ▶ 파일 삭제 성공 | file_name={file_name}")
             else:
