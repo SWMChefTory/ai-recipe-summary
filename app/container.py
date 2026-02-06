@@ -2,8 +2,6 @@
 from dotenv import load_dotenv
 from google import genai
 
-from app.briefing.comment_classifier import CommentClassifier
-
 load_dotenv()
 
 from pathlib import Path
@@ -160,16 +158,10 @@ class Container(containers.DeclarativeContainer):
         generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
         generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
     )
-    comment_classifier = providers.Singleton(
-        CommentClassifier,
-        model_id = "NamYunje/recipe-comment-classifier"
-    )
-    
     briefing_service = providers.Factory(
         BriefingService,
         client=briefing_client,
         generator=briefing_generator,
-        classifier=comment_classifier
     )
 
     # Verify
