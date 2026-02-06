@@ -13,6 +13,12 @@ from app.enum import LanguageType
 
 
 class BriefingService:
+    FETCH_TIMEOUT_SECONDS = 45
+    CLASSIFY_TIMEOUT_SECONDS = 45
+    GENERATE_TIMEOUT_SECONDS = 45
+    MAX_COMMENTS_FOR_CLASSIFICATION = 200
+    MAX_COMMENTS_FOR_GENERATION = 120
+
     def __init__(self, client: BriefingClient, generator: BriefingGenerator, classifier: CommentClassifier):
         self.logger = logging.getLogger(__name__)
         self.client = client
@@ -39,10 +45,14 @@ class BriefingService:
         return text
 
     async def get(self, video_id: str, language: LanguageType) -> List[str]:
-        # 1) 댓글 추출
-        raw_comments = await asyncio.to_thread(
-            self.client.get_video_comments, video_id
-        )
+        try:
+            raw_comments = await asyncio.wait_for(
+                asyncio.to_thread(self.client.get_video_comments, video_id),
+                timeout=self.FETCH_TIMEOUT_SECONDS,
+            )
+        except TimeoutError:
+            self.logger.warning(f"댓글 수집 타임아웃으로 브리핑 생성을 건너뜁니다. video_id={video_id}")
+            return []
 
         if not raw_comments:
             return []
@@ -52,19 +62,32 @@ class BriefingService:
             c for c in (self.__clean_comment(x) for x in raw_comments) 
             if c and 6 <= len(c) <= 300
         ]
+        if len(cleaned_comments) > self.MAX_COMMENTS_FOR_CLASSIFICATION:
+            cleaned_comments = cleaned_comments[:self.MAX_COMMENTS_FOR_CLASSIFICATION]
         self.logger.info(f"태그 및 길이 필터링 후 남은 댓글: {len(cleaned_comments)}개")
 
-        # 3) 레시피 관련 댓글만 필터링
-        filtered_comments = await asyncio.to_thread(
-            self.classifier.predict, cleaned_comments
-        )
+        try:
+            filtered_comments = await asyncio.wait_for(
+                asyncio.to_thread(self.classifier.predict, cleaned_comments),
+                timeout=self.CLASSIFY_TIMEOUT_SECONDS,
+            )
+        except TimeoutError:
+            self.logger.warning(f"댓글 분류 타임아웃으로 브리핑 생성을 건너뜁니다. video_id={video_id}")
+            return []
+
         self.logger.info(f"레시피 관련 댓글 필터링 후 남은 댓글: {len(filtered_comments)}개")
 
         if len(filtered_comments) < 8:
             self.logger.info(f"레시피 관련 댓글이 충분하지 않아서 브리핑을 생성하지 않습니다.")
             return []
 
-        # 4) 브리핑 생성
-        return await asyncio.to_thread(
-            self.generator.generate, filtered_comments, language
-        )
+        generation_comments = filtered_comments[:self.MAX_COMMENTS_FOR_GENERATION]
+
+        try:
+            return await asyncio.wait_for(
+                asyncio.to_thread(self.generator.generate, generation_comments, language),
+                timeout=self.GENERATE_TIMEOUT_SECONDS,
+            )
+        except TimeoutError:
+            self.logger.warning(f"브리핑 생성 타임아웃으로 빈 응답을 반환합니다. video_id={video_id}")
+            return []

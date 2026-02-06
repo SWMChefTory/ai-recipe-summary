@@ -7,13 +7,15 @@ from app.briefing.exception import BriefingErrorCode, BriefingException
 
 
 class BriefingClient:
-    def __init__(self, api_key: str, timeout: float = 20.0):
+    def __init__(self, api_key: str, timeout: float = 20.0, max_comments: int = 200):
         self.logger = logging.getLogger(__name__)
         self.api_key = api_key
         self.timeout = timeout
+        self.max_comments = max(20, max_comments)
 
     def __fetch_page(
         self,
+        session: requests.Session,
         video_id: str,
         page_token: Optional[str],
         remaining: int,
@@ -33,7 +35,7 @@ class BriefingClient:
             if page_token:
                 params["pageToken"] = page_token
 
-            resp = requests.get(base_url, params=params, timeout=self.timeout)
+            resp = session.get(base_url, params=params, timeout=self.timeout)
             resp.raise_for_status()
             data = resp.json()
             return data.get("items", []), data.get("nextPageToken")
@@ -45,37 +47,32 @@ class BriefingClient:
         try:
             comments: List[str] = []
             token = None
-            max_limit = 500  # 최대 수집 한도 설정
+            max_limit = self.max_comments
             
             self.logger.info(f"'{video_id}' 영상의 댓글 수집을 시작합니다. (최대 {max_limit}개, 최신순)")
 
-            while len(comments) < max_limit:
-                # 앞으로 더 가져와야 할 개수 계산
-                remaining = max_limit - len(comments)
-                
-                # API 호출
-                items, token = self.__fetch_page(video_id, token, remaining)
+            with requests.Session() as session:
+                while len(comments) < max_limit:
+                    remaining = max_limit - len(comments)
+                    items, token = self.__fetch_page(session, video_id, token, remaining)
 
-                if not items:
-                    break
-
-                for it in items:
-                    try:
-                        # 대댓글(replies)은 무시하고, 최상위 댓글(topLevelComment)만 추출
-                        top = it["snippet"]["topLevelComment"]
-                        text = top["snippet"]["textDisplay"]
-                        comments.append(text)
-                    except KeyError:
-                        self.logger.warning(f"댓글 데이터 파싱 실패: {it}")
-                        continue
-                    
-                    # 루프 도중 1,000개가 채워지면 즉시 중단
-                    if len(comments) >= max_limit:
+                    if not items:
                         break
 
-                # 다음 페이지가 없거나, 목표치를 다 채웠으면 종료
-                if not token or len(comments) >= max_limit:
-                    break
+                    for it in items:
+                        try:
+                            top = it["snippet"]["topLevelComment"]
+                            text = top["snippet"]["textDisplay"]
+                            comments.append(text)
+                        except KeyError:
+                            self.logger.warning(f"댓글 데이터 파싱 실패: {it}")
+                            continue
+
+                        if len(comments) >= max_limit:
+                            break
+
+                    if not token or len(comments) >= max_limit:
+                        break
             
             self.logger.info(f"수집 완료: 총 {len(comments)}개의 댓글을 가져왔습니다.")
             return comments
