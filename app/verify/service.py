@@ -1,6 +1,7 @@
 import logging
 import asyncio
 from typing import Dict, Any
+from urllib.parse import urlparse
 
 from google import genai
 
@@ -85,7 +86,7 @@ class VerifyService:
         """파일이 ACTIVE 상태가 될 때까지 대기합니다."""
         self.logger.info(f"[VerifyService] ▶ 파일 처리 대기 시작 | file_name={file_name}")
         
-        for _ in range(120): # 최대 60번 시도 (약 2분)
+        for _ in range(150): # 최대 150번 시도 (약 5분)
             try:
                 # google.genai 라이브러리 사용
                 file_obj = self.genai_client.files.get(name=file_name)
@@ -106,3 +107,24 @@ class VerifyService:
         
         self.logger.error(f"[VerifyService] ▶ 파일 처리 시간 초과 | file_name={file_name}")
         raise VerifyException(VerifyErrorCode.VERIFY_FAILED) # 시간 초과
+
+    async def delete_file_by_url(self, file_uri: str):
+        """Gemini File URI를 파싱하여 파일을 삭제합니다."""
+        try:
+            # URI 예시: https://generativelanguage.googleapis.com/v1beta/files/abc123xyz
+            # 경로의 마지막 부분이 file_name (files/abc123xyz)
+            parsed_url = urlparse(file_uri)
+            path_parts = parsed_url.path.split('/')
+            
+            # "files/..." 형태 추출
+            if "files" in path_parts:
+                idx = path_parts.index("files")
+                file_name = "/".join(path_parts[idx:])
+                
+                await asyncio.to_thread(self.genai_client.files.delete, name=file_name)
+                self.logger.info(f"[VerifyService] ▶ 파일 삭제 성공 | file_name={file_name}")
+            else:
+                self.logger.warning(f"[VerifyService] ▶ 유효하지 않은 Gemini File URI 형식입니다. | file_uri={file_uri}")
+                
+        except Exception as e:
+            self.logger.warning(f"[VerifyService] ▶ 파일 삭제 실패 (무시 가능) | file_uri={file_uri} | error={e}")
