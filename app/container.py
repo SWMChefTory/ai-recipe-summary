@@ -11,9 +11,6 @@ from dependency_injector import containers, providers
 from app.briefing.client import BriefingClient
 from app.briefing.generator import BriefingGenerator
 from app.briefing.service import BriefingService
-from app.caption.client import CaptionClient
-from app.caption.recipe_validator import CaptionRecipeValidator
-from app.caption.service import CaptionService
 from app.meta.client import MetaClient
 from app.meta.extractor import MetaExtractor
 from app.meta.service import MetaService
@@ -30,7 +27,6 @@ class Container(containers.DeclarativeContainer):
     # Configuration
     wiring_config = containers.WiringConfiguration(
         packages=[
-            "app.caption",
             "app.meta",
             "app.step",
             "app.briefing",
@@ -43,6 +39,10 @@ class Container(containers.DeclarativeContainer):
 
     config.google.gemini.model_id.from_env("GEMINI_MODEL_ID")
     config.google.gemini.model_id_lite.from_env("GEMINI_MODEL_ID_LITE")
+    config.google.gemini.fallback_model_id.from_env(
+        "GEMINI_FALLBACK_MODEL_ID",
+        default="gemini-3.0-flash",
+    )
 
     config.aws.access_key.from_env("AWS_ACCESS_KEY_ID")
     config.aws.secret_key.from_env("AWS_SECRET_ACCESS_KEY")
@@ -69,40 +69,6 @@ class Container(containers.DeclarativeContainer):
         api_key=config.google.ai_api_key,
     )
 
-    # Caption
-    caption_client = providers.Singleton(
-      CaptionClient,
-      region=config.aws.region,
-      aws_lambda_function_urls=providers.List(
-          config.aws_lambda.function_url_seoul, 
-          config.aws_lambda.function_url_seoul_no_cookie,
-          config.aws_lambda.function_url_seoul_no_cookie_2,
-          config.aws_lambda.function_url_seoul_no_cookie_3,
-          config.aws_lambda.function_url_seoul_no_cookie_4,
-          config.aws_lambda.function_url_seoul_no_cookie_5,
-          config.aws_lambda.function_url_seoul_no_cookie_6,
-          config.aws_lambda.function_url_seoul_no_cookie_7,
-          config.aws_lambda.function_url_seoul_no_cookie_8,
-          config.aws_lambda.function_url_tokyo,
-          config.aws_lambda.function_url_osaka,
-          config.aws_lambda.function_url_singapore,
-          config.aws_lambda.function_url_oregon,
-          config.aws_lambda.function_url_virginia,
-      ),
-      aws_access_key_id=config.aws.access_key,
-      aws_secret_access_key=config.aws.secret_key,
-    )
-    recipe_validator = providers.Singleton(
-        CaptionRecipeValidator,
-        client=genai_client,
-        model=config.google.gemini.model_id_lite,
-    )
-    caption_service = providers.Factory(
-        CaptionService,
-        client=caption_client,
-        recipe_validator=recipe_validator,
-    )
-
     # Meta
     meta_client = providers.Singleton(
         MetaClient,
@@ -113,9 +79,7 @@ class Container(containers.DeclarativeContainer):
         MetaExtractor,
         client=genai_client,
         model=config.google.gemini.model_id,
-
-        extract_prompt_path=Path("app/meta/prompt/user/extract.md"),
-        extract_tool_path=Path("app/meta/prompt/tool/extract.json"),
+        fallback_model=config.google.gemini.fallback_model_id,
 
         extract_ingredient_prompt_path=Path("app/meta/prompt/user/extract_ingredient.md"),
         extract_ingredient_tool_path=Path("app/meta/prompt/tool/extract_ingredient.json"),
@@ -134,9 +98,7 @@ class Container(containers.DeclarativeContainer):
         StepGenerator,
         client=genai_client,
         model=config.google.gemini.model_id,
-        step_tool_path=Path("app/step/prompt/tool/step.json"),
-        summarize_user_prompt_path=Path("app/step/prompt/user/summarize.md"),
-        merge_user_prompt_path=Path("app/step/prompt/user/merge.md"),
+        fallback_model=config.google.gemini.fallback_model_id,
         video_step_tool_path=Path("app/step/prompt/tool/video_step.json"),
         video_summarize_user_prompt_path=Path("app/step/prompt/user/video_summarize.md"),
     )
@@ -155,6 +117,7 @@ class Container(containers.DeclarativeContainer):
         BriefingGenerator,
         client=genai_client,
         model=config.google.gemini.model_id_lite,
+        fallback_model=config.google.gemini.fallback_model_id,
         generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
         generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
     )
@@ -192,6 +155,7 @@ class Container(containers.DeclarativeContainer):
         VerifyGenerator,
         client=genai_client,
         model=config.google.gemini.model_id_lite,
+        fallback_model=config.google.gemini.fallback_model_id,
         verify_user_prompt_path=Path("app/verify/prompt/user/verify.md"),
         verify_tool_path=Path("app/verify/prompt/tool/verify.json"),
     )

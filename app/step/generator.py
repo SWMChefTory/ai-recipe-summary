@@ -13,7 +13,6 @@ from app.step.schema import StepGroup
 
 
 class StepGenerator:
-    ALLOWED_FUNCTION_NAME = "emit_steps"
     VIDEO_ALLOWED_FUNCTION_NAME = "emit_recipe_steps"
 
     def __init__(
@@ -21,21 +20,14 @@ class StepGenerator:
         *,
         client: genai.Client,
         model: str,
-        step_tool_path: Path,
-        summarize_user_prompt_path: Path,
-        merge_user_prompt_path: Path,
+        fallback_model: str = "gemini-3.0-flash",
         video_step_tool_path: Path,
         video_summarize_user_prompt_path: Path,
     ):
         self.logger = logging.getLogger(__name__)
         self.client = client
         self.model = model
-
-        self.summarize_user_prompt = summarize_user_prompt_path.read_text(encoding="utf-8")
-        self.merge_user_prompt = merge_user_prompt_path.read_text(encoding="utf-8")
-
-        step_tool_spec = json.loads(step_tool_path.read_text(encoding="utf-8"))
-        self.step_tool = self._build_tool_from_spec(step_tool_spec)
+        self.fallback_model = fallback_model
 
         self.video_summarize_user_prompt = video_summarize_user_prompt_path.read_text(encoding="utf-8")
         video_step_tool_spec = json.loads(video_step_tool_path.read_text(encoding="utf-8"))
@@ -48,26 +40,6 @@ class StepGenerator:
                 function_calling_config=types.FunctionCallingConfig(
                     mode="ANY",
                     allowed_function_names=[self.VIDEO_ALLOWED_FUNCTION_NAME],
-                )
-            ),
-        )
-
-        self.system_instruction = (
-            "You must respond by calling one of the provided functions. "
-            "Do not generate natural language text outside of a function call. "
-            "If a function call is not applicable, still return a function call with best-effort arguments.\n"
-            "All outputs must be valid UTF-8. "
-            "Ensure complete Unicode characters and avoid truncated or malformed text."
-        )
-
-        self.step_conf = types.GenerateContentConfig(
-            system_instruction=self.system_instruction,
-            temperature=0.0,
-            tools=[self.step_tool],
-            tool_config=types.ToolConfig(
-                function_calling_config=types.FunctionCallingConfig(
-                    mode="ANY",
-                    allowed_function_names=[self.ALLOWED_FUNCTION_NAME],
                 )
             ),
         )
@@ -99,24 +71,30 @@ class StepGenerator:
             out = out.replace(f"{{{{ {k} }}}}", v)
         return out
 
-    def _call_for_steps(self, user_prompt: str) -> List[StepGroup]:
-        try:
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=user_prompt,
-                config=self.step_conf,
-            )
-            step_args = self._extract_emit_steps_args(response, self.ALLOWED_FUNCTION_NAME)
-            return self._parse_steps(step_args)
+    @staticmethod
+    def _is_rate_limit_error(err: Exception) -> bool:
+        status_code = getattr(err, "status_code", None)
+        if status_code == 429:
+            return True
 
-        except genai_errors.ClientError as e:
-            self.logger.exception("Gemini API 호출 중 오류가 발생했습니다.")
-            raise StepException(StepErrorCode.STEP_GENERATE_FAILED) from e
-        except StepException:
-            raise
-        except Exception as e:
-            self.logger.exception("단계 생성 중 예기치 못한 오류가 발생했습니다.")
-            raise StepException(StepErrorCode.STEP_GENERATE_FAILED) from e
+        code = getattr(err, "code", None)
+        if code == 429:
+            return True
+
+        message = str(err).lower()
+        return (
+            "429" in message
+            or "too many requests" in message
+            or "rate limit" in message
+            or "resource_exhausted" in message
+        )
+
+    def _generate_content(self, *, model: str, contents, config: types.GenerateContentConfig):
+        return self.client.models.generate_content(
+            model=model,
+            contents=contents,
+            config=config,
+        )
 
     def _extract_emit_steps_args(self, response, allowed_function_name: str) -> dict:
         calls = getattr(response, "function_calls", None) or []
@@ -146,22 +124,6 @@ class StepGenerator:
             self.logger.exception("Gemini API 응답 형식이 올바르지 않습니다.")
             raise StepException(StepErrorCode.STEP_GENERATE_FAILED) from e
 
-    def summarize(self, captions_json_str: str, language: LanguageType) -> List[StepGroup]:
-        user_prompt = self._render_prompt(
-            self.summarize_user_prompt,
-            captions=captions_json_str,
-            language=language.value,
-        )
-        return self._call_for_steps(user_prompt)
-
-    def merge(self, flat_steps_json_str: str, language: LanguageType) -> List[StepGroup]:
-        user_prompt = self._render_prompt(
-            self.merge_user_prompt,
-            steps=flat_steps_json_str,
-            language=language.value,
-        )
-        return self._call_for_steps(user_prompt)
-
     def summarize_video(self, file_uri: str, mime_type: str, language: LanguageType) -> List[StepGroup]:
         if not self.video_summarize_user_prompt or not self.video_step_conf:
              raise StepException(StepErrorCode.STEP_GENERATE_FAILED, "Video summarization is not configured.")
@@ -170,20 +132,40 @@ class StepGenerator:
             self.video_summarize_user_prompt,
             language=language.value,
         )
+        contents = [
+            types.Content(
+                parts=[
+                    types.Part.from_uri(file_uri=file_uri, mime_type=mime_type),
+                    types.Part.from_text(text=user_prompt),
+                ]
+            )
+        ]
         
         try:
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=[
-                    types.Content(
-                        parts=[
-                            types.Part.from_uri(file_uri=file_uri, mime_type=mime_type),
-                            types.Part.from_text(text=user_prompt),
-                        ]
-                    )
-                ],
-                config=self.video_step_conf,
-            )
+            try:
+                response = self._generate_content(
+                    model=self.model,
+                    contents=contents,
+                    config=self.video_step_conf,
+                )
+            except genai_errors.ClientError as e:
+                should_fallback = (
+                    self.fallback_model
+                    and self.fallback_model != self.model
+                    and self._is_rate_limit_error(e)
+                )
+                if not should_fallback:
+                    raise
+
+                self.logger.warning(
+                    f"Primary Gemini model rate-limited. fallback model={self.fallback_model}"
+                )
+                response = self._generate_content(
+                    model=self.fallback_model,
+                    contents=contents,
+                    config=self.video_step_conf,
+                )
+
             step_args = self._extract_emit_steps_args(response, self.VIDEO_ALLOWED_FUNCTION_NAME)
             return self._parse_steps(step_args)
         except genai_errors.ClientError as e:

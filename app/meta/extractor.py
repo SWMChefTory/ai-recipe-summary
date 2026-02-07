@@ -13,7 +13,6 @@ from app.meta.schema import Ingredient, MetaResponse
 
 
 class MetaExtractor:
-    META_FN = "emit_meta"
     VIDEO_META_FN = "emit_video_meta"
     INGREDIENTS_FN = "emit_ingredients"
     TAGS_KR = "[한식, 중식, 일식, 양식, 분식, 디저트, 간편식, 유아식, 건강식]"
@@ -24,8 +23,7 @@ class MetaExtractor:
         *,
         client: genai.Client,
         model: str,
-        extract_prompt_path: Path,
-        extract_tool_path: Path,
+        fallback_model: str = "gemini-3.0-flash",
         extract_ingredient_prompt_path: Path,
         extract_ingredient_tool_path: Path,
         video_extract_prompt_path: Optional[Path] = None,
@@ -34,14 +32,13 @@ class MetaExtractor:
         self.logger = logging.getLogger(__name__)
         self.client = client
         self.model = model
+        self.fallback_model = fallback_model
 
         # ----- 프롬프트 / 툴 스펙 로드 -----
-        self.extract_prompt = extract_prompt_path.read_text(encoding="utf-8")
         self.extract_ingredient_prompt = extract_ingredient_prompt_path.read_text(
             encoding="utf-8"
         )
 
-        extract_tool_spec = json.loads(extract_tool_path.read_text(encoding="utf-8"))
         extract_ingredient_tool_spec = json.loads(
             extract_ingredient_tool_path.read_text(encoding="utf-8")
         )
@@ -50,13 +47,8 @@ class MetaExtractor:
             "You must call the provided function only. Do not output any free-form text.\n"
         )
 
-        self.meta_tool = self._build_tool_from_spec(extract_tool_spec)
         self.ingredients_tool = self._build_tool_from_spec(extract_ingredient_tool_spec)
 
-        self.meta_conf = self._build_conf(
-            tool=self.meta_tool,
-            allowed_fn=self.META_FN,
-        )
         self.ingredients_conf = self._build_conf(
             tool=self.ingredients_tool,
             allowed_fn=self.INGREDIENTS_FN,
@@ -157,20 +149,73 @@ class MetaExtractor:
                 return call.args or {}
         return {}
 
+    @staticmethod
+    def _is_rate_limit_error(err: Exception) -> bool:
+        status_code = getattr(err, "status_code", None)
+        if status_code == 429:
+            return True
 
-    def _generate_content(self, *, prompt: str, conf: types.GenerateContentConfig, err_code: MetaErrorCode):
+        code = getattr(err, "code", None)
+        if code == 429:
+            return True
+
+        message = str(err).lower()
+        return (
+            "429" in message
+            or "too many requests" in message
+            or "rate limit" in message
+            or "resource_exhausted" in message
+        )
+
+    def _invoke_generate_content(
+        self,
+        *,
+        contents: Any,
+        conf: types.GenerateContentConfig,
+        err_code: MetaErrorCode,
+    ):
         try:
             return self.client.models.generate_content(
                 model=self.model,
-                contents=prompt,
+                contents=contents,
                 config=conf,
             )
         except genai_errors.ClientError as e:
+            should_fallback = (
+                self.fallback_model
+                and self.fallback_model != self.model
+                and self._is_rate_limit_error(e)
+            )
+            if should_fallback:
+                self.logger.warning(
+                    f"Primary Gemini model rate-limited. fallback model={self.fallback_model}"
+                )
+                try:
+                    return self.client.models.generate_content(
+                        model=self.fallback_model,
+                        contents=contents,
+                        config=conf,
+                    )
+                except genai_errors.ClientError as fallback_error:
+                    self.logger.exception("Gemini fallback model invoke failed")
+                    raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from fallback_error
+                except Exception as fallback_error:
+                    self.logger.exception("Unexpected error during Gemini fallback call")
+                    raise MetaException(err_code) from fallback_error
+
             self.logger.exception("Gemini API invoke failed")
             raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from e
         except Exception as e:
             self.logger.exception("Unexpected error during Gemini call")
             raise MetaException(err_code) from e
+
+
+    def _generate_content(self, *, prompt: str, conf: types.GenerateContentConfig, err_code: MetaErrorCode):
+        return self._invoke_generate_content(
+            contents=prompt,
+            conf=conf,
+            err_code=err_code,
+        )
 
 
     def extract_ingredients_from_description(
@@ -212,60 +257,6 @@ class MetaExtractor:
         except MetaException:
             return []
 
-    def extract(self, captions: str, language: LanguageType) -> MetaResponse:
-        if language == LanguageType.KR:
-            tag_options = self.TAGS_KR
-        else:
-            tag_options = self.TAGS_EN
-
-        prompt = self._render_prompt(
-            self.extract_prompt, 
-            captions=captions,
-            language=language,
-            tag_options=tag_options
-        )
-
-        response = self._generate_content(
-            prompt=prompt,
-            conf=self.meta_conf,
-            err_code=MetaErrorCode.META_EXTRACT_FAILED,
-        )
-
-        calls = self._iter_function_calls(response)
-        args = self._find_call_args(calls, self.META_FN)
-        if not args:
-            raise MetaException(MetaErrorCode.META_EXTRACT_FAILED)
-
-        description = (args.get("description") or "").strip()
-
-        raw_ingredients = args.get("ingredients") or []
-        ingredients = []
-        for ing in raw_ingredients:
-            name = (ing.get("name") or "").strip()
-            if not name:
-                continue
-            ingredients.append(
-                {
-                    "name": name,
-                    "amount": self._safe_float(ing.get("amount"), 0.0),
-                    "unit": ing.get("unit") or "",
-                }
-            )
-
-        raw_tags = args.get("tags") or []
-        tags = [tag.replace(" ", "") for tag in raw_tags if tag]
-
-        servings = self._safe_int(args.get("servings"), 2)
-        cook_time = self._safe_int(args.get("cook_time"), 30)
-
-        return MetaResponse(
-            description=description,
-            ingredients=ingredients,
-            tags=tags,
-            servings=servings,
-            cook_time=cook_time,
-        )
-
     def extract_video(self, file_uri: str, mime_type: str, language: LanguageType) -> MetaResponse:
         if not self.video_extract_prompt or not self.video_meta_conf:
             raise MetaException(MetaErrorCode.META_EXTRACT_FAILED, "Video extraction not configured")
@@ -281,25 +272,18 @@ class MetaExtractor:
             tag_options=tag_options
         )
 
-        try:
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=[
-                    types.Content(
-                        parts=[
-                            types.Part.from_uri(file_uri=file_uri, mime_type=mime_type),
-                            types.Part.from_text(text=prompt),
-                        ]
-                    )
-                ],
-                config=self.video_meta_conf,
-            )
-        except genai_errors.ClientError as e:
-            self.logger.exception("Gemini API invoke failed")
-            raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from e
-        except Exception as e:
-            self.logger.exception("Unexpected error during Gemini call")
-            raise MetaException(MetaErrorCode.META_EXTRACT_FAILED) from e
+        response = self._invoke_generate_content(
+            contents=[
+                types.Content(
+                    parts=[
+                        types.Part.from_uri(file_uri=file_uri, mime_type=mime_type),
+                        types.Part.from_text(text=prompt),
+                    ]
+                )
+            ],
+            conf=self.video_meta_conf,
+            err_code=MetaErrorCode.META_EXTRACT_FAILED,
+        )
 
         calls = self._iter_function_calls(response)
         args = self._find_call_args(calls, self.VIDEO_META_FN)

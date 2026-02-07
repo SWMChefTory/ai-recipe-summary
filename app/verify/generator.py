@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Dict, Any
 
 from google import genai
+from google.genai import errors as genai_errors
 from google.genai import types
 
 from app.verify.exception import VerifyException, VerifyErrorCode
@@ -17,9 +18,11 @@ class VerifyGenerator:
         model: str,
         verify_user_prompt_path: Path,
         verify_tool_path: Path,
+        fallback_model: str = "gemini-3.0-flash",
     ):
         self.client = client
         self.model = model
+        self.fallback_model = fallback_model
         self.verify_user_prompt_path = verify_user_prompt_path
         self.verify_tool_path = verify_tool_path
         
@@ -47,29 +50,58 @@ class VerifyGenerator:
             ]
 
             logger.info(f"[VerifyGenerator] ▶ Gemini API 호출 시도 (Tool Calling) | model={self.model}")
-            
-            # models.generate_content 호출
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=contents,
-                config=types.GenerateContentConfig(
-                    tools=[types.Tool(
-                        function_declarations=[
-                            types.FunctionDeclaration(
-                                name=self.tool_def["name"],
-                                description=self.tool_def["description"],
-                                parameters=self.tool_def["parameters"]
-                            )
-                        ]
-                    )],
-                    tool_config=types.ToolConfig(
-                        function_calling_config=types.FunctionCallingConfig(
-                            mode="ANY", # 반드시 툴을 호출하도록 강제
-                            allowed_function_names=[self.tool_def["name"]]
+            config = types.GenerateContentConfig(
+                tools=[types.Tool(
+                    function_declarations=[
+                        types.FunctionDeclaration(
+                            name=self.tool_def["name"],
+                            description=self.tool_def["description"],
+                            parameters=self.tool_def["parameters"]
                         )
+                    ]
+                )],
+                tool_config=types.ToolConfig(
+                    function_calling_config=types.FunctionCallingConfig(
+                        mode="ANY", # 반드시 툴을 호출하도록 강제
+                        allowed_function_names=[self.tool_def["name"]]
                     )
                 )
             )
+            
+            try:
+                response = self.client.models.generate_content(
+                    model=self.model,
+                    contents=contents,
+                    config=config,
+                )
+            except genai_errors.ClientError as e:
+                status_code = getattr(e, "status_code", None)
+                code = getattr(e, "code", None)
+                message = str(e).lower()
+                should_fallback = (
+                    self.fallback_model
+                    and self.fallback_model != self.model
+                    and (
+                        status_code == 429
+                        or code == 429
+                        or "429" in message
+                        or "too many requests" in message
+                        or "rate limit" in message
+                        or "resource_exhausted" in message
+                    )
+                )
+
+                if not should_fallback:
+                    raise
+
+                logger.warning(
+                    f"[VerifyGenerator] ▶ Primary model rate-limited. fallback model={self.fallback_model}"
+                )
+                response = self.client.models.generate_content(
+                    model=self.fallback_model,
+                    contents=contents,
+                    config=config,
+                )
 
             # Tool Call 응답 파싱
             function_call = None

@@ -4,19 +4,11 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
-from app.caption.schema import Caption
-
 
 class Ingredient(BaseModel):
     name: str = Field(..., description="재료명")
     amount: Optional[float] = Field(None, ge=0)
     unit: Optional[str] = Field(None, max_length=20)
-
-
-class MetaRequest(BaseModel):
-    """메타데이터 추출 요청"""
-    video_id: str = Field(..., description="영상 ID")
-    captions: List[Caption] = Field(..., description="자막")
 
 
 class MetaResponse(BaseModel):

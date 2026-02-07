@@ -8,7 +8,6 @@ from fastapi.responses import JSONResponse
 from prometheus_fastapi_instrumentator import Instrumentator
 
 from app.briefing.router import router as briefing_router
-from app.caption.router import router as caption_router
 from app.container import container
 from app.exception import BusinessException
 from app.meta.router import router as meta_router
@@ -67,7 +66,6 @@ async def business_exception_handler(request: Request, exc: BusinessException):
     return JSONResponse(status_code=exc.status_code, content=exc.to_dict())
 
 # 라우터 등록
-app.include_router(caption_router)
 app.include_router(meta_router)
 app.include_router(step_router)
 app.include_router(briefing_router)

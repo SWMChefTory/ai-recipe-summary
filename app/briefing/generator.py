@@ -30,12 +30,14 @@ class BriefingGenerator(IBriefingGenerator):
         *,
         client: genai.Client,
         model: str,
+        fallback_model: str = "gemini-3.0-flash",
         generate_user_prompt_path: Path,
         generate_tool_path: Path,
     ):
         self.logger = logging.getLogger(__name__)
         self.client = client
         self.model = model
+        self.fallback_model = fallback_model
 
         self.briefing_prompt = generate_user_prompt_path.read_text(encoding="utf-8")
         self.briefing_tool_spec = json.loads(generate_tool_path.read_text(encoding="utf-8"))
@@ -88,13 +90,48 @@ class BriefingGenerator(IBriefingGenerator):
             ),
         )
 
+    @staticmethod
+    def _is_rate_limit_error(err: Exception) -> bool:
+        status_code = getattr(err, "status_code", None)
+        if status_code == 429:
+            return True
+
+        code = getattr(err, "code", None)
+        if code == 429:
+            return True
+
+        message = str(err).lower()
+        return (
+            "429" in message
+            or "too many requests" in message
+            or "rate limit" in message
+            or "resource_exhausted" in message
+        )
+
+    def _generate_with_model(self, user_prompt: str, model: str):
+        return self.client.models.generate_content(
+            model=model,
+            contents=user_prompt,
+            config=self.briefing_conf,
+        )
+
     def __converse_briefing(self, user_prompt: str) -> List[str]:
         try:
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=user_prompt,
-                config=self.briefing_conf,
-            )
+            try:
+                response = self._generate_with_model(user_prompt, self.model)
+            except genai_errors.ClientError as e:
+                should_fallback = (
+                    self.fallback_model
+                    and self.fallback_model != self.model
+                    and self._is_rate_limit_error(e)
+                )
+                if not should_fallback:
+                    raise
+
+                self.logger.warning(
+                    f"Primary Gemini model rate-limited. fallback model={self.fallback_model}"
+                )
+                response = self._generate_with_model(user_prompt, self.fallback_model)
 
             calls = getattr(response, "function_calls", None) or []
             if not calls and getattr(response, "candidates", None):
