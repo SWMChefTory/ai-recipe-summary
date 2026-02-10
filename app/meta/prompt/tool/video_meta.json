@@ -2,11 +2,15 @@
   {
     "toolSpec": {
       "name": "emit_video_meta",
-      "description": "Extract recipe metadata (description, ingredients, tags, servings, cook_time) from video.",
+      "description": "Extract recipe metadata (title, description, ingredients, tags, servings, cook_time) from video.",
       "inputSchema": {
         "json": {
           "type": "object",
           "properties": {
+            "title": {
+              "type": "string",
+              "description": "A catchy video title including the dish name."
+            },
             "description": {
               "type": "string",
               "description": "Rich description of the dish including flavor and texture (max 150 chars)."
@@ -37,7 +41,7 @@
               "description": "Total cooking time in minutes."
             }
           },
-          "required": ["description", "ingredients", "tags", "servings", "cook_time"]
+          "required": ["title", "description", "ingredients", "tags", "servings", "cook_time"]
         }
       }
     }

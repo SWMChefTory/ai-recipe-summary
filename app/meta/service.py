@@ -14,14 +14,22 @@ class MetaService:
         self.client = client
         self.extractor = extractor
 
-    async def extract_by_video(self, video_id: str, file_uri: str, mime_type: str, language: LanguageType) -> MetaResponse:
+    async def extract_by_video(
+        self,
+        video_id: str,
+        file_uri: str,
+        mime_type: str,
+        language: LanguageType,
+        original_title: str,
+    ) -> MetaResponse:
         try:
             # 1. 영상 자체에서 메타데이터 추출 (보조 정보)
             meta_from_video = await asyncio.to_thread(
                 self.extractor.extract_video,
                 file_uri,
                 mime_type,
-                language
+                language,
+                original_title,
             )
 
             # 2. 유튜브 영상 설명 가져오기
@@ -65,6 +73,7 @@ class MetaService:
                 final_ingredients = meta_from_video.ingredients
 
             return MetaResponse(
+                title=meta_from_video.title,
                 description=meta_from_video.description,
                 ingredients=final_ingredients,
                 tags=meta_from_video.tags,

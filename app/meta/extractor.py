@@ -257,7 +257,13 @@ class MetaExtractor:
         except MetaException:
             return []
 
-    def extract_video(self, file_uri: str, mime_type: str, language: LanguageType) -> MetaResponse:
+    def extract_video(
+        self,
+        file_uri: str,
+        mime_type: str,
+        language: LanguageType,
+        original_title: str,
+    ) -> MetaResponse:
         if not self.video_extract_prompt or not self.video_meta_conf:
             raise MetaException(MetaErrorCode.META_EXTRACT_FAILED, "Video extraction not configured")
 
@@ -269,7 +275,8 @@ class MetaExtractor:
         prompt = self._render_prompt(
             self.video_extract_prompt,
             language=language.value,
-            tag_options=tag_options
+            tag_options=tag_options,
+            original_title=original_title,
         )
 
         response = self._invoke_generate_content(
@@ -290,6 +297,7 @@ class MetaExtractor:
         if not args:
             raise MetaException(MetaErrorCode.META_EXTRACT_FAILED)
 
+        title = (args.get("title") or "").strip()
         description = (args.get("description") or "").strip()
 
         raw_ingredients = args.get("ingredients") or []
@@ -313,6 +321,7 @@ class MetaExtractor:
         cook_time = self._safe_int(args.get("cook_time"), 30)
 
         return MetaResponse(
+            title=title,
             description=description,
             ingredients=ingredients,
             tags=tags,

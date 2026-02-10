@@ -13,6 +13,7 @@ class Ingredient(BaseModel):
 
 class MetaResponse(BaseModel):
     """메타데이터 추출 응답"""
+    title: str = Field(..., description="영상용 요리 제목")
     description: str = Field(..., description="요리에 대한 간단한 설명(최대 80자)")
     ingredients: List[Ingredient]
     tags: List[str] = Field(description="태그(2~4개)")
@@ -25,3 +26,4 @@ class VideoMetaRequest(BaseModel):
     video_id: str = Field(..., description="영상 ID")
     file_uri: str = Field(..., description="Gemini File URI")
     mime_type: str = Field(..., description="MIME Type")
+    original_title: str = Field(description="원본 영상 제목(제목 생성 참고용)")

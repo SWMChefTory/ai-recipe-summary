@@ -21,4 +21,10 @@ async def extract_meta_by_video(
     country = (x_country_code or "").strip().upper()
     language = LanguageType.KR if country == "KR" else LanguageType.EN
 
-    return await meta_service.extract_by_video(request.video_id, request.file_uri, request.mime_type, language)
+    return await meta_service.extract_by_video(
+        request.video_id,
+        request.file_uri,
+        request.mime_type,
+        language,
+        request.original_title,
+    )
