@@ -43,7 +43,6 @@ class Container(containers.DeclarativeContainer):
         "GEMINI_FALLBACK_MODEL_ID",
         default="gemini-3.0-flash",
     )
-
     config.aws.access_key.from_env("AWS_ACCESS_KEY_ID")
     config.aws.secret_key.from_env("AWS_SECRET_ACCESS_KEY")
     config.aws.region.from_env("AWS_REGION")

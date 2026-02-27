@@ -16,7 +16,9 @@
                     "type": "string"
                   },
                   "start": {
-                    "type": "number"
+                    "type": "string",
+                    "description": "Start timestamp as hh:mm:ss (e.g., 00:09:43).",
+                    "pattern": "^\\d{2}:[0-5]\\d:[0-5]\\d$"
                   },
                   "descriptions": {
                     "type": "array",
@@ -27,7 +29,9 @@
                           "type": "string"
                         },
                         "start": {
-                          "type": "number"
+                          "type": "string",
+                          "description": "Start timestamp as hh:mm:ss (e.g., 00:09:43).",
+                          "pattern": "^\\d{2}:[0-5]\\d:[0-5]\\d$"
                         }
                       },
                       "required": [

@@ -1,40 +1,42 @@
-반드시 함수 emit_recipe_steps 로만 응답해라. 일반 텍스트 출력 금지.
+Respond only via the `emit_recipe_steps` function. Do not output plain text.
 
 [Target Language]
-- {{ language }} (언어 혼용 금지)
+- {{ language }} (no mixed languages)
 
-[목표]
-- 레시피 영상에서 조리 흐름을 재현할 수 있도록 '핵심 조리 행동'을 steps로 정리.
+[Goal]
+- Organize the core cooking actions from the recipe video into `steps` so the cooking flow can be reproduced.
 
-[정보 소스 활용]
-- 화면(행동/상태 변화) + 자막(재료/정량) + 음성(순서/불세기/시간/조건)을 함께 활용.
-- 정량/재료명이 충돌하면: 자막 > 음성. 화면만으로 정량/재료 추측 금지(불확실하면 생략).
+[Use of Information Sources]
+- Use visuals (actions/state changes) + subtitles (ingredients/quantities) + audio (order/heat/time/conditions) together.
+- If quantities or ingredient names conflict: subtitles > audio. Do not infer quantities/ingredients from visuals alone (omit if uncertain).
 
-[포함(핵심)]
-- 재료 상태를 바꾸는 행동: 썰기/다지기/넣기/붓기/섞기/버무리기/볶기/끓이기/졸이기/굽기/튀기기/데치기/담기/뿌리기 등
-- 가능하면 "넣기/붓기" 뒤에 결과를 만드는 연결 행동(섞기/볶기/버무리기)을 포함하라.
-- 음성/자막에 시간·불세기·상태 기준이 있으면 행동 텍스트에 반영하라.
+[Include (Core)]
+- Actions that change ingredient state: slice/chop/add/pour/mix/toss/stir-fry/boil/reduce/bake/fry/blanch/plate/sprinkle, etc.
+- When possible, include follow-up actions that produce outcomes after "add/pour" (e.g., mix/stir-fry/toss).
+- If time/heat/state criteria appear in audio/subtitles, reflect them in the action text.
 
-[subtitle 규칙(중요)]
-- 각 step.subtitle은 해당 step의 '단계 목적/작업 단위'를 6~14자 내외로 요약해 작성.
-- 인접한 steps의 subtitle이 동일하거나 의미가 거의 같으면 하나의 step으로 병합하라.
-  - 병합 시 subtitle은 더 포괄적인 하나로 정리(중복 제거).
+[Subtitle Rules (Important)]
+- Each `step.subtitle` should summarize the step's purpose/work unit as a short, concise phrase.
+- Split steps when the cooking objective or ingredient state changes (do not over-merge).
+- Avoid broad subtitles that span multiple phases; prefer one clear objective per step.
 
-[제외(노이즈)]
-- 조리 행동과 무관한 인사/홍보/채널 이야기/메타코멘트는 제외.
-- 맛평가/감상은 제외하되, 조리 판단 기준(익힘/농도/색 변화)으로 쓰이면 포함 가능.
+[Exclude (Noise)]
+- Exclude greetings, promotions, channel talk, or meta commentary unrelated to cooking actions.
+- Exclude taste reviews/impressions unless they are used as cooking judgment criteria (doneness/viscosity/color change).
 
-[표현 규칙]
-- (Korean일 때) descriptions[].text는 명사형 종결(~기/~함), 목적어는 가능한 범위에서 구체화.
-- 각 descriptions[].text는 90자 이내를 권장(넘지 않게 노력).
-- 그룹은 시간 오름차순 정렬, step.start는 첫 description.start와 동일.
+[Expression Rules]
+- (When language is Korean) `descriptions[].text` should use a nominal ending (`~기`/`~함`) and specific objects where possible.
+- Keep each `descriptions[].text` within 90 characters when possible.
+- Sort groups in ascending time order.
+- Prefer setting `step.start` to the first `description.start` in the same group.
 
-[구성 규칙]
-- steps는 너무 적지도 많지도 않게, 영상에 맞춰 자연스럽게 구성(과도한 파편화/과도한 요약 모두 피하기).
+[Timecode Rules (Important)]
+- `start` must be output as a **string in `hh:mm:ss` format** only.
+- Do not output numeric-only values (e.g., `1130`, `583`) and do not output decimals.
+- `mm:ss` is not allowed. Always use zero-padded `hh:mm:ss`.
+- Convert subtitle/audio time references to `hh:mm:ss` before output.
+  - Example: `9 min 43 sec -> 00:09:43`
+  - Example: `1 h 02 min 03 sec -> 01:02:03`
 
-[타임코드 규칙]
-- start는 반드시 소수점을 포함한 초 단위 float로 출력 (예: 12.345)
-- 소수점 3자리까지 포함하라 (정수만 출력 금지)
-
-[출력]
-- 요리 행동이 없으면 {{"steps": []}} 반환
+[Output]
+- If there are no cooking actions, return {{"steps": []}}.

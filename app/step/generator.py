@@ -1,19 +1,22 @@
 import json
 import logging
+import re
 from pathlib import Path
-from typing import List, Optional
+from typing import Any, List
 
 from google import genai
 from google.genai import errors as genai_errors
 from google.genai import types
 
 from app.enum import LanguageType
+from app.gemini_safety import relaxed_safety_settings
 from app.step.exception import StepErrorCode, StepException
 from app.step.schema import StepGroup
 
 
 class StepGenerator:
     VIDEO_ALLOWED_FUNCTION_NAME = "emit_recipe_steps"
+    TIMECODE_PATTERN = re.compile(r"^\d{2}:[0-5]\d:[0-5]\d$")
 
     def __init__(
         self,
@@ -35,6 +38,8 @@ class StepGenerator:
         
         self.video_step_conf = types.GenerateContentConfig(
             temperature=0.0,
+            media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
+            safety_settings=relaxed_safety_settings(),
             tools=[self.video_step_tool],
             tool_config=types.ToolConfig(
                 function_calling_config=types.FunctionCallingConfig(
@@ -116,6 +121,64 @@ class StepGenerator:
         self.logger.error("Gemini API 응답을 처리할 수 없습니다.")
         raise StepException(StepErrorCode.STEP_GENERATE_FAILED)
 
+    @classmethod
+    def _timecode_to_seconds(cls, value: Any, *, path: str) -> int:
+        if not isinstance(value, str):
+            raise StepException(
+                StepErrorCode.STEP_GENERATE_FAILED,
+                f"Invalid timestamp type at {path}: {type(value)}",
+            )
+        raw = value.strip()
+        if not cls.TIMECODE_PATTERN.fullmatch(raw):
+            raise StepException(
+                StepErrorCode.STEP_GENERATE_FAILED,
+                f"Invalid timestamp format at {path}: {value}",
+            )
+
+        hh_str, mm_str, ss_str = raw.split(":")
+        return (int(hh_str) * 3600) + (int(mm_str) * 60) + int(ss_str)
+
+    def _normalize_step_args(self, step_args: dict) -> dict:
+        raw_steps = step_args.get("steps")
+        if not isinstance(raw_steps, list):
+            raise StepException(StepErrorCode.STEP_GENERATE_FAILED, "steps must be an array")
+
+        normalized_steps = []
+        for i, step in enumerate(raw_steps):
+            if not isinstance(step, dict):
+                raise StepException(StepErrorCode.STEP_GENERATE_FAILED, f"steps[{i}] must be an object")
+
+            descriptions = step.get("descriptions")
+            if not isinstance(descriptions, list):
+                raise StepException(
+                    StepErrorCode.STEP_GENERATE_FAILED,
+                    f"steps[{i}].descriptions must be an array",
+                )
+
+            normalized_descriptions = []
+            for j, desc in enumerate(descriptions):
+                if not isinstance(desc, dict):
+                    raise StepException(
+                        StepErrorCode.STEP_GENERATE_FAILED,
+                        f"steps[{i}].descriptions[{j}] must be an object",
+                    )
+                normalized_desc = dict(desc)
+                normalized_desc["start"] = self._timecode_to_seconds(
+                    desc.get("start"),
+                    path=f"steps[{i}].descriptions[{j}].start",
+                )
+                normalized_descriptions.append(normalized_desc)
+
+            normalized_step = dict(step)
+            normalized_step["start"] = self._timecode_to_seconds(
+                step.get("start"),
+                path=f"steps[{i}].start",
+            )
+            normalized_step["descriptions"] = normalized_descriptions
+            normalized_steps.append(normalized_step)
+
+        return {"steps": normalized_steps}
+
     def _parse_steps(self, step_args: dict) -> List[StepGroup]:
         raw_steps = step_args.get("steps") or []
         try:
@@ -140,7 +203,7 @@ class StepGenerator:
                 ]
             )
         ]
-        
+
         try:
             try:
                 response = self._generate_content(
@@ -167,7 +230,8 @@ class StepGenerator:
                 )
 
             step_args = self._extract_emit_steps_args(response, self.VIDEO_ALLOWED_FUNCTION_NAME)
-            return self._parse_steps(step_args)
+            normalized_step_args = self._normalize_step_args(step_args)
+            return self._parse_steps(normalized_step_args)
         except genai_errors.ClientError as e:
             self.logger.exception("Gemini API 호출 중 오류가 발생했습니다.")
             raise StepException(StepErrorCode.STEP_GENERATE_FAILED) from e

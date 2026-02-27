@@ -8,6 +8,7 @@ from google.genai import errors as genai_errors
 from google.genai import types
 
 from app.enum import LanguageType
+from app.gemini_safety import relaxed_safety_settings
 from app.meta.exception import MetaErrorCode, MetaException
 from app.meta.schema import Ingredient, MetaResponse
 
@@ -60,6 +61,7 @@ class MetaExtractor:
         self.video_meta_conf = self._build_conf(
             tool=self.video_meta_tool,
             allowed_fn=self.VIDEO_META_FN,
+            media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
         )
 
 
@@ -83,10 +85,21 @@ class MetaExtractor:
         )
         return types.Tool(function_declarations=[fn_decl])
 
-    def _build_conf(self, *, tool: types.Tool, allowed_fn: str) -> types.GenerateContentConfig:
+    def _build_conf(
+        self,
+        *,
+        tool: types.Tool,
+        allowed_fn: str,
+        media_resolution: Optional[types.MediaResolution] = None,
+    ) -> types.GenerateContentConfig:
+        kwargs: dict[str, Any] = {}
+        if media_resolution is not None:
+            kwargs["media_resolution"] = media_resolution
+
         return types.GenerateContentConfig(
             system_instruction=self.system_instruction,
             temperature=0.0,
+            safety_settings=relaxed_safety_settings(),
             tools=[tool],
             tool_config=types.ToolConfig(
                 function_calling_config=types.FunctionCallingConfig(
@@ -94,6 +107,7 @@ class MetaExtractor:
                     allowed_function_names=[allowed_fn],
                 )
             ),
+            **kwargs,
         )
 
     @staticmethod

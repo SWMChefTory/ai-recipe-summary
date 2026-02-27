@@ -7,6 +7,7 @@ from google import genai
 from google.genai import errors as genai_errors
 from google.genai import types
 
+from app.gemini_safety import relaxed_safety_settings
 from app.verify.exception import VerifyException, VerifyErrorCode
 
 logger = logging.getLogger(__name__)
@@ -51,6 +52,8 @@ class VerifyGenerator:
 
             logger.info(f"[VerifyGenerator] ▶ Gemini API 호출 시도 (Tool Calling) | model={self.model}")
             config = types.GenerateContentConfig(
+                media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
+                safety_settings=relaxed_safety_settings(),
                 tools=[types.Tool(
                     function_declarations=[
                         types.FunctionDeclaration(
@@ -112,8 +115,16 @@ class VerifyGenerator:
                         break
             
             if not function_call:
-                logger.error(f"[VerifyGenerator] ▶ Gemini가 툴을 호출하지 않음 | response={response}")
-                raise VerifyException(VerifyErrorCode.VERIFY_FAILED, "Gemini가 검증 결과를 반환하지 않았습니다.")
+                block_reason = None
+                if getattr(response, "prompt_feedback", None):
+                    block_reason = getattr(response.prompt_feedback, "block_reason", None)
+                logger.error(
+                    f"[VerifyGenerator] ▶ Gemini가 툴을 호출하지 않음 | block_reason={block_reason} | response={response}"
+                )
+                raise VerifyException(
+                    VerifyErrorCode.VERIFY_NO_TOOL_CALL,
+                    {"block_reason": str(block_reason) if block_reason else None},
+                )
 
             return function_call.args
 

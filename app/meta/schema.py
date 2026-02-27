@@ -24,6 +24,6 @@ class MetaResponse(BaseModel):
 class VideoMetaRequest(BaseModel):
     """영상 기반 메타데이터 추출 요청"""
     video_id: str = Field(..., description="영상 ID")
-    file_uri: str = Field(..., description="Gemini File URI")
+    file_uri: str = Field(..., description="비디오 URI (YouTube URL 또는 Gemini File URI)")
     mime_type: str = Field(..., description="MIME Type")
     original_title: str = Field(description="원본 영상 제목(제목 생성 참고용)")
