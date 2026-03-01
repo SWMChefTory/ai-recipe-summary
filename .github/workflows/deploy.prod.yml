@@ -25,14 +25,17 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build and Push Docker image (arm64 for t4g)
+      - name: Build and Push Docker image (amd64)
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./docker/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest
-          platforms: linux/arm64
+          platforms: linux/amd64
+
+      # (선택) 나중에 ARM도 유지하고 싶으면 멀티아치
+      # platforms: linux/amd64,linux/arm64
 
   deploy:
     environment: production
@@ -42,21 +45,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: SSH to EC2 and create folder
+      - name: SSH to VM and create folder
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             mkdir -p cheftory-ai-recipe-summary-server/docker
 
-      - name: Create .env on EC2
+      - name: Create .env on VM
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             cat <<EOF > /home/ubuntu/cheftory-ai-recipe-summary-server/.env
             GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
@@ -83,36 +86,32 @@ jobs:
             AWS_LAMBDA_FUNCTION_URL_VIRGINIA=${{ secrets.AWS_LAMBDA_FUNCTION_URL_VIRGINIA }}
             EOF
 
-      - name: Copy docker-compose.prod.yml to EC2
+      - name: Copy docker-compose.prod.yml to VM
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
           source: "./docker/docker-compose.prod.yml"
           target: "/home/ubuntu/cheftory-ai-recipe-summary-server/"
           strip_components: 0
 
-      - name: SSH to EC2 and deploy
+      - name: SSH to VM and deploy
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             cd cheftory-ai-recipe-summary-server/docker
 
-            # Docker Hub 로그인
             echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | sudo docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
-            # compose 내 이미지 이름 치환 (placeholder → 실제 레지스트리)
             sed -i "s|image: cheftory-ai-recipe-summary-server:latest|image: ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest|g" docker-compose.prod.yml
 
-            # 기존 컨테이너 정리
-            sudo docker-compose -f docker-compose.prod.yml stop || true
-            sudo docker-compose -f docker-compose.prod.yml rm -f || true
+            sudo docker compose -f docker-compose.prod.yml stop || true
+            sudo docker compose -f docker-compose.prod.yml rm -f || true
             sudo docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/cheftory-ai-recipe-summary-server:latest || true
 
-            # 새 이미지 pull 및 실행
-            sudo docker-compose -f docker-compose.prod.yml pull
-            sudo docker-compose -f docker-compose.prod.yml up -d
+            sudo docker compose -f docker-compose.prod.yml pull
+            sudo docker compose -f docker-compose.prod.yml up -d
