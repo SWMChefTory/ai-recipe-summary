@@ -29,13 +29,13 @@ class VerifyService:
         2) 업로드된 비디오(file_uri)를 사용하여 Gemini API로 레시피 여부를 검증합니다.
         """
         try:
-            # 1. 비디오 업로드 (Lambda 호출)
+            # 1. 비디오 업로드 (Cloud Run 업로드 서비스 호출)
             self.logger.info(f"[VerifyService] ▶ 비디오 업로드 시작 | video_id={video_id}")
             try:
                 upload_result = await self.client.upload_video_to_gemini(video_id)
             except Exception as e:
                 self.logger.error(f"[VerifyService] ▶ 비디오 업로드 실패 | video_id={video_id} | error={e}")
-                raise VerifyException(VerifyErrorCode.VERIFY_LAMBDA_ERROR)
+                raise VerifyException(VerifyErrorCode.VERIFY_UPLOAD_ERROR)
             
             file_uri = upload_result.get("file_uri")
             file_name = upload_result.get("file_name")
@@ -43,7 +43,7 @@ class VerifyService:
 
             if not file_uri:
                 self.logger.error(f"[VerifyService] ▶ 비디오 업로드 실패 (file_uri 없음) | video_id={video_id}")
-                raise VerifyException(VerifyErrorCode.VERIFY_LAMBDA_ERROR)
+                raise VerifyException(VerifyErrorCode.VERIFY_UPLOAD_ERROR)
 
             self.logger.info(f"[VerifyService] ▶ 비디오 업로드 성공 | file_uri={file_uri}")
 

@@ -20,6 +20,9 @@ from app.verify.service import VerifyService
 from app.verify.client import VerifyClient
 from app.verify.generator import VerifyGenerator
 
+def _resolve_caption_upload_urls(raw_urls: str):
+    return [url.strip() for url in (raw_urls or "").split(",") if url.strip()]
+
 
 class Container(containers.DeclarativeContainer):
     """의존성 주입 컨테이너"""
@@ -43,24 +46,11 @@ class Container(containers.DeclarativeContainer):
         "GEMINI_FALLBACK_MODEL_ID",
         default="gemini-3.0-flash",
     )
-    config.aws.access_key.from_env("AWS_ACCESS_KEY_ID")
-    config.aws.secret_key.from_env("AWS_SECRET_ACCESS_KEY")
-    config.aws.region.from_env("AWS_REGION")
-
-    config.aws_lambda.function_url_seoul.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL")
-    config.aws_lambda.function_url_seoul_no_cookie.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE")
-    config.aws_lambda.function_url_seoul_no_cookie_2.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE_2")
-    config.aws_lambda.function_url_seoul_no_cookie_3.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE_3")
-    config.aws_lambda.function_url_seoul_no_cookie_4.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE_4")
-    config.aws_lambda.function_url_seoul_no_cookie_5.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE_5")
-    config.aws_lambda.function_url_seoul_no_cookie_6.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE_6")
-    config.aws_lambda.function_url_seoul_no_cookie_7.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE_7")
-    config.aws_lambda.function_url_seoul_no_cookie_8.from_env("AWS_LAMBDA_FUNCTION_URL_SEOUL_NO_COOKIE_8")
-    config.aws_lambda.function_url_tokyo.from_env("AWS_LAMBDA_FUNCTION_URL_TOKYO")
-    config.aws_lambda.function_url_osaka.from_env("AWS_LAMBDA_FUNCTION_URL_OSAKA")
-    config.aws_lambda.function_url_singapore.from_env("AWS_LAMBDA_FUNCTION_URL_SINGAPORE")
-    config.aws_lambda.function_url_oregon.from_env("AWS_LAMBDA_FUNCTION_URL_OREGON")
-    config.aws_lambda.function_url_virginia.from_env("AWS_LAMBDA_FUNCTION_URL_VIRGINIA")
+    config.cloud_run.caption_urls.from_env(
+        "CLOUD_RUN_CAPTION_URLS",
+        default="",
+    )
+    config.cloud_run.request_timeout_seconds.from_value(300)
 
     # Gemini - Client 설정
     genai_client = providers.Singleton(
@@ -129,25 +119,11 @@ class Container(containers.DeclarativeContainer):
     # Verify
     verify_client = providers.Singleton(
         VerifyClient,
-        region=config.aws.region,
-        aws_lambda_function_urls=providers.List(
-            config.aws_lambda.function_url_seoul,
-            config.aws_lambda.function_url_seoul_no_cookie,
-            config.aws_lambda.function_url_seoul_no_cookie_2,
-            config.aws_lambda.function_url_seoul_no_cookie_3,
-            config.aws_lambda.function_url_seoul_no_cookie_4,
-            config.aws_lambda.function_url_seoul_no_cookie_5,
-            config.aws_lambda.function_url_seoul_no_cookie_6,
-            config.aws_lambda.function_url_seoul_no_cookie_7,
-            config.aws_lambda.function_url_seoul_no_cookie_8,
-            config.aws_lambda.function_url_tokyo,
-            config.aws_lambda.function_url_osaka,
-            config.aws_lambda.function_url_singapore,
-            config.aws_lambda.function_url_oregon,
-            config.aws_lambda.function_url_virginia,
+        upload_service_urls=providers.Callable(
+            _resolve_caption_upload_urls,
+            config.cloud_run.caption_urls,
         ),
-        aws_access_key_id=config.aws.access_key,
-        aws_secret_access_key=config.aws.secret_key,
+        request_timeout_seconds=config.cloud_run.request_timeout_seconds,
     )
 
     verify_generator = providers.Singleton(
