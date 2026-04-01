@@ -1,0 +1,1289 @@
+{
+  "name": "부대찌개 (Maangchi)",
+  "url": "https://www.youtube.com/watch?v=euVyBKNfxkk",
+  "videoId": "euVyBKNfxkk",
+  "collectedAt": "2026-03-23T16:05:14.376Z",
+  "subtitles": [],
+  "videoInfo": {
+    "description": "Full recipe: http://www.maangchi.com/recipe/budae-jjigae\nHello everybody! Today I'm showing you the recipe for a much-requested dish: Budae-jjigae a.k.a \"Army Base Stew.\" It's a spicy, savory, Korean-American fusion dish made from an umami-rich broth, Korean hot pepper paste, flakes, kimchi, and American Spam, beans, and sausage.",
+    "title": "Army base stew (Budae-jjigae: 부대찌개)",
+    "channelName": "Maangchi"
+  },
+  "visualAnalysis": {
+    "raw": "```json\n[\n  {\n    \"time\": \"00:00:00\",\n    \"endTime\": \"00:00:03\",\n    \"type\": \"intro\",\n    \"visual\": \"화면 양쪽에서 식칼과 생선 모형을 든 망치(Maangchi)의 애니메이션 로고가 나타나며 X자로 교차함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:03\",\n    \"endTime\": \"00:00:52\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"진행자 망치가 주방에 서서 손을 흔들며 인사한 후, 부대찌개의 유래와 재료에 대해 카메라를 보며 설명함. 화면에 'Army base stew Budae-jjigae 부대찌개'와 'budae = army base'라는 텍스트가 나타남\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:53\",\n    \"endTime\": \"00:00:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"보글보글 끓고 있는 붉은색 부대찌개 속에서 집게로 라면과 당면을 높이 들어 올림\",\n    \"ingredients\": [\n      \"라면\",\n      \"당면\",\n      \"소시지\",\n      \"김치\"\n    ],\n    \"tools\": [\n      \"집게\",\n      \"전골냄비\"\n    ]\n  },\n  {\n    \"time\": \"00:00:54\",\n    \"endTime\": \"00:00:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"들어 올렸던 면을 다시 국물 속으로 내려놓으며 찌개 재료들과 섞음\",\n    \"ingredients\": [\n      \"라면\",\n      \"당면\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:00:55\",\n    \"endTime\": \"00:01:12\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"망치가 다시 주방에서 요리 설명을 이어감. 말린 표고버섯을 카메라에 보여줌 (텍스트: 'Mr. shiitake! :)'). 이어서 크고 상태가 좋은 마른 멸치 한 줌을 손바닥에 올려 보여줌 (텍스트: '8 best looking anchovies in town! :)')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:13\",\n    \"endTime\": \"00:01:14\",\n    \"type\": \"cooking\",\n    \"visual\": \"마른 멸치 한 마리를 양손으로 잡고 머리 부분을 꺾어서 떼어냄\",\n    \"ingredients\": [\n      \"마른 멸치\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:14\",\n    \"endTime\": \"00:01:15\",\n    \"type\": \"cooking\",\n    \"visual\": \"머리가 떨어진 멸치의 배 쪽을 엄지손가락으로 갈라 벌림\",\n    \"ingredients\": [\n      \"마른 멸치\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:15\",\n    \"endTime\": \"00:01:16\",\n    \"type\": \"cooking\",\n    \"visual\": \"멸치 배 안쪽에 있는 검은색 내장(똥)을 손가락으로 긁어내어 분리함\",\n    \"ingredients\": [\n      \"마른 멸치\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:16\",\n    \"endTime\": \"00:01:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"내장을 완전히 제거한 멸치 몸통을 반으로 갈라 접시 위에 내려놓음\",\n    \"ingredients\": [\n      \"마른 멸치\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:17\",\n    \"endTime\": \"00:01:25\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"나머지 멸치들을 손질하는 과정을 보여줌. 접시에 손질된 멸치 조각들이 모임\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:26\",\n    \"endTime\": \"00:01:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"손질된 멸치 조각들을 집어 스테인리스 재질의 원형 육수망 안에 넣음 (텍스트: 'Maangchi made us hollow! :)')\",\n    \"ingredients\": [\n      \"손질된 멸치\"\n    ],\n    \"tools\": [\n      \"스테인리스 육수망\"\n    ]\n  },\n  {\n    \"time\": \"00:01:27\",\n    \"endTime\": \"00:01:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"나머지 멸치 조각들도 모두 육수망 안에 밀어 넣음\",\n    \"ingredients\": [\n      \"손질된 멸치\"\n    ],\n    \"tools\": [\n      \"스테인리스 육수망\"\n    ]\n  },\n  {\n    \"time\": \"00:01:28\",\n    \"endTime\": \"00:01:40\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"멸치가 담긴 육수망 뚜껑을 닫고 체인 고리를 걸어 잠근 뒤, 물이 담긴 검은색 깊은 육수 냄비 안에 담금\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:41\",\n    \"endTime\": \"00:01:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"수도꼭지를 틀고 흐르는 물 아래에 말린 표고버섯을 갖다 댐 (텍스트: 'Wash the mushrooms')\",\n    \"ingredients\": [\n      \"말린 표고버섯\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:42\",\n    \"endTime\": \"00:01:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손의 엄지와 검지를 이용해 표고버섯의 표면을 문지르며 먼지를 씻어냄\",\n    \"ingredients\": [\n      \"말린 표고버섯\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:43\",\n    \"endTime\": \"00:02:03\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"씻은 버섯을 냄비에 넣음. 큰 봉투에 담긴 '건다시마(Dried Seaweed)'를 꺼내 카메라에 보여줌 (텍스트: 'Ow! Is it a folded blanket? :)')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:04\",\n    \"endTime\": \"00:02:05\",\n    \"type\": \"cooking\",\n    \"visual\": \"주방 가위를 이용해 거대한 건다시마를 직사각형 크기로 잘라냄 (텍스트: '5 x 6 inches')\",\n    \"ingredients\": [\n      \"건다시마 (5 x 6 inches)\"\n    ],\n    \"tools\": [\n      \"주방 가위\"\n    ]\n  },\n  {\n    \"time\": \"00:02:05\",\n    \"endTime\": \"00:02:06\",\n    \"type\": \"cooking\",\n    \"visual\": \"가위질을 끝내고 잘라낸 다시마 한 장을 손으로 떼어냄\",\n    \"ingredients\": [\n      \"건다시마 조각\"\n    ],\n    \"tools\": [\n      \"주방 가위\"\n    ]\n  },\n  {\n    \"time\": \"00:02:07\",\n    \"endTime\": \"00:02:44\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"자른 다시마를 냄비에 넣고 뚜껑을 닫은 뒤 가스 불을 켜서 끓임. 타이머 맞추는 법을 설명한 뒤, 당면(Sweet potato starch noodles) 봉지를 뜯어 당면 묶음을 꺼냄\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:45\",\n    \"endTime\": \"00:02:46\",\n    \"type\": \"cooking\",\n    \"visual\": \"건당면이 담긴 스테인리스 볼에 수도꼭지를 틀어 찬물을 붓기 시작함\",\n    \"ingredients\": [\n      \"건당면\"\n    ],\n    \"tools\": [\n      \"스테인리스 볼\"\n    ]\n  },\n  {\n    \"time\": \"00:02:46\",\n    \"endTime\": \"00:02:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손으로 당면을 꾹꾹 눌러 물에 완전히 잠기도록 함\",\n    \"ingredients\": [\n      \"건당면\",\n      \"물\"\n    ],\n    \"tools\": [\n      \"스테인리스 볼\"\n    ]\n  },\n  {\n    \"time\": \"00:02:48\",\n    \"endTime\": \"00:02:59\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"물을 끄고 불린 당면을 옆에 둠. 도마 위에 통마늘 6알을 올려놓음\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:00\",\n    \"endTime\": \"00:03:01\",\n    \"type\": \"cooking\",\n    \"visual\": \"식칼의 손잡이와 칼등 부분을 양손으로 잡고 마늘을 위아래로 빠르게 움직여 다지기 시작함\",\n    \"ingredients\": [\n      \"마늘\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:03:01\",\n    \"endTime\": \"00:03:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"도마 위로 흩어지는 마늘 조각들을 칼날을 이용해 잘게 써는 동작을 반복함\",\n    \"ingredients\": [\n      \"다진 마늘\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:03:02\",\n    \"endTime\": \"00:03:03\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼등으로 다져진 마늘을 긁어모아 가운데로 한데 합침\",\n    \"ingredients\": [\n      \"다진 마늘\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:03:04\",\n    \"endTime\": \"00:03:11\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"다진 마늘을 작은 검은색 종지에 옮겨 담음. 손을 씻고 양념장 재료들을 준비함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:12\",\n    \"endTime\": \"00:03:13\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 퍼낸 붉은 고추장을 다진 마늘이 있는 검은색 종지 안에 털어 넣음\",\n    \"ingredients\": [\n      \"고추장 1큰술\",\n      \"다진 마늘\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"작은 종지\"\n    ]\n  },\n  {\n    \"time\": \"00:03:14\",\n    \"endTime\": \"00:03:28\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"계량스푼을 사용해 고춧가루, 설탕, 간장, 물을 차례로 종지에 넣음\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:29\",\n    \"endTime\": \"00:03:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"물 2큰술을 마저 붓고 모든 양념 재료가 섞이도록 숟가락으로 저어줌. (화면 텍스트: 양념장 레시피 자막 표시됨 - 마늘 6쪽, 고추장 1큰술, 고춧가루 2큰술, 간장 1작은술, 설탕 1작은술, 물 2큰술)\",\n    \"ingredients\": [\n      \"다진 마늘 6쪽\",\n      \"고추장 1 tbs\",\n      \"고춧가루 2 tbs\",\n      \"간장 1 ts\",\n      \"설탕 1 ts\",\n      \"물 2 tbs\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"작은 종지\"\n    ]\n  },\n  {\n    \"time\": \"00:03:30\",\n    \"endTime\": \"00:03:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 그릇 바닥을 긁으며 뻑뻑한 붉은색 양념장을 둥글게 저어 완전히 섞음\",\n    \"ingredients\": [\n      \"혼합된 양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"작은 종지\"\n    ]\n  },\n  {\n    \"time\": \"00:03:32\",\n    \"endTime\": \"00:03:55\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"완성된 양념장을 숟가락으로 찍어 맛보고 훌륭하다고 감탄함. 이후 삼겹살(돼지고기)을 도마에 준비함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:56\",\n    \"endTime\": \"00:03:57\",\n    \"type\": \"cooking\",\n    \"visual\": \"식칼을 사용해 생 돼지고기 삼겹살을 한 입 크기로 자르기 위해 칼질을 내림. (화면 텍스트: '½ pound pork')\",\n    \"ingredients\": [\n      \"돼지고기 (½ pound)\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:03:57\",\n    \"endTime\": \"00:03:58\",\n    \"type\": \"cooking\",\n    \"visual\": \"돼지고기의 결을 따라 직사각형 모양으로 깍둑썰기를 계속함\",\n    \"ingredients\": [\n      \"돼지고기\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:03:59\",\n    \"endTime\": \"00:04:28\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"썬 돼지고기를 접시에 담아두고 육수 냄비로 이동함. 냄비 뚜껑을 열고 물이 끓는 것을 확인함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:04:29\",\n    \"endTime\": \"00:04:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"미리 썰어둔 생 돼지고기 조각들을 끓고 있는 육수 냄비 안에 주걱으로 밀어 넣어 투하함\",\n    \"ingredients\": [\n      \"썰어둔 돼지고기\",\n      \"끓는 육수\"\n    ],\n    \"tools\": [\n      \"주걱\",\n      \"접시\",\n      \"냄비\"\n    ]\n  },\n  {\n    \"time\": \"00:04:30\",\n    \"endTime\": \"00:04:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"주걱으로 고기들이 육수에 푹 잠기도록 가볍게 휘저어줌\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"육수\"\n    ],\n    \"tools\": [\n      \"주걱\",\n      \"냄비\"\n    ]\n  },\n  {\n    \"time\": \"00:04:32\",\n    \"endTime\": \"00:04:47\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"뚜껑을 덮고 육수와 고기를 함께 끓이는 시간을 가짐. (화면 텍스트: 'Delicious stock + cooked pork!')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:04:48\",\n    \"endTime\": \"00:04:49\",\n    \"type\": \"cooking\",\n    \"visual\": \"가스 불을 끄고 집게를 이용해 냄비 안에서 멸치가 들어있는 육수망을 건져 올림\",\n    \"ingredients\": [\n      \"육수\"\n    ],\n    \"tools\": [\n      \"집게\",\n      \"육수망\"\n    ]\n  },\n  {\n    \"time\": \"00:04:50\",\n    \"endTime\": \"00:04:53\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"육수망을 빼낸 뒤 육수 상태를 확인함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:04:54\",\n    \"endTime\": \"00:04:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"집게로 냄비 안에 있는 커다란 다시마 조각을 건져내어 밖으로 뺌\",\n    \"ingredients\": [\n      \"끓인 다시마\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:04:56\",\n    \"endTime\": \"00:04:59\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"다시마를 그릇에 옮겨 담고, 큰 투명 유리 볼 위에 촘촘한 거름망을 세팅함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:05:00\",\n    \"endTime\": \"00:05:01\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기와 버섯이 담긴 육수 냄비째 들어 올려 거름망 위로 육수를 붓기 시작함\",\n    \"ingredients\": [\n      \"육수\",\n      \"익은 돼지고기\",\n      \"표고버섯\"\n    ],\n    \"tools\": [\n      \"냄비\",\n      \"거름망\",\n      \"유리 볼\"\n    ]\n  },\n  {\n    \"time\": \"00:05:01\",\n    \"endTime\": \"00:05:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"육수는 거름망을 통과해 아래 유리 볼로 떨어지고, 고기와 버섯 건더기만 거름망에 남도록 계속 부음\",\n    \"ingredients\": [\n      \"육수\",\n      \"익은 돼지고기\",\n      \"표고버섯\"\n    ],\n    \"tools\": [\n      \"냄비\",\n      \"거름망\",\n      \"유리 볼\"\n    ]\n  },\n  {\n    \"time\": \"00:05:03\",\n    \"endTime\": \"00:05:19\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"거름망에서 표고버섯을 따로 건져 도마에 올리고, 돼지고기도 접시에 따로 담음. 유리 볼에 담긴 맑은 육수를 보여줌 (텍스트: 'About 6 cups')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:05:20\",\n    \"endTime\": \"00:05:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"계량스푼을 이용해 소금 1티스푼을 맑은 육수 볼에 솔솔 뿌려 넣음\",\n    \"ingredients\": [\n      \"소금 1티스푼\",\n      \"육수\"\n    ],\n    \"tools\": [\n      \"계량스푼\"\n    ]\n  },\n  {\n    \"time\": \"00:05:21\",\n    \"endTime\": \"00:05:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 숟가락으로 소금이 녹도록 육수를 빙글빙글 저어줌\",\n    \"ingredients\": [\n      \"육수\"\n    ],\n    \"tools\": [\n      \"나무 숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:05:23\",\n    \"endTime\": \"00:06:03\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"육수를 식히고, 건져낸 돼지고기를 보여줌. 통배추김치 통을 열어 김치를 도마에 올림. 넓고 얕은 전골 팬(냄비)을 꺼내 보여주며 조립을 준비함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:04\",\n    \"endTime\": \"00:06:05\",\n    \"type\": \"cooking\",\n    \"visual\": \"식칼로 양배추 덩어리를 굵직하게 듬성듬성 썰어냄\",\n    \"ingredients\": [\n      \"양배추\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:06\",\n    \"endTime\": \"00:06:11\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"자른 양배추를 얕은 전골 팬 바닥에 깔아줌. 양파 반 개를 도마에 올림\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:12\",\n    \"endTime\": \"00:06:13\",\n    \"type\": \"cooking\",\n    \"visual\": \"식칼로 양파 반 개를 채 썰기 위해 가장자리부터 슬라이스함\",\n    \"ingredients\": [\n      \"양파\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:13\",\n    \"endTime\": \"00:06:14\",\n    \"type\": \"cooking\",\n    \"visual\": \"일정한 간격으로 양파를 계속해서 얇게 썰어줌\",\n    \"ingredients\": [\n      \"양파\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:15\",\n    \"endTime\": \"00:06:19\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"채 썬 양파를 전골 팬의 양배추 옆에 담음. 거대한 대파 한 뿌리를 도마에 올림\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:20\",\n    \"endTime\": \"00:06:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"식칼을 비스듬하게 눕혀 대파를 길고 어슷하게 썰기 시작함\",\n    \"ingredients\": [\n      \"대파\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:21\",\n    \"endTime\": \"00:06:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"계속해서 대파를 크게 어슷썰기하여 조각들을 냄\",\n    \"ingredients\": [\n      \"대파\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:23\",\n    \"endTime\": \"00:06:27\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"어슷 썬 대파를 전골 팬에 담음. 익혀둔 돼지고기 접시를 가져옴\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:28\",\n    \"endTime\": \"00:06:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"미리 삶아둔 돼지고기 조각들을 손으로 집어 채소가 깔린 전골 팬 위에 흩뿌려 올림\",\n    \"ingredients\": [\n      \"삶은 돼지고기\"\n    ],\n    \"tools\": [\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:30\",\n    \"endTime\": \"00:06:33\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"육수를 낼 때 썼던 삶은 표고버섯을 도마에 올리고 기둥을 분리함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:34\",\n    \"endTime\": \"00:06:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"식칼로 삶은 표고버섯의 갓 부분을 얇게 슬라이스함\",\n    \"ingredients\": [\n      \"삶은 표고버섯\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:35\",\n    \"endTime\": \"00:06:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"버섯 전체를 끝까지 썰어서 얇은 띠 모양으로 만듦\",\n    \"ingredients\": [\n      \"삶은 표고버섯\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:37\",\n    \"endTime\": \"00:06:46\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"표고버섯 기둥 부분도 잘게 찢거나 썲. 썬 버섯을 모아서 전골 팬 쪽으로 가져감\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:47\",\n    \"endTime\": \"00:06:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"채 썬 표고버섯을 손으로 집어 전골 팬의 돼지고기 위쪽에 골고루 펼쳐 얹음\",\n    \"ingredients\": [\n      \"채 썬 표고버섯\"\n    ],\n    \"tools\": [\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:49\",\n    \"endTime\": \"00:06:56\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"통배추김치가 올려진 도마를 카메라 앞으로 끌고 옴\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:57\",\n    \"endTime\": \"00:06:58\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼을 눕혀 붉은 포기김치의 중간 부분을 가로로 크게 한 번 썰어줌 (텍스트: 'Unskippable!')\",\n    \"ingredients\": [\n      \"포기김치\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:06:58\",\n    \"endTime\": \"00:06:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"세로 방향으로 김치를 한 입 크기로 숭숭 썰기 시작함\",\n    \"ingredients\": [\n      \"포기김치\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:07:00\",\n    \"endTime\": \"00:07:06\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"김치 썰기를 마무리하고 빨간색 계량컵(반 컵 사이즈)을 가져옴\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:07\",\n    \"endTime\": \"00:07:08\",\n    \"type\": \"cooking\",\n    \"visual\": \"다듬은 붉은 김치를 양손으로 집어 빨간색 계량컵 안에 꾹꾹 눌러 담음\",\n    \"ingredients\": [\n      \"썬 김치\"\n    ],\n    \"tools\": [\n      \"계량컵\"\n    ]\n  },\n  {\n    \"time\": \"00:07:09\",\n    \"endTime\": \"00:07:13\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"계량컵에 가득 담은 김치를 전골 팬 중앙에 쏟아 넣고 손으로 평평하게 펴줌\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:14\",\n    \"endTime\": \"00:07:15\",\n    \"type\": \"cooking\",\n    \"visual\": \"미리 만들어둔 진한 붉은색 양념장 페이스트를 숟가락으로 크게 떠서 냄비 중앙의 김치 위로 올림\",\n    \"ingredients\": [\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:07:16\",\n    \"endTime\": \"00:07:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"종지에 남은 양념장까지 싹싹 긁어 김치 위에 모두 덜어내고 숟가락 뒷면으로 살짝 눌러줌\",\n    \"ingredients\": [\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:07:18\",\n    \"endTime\": \"00:07:30\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"폴란드식 소시지(Kielbasa) 팩을 가위로 뜯어 길쭉한 훈제 소시지를 꺼내 도마에 올림\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:31\",\n    \"endTime\": \"00:07:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼을 사선으로 눕혀 훈제 소시지를 어슷썰기로 한 조각 잘라냄\",\n    \"ingredients\": [\n      \"훈제 소시지\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:07:32\",\n    \"endTime\": \"00:07:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"소시지를 동일한 두께로 타원형 조각이 나오도록 계속 슬라이스함\",\n    \"ingredients\": [\n      \"훈제 소시지\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:07:34\",\n    \"endTime\": \"00:07:41\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"소시지를 다 썰고, 통조림 스팸(SPAM) 뚜껑을 땀\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:42\",\n    \"endTime\": \"00:07:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"스팸 통조림 캔을 흐르는 뜨거운 수돗물 아래에서 돌려가며 데움 (텍스트: 'Hot water method :)')\",\n    \"ingredients\": [\n      \"스팸 통조림\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:44\",\n    \"endTime\": \"00:07:48\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"싱크대에서 도마로 돌아와 캔을 뒤집어 위아래로 흔들며 스팸 내용물을 빼냄 (텍스트: 'won't you come out')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:49\",\n    \"endTime\": \"00:07:50\",\n    \"type\": \"cooking\",\n    \"visual\": \"도마 위에 빠져나온 네모난 스팸 덩어리의 끝부분을 칼로 얇게 슬라이스하기 시작함\",\n    \"ingredients\": [\n      \"스팸\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:07:50\",\n    \"endTime\": \"00:07:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"스팸을 0.5cm 정도의 일정한 두께로 네모난 조각을 썰어냄\",\n    \"ingredients\": [\n      \"스팸 조각\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:07:52\",\n    \"endTime\": \"00:08:19\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"남은 스팸을 비닐에 싸서 보관함. 그 외에 추가할 떡국 떡, 두부, 라면, 통조림 콩, 치즈 등을 카메라에 한꺼번에 훑어 보여줌 (텍스트: 'Don't be intimidated by all these ingredients!')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:20\",\n    \"endTime\": \"00:08:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"네모나게 얇게 썬 스팸 조각 5~6장을 부채꼴로 겹쳐서 전골 팬 가장자리에 올림\",\n    \"ingredients\": [\n      \"스팸 슬라이스\"\n    ],\n    \"tools\": [\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:22\",\n    \"endTime\": \"00:08:27\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"어슷 썬 소시지도 전골 팬 한쪽에 겹쳐서 예쁘게 담음\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:28\",\n    \"endTime\": \"00:08:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"작은 유리그릇에 담긴 하얀 떡국 떡을 손으로 덜어내어 전골 팬 빈 곳에 올림\",\n    \"ingredients\": [\n      \"떡국 떡\"\n    ],\n    \"tools\": [\n      \"유리그릇\",\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:30\",\n    \"endTime\": \"00:08:34\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"나머지 떡도 마저 올림. 포장된 두부를 가져와 포장 비닐을 칼로 뜯어냄\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:35\",\n    \"endTime\": \"00:08:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"흐르는 물에 가볍게 헹군 흰 두부 한 모를 도마 위에 올리고 식칼로 정중앙을 세로로 반으로 가름\",\n    \"ingredients\": [\n      \"두부\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:08:37\",\n    \"endTime\": \"00:08:41\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"반으로 자른 두부 중 절반을 치우고, 남은 절반의 두부를 가로로 돌려놓음\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:42\",\n    \"endTime\": \"00:08:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"두부를 두께 1cm 내외의 직사각형 모양으로 썰어냄\",\n    \"ingredients\": [\n      \"두부\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:08:44\",\n    \"endTime\": \"00:08:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"나머지 두부도 일정한 간격으로 연속해서 슬라이스함\",\n    \"ingredients\": [\n      \"두부\"\n    ],\n    \"tools\": [\n      \"식칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:08:46\",\n    \"endTime\": \"00:09:01\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"썬 두부를 전골 팬에 겹쳐서 올림. 베이크드 빈스(Pork & Beans) 캔의 뚜껑을 개봉함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:02\",\n    \"endTime\": \"00:09:03\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 통조림 안의 갈색 콩(베이크드 빈스)을 한 스푼 가득 떠서 전골 팬의 빈 공간에 부음\",\n    \"ingredients\": [\n      \"베이크드 빈스\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:04\",\n    \"endTime\": \"00:09:15\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"두세 스푼 정도 콩을 더 덜어 올림. 노란색 슬라이스 아메리칸 치즈 비닐을 벗김\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:16\",\n    \"endTime\": \"00:09:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"비닐을 벗긴 노란 치즈 한 장을 전골 팬 중앙의 김치 위쪽(스팸 옆)에 조심스럽게 얹음\",\n    \"ingredients\": [\n      \"슬라이스 치즈\"\n    ],\n    \"tools\": [\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:18\",\n    \"endTime\": \"00:09:23\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"봉지 라면을 꺼내어 반으로 부수기 위해 양손으로 잡음\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:24\",\n    \"endTime\": \"00:09:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"건라면 사리 반 개를 전골 팬 중앙의 치즈 위쪽을 덮듯이 올림\",\n    \"ingredients\": [\n      \"라면 사리 반 개\"\n    ],\n    \"tools\": [\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:26\",\n    \"endTime\": \"00:09:30\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"물에 불려두었던 당면을 건져 양손으로 꾹 짜서 물기를 뺌\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:31\",\n    \"endTime\": \"00:09:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"투명해진 불린 당면 한 움큼을 라면 사리 바로 옆 중앙 공간에 소복하게 얹어줌\",\n    \"ingredients\": [\n      \"불린 당면\"\n    ],\n    \"tools\": [\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:33\",\n    \"endTime\": \"00:09:43\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"장식용 무순(radish sprouts)이 든 플라스틱 팩을 보여준 뒤 싱크대로 가져가서 씻을 준비를 함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:44\",\n    \"endTime\": \"00:09:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"흐르는 수돗물 아래에서 무순 다발을 잡고 물에 적시며 가볍게 흔들어 씻음 (텍스트: 'Shampoo service? lol')\",\n    \"ingredients\": [\n      \"무순\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:46\",\n    \"endTime\": \"00:09:51\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"다 씻은 무순의 아랫단(뿌리 쪽 스펀지)을 가위로 싹둑 잘라내어 잎 부분만 남김\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:52\",\n    \"endTime\": \"00:09:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"다듬은 초록색 무순을 전골 팬 맨 위, 당면과 라면 사리 꼭대기에 소복하게 얹어 장식함\",\n    \"ingredients\": [\n      \"무순\"\n    ],\n    \"tools\": [\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:54\",\n    \"endTime\": \"00:10:06\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"재료 세팅이 완성된 냄비의 클로즈업 샷을 보여줌. 이후 휴대용 가스 버너 위로 냄비를 옮기고 식탁 세팅을 설명함. 미리 만들어둔 육수를 빨간색 계량컵으로 퍼냄\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:10:07\",\n    \"endTime\": \"00:10:08\",\n    \"type\": \"cooking\",\n    \"visual\": \"빨간색 계량컵에 가득 담긴 맑은 육수를 전골 팬의 가장자리를 따라 붓기 시작함 (텍스트: '3 cups stock')\",\n    \"ingredients\": [\n      \"육수 (3 cups)\"\n    ],\n    \"tools\": [\n      \"계량컵\",\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:10:09\",\n    \"endTime\": \"00:10:10\",\n    \"type\": \"cooking\",\n    \"visual\": \"육수가 스팸, 소시지, 김치 등 재료들이 담긴 냄비 안쪽으로 흘러들어가며 바닥을 채움\",\n    \"ingredients\": [\n      \"육수\"\n    ],\n    \"tools\": [\n      \"계량컵\",\n      \"전골 팬\"\n    ]\n  },\n  {\n    \"time\": \"00:10:11\",\n    \"endTime\": \"00:10:35\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"육수가 너무 넘치지 않도록 적당히 부은 상태를 확인하고 나머지 육수를 그릇에 담아둠\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:10:36\",\n    \"endTime\": \"00:10:37\",\n    \"type\": \"cooking\",\n    \"visual\": \"전골 냄비가 올려진 휴대용 가스 버너의 손잡이를 돌려 파란 불꽃을 점화시킴\",\n    \"ingredients\": null,\n    \"tools\": [\n      \"가스 버너\"\n    ]\n  },\n  {\n    \"time\": \"00:10:38\",\n    \"endTime\": \"00:11:07\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"가스 불을 켜두고 찌개가 끓기를 기다리면서 망치가 밥을 푸고 덜어 먹을 개인 그릇을 준비함. 서서히 찌개 가장자리부터 끓어오르기 시작함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:11:08\",\n    \"endTime\": \"00:11:09\",\n    \"type\": \"cooking\",\n    \"visual\": \"냄비 전체가 붉게 끓어오르자 스테인리스 집게를 이용해 맨 꼭대기의 건라면 사리를 꾹 누름\",\n    \"ingredients\": [\n      \"라면 사리\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:11:09\",\n    \"endTime\": \"00:11:10\",\n    \"type\": \"cooking\",\n    \"visual\": \"집게로 라면을 눌러 밑에서 올라오는 뜨거운 붉은 국물에 라면 면발이 살짝 잠기게 함\",\n    \"ingredients\": [\n      \"라면 사리\",\n      \"찌개 국물\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:11:11\",\n    \"endTime\": \"00:11:33\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"찌개가 강하게 끓어오르며 스팸, 소시지, 두부 위로 국물이 넘나드는 모습(클로즈업)을 보여줌\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:11:34\",\n    \"endTime\": \"00:11:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"집게를 사용하여 양념장이 묻어 붉어진 라면 사리를 통째로 집어 들어 뒤집음\",\n    \"ingredients\": [\n      \"라면 사리\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:11:35\",\n    \"endTime\": \"00:11:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"뒤집힌 라면을 국물 속에 밀어 넣으며 옆에 있는 당면과 채소들을 집게로 저어 섞어줌\",\n    \"ingredients\": [\n      \"라면 사리\",\n      \"당면\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:11:37\",\n    \"endTime\": \"00:11:50\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"면이 익기를 기다리며 바글바글 끓는 찌개 모습을 보여줌\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:11:51\",\n    \"endTime\": \"00:11:52\",\n    \"type\": \"cooking\",\n    \"visual\": \"집게를 냄비 깊숙이 넣어 바닥에 가라앉은 익은 당면과 라면을 한 움큼 집어 위로 끌어올림\",\n    \"ingredients\": [\n      \"익은 당면\",\n      \"익은 라면\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:11:52\",\n    \"endTime\": \"00:11:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"끌어올린 당면과 라면을 다시 국물에 내려놓으며 찌개 안의 건더기(소시지, 스팸)를 섞음\",\n    \"ingredients\": [\n      \"당면\",\n      \"라면\",\n      \"찌개 건더기\"\n    ],\n    \"tools\": [\n      \"집게\"\n    ]\n  },\n  {\n    \"time\": \"00:11:54\",\n    \"endTime\": \"00:12:00\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"찌개가 완전히 조리되어 국물이 걸쭉해진 상태를 클로즈업으로 보여줌 (텍스트: 'Yayeee! :)')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:12:01\",\n    \"endTime\": \"00:12:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"집게와 국자를 이용해 끓는 찌개 안의 면과 국물을 듬뿍 떠서 왼손에 든 개인 접시(볼)로 옮겨 담음\",\n    \"ingredients\": [\n      \"찌개 면\",\n      \"국물\",\n      \"건더기\"\n    ],\n    \"tools\": [\n      \"집게\",\n      \"국자\",\n      \"개인 볼\"\n    ]\n  },\n  {\n    \"time\": \"00:12:03\",\n    \"endTime\": \"00:12:28\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"국자로 찌개 국물을 추가로 더 떠서 볼에 담음. 식탁 주변을 약간 흘리면서 정리하는 모습 (텍스트: 'A little messy, but who cares?! :)'). 먹는 도중 국물이 쫄아들자 육수를 더 추가함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:12:29\",\n    \"endTime\": \"00:12:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"찌개 위에 신선한 무순을 약간 더 얹어 장식하며 마무리함\",\n    \"ingredients\": [\n      \"무순\"\n    ],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:12:31\",\n    \"endTime\": \"00:13:37\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"찌개가 끓는 마지막 샷 (텍스트: 'Bogeul bogeul bogeul...'). 망치가 밥과 함께 부대찌개를 맛있게 시식하며 맛에 대해 설명하고 시청자에게 작별 인사를 함 (텍스트: 'Plan a budae-jjigae party!')\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:13:38\",\n    \"endTime\": \"00:13:51\",\n    \"type\": \"outro\",\n    \"visual\": \"망치가 춤추는 애니메이션 컷아웃과 함께 이전 요리 영상 썸네일(치킨 누들 수프, 김치, 피쉬 케이크)이 나열된 아웃트로 화면\",\n    \"ingredients\": null,\n    \"tools\": null\n  }\n]\n```",
+    "parsed": [
+      {
+        "time": "00:00:00",
+        "endTime": "00:00:03",
+        "type": "intro",
+        "visual": "화면 양쪽에서 식칼과 생선 모형을 든 망치(Maangchi)의 애니메이션 로고가 나타나며 X자로 교차함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:03",
+        "endTime": "00:00:52",
+        "type": "non_cooking",
+        "visual": "진행자 망치가 주방에 서서 손을 흔들며 인사한 후, 부대찌개의 유래와 재료에 대해 카메라를 보며 설명함. 화면에 'Army base stew Budae-jjigae 부대찌개'와 'budae = army base'라는 텍스트가 나타남",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:53",
+        "endTime": "00:00:54",
+        "type": "cooking",
+        "visual": "보글보글 끓고 있는 붉은색 부대찌개 속에서 집게로 라면과 당면을 높이 들어 올림",
+        "ingredients": [
+          "라면",
+          "당면",
+          "소시지",
+          "김치"
+        ],
+        "tools": [
+          "집게",
+          "전골냄비"
+        ]
+      },
+      {
+        "time": "00:00:54",
+        "endTime": "00:00:55",
+        "type": "cooking",
+        "visual": "들어 올렸던 면을 다시 국물 속으로 내려놓으며 찌개 재료들과 섞음",
+        "ingredients": [
+          "라면",
+          "당면"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:00:55",
+        "endTime": "00:01:12",
+        "type": "non_cooking",
+        "visual": "망치가 다시 주방에서 요리 설명을 이어감. 말린 표고버섯을 카메라에 보여줌 (텍스트: 'Mr. shiitake! :)'). 이어서 크고 상태가 좋은 마른 멸치 한 줌을 손바닥에 올려 보여줌 (텍스트: '8 best looking anchovies in town! :)')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:13",
+        "endTime": "00:01:14",
+        "type": "cooking",
+        "visual": "마른 멸치 한 마리를 양손으로 잡고 머리 부분을 꺾어서 떼어냄",
+        "ingredients": [
+          "마른 멸치"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:01:14",
+        "endTime": "00:01:15",
+        "type": "cooking",
+        "visual": "머리가 떨어진 멸치의 배 쪽을 엄지손가락으로 갈라 벌림",
+        "ingredients": [
+          "마른 멸치"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:01:15",
+        "endTime": "00:01:16",
+        "type": "cooking",
+        "visual": "멸치 배 안쪽에 있는 검은색 내장(똥)을 손가락으로 긁어내어 분리함",
+        "ingredients": [
+          "마른 멸치"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:01:16",
+        "endTime": "00:01:17",
+        "type": "cooking",
+        "visual": "내장을 완전히 제거한 멸치 몸통을 반으로 갈라 접시 위에 내려놓음",
+        "ingredients": [
+          "마른 멸치"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:01:17",
+        "endTime": "00:01:25",
+        "type": "non_cooking",
+        "visual": "나머지 멸치들을 손질하는 과정을 보여줌. 접시에 손질된 멸치 조각들이 모임",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:26",
+        "endTime": "00:01:27",
+        "type": "cooking",
+        "visual": "손질된 멸치 조각들을 집어 스테인리스 재질의 원형 육수망 안에 넣음 (텍스트: 'Maangchi made us hollow! :)')",
+        "ingredients": [
+          "손질된 멸치"
+        ],
+        "tools": [
+          "스테인리스 육수망"
+        ]
+      },
+      {
+        "time": "00:01:27",
+        "endTime": "00:01:28",
+        "type": "cooking",
+        "visual": "나머지 멸치 조각들도 모두 육수망 안에 밀어 넣음",
+        "ingredients": [
+          "손질된 멸치"
+        ],
+        "tools": [
+          "스테인리스 육수망"
+        ]
+      },
+      {
+        "time": "00:01:28",
+        "endTime": "00:01:40",
+        "type": "non_cooking",
+        "visual": "멸치가 담긴 육수망 뚜껑을 닫고 체인 고리를 걸어 잠근 뒤, 물이 담긴 검은색 깊은 육수 냄비 안에 담금",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:41",
+        "endTime": "00:01:42",
+        "type": "cooking",
+        "visual": "수도꼭지를 틀고 흐르는 물 아래에 말린 표고버섯을 갖다 댐 (텍스트: 'Wash the mushrooms')",
+        "ingredients": [
+          "말린 표고버섯"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:01:42",
+        "endTime": "00:01:43",
+        "type": "cooking",
+        "visual": "양손의 엄지와 검지를 이용해 표고버섯의 표면을 문지르며 먼지를 씻어냄",
+        "ingredients": [
+          "말린 표고버섯"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:01:43",
+        "endTime": "00:02:03",
+        "type": "non_cooking",
+        "visual": "씻은 버섯을 냄비에 넣음. 큰 봉투에 담긴 '건다시마(Dried Seaweed)'를 꺼내 카메라에 보여줌 (텍스트: 'Ow! Is it a folded blanket? :)')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:04",
+        "endTime": "00:02:05",
+        "type": "cooking",
+        "visual": "주방 가위를 이용해 거대한 건다시마를 직사각형 크기로 잘라냄 (텍스트: '5 x 6 inches')",
+        "ingredients": [
+          "건다시마 (5 x 6 inches)"
+        ],
+        "tools": [
+          "주방 가위"
+        ]
+      },
+      {
+        "time": "00:02:05",
+        "endTime": "00:02:06",
+        "type": "cooking",
+        "visual": "가위질을 끝내고 잘라낸 다시마 한 장을 손으로 떼어냄",
+        "ingredients": [
+          "건다시마 조각"
+        ],
+        "tools": [
+          "주방 가위"
+        ]
+      },
+      {
+        "time": "00:02:07",
+        "endTime": "00:02:44",
+        "type": "non_cooking",
+        "visual": "자른 다시마를 냄비에 넣고 뚜껑을 닫은 뒤 가스 불을 켜서 끓임. 타이머 맞추는 법을 설명한 뒤, 당면(Sweet potato starch noodles) 봉지를 뜯어 당면 묶음을 꺼냄",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:45",
+        "endTime": "00:02:46",
+        "type": "cooking",
+        "visual": "건당면이 담긴 스테인리스 볼에 수도꼭지를 틀어 찬물을 붓기 시작함",
+        "ingredients": [
+          "건당면"
+        ],
+        "tools": [
+          "스테인리스 볼"
+        ]
+      },
+      {
+        "time": "00:02:46",
+        "endTime": "00:02:47",
+        "type": "cooking",
+        "visual": "양손으로 당면을 꾹꾹 눌러 물에 완전히 잠기도록 함",
+        "ingredients": [
+          "건당면",
+          "물"
+        ],
+        "tools": [
+          "스테인리스 볼"
+        ]
+      },
+      {
+        "time": "00:02:48",
+        "endTime": "00:02:59",
+        "type": "non_cooking",
+        "visual": "물을 끄고 불린 당면을 옆에 둠. 도마 위에 통마늘 6알을 올려놓음",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:03:00",
+        "endTime": "00:03:01",
+        "type": "cooking",
+        "visual": "식칼의 손잡이와 칼등 부분을 양손으로 잡고 마늘을 위아래로 빠르게 움직여 다지기 시작함",
+        "ingredients": [
+          "마늘"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:03:01",
+        "endTime": "00:03:02",
+        "type": "cooking",
+        "visual": "도마 위로 흩어지는 마늘 조각들을 칼날을 이용해 잘게 써는 동작을 반복함",
+        "ingredients": [
+          "다진 마늘"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:03:02",
+        "endTime": "00:03:03",
+        "type": "cooking",
+        "visual": "칼등으로 다져진 마늘을 긁어모아 가운데로 한데 합침",
+        "ingredients": [
+          "다진 마늘"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:03:04",
+        "endTime": "00:03:11",
+        "type": "non_cooking",
+        "visual": "다진 마늘을 작은 검은색 종지에 옮겨 담음. 손을 씻고 양념장 재료들을 준비함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:03:12",
+        "endTime": "00:03:13",
+        "type": "cooking",
+        "visual": "숟가락으로 퍼낸 붉은 고추장을 다진 마늘이 있는 검은색 종지 안에 털어 넣음",
+        "ingredients": [
+          "고추장 1큰술",
+          "다진 마늘"
+        ],
+        "tools": [
+          "숟가락",
+          "작은 종지"
+        ]
+      },
+      {
+        "time": "00:03:14",
+        "endTime": "00:03:28",
+        "type": "non_cooking",
+        "visual": "계량스푼을 사용해 고춧가루, 설탕, 간장, 물을 차례로 종지에 넣음",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:03:29",
+        "endTime": "00:03:30",
+        "type": "cooking",
+        "visual": "물 2큰술을 마저 붓고 모든 양념 재료가 섞이도록 숟가락으로 저어줌. (화면 텍스트: 양념장 레시피 자막 표시됨 - 마늘 6쪽, 고추장 1큰술, 고춧가루 2큰술, 간장 1작은술, 설탕 1작은술, 물 2큰술)",
+        "ingredients": [
+          "다진 마늘 6쪽",
+          "고추장 1 tbs",
+          "고춧가루 2 tbs",
+          "간장 1 ts",
+          "설탕 1 ts",
+          "물 2 tbs"
+        ],
+        "tools": [
+          "숟가락",
+          "작은 종지"
+        ]
+      },
+      {
+        "time": "00:03:30",
+        "endTime": "00:03:31",
+        "type": "cooking",
+        "visual": "숟가락으로 그릇 바닥을 긁으며 뻑뻑한 붉은색 양념장을 둥글게 저어 완전히 섞음",
+        "ingredients": [
+          "혼합된 양념장"
+        ],
+        "tools": [
+          "숟가락",
+          "작은 종지"
+        ]
+      },
+      {
+        "time": "00:03:32",
+        "endTime": "00:03:55",
+        "type": "non_cooking",
+        "visual": "완성된 양념장을 숟가락으로 찍어 맛보고 훌륭하다고 감탄함. 이후 삼겹살(돼지고기)을 도마에 준비함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:03:56",
+        "endTime": "00:03:57",
+        "type": "cooking",
+        "visual": "식칼을 사용해 생 돼지고기 삼겹살을 한 입 크기로 자르기 위해 칼질을 내림. (화면 텍스트: '½ pound pork')",
+        "ingredients": [
+          "돼지고기 (½ pound)"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:03:57",
+        "endTime": "00:03:58",
+        "type": "cooking",
+        "visual": "돼지고기의 결을 따라 직사각형 모양으로 깍둑썰기를 계속함",
+        "ingredients": [
+          "돼지고기"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:03:59",
+        "endTime": "00:04:28",
+        "type": "non_cooking",
+        "visual": "썬 돼지고기를 접시에 담아두고 육수 냄비로 이동함. 냄비 뚜껑을 열고 물이 끓는 것을 확인함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:04:29",
+        "endTime": "00:04:30",
+        "type": "cooking",
+        "visual": "미리 썰어둔 생 돼지고기 조각들을 끓고 있는 육수 냄비 안에 주걱으로 밀어 넣어 투하함",
+        "ingredients": [
+          "썰어둔 돼지고기",
+          "끓는 육수"
+        ],
+        "tools": [
+          "주걱",
+          "접시",
+          "냄비"
+        ]
+      },
+      {
+        "time": "00:04:30",
+        "endTime": "00:04:31",
+        "type": "cooking",
+        "visual": "주걱으로 고기들이 육수에 푹 잠기도록 가볍게 휘저어줌",
+        "ingredients": [
+          "돼지고기",
+          "육수"
+        ],
+        "tools": [
+          "주걱",
+          "냄비"
+        ]
+      },
+      {
+        "time": "00:04:32",
+        "endTime": "00:04:47",
+        "type": "non_cooking",
+        "visual": "뚜껑을 덮고 육수와 고기를 함께 끓이는 시간을 가짐. (화면 텍스트: 'Delicious stock + cooked pork!')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:04:48",
+        "endTime": "00:04:49",
+        "type": "cooking",
+        "visual": "가스 불을 끄고 집게를 이용해 냄비 안에서 멸치가 들어있는 육수망을 건져 올림",
+        "ingredients": [
+          "육수"
+        ],
+        "tools": [
+          "집게",
+          "육수망"
+        ]
+      },
+      {
+        "time": "00:04:50",
+        "endTime": "00:04:53",
+        "type": "non_cooking",
+        "visual": "육수망을 빼낸 뒤 육수 상태를 확인함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:04:54",
+        "endTime": "00:04:55",
+        "type": "cooking",
+        "visual": "집게로 냄비 안에 있는 커다란 다시마 조각을 건져내어 밖으로 뺌",
+        "ingredients": [
+          "끓인 다시마"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:04:56",
+        "endTime": "00:04:59",
+        "type": "non_cooking",
+        "visual": "다시마를 그릇에 옮겨 담고, 큰 투명 유리 볼 위에 촘촘한 거름망을 세팅함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:05:00",
+        "endTime": "00:05:01",
+        "type": "cooking",
+        "visual": "고기와 버섯이 담긴 육수 냄비째 들어 올려 거름망 위로 육수를 붓기 시작함",
+        "ingredients": [
+          "육수",
+          "익은 돼지고기",
+          "표고버섯"
+        ],
+        "tools": [
+          "냄비",
+          "거름망",
+          "유리 볼"
+        ]
+      },
+      {
+        "time": "00:05:01",
+        "endTime": "00:05:02",
+        "type": "cooking",
+        "visual": "육수는 거름망을 통과해 아래 유리 볼로 떨어지고, 고기와 버섯 건더기만 거름망에 남도록 계속 부음",
+        "ingredients": [
+          "육수",
+          "익은 돼지고기",
+          "표고버섯"
+        ],
+        "tools": [
+          "냄비",
+          "거름망",
+          "유리 볼"
+        ]
+      },
+      {
+        "time": "00:05:03",
+        "endTime": "00:05:19",
+        "type": "non_cooking",
+        "visual": "거름망에서 표고버섯을 따로 건져 도마에 올리고, 돼지고기도 접시에 따로 담음. 유리 볼에 담긴 맑은 육수를 보여줌 (텍스트: 'About 6 cups')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:05:20",
+        "endTime": "00:05:21",
+        "type": "cooking",
+        "visual": "계량스푼을 이용해 소금 1티스푼을 맑은 육수 볼에 솔솔 뿌려 넣음",
+        "ingredients": [
+          "소금 1티스푼",
+          "육수"
+        ],
+        "tools": [
+          "계량스푼"
+        ]
+      },
+      {
+        "time": "00:05:21",
+        "endTime": "00:05:22",
+        "type": "cooking",
+        "visual": "나무 숟가락으로 소금이 녹도록 육수를 빙글빙글 저어줌",
+        "ingredients": [
+          "육수"
+        ],
+        "tools": [
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:05:23",
+        "endTime": "00:06:03",
+        "type": "non_cooking",
+        "visual": "육수를 식히고, 건져낸 돼지고기를 보여줌. 통배추김치 통을 열어 김치를 도마에 올림. 넓고 얕은 전골 팬(냄비)을 꺼내 보여주며 조립을 준비함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:04",
+        "endTime": "00:06:05",
+        "type": "cooking",
+        "visual": "식칼로 양배추 덩어리를 굵직하게 듬성듬성 썰어냄",
+        "ingredients": [
+          "양배추"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:06",
+        "endTime": "00:06:11",
+        "type": "non_cooking",
+        "visual": "자른 양배추를 얕은 전골 팬 바닥에 깔아줌. 양파 반 개를 도마에 올림",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:12",
+        "endTime": "00:06:13",
+        "type": "cooking",
+        "visual": "식칼로 양파 반 개를 채 썰기 위해 가장자리부터 슬라이스함",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:13",
+        "endTime": "00:06:14",
+        "type": "cooking",
+        "visual": "일정한 간격으로 양파를 계속해서 얇게 썰어줌",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:15",
+        "endTime": "00:06:19",
+        "type": "non_cooking",
+        "visual": "채 썬 양파를 전골 팬의 양배추 옆에 담음. 거대한 대파 한 뿌리를 도마에 올림",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:20",
+        "endTime": "00:06:21",
+        "type": "cooking",
+        "visual": "식칼을 비스듬하게 눕혀 대파를 길고 어슷하게 썰기 시작함",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:21",
+        "endTime": "00:06:22",
+        "type": "cooking",
+        "visual": "계속해서 대파를 크게 어슷썰기하여 조각들을 냄",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:23",
+        "endTime": "00:06:27",
+        "type": "non_cooking",
+        "visual": "어슷 썬 대파를 전골 팬에 담음. 익혀둔 돼지고기 접시를 가져옴",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:28",
+        "endTime": "00:06:29",
+        "type": "cooking",
+        "visual": "미리 삶아둔 돼지고기 조각들을 손으로 집어 채소가 깔린 전골 팬 위에 흩뿌려 올림",
+        "ingredients": [
+          "삶은 돼지고기"
+        ],
+        "tools": [
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:06:30",
+        "endTime": "00:06:33",
+        "type": "non_cooking",
+        "visual": "육수를 낼 때 썼던 삶은 표고버섯을 도마에 올리고 기둥을 분리함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:34",
+        "endTime": "00:06:35",
+        "type": "cooking",
+        "visual": "식칼로 삶은 표고버섯의 갓 부분을 얇게 슬라이스함",
+        "ingredients": [
+          "삶은 표고버섯"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:35",
+        "endTime": "00:06:36",
+        "type": "cooking",
+        "visual": "버섯 전체를 끝까지 썰어서 얇은 띠 모양으로 만듦",
+        "ingredients": [
+          "삶은 표고버섯"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:37",
+        "endTime": "00:06:46",
+        "type": "non_cooking",
+        "visual": "표고버섯 기둥 부분도 잘게 찢거나 썲. 썬 버섯을 모아서 전골 팬 쪽으로 가져감",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:47",
+        "endTime": "00:06:48",
+        "type": "cooking",
+        "visual": "채 썬 표고버섯을 손으로 집어 전골 팬의 돼지고기 위쪽에 골고루 펼쳐 얹음",
+        "ingredients": [
+          "채 썬 표고버섯"
+        ],
+        "tools": [
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:06:49",
+        "endTime": "00:06:56",
+        "type": "non_cooking",
+        "visual": "통배추김치가 올려진 도마를 카메라 앞으로 끌고 옴",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:57",
+        "endTime": "00:06:58",
+        "type": "cooking",
+        "visual": "칼을 눕혀 붉은 포기김치의 중간 부분을 가로로 크게 한 번 썰어줌 (텍스트: 'Unskippable!')",
+        "ingredients": [
+          "포기김치"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:06:58",
+        "endTime": "00:06:59",
+        "type": "cooking",
+        "visual": "세로 방향으로 김치를 한 입 크기로 숭숭 썰기 시작함",
+        "ingredients": [
+          "포기김치"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:07:00",
+        "endTime": "00:07:06",
+        "type": "non_cooking",
+        "visual": "김치 썰기를 마무리하고 빨간색 계량컵(반 컵 사이즈)을 가져옴",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:07",
+        "endTime": "00:07:08",
+        "type": "cooking",
+        "visual": "다듬은 붉은 김치를 양손으로 집어 빨간색 계량컵 안에 꾹꾹 눌러 담음",
+        "ingredients": [
+          "썬 김치"
+        ],
+        "tools": [
+          "계량컵"
+        ]
+      },
+      {
+        "time": "00:07:09",
+        "endTime": "00:07:13",
+        "type": "non_cooking",
+        "visual": "계량컵에 가득 담은 김치를 전골 팬 중앙에 쏟아 넣고 손으로 평평하게 펴줌",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:14",
+        "endTime": "00:07:15",
+        "type": "cooking",
+        "visual": "미리 만들어둔 진한 붉은색 양념장 페이스트를 숟가락으로 크게 떠서 냄비 중앙의 김치 위로 올림",
+        "ingredients": [
+          "양념장"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:07:16",
+        "endTime": "00:07:17",
+        "type": "cooking",
+        "visual": "종지에 남은 양념장까지 싹싹 긁어 김치 위에 모두 덜어내고 숟가락 뒷면으로 살짝 눌러줌",
+        "ingredients": [
+          "양념장"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:07:18",
+        "endTime": "00:07:30",
+        "type": "non_cooking",
+        "visual": "폴란드식 소시지(Kielbasa) 팩을 가위로 뜯어 길쭉한 훈제 소시지를 꺼내 도마에 올림",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:31",
+        "endTime": "00:07:32",
+        "type": "cooking",
+        "visual": "칼을 사선으로 눕혀 훈제 소시지를 어슷썰기로 한 조각 잘라냄",
+        "ingredients": [
+          "훈제 소시지"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:07:32",
+        "endTime": "00:07:33",
+        "type": "cooking",
+        "visual": "소시지를 동일한 두께로 타원형 조각이 나오도록 계속 슬라이스함",
+        "ingredients": [
+          "훈제 소시지"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:07:34",
+        "endTime": "00:07:41",
+        "type": "non_cooking",
+        "visual": "소시지를 다 썰고, 통조림 스팸(SPAM) 뚜껑을 땀",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:42",
+        "endTime": "00:07:43",
+        "type": "cooking",
+        "visual": "스팸 통조림 캔을 흐르는 뜨거운 수돗물 아래에서 돌려가며 데움 (텍스트: 'Hot water method :)')",
+        "ingredients": [
+          "스팸 통조림"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:07:44",
+        "endTime": "00:07:48",
+        "type": "non_cooking",
+        "visual": "싱크대에서 도마로 돌아와 캔을 뒤집어 위아래로 흔들며 스팸 내용물을 빼냄 (텍스트: 'won't you come out')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:49",
+        "endTime": "00:07:50",
+        "type": "cooking",
+        "visual": "도마 위에 빠져나온 네모난 스팸 덩어리의 끝부분을 칼로 얇게 슬라이스하기 시작함",
+        "ingredients": [
+          "스팸"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:07:50",
+        "endTime": "00:07:51",
+        "type": "cooking",
+        "visual": "스팸을 0.5cm 정도의 일정한 두께로 네모난 조각을 썰어냄",
+        "ingredients": [
+          "스팸 조각"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:07:52",
+        "endTime": "00:08:19",
+        "type": "non_cooking",
+        "visual": "남은 스팸을 비닐에 싸서 보관함. 그 외에 추가할 떡국 떡, 두부, 라면, 통조림 콩, 치즈 등을 카메라에 한꺼번에 훑어 보여줌 (텍스트: 'Don't be intimidated by all these ingredients!')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:20",
+        "endTime": "00:08:21",
+        "type": "cooking",
+        "visual": "네모나게 얇게 썬 스팸 조각 5~6장을 부채꼴로 겹쳐서 전골 팬 가장자리에 올림",
+        "ingredients": [
+          "스팸 슬라이스"
+        ],
+        "tools": [
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:08:22",
+        "endTime": "00:08:27",
+        "type": "non_cooking",
+        "visual": "어슷 썬 소시지도 전골 팬 한쪽에 겹쳐서 예쁘게 담음",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:28",
+        "endTime": "00:08:29",
+        "type": "cooking",
+        "visual": "작은 유리그릇에 담긴 하얀 떡국 떡을 손으로 덜어내어 전골 팬 빈 곳에 올림",
+        "ingredients": [
+          "떡국 떡"
+        ],
+        "tools": [
+          "유리그릇",
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:08:30",
+        "endTime": "00:08:34",
+        "type": "non_cooking",
+        "visual": "나머지 떡도 마저 올림. 포장된 두부를 가져와 포장 비닐을 칼로 뜯어냄",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:35",
+        "endTime": "00:08:36",
+        "type": "cooking",
+        "visual": "흐르는 물에 가볍게 헹군 흰 두부 한 모를 도마 위에 올리고 식칼로 정중앙을 세로로 반으로 가름",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:08:37",
+        "endTime": "00:08:41",
+        "type": "non_cooking",
+        "visual": "반으로 자른 두부 중 절반을 치우고, 남은 절반의 두부를 가로로 돌려놓음",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:42",
+        "endTime": "00:08:43",
+        "type": "cooking",
+        "visual": "두부를 두께 1cm 내외의 직사각형 모양으로 썰어냄",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:08:44",
+        "endTime": "00:08:45",
+        "type": "cooking",
+        "visual": "나머지 두부도 일정한 간격으로 연속해서 슬라이스함",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "식칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:08:46",
+        "endTime": "00:09:01",
+        "type": "non_cooking",
+        "visual": "썬 두부를 전골 팬에 겹쳐서 올림. 베이크드 빈스(Pork & Beans) 캔의 뚜껑을 개봉함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:09:02",
+        "endTime": "00:09:03",
+        "type": "cooking",
+        "visual": "숟가락으로 통조림 안의 갈색 콩(베이크드 빈스)을 한 스푼 가득 떠서 전골 팬의 빈 공간에 부음",
+        "ingredients": [
+          "베이크드 빈스"
+        ],
+        "tools": [
+          "숟가락",
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:09:04",
+        "endTime": "00:09:15",
+        "type": "non_cooking",
+        "visual": "두세 스푼 정도 콩을 더 덜어 올림. 노란색 슬라이스 아메리칸 치즈 비닐을 벗김",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:09:16",
+        "endTime": "00:09:17",
+        "type": "cooking",
+        "visual": "비닐을 벗긴 노란 치즈 한 장을 전골 팬 중앙의 김치 위쪽(스팸 옆)에 조심스럽게 얹음",
+        "ingredients": [
+          "슬라이스 치즈"
+        ],
+        "tools": [
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:09:18",
+        "endTime": "00:09:23",
+        "type": "non_cooking",
+        "visual": "봉지 라면을 꺼내어 반으로 부수기 위해 양손으로 잡음",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:09:24",
+        "endTime": "00:09:25",
+        "type": "cooking",
+        "visual": "건라면 사리 반 개를 전골 팬 중앙의 치즈 위쪽을 덮듯이 올림",
+        "ingredients": [
+          "라면 사리 반 개"
+        ],
+        "tools": [
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:09:26",
+        "endTime": "00:09:30",
+        "type": "non_cooking",
+        "visual": "물에 불려두었던 당면을 건져 양손으로 꾹 짜서 물기를 뺌",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:09:31",
+        "endTime": "00:09:32",
+        "type": "cooking",
+        "visual": "투명해진 불린 당면 한 움큼을 라면 사리 바로 옆 중앙 공간에 소복하게 얹어줌",
+        "ingredients": [
+          "불린 당면"
+        ],
+        "tools": [
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:09:33",
+        "endTime": "00:09:43",
+        "type": "non_cooking",
+        "visual": "장식용 무순(radish sprouts)이 든 플라스틱 팩을 보여준 뒤 싱크대로 가져가서 씻을 준비를 함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:09:44",
+        "endTime": "00:09:45",
+        "type": "cooking",
+        "visual": "흐르는 수돗물 아래에서 무순 다발을 잡고 물에 적시며 가볍게 흔들어 씻음 (텍스트: 'Shampoo service? lol')",
+        "ingredients": [
+          "무순"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:09:46",
+        "endTime": "00:09:51",
+        "type": "non_cooking",
+        "visual": "다 씻은 무순의 아랫단(뿌리 쪽 스펀지)을 가위로 싹둑 잘라내어 잎 부분만 남김",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:09:52",
+        "endTime": "00:09:53",
+        "type": "cooking",
+        "visual": "다듬은 초록색 무순을 전골 팬 맨 위, 당면과 라면 사리 꼭대기에 소복하게 얹어 장식함",
+        "ingredients": [
+          "무순"
+        ],
+        "tools": [
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:09:54",
+        "endTime": "00:10:06",
+        "type": "non_cooking",
+        "visual": "재료 세팅이 완성된 냄비의 클로즈업 샷을 보여줌. 이후 휴대용 가스 버너 위로 냄비를 옮기고 식탁 세팅을 설명함. 미리 만들어둔 육수를 빨간색 계량컵으로 퍼냄",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:10:07",
+        "endTime": "00:10:08",
+        "type": "cooking",
+        "visual": "빨간색 계량컵에 가득 담긴 맑은 육수를 전골 팬의 가장자리를 따라 붓기 시작함 (텍스트: '3 cups stock')",
+        "ingredients": [
+          "육수 (3 cups)"
+        ],
+        "tools": [
+          "계량컵",
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:10:09",
+        "endTime": "00:10:10",
+        "type": "cooking",
+        "visual": "육수가 스팸, 소시지, 김치 등 재료들이 담긴 냄비 안쪽으로 흘러들어가며 바닥을 채움",
+        "ingredients": [
+          "육수"
+        ],
+        "tools": [
+          "계량컵",
+          "전골 팬"
+        ]
+      },
+      {
+        "time": "00:10:11",
+        "endTime": "00:10:35",
+        "type": "non_cooking",
+        "visual": "육수가 너무 넘치지 않도록 적당히 부은 상태를 확인하고 나머지 육수를 그릇에 담아둠",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:10:36",
+        "endTime": "00:10:37",
+        "type": "cooking",
+        "visual": "전골 냄비가 올려진 휴대용 가스 버너의 손잡이를 돌려 파란 불꽃을 점화시킴",
+        "ingredients": null,
+        "tools": [
+          "가스 버너"
+        ]
+      },
+      {
+        "time": "00:10:38",
+        "endTime": "00:11:07",
+        "type": "non_cooking",
+        "visual": "가스 불을 켜두고 찌개가 끓기를 기다리면서 망치가 밥을 푸고 덜어 먹을 개인 그릇을 준비함. 서서히 찌개 가장자리부터 끓어오르기 시작함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:11:08",
+        "endTime": "00:11:09",
+        "type": "cooking",
+        "visual": "냄비 전체가 붉게 끓어오르자 스테인리스 집게를 이용해 맨 꼭대기의 건라면 사리를 꾹 누름",
+        "ingredients": [
+          "라면 사리"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:11:09",
+        "endTime": "00:11:10",
+        "type": "cooking",
+        "visual": "집게로 라면을 눌러 밑에서 올라오는 뜨거운 붉은 국물에 라면 면발이 살짝 잠기게 함",
+        "ingredients": [
+          "라면 사리",
+          "찌개 국물"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:11:11",
+        "endTime": "00:11:33",
+        "type": "non_cooking",
+        "visual": "찌개가 강하게 끓어오르며 스팸, 소시지, 두부 위로 국물이 넘나드는 모습(클로즈업)을 보여줌",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:11:34",
+        "endTime": "00:11:35",
+        "type": "cooking",
+        "visual": "집게를 사용하여 양념장이 묻어 붉어진 라면 사리를 통째로 집어 들어 뒤집음",
+        "ingredients": [
+          "라면 사리"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:11:35",
+        "endTime": "00:11:36",
+        "type": "cooking",
+        "visual": "뒤집힌 라면을 국물 속에 밀어 넣으며 옆에 있는 당면과 채소들을 집게로 저어 섞어줌",
+        "ingredients": [
+          "라면 사리",
+          "당면"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:11:37",
+        "endTime": "00:11:50",
+        "type": "non_cooking",
+        "visual": "면이 익기를 기다리며 바글바글 끓는 찌개 모습을 보여줌",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:11:51",
+        "endTime": "00:11:52",
+        "type": "cooking",
+        "visual": "집게를 냄비 깊숙이 넣어 바닥에 가라앉은 익은 당면과 라면을 한 움큼 집어 위로 끌어올림",
+        "ingredients": [
+          "익은 당면",
+          "익은 라면"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:11:52",
+        "endTime": "00:11:53",
+        "type": "cooking",
+        "visual": "끌어올린 당면과 라면을 다시 국물에 내려놓으며 찌개 안의 건더기(소시지, 스팸)를 섞음",
+        "ingredients": [
+          "당면",
+          "라면",
+          "찌개 건더기"
+        ],
+        "tools": [
+          "집게"
+        ]
+      },
+      {
+        "time": "00:11:54",
+        "endTime": "00:12:00",
+        "type": "non_cooking",
+        "visual": "찌개가 완전히 조리되어 국물이 걸쭉해진 상태를 클로즈업으로 보여줌 (텍스트: 'Yayeee! :)')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:12:01",
+        "endTime": "00:12:02",
+        "type": "cooking",
+        "visual": "집게와 국자를 이용해 끓는 찌개 안의 면과 국물을 듬뿍 떠서 왼손에 든 개인 접시(볼)로 옮겨 담음",
+        "ingredients": [
+          "찌개 면",
+          "국물",
+          "건더기"
+        ],
+        "tools": [
+          "집게",
+          "국자",
+          "개인 볼"
+        ]
+      },
+      {
+        "time": "00:12:03",
+        "endTime": "00:12:28",
+        "type": "non_cooking",
+        "visual": "국자로 찌개 국물을 추가로 더 떠서 볼에 담음. 식탁 주변을 약간 흘리면서 정리하는 모습 (텍스트: 'A little messy, but who cares?! :)'). 먹는 도중 국물이 쫄아들자 육수를 더 추가함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:12:29",
+        "endTime": "00:12:30",
+        "type": "cooking",
+        "visual": "찌개 위에 신선한 무순을 약간 더 얹어 장식하며 마무리함",
+        "ingredients": [
+          "무순"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:12:31",
+        "endTime": "00:13:37",
+        "type": "non_cooking",
+        "visual": "찌개가 끓는 마지막 샷 (텍스트: 'Bogeul bogeul bogeul...'). 망치가 밥과 함께 부대찌개를 맛있게 시식하며 맛에 대해 설명하고 시청자에게 작별 인사를 함 (텍스트: 'Plan a budae-jjigae party!')",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:13:38",
+        "endTime": "00:13:51",
+        "type": "outro",
+        "visual": "망치가 춤추는 애니메이션 컷아웃과 함께 이전 요리 영상 썸네일(치킨 누들 수프, 김치, 피쉬 케이크)이 나열된 아웃트로 화면",
+        "ingredients": null,
+        "tools": null
+      }
+    ]
+  }
+}

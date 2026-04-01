@@ -1,5 +1,21 @@
+# Python
 __pycache__/
 venv/
+
+# Node.js
+node_modules/
+dist/
+.mastra/
+.playwright-mcp/
+
+# Env
 .env
-app/assets
+
+# OS
 **/.DS_Store
+
+# IDE
+.idea/
+
+# Assets
+app/assets

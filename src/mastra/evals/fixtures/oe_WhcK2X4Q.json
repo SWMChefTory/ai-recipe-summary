@@ -1,0 +1,2035 @@
+{
+  "name": "제육볶음 (류수영)",
+  "url": "https://www.youtube.com/watch?v=oe_WhcK2X4Q",
+  "videoId": "oe_WhcK2X4Q",
+  "collectedAt": "2026-03-23T14:29:04.371Z",
+  "subtitles": [],
+  "videoInfo": {
+    "description": "#편스토랑✅ 금요일 저녁 8시 30분 KBS 2TV\n\n영상으로 보는 레시피 #kbscook\n이 영상 켜놓고 그대로 만들어보세요.\n유명 맛집에서 사먹는 바로 그맛! \n\n#자취요리 #자취꿀팁\n#kbscook #어남선생 #류수영 #제육볶음 #제육 #레시피",
+    "title": "[#편스토랑] 류수영의 초대박 제육 레시피!! 😎kbscookㅣKBS 220114 방송",
+    "channelName": "KBS 한국방송"
+  },
+  "visualAnalysis": {
+    "raw": "```json\n[\n  {\n    \"time\": \"00:00:00\",\n    \"endTime\": \"00:00:19\",\n    \"type\": \"intro\",\n    \"visual\": \"요리 소개 및 냉장고에서 재료를 꺼내며 이야기하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:19\",\n    \"endTime\": \"00:00:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"핏물을 빼기 위해 키친타월 위에 돼지고기 앞다리살을 올림\",\n    \"ingredients\": [\n      \"돼지고기 앞다리살\"\n    ],\n    \"tools\": [\n      \"키친타월\"\n    ]\n  },\n  {\n    \"time\": \"00:00:20\",\n    \"endTime\": \"00:00:25\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"돼지고기의 핏물에 대해 설명하며 이야기하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:25\",\n    \"endTime\": \"00:00:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"키친타월로 돼지고기를 꾹꾹 눌러 핏물을 뺌\",\n    \"ingredients\": [\n      \"돼지고기 앞다리살\"\n    ],\n    \"tools\": [\n      \"키친타월\"\n    ]\n  },\n  {\n    \"time\": \"00:00:26\",\n    \"endTime\": \"00:00:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"키친타월로 돼지고기를 계속 눌러 핏물을 뺌\",\n    \"ingredients\": [\n      \"돼지고기 앞다리살\"\n    ],\n    \"tools\": [\n      \"키친타월\"\n    ]\n  },\n  {\n    \"time\": \"00:00:27\",\n    \"endTime\": \"00:00:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"키친타월로 돼지고기를 꾹꾹 눌러 핏물을 빼는 동작 지속\",\n    \"ingredients\": [\n      \"돼지고기 앞다리살\"\n    ],\n    \"tools\": [\n      \"키친타월\"\n    ]\n  },\n  {\n    \"time\": \"00:00:28\",\n    \"endTime\": \"00:00:37\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"핏물을 뺀 고기를 보여주며 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:37\",\n    \"endTime\": \"00:00:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼로 돼지고기를 큼직하게 썲\",\n    \"ingredients\": [\n      \"돼지고기 앞다리살\"\n    ],\n    \"tools\": [\n      \"칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:00:38\",\n    \"endTime\": \"00:00:39\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼로 돼지고기를 계속 썲\",\n    \"ingredients\": [\n      \"돼지고기 앞다리살\"\n    ],\n    \"tools\": [\n      \"칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:00:39\",\n    \"endTime\": \"00:00:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼로 돼지고기 써는 동작 마무리\",\n    \"ingredients\": [\n      \"돼지고기 앞다리살\"\n    ],\n    \"tools\": [\n      \"칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:00:40\",\n    \"endTime\": \"00:01:24\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"제육볶음 양념장 만들기를 준비하며 비율을 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:24\",\n    \"endTime\": \"00:01:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 설탕을 넣음\",\n    \"ingredients\": [\n      \"설탕 2T\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:01:25\",\n    \"endTime\": \"00:01:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 두 번째 숟가락의 설탕을 넣음\",\n    \"ingredients\": [\n      \"설탕 2T\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:01:26\",\n    \"endTime\": \"00:01:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락에 묻은 설탕을 털어냄\",\n    \"ingredients\": [\n      \"설탕 2T\"\n    ],\n    \"tools\": [\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:01:27\",\n    \"endTime\": \"00:01:35\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"양념 넣는 순서에 대해 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:35\",\n    \"endTime\": \"00:01:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락에 간장을 따름\",\n    \"ingredients\": [\n      \"간장 3T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:01:36\",\n    \"endTime\": \"00:01:37\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 간장을 넣음\",\n    \"ingredients\": [\n      \"간장 3T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:01:37\",\n    \"endTime\": \"00:01:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 두 번째 간장을 넣음\",\n    \"ingredients\": [\n      \"간장 3T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:01:38\",\n    \"endTime\": \"00:01:39\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 세 번째 간장을 넣음\",\n    \"ingredients\": [\n      \"간장 3T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:01:39\",\n    \"endTime\": \"00:01:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 간장과 설탕을 저음\",\n    \"ingredients\": [\n      \"간장 3T\",\n      \"설탕 2T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:01:40\",\n    \"endTime\": \"00:01:51\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"고추장을 담뿍 넣는 방법에 대해 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:51\",\n    \"endTime\": \"00:01:52\",\n    \"type\": \"cooking\",\n    \"visual\": \"손가락을 이용해 숟가락에 묻은 고추장을 반찬통에 덜어냄\",\n    \"ingredients\": [\n      \"고추장 담뿍 3T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\",\n      \"손가락\"\n    ]\n  },\n  {\n    \"time\": \"00:01:52\",\n    \"endTime\": \"00:01:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"두 번째 숟가락의 고추장을 손가락으로 밀어 넣음\",\n    \"ingredients\": [\n      \"고추장 담뿍 3T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\",\n      \"손가락\"\n    ]\n  },\n  {\n    \"time\": \"00:01:53\",\n    \"endTime\": \"00:01:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"세 번째 숟가락의 고추장을 손가락으로 밀어 넣음\",\n    \"ingredients\": [\n      \"고추장 담뿍 3T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\",\n      \"손가락\"\n    ]\n  },\n  {\n    \"time\": \"00:01:54\",\n    \"endTime\": \"00:01:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통 안의 고추장, 간장, 설탕을 숟가락으로 섞음\",\n    \"ingredients\": [\n      \"고추장\",\n      \"간장\",\n      \"설탕\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:01:55\",\n    \"endTime\": \"00:01:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념을 숟가락으로 계속 섞음\",\n    \"ingredients\": [\n      \"고추장\",\n      \"간장\",\n      \"설탕\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:01:56\",\n    \"endTime\": \"00:02:19\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"비싼 배 대신 가성비 좋은 배 음료를 사용하는 꿀팁을 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:19\",\n    \"endTime\": \"00:02:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 배 음료를 부음\",\n    \"ingredients\": [\n      \"배 음료\"\n    ],\n    \"tools\": [\n      \"캔\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:20\",\n    \"endTime\": \"00:02:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 배 음료를 계속 부음\",\n    \"ingredients\": [\n      \"배 음료\"\n    ],\n    \"tools\": [\n      \"캔\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:21\",\n    \"endTime\": \"00:02:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 배 음료를 붓는 동작 계속\",\n    \"ingredients\": [\n      \"배 음료\"\n    ],\n    \"tools\": [\n      \"캔\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:22\",\n    \"endTime\": \"00:02:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 배 음료 붓기 마무리\",\n    \"ingredients\": [\n      \"배 음료\"\n    ],\n    \"tools\": [\n      \"캔\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:23\",\n    \"endTime\": \"00:02:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 양념과 배 음료를 섞음\",\n    \"ingredients\": [\n      \"양념\",\n      \"배 음료\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:24\",\n    \"endTime\": \"00:02:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념을 숟가락으로 계속 섞음\",\n    \"ingredients\": [\n      \"양념\",\n      \"배 음료\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:25\",\n    \"endTime\": \"00:02:28\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"양념을 섞기 위해 뚜껑을 덮는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:28\",\n    \"endTime\": \"00:02:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통 뚜껑을 닫고 위아래로 흔듦\",\n    \"ingredients\": [\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:29\",\n    \"endTime\": \"00:02:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통을 계속 세게 흔듦\",\n    \"ingredients\": [\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:30\",\n    \"endTime\": \"00:02:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통을 흔드는 동작 계속\",\n    \"ingredients\": [\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:31\",\n    \"endTime\": \"00:02:39\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"잘 섞인 양념장의 색깔을 보여주며 감탄하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:39\",\n    \"endTime\": \"00:02:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"마늘 다지기로 마늘을 으깸\",\n    \"ingredients\": [\n      \"마늘\"\n    ],\n    \"tools\": [\n      \"마늘 다지기\"\n    ]\n  },\n  {\n    \"time\": \"00:02:40\",\n    \"endTime\": \"00:02:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"마늘 다지기로 마늘을 으깨는 동작 계속\",\n    \"ingredients\": [\n      \"마늘\"\n    ],\n    \"tools\": [\n      \"마늘 다지기\"\n    ]\n  },\n  {\n    \"time\": \"00:02:41\",\n    \"endTime\": \"00:02:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"으깬 다진 마늘을 양념장에 넣음\",\n    \"ingredients\": [\n      \"다진 마늘 1T\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"마늘 다지기\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:42\",\n    \"endTime\": \"00:02:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"다진 마늘을 양념장에 계속 넣음\",\n    \"ingredients\": [\n      \"다진 마늘 1T\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"마늘 다지기\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:02:43\",\n    \"endTime\": \"00:03:24\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"스태프가 양념장 맛을 보고 떡볶이 국물 맛이라며 좋아하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:24\",\n    \"endTime\": \"00:03:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념장이 담긴 반찬통에 썰어둔 돼지고기를 넣음\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"손\"\n    ]\n  },\n  {\n    \"time\": \"00:03:25\",\n    \"endTime\": \"00:03:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"돼지고기를 양념장에 마저 넣음\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"손\"\n    ]\n  },\n  {\n    \"time\": \"00:03:26\",\n    \"endTime\": \"00:03:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"돼지고기를 넣고 손을 뗌\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:27\",\n    \"endTime\": \"00:03:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 고기와 양념을 버무림\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:28\",\n    \"endTime\": \"00:03:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기가 뭉치지 않게 숟가락으로 퍼트리며 섞음\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:29\",\n    \"endTime\": \"00:03:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 양념에 골고루 묻히며 섞음\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:30\",\n    \"endTime\": \"00:03:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념과 고기를 섞는 동작 계속\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:31\",\n    \"endTime\": \"00:03:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기 버무리기 마무리\",\n    \"ingredients\": [\n      \"돼지고기\",\n      \"양념장\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:32\",\n    \"endTime\": \"00:03:52\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"비장의 무기인 식초를 꺼내어 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:52\",\n    \"endTime\": \"00:03:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락에 식초를 따름\",\n    \"ingredients\": [\n      \"식초 2T\"\n    ],\n    \"tools\": [\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:03:53\",\n    \"endTime\": \"00:03:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기가 담긴 반찬통에 식초를 부음\",\n    \"ingredients\": [\n      \"식초 2T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:54\",\n    \"endTime\": \"00:03:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"두 번째 식초를 숟가락에 따름\",\n    \"ingredients\": [\n      \"식초 2T\"\n    ],\n    \"tools\": [\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:03:55\",\n    \"endTime\": \"00:03:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기가 담긴 반찬통에 두 번째 식초를 부음\",\n    \"ingredients\": [\n      \"식초 2T\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:56\",\n    \"endTime\": \"00:03:57\",\n    \"type\": \"cooking\",\n    \"visual\": \"식초를 넣고 숟가락으로 고기를 저음\",\n    \"ingredients\": [\n      \"식초\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:57\",\n    \"endTime\": \"00:03:58\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 숟가락으로 계속 섞음\",\n    \"ingredients\": [\n      \"식초\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:58\",\n    \"endTime\": \"00:03:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 섞는 동작 마무리\",\n    \"ingredients\": [\n      \"식초\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:03:59\",\n    \"endTime\": \"00:04:37\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"제육볶음에 식초를 넣는 이유(보존 기간, 연육 등)를 길게 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:04:37\",\n    \"endTime\": \"00:04:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락에 참기름을 따름\",\n    \"ingredients\": [\n      \"고소한 참기름\"\n    ],\n    \"tools\": [\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:04:38\",\n    \"endTime\": \"00:04:39\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기가 담긴 반찬통에 참기름을 부음\",\n    \"ingredients\": [\n      \"고소한 참기름\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:04:39\",\n    \"endTime\": \"00:04:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락에 남은 참기름을 마저 부음\",\n    \"ingredients\": [\n      \"고소한 참기름\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:04:40\",\n    \"endTime\": \"00:04:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"참기름 붓기 완료\",\n    \"ingredients\": [\n      \"고소한 참기름\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:04:41\",\n    \"endTime\": \"00:04:47\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"참기름을 넣는 것에 대해 이야기하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:04:47\",\n    \"endTime\": \"00:04:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 고기와 참기름을 섞음\",\n    \"ingredients\": [\n      \"고소한 참기름\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:04:48\",\n    \"endTime\": \"00:04:49\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 숟가락으로 계속 뒤적임\",\n    \"ingredients\": [\n      \"고소한 참기름\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:04:49\",\n    \"endTime\": \"00:04:50\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 섞는 동작 계속\",\n    \"ingredients\": [\n      \"고소한 참기름\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:04:50\",\n    \"endTime\": \"00:04:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기 버무리기 완료\",\n    \"ingredients\": [\n      \"고소한 참기름\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:04:51\",\n    \"endTime\": \"00:05:08\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"스태프들이 냄새를 맡고 감탄하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:05:08\",\n    \"endTime\": \"00:05:09\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념된 제육을 숟가락으로 저음\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:09\",\n    \"endTime\": \"00:05:10\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념 제육을 계속 저음\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:10\",\n    \"endTime\": \"00:05:11\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 고기를 뒤적임\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:11\",\n    \"endTime\": \"00:05:16\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"채소를 올리기 위해 준비하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:05:16\",\n    \"endTime\": \"00:05:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"도마 위에서 칼로 대파를 어슷썰기 함\",\n    \"ingredients\": [\n      \"대파\"\n    ],\n    \"tools\": [\n      \"칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:05:17\",\n    \"endTime\": \"00:05:18\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼로 대파를 계속 어슷썰기 함\",\n    \"ingredients\": [\n      \"대파\"\n    ],\n    \"tools\": [\n      \"칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:05:18\",\n    \"endTime\": \"00:05:19\",\n    \"type\": \"cooking\",\n    \"visual\": \"대파 어슷썰기 계속\",\n    \"ingredients\": [\n      \"대파\"\n    ],\n    \"tools\": [\n      \"칼\",\n      \"도마\"\n    ]\n  },\n  {\n    \"time\": \"00:05:19\",\n    \"endTime\": \"00:05:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"썬 대파를 고기 위에 올림\",\n    \"ingredients\": [\n      \"대파\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"손\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:20\",\n    \"endTime\": \"00:05:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"썬 대파를 고기 위에 계속 올림\",\n    \"ingredients\": [\n      \"대파\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"손\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:21\",\n    \"endTime\": \"00:05:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"남은 대파를 모두 올림\",\n    \"ingredients\": [\n      \"대파\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"손\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:22\",\n    \"endTime\": \"00:05:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"채 썬 양파를 고기와 대파 위에 살포시 올림\",\n    \"ingredients\": [\n      \"양파\"\n    ],\n    \"tools\": [\n      \"손\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:23\",\n    \"endTime\": \"00:05:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"채 썬 양파를 계속 올림\",\n    \"ingredients\": [\n      \"양파\"\n    ],\n    \"tools\": [\n      \"손\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:24\",\n    \"endTime\": \"00:05:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"양파를 덮듯이 올림\",\n    \"ingredients\": [\n      \"양파\"\n    ],\n    \"tools\": [\n      \"손\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:25\",\n    \"endTime\": \"00:05:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"양파를 손으로 살짝 누름\",\n    \"ingredients\": [\n      \"양파\"\n    ],\n    \"tools\": [\n      \"손\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:26\",\n    \"endTime\": \"00:05:30\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"야채 위에 소금을 뿌리겠다고 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:05:30\",\n    \"endTime\": \"00:05:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"손가락으로 소금을 한 꼬집 집음\",\n    \"ingredients\": [\n      \"소금\"\n    ],\n    \"tools\": [\n      \"유리병\",\n      \"손가락\"\n    ]\n  },\n  {\n    \"time\": \"00:05:31\",\n    \"endTime\": \"00:05:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"소금을 집어 올리는 동작\",\n    \"ingredients\": [\n      \"소금\"\n    ],\n    \"tools\": [\n      \"손가락\"\n    ]\n  },\n  {\n    \"time\": \"00:05:32\",\n    \"endTime\": \"00:05:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"집은 소금을 옮기는 중\",\n    \"ingredients\": [\n      \"소금\"\n    ],\n    \"tools\": [\n      \"손가락\"\n    ]\n  },\n  {\n    \"time\": \"00:05:33\",\n    \"endTime\": \"00:05:34\",\n    \"type\": \"cooking\",\n    \"visual\": \"야채 위에 소금을 한 꼬집 뿌림\",\n    \"ingredients\": [\n      \"소금\",\n      \"야채\"\n    ],\n    \"tools\": [\n      \"손가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:34\",\n    \"endTime\": \"00:05:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"소금을 뿌리는 동작 계속\",\n    \"ingredients\": [\n      \"소금\",\n      \"야채\"\n    ],\n    \"tools\": [\n      \"손가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:35\",\n    \"endTime\": \"00:05:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"야채에 소금 뿌리기 완료\",\n    \"ingredients\": [\n      \"소금\",\n      \"야채\"\n    ],\n    \"tools\": [\n      \"손가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:05:36\",\n    \"endTime\": \"00:06:16\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"보관 방법과 기간에 대해 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:16\",\n    \"endTime\": \"00:06:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 반찬통 위쪽에 덮인 채소를 걷어냄\",\n    \"ingredients\": [\n      \"채소\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:06:17\",\n    \"endTime\": \"00:06:18\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 채소를 계속 옆으로 치움\",\n    \"ingredients\": [\n      \"채소\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:06:18\",\n    \"endTime\": \"00:06:19\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기가 보이도록 채소를 걷어냄\",\n    \"ingredients\": [\n      \"채소\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:06:19\",\n    \"endTime\": \"00:06:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"채소 걷어내기 마무리\",\n    \"ingredients\": [\n      \"채소\",\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"반찬통\"\n    ]\n  },\n  {\n    \"time\": \"00:06:20\",\n    \"endTime\": \"00:06:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 걷어낸 고기를 집음\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\"\n    ]\n  },\n  {\n    \"time\": \"00:06:21\",\n    \"endTime\": \"00:06:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 집어 올리는 동작 계속\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\"\n    ]\n  },\n  {\n    \"time\": \"00:06:22\",\n    \"endTime\": \"00:06:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"집은 고기를 프라이팬에 올림\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:23\",\n    \"endTime\": \"00:06:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬에 두 번째 고기를 올림\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:24\",\n    \"endTime\": \"00:06:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 계속 프라이팬에 올림\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:25\",\n    \"endTime\": \"00:06:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 프라이팬에 올리는 동작 계속\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:26\",\n    \"endTime\": \"00:06:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 프라이팬에 올리는 동작 계속\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:27\",\n    \"endTime\": \"00:06:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 프라이팬에 올리기 마무리\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:28\",\n    \"endTime\": \"00:06:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬에서 고기가 익어가는 모습\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:29\",\n    \"endTime\": \"00:06:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬의 고기를 근접해서 보여줌\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:30\",\n    \"endTime\": \"00:06:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 프라이팬의 고기를 살짝 뒤적임\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:31\",\n    \"endTime\": \"00:06:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 고기를 펴줌\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:32\",\n    \"endTime\": \"00:06:50\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"고기를 뒤집지 않고 기다리는 이유를 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:06:50\",\n    \"endTime\": \"00:06:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 프라이팬의 고기를 뒤집음, 거뭇한 부분 확인\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:51\",\n    \"endTime\": \"00:06:52\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 계속 뒤적임, 거뭇한 부분이 보임\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:52\",\n    \"endTime\": \"00:06:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 뒤집으며 굽는 동작 계속\",\n    \"ingredients\": [\n      \"양념 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:06:53\",\n    \"endTime\": \"00:07:23\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"마이야르 반응과 거뭇한 부분에 대해 설명하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:23\",\n    \"endTime\": \"00:07:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 거뭇해진 고기를 골고루 섞어줌\",\n    \"ingredients\": [\n      \"구워진 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:24\",\n    \"endTime\": \"00:07:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 고기를 계속 뒤적이며 섞음\",\n    \"ingredients\": [\n      \"구워진 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:25\",\n    \"endTime\": \"00:07:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 섞는 동작 계속\",\n    \"ingredients\": [\n      \"구워진 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:26\",\n    \"endTime\": \"00:07:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기를 넓게 펴줌\",\n    \"ingredients\": [\n      \"구워진 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:27\",\n    \"endTime\": \"00:07:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"고기 섞기 마무리\",\n    \"ingredients\": [\n      \"구워진 고기\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:28\",\n    \"endTime\": \"00:07:30\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"남은 야채를 넣을 준비를 하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:30\",\n    \"endTime\": \"00:07:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 남아있던 야채(양파, 대파)를 프라이팬에 쏟아 넣음\",\n    \"ingredients\": [\n      \"채소\",\n      \"고기\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:31\",\n    \"endTime\": \"00:07:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 남은 야채를 밀어 넣음\",\n    \"ingredients\": [\n      \"채소\",\n      \"고기\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:32\",\n    \"endTime\": \"00:07:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"야채 넣기 계속\",\n    \"ingredients\": [\n      \"채소\",\n      \"고기\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:33\",\n    \"endTime\": \"00:07:40\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"야채가 익는 모습을 보여주는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:40\",\n    \"endTime\": \"00:07:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"반찬통에 남은 양념 국물을 프라이팬에 부음\",\n    \"ingredients\": [\n      \"양념 국물\",\n      \"고기\",\n      \"채소\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:41\",\n    \"endTime\": \"00:07:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념 국물을 계속 부음\",\n    \"ingredients\": [\n      \"양념 국물\",\n      \"고기\",\n      \"채소\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:42\",\n    \"endTime\": \"00:07:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념 국물을 모두 부음\",\n    \"ingredients\": [\n      \"양념 국물\",\n      \"고기\",\n      \"채소\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:43\",\n    \"endTime\": \"00:07:44\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념 국물 붓기 완료\",\n    \"ingredients\": [\n      \"양념 국물\",\n      \"고기\",\n      \"채소\"\n    ],\n    \"tools\": [\n      \"반찬통\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:44\",\n    \"endTime\": \"00:07:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 고기, 야채, 양념을 섞음\",\n    \"ingredients\": [\n      \"제육볶음 재료\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:45\",\n    \"endTime\": \"00:07:46\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 재료들을 계속 뒤적임\",\n    \"ingredients\": [\n      \"제육볶음 재료\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:46\",\n    \"endTime\": \"00:07:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"재료들을 골고루 섞음\",\n    \"ingredients\": [\n      \"제육볶음 재료\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:47\",\n    \"endTime\": \"00:07:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"재료 섞는 동작 계속\",\n    \"ingredients\": [\n      \"제육볶음 재료\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:48\",\n    \"endTime\": \"00:07:49\",\n    \"type\": \"cooking\",\n    \"visual\": \"재료 섞기 마무리\",\n    \"ingredients\": [\n      \"제육볶음 재료\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:49\",\n    \"endTime\": \"00:07:54\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"뚜껑을 덮을 준비를 하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:07:54\",\n    \"endTime\": \"00:07:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬 뚜껑을 덮음 (뚜껑 덮고 약불 조리)\",\n    \"ingredients\": [\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"프라이팬 뚜껑\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:55\",\n    \"endTime\": \"00:07:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬 뚜껑을 덮은 상태 유지\",\n    \"ingredients\": [\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"프라이팬 뚜껑\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:56\",\n    \"endTime\": \"00:07:57\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚜껑을 덮은 프라이팬을 보여줌\",\n    \"ingredients\": [\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"프라이팬 뚜껑\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:07:57\",\n    \"endTime\": \"00:08:23\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"뚜껑을 덮고 익히는 이유와 냄새에 대해 이야기하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:23\",\n    \"endTime\": \"00:08:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬 뚜껑을 엶, 김이 모락모락 남\",\n    \"ingredients\": [\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"프라이팬 뚜껑\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:24\",\n    \"endTime\": \"00:08:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚜껑을 완전히 열고 조리된 제육볶음을 보여줌\",\n    \"ingredients\": [\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"프라이팬 뚜껑\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:25\",\n    \"endTime\": \"00:08:42\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"완성된 제육볶음의 비주얼을 감상하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:42\",\n    \"endTime\": \"00:08:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 완성된 제육볶음을 섞으며 보여줌\",\n    \"ingredients\": [\n      \"완성된 제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:43\",\n    \"endTime\": \"00:08:44\",\n    \"type\": \"cooking\",\n    \"visual\": \"제육볶음을 뒤적임\",\n    \"ingredients\": [\n      \"완성된 제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:44\",\n    \"endTime\": \"00:08:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"제육볶음 뒤적이기 계속\",\n    \"ingredients\": [\n      \"완성된 제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:45\",\n    \"endTime\": \"00:08:52\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"마지막에 마늘을 넣을 준비를 하는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:52\",\n    \"endTime\": \"00:08:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"마늘 다지기로 다진 마늘을 조리 중인 제육볶음 위에 짬\",\n    \"ingredients\": [\n      \"다진 마늘 1T\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"마늘 다지기\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:53\",\n    \"endTime\": \"00:08:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"다진 마늘을 계속 짬\",\n    \"ingredients\": [\n      \"다진 마늘 1T\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"마늘 다지기\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:54\",\n    \"endTime\": \"00:08:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"다진 마늘이 제육 위에 떨어짐\",\n    \"ingredients\": [\n      \"다진 마늘 1T\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"마늘 다지기\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:08:55\",\n    \"endTime\": \"00:08:59\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"마늘이 올라간 제육볶음을 보여주는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:08:59\",\n    \"endTime\": \"00:09:00\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 다진 마늘을 제육볶음과 섞음\",\n    \"ingredients\": [\n      \"다진 마늘\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:00\",\n    \"endTime\": \"00:09:01\",\n    \"type\": \"cooking\",\n    \"visual\": \"마늘과 제육볶음을 골고루 섞음\",\n    \"ingredients\": [\n      \"다진 마늘\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:01\",\n    \"endTime\": \"00:09:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 계속 뒤적임\",\n    \"ingredients\": [\n      \"다진 마늘\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:02\",\n    \"endTime\": \"00:09:03\",\n    \"type\": \"cooking\",\n    \"visual\": \"마늘 섞기 계속\",\n    \"ingredients\": [\n      \"다진 마늘\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:03\",\n    \"endTime\": \"00:09:04\",\n    \"type\": \"cooking\",\n    \"visual\": \"마늘 섞기 마무리\",\n    \"ingredients\": [\n      \"다진 마늘\",\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:04\",\n    \"endTime\": \"00:09:05\",\n    \"type\": \"cooking\",\n    \"visual\": \"후추 그라인더를 돌려 후추를 살짝 뿌림\",\n    \"ingredients\": [\n      \"후추\"\n    ],\n    \"tools\": [\n      \"후추 그라인더\"\n    ]\n  },\n  {\n    \"time\": \"00:09:05\",\n    \"endTime\": \"00:09:06\",\n    \"type\": \"cooking\",\n    \"visual\": \"후추를 뿌리는 동작 마무리\",\n    \"ingredients\": [\n      \"후추\"\n    ],\n    \"tools\": [\n      \"후추 그라인더\"\n    ]\n  },\n  {\n    \"time\": \"00:09:06\",\n    \"endTime\": \"00:09:07\",\n    \"type\": \"cooking\",\n    \"visual\": \"젓가락으로 후추와 제육볶음을 섞음\",\n    \"ingredients\": [\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:07\",\n    \"endTime\": \"00:09:08\",\n    \"type\": \"cooking\",\n    \"visual\": \"제육볶음을 섞는 동작 마무리\",\n    \"ingredients\": [\n      \"제육볶음\"\n    ],\n    \"tools\": [\n      \"젓가락\",\n      \"프라이팬\"\n    ]\n  },\n  {\n    \"time\": \"00:09:08\",\n    \"endTime\": \"00:09:17\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"접시에 담긴 제육볶음을 보여주는 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:09:17\",\n    \"endTime\": \"00:09:18\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 제육볶음을 퍼서 밥 위에 올리고 비빔\",\n    \"ingredients\": [\n      \"제육볶음\",\n      \"밥\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"밥그릇\"\n    ]\n  },\n  {\n    \"time\": \"00:09:18\",\n    \"endTime\": \"00:09:19\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 밥과 제육볶음을 비비는 동작 계속\",\n    \"ingredients\": [\n      \"제육볶음\",\n      \"밥\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"밥그릇\"\n    ]\n  },\n  {\n    \"time\": \"00:09:19\",\n    \"endTime\": \"00:09:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"밥과 제육볶음을 골고루 비빔\",\n    \"ingredients\": [\n      \"제육볶음\",\n      \"밥\"\n    ],\n    \"tools\": [\n      \"숟가락\",\n      \"밥그릇\"\n    ]\n  },\n  {\n    \"time\": \"00:09:20\",\n    \"endTime\": \"00:09:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"제육 비빔밥을 한 숟가락 크게 뜸\",\n    \"ingredients\": [\n      \"제육 비빔밥\"\n    ],\n    \"tools\": [\n      \"숟가락\"\n    ]\n  },\n  {\n    \"time\": \"00:09:21\",\n    \"endTime\": \"00:09:45\",\n    \"type\": \"outro\",\n    \"visual\": \"완성된 제육볶음을 맛있게 먹고 감탄하는 마무리 장면\",\n    \"ingredients\": null,\n    \"tools\": null\n  }\n]\n```",
+    "parsed": [
+      {
+        "time": "00:00:00",
+        "endTime": "00:00:19",
+        "type": "intro",
+        "visual": "요리 소개 및 냉장고에서 재료를 꺼내며 이야기하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:19",
+        "endTime": "00:00:20",
+        "type": "cooking",
+        "visual": "핏물을 빼기 위해 키친타월 위에 돼지고기 앞다리살을 올림",
+        "ingredients": [
+          "돼지고기 앞다리살"
+        ],
+        "tools": [
+          "키친타월"
+        ]
+      },
+      {
+        "time": "00:00:20",
+        "endTime": "00:00:25",
+        "type": "non_cooking",
+        "visual": "돼지고기의 핏물에 대해 설명하며 이야기하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:25",
+        "endTime": "00:00:26",
+        "type": "cooking",
+        "visual": "키친타월로 돼지고기를 꾹꾹 눌러 핏물을 뺌",
+        "ingredients": [
+          "돼지고기 앞다리살"
+        ],
+        "tools": [
+          "키친타월"
+        ]
+      },
+      {
+        "time": "00:00:26",
+        "endTime": "00:00:27",
+        "type": "cooking",
+        "visual": "키친타월로 돼지고기를 계속 눌러 핏물을 뺌",
+        "ingredients": [
+          "돼지고기 앞다리살"
+        ],
+        "tools": [
+          "키친타월"
+        ]
+      },
+      {
+        "time": "00:00:27",
+        "endTime": "00:00:28",
+        "type": "cooking",
+        "visual": "키친타월로 돼지고기를 꾹꾹 눌러 핏물을 빼는 동작 지속",
+        "ingredients": [
+          "돼지고기 앞다리살"
+        ],
+        "tools": [
+          "키친타월"
+        ]
+      },
+      {
+        "time": "00:00:28",
+        "endTime": "00:00:37",
+        "type": "non_cooking",
+        "visual": "핏물을 뺀 고기를 보여주며 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:37",
+        "endTime": "00:00:38",
+        "type": "cooking",
+        "visual": "칼로 돼지고기를 큼직하게 썲",
+        "ingredients": [
+          "돼지고기 앞다리살"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:38",
+        "endTime": "00:00:39",
+        "type": "cooking",
+        "visual": "칼로 돼지고기를 계속 썲",
+        "ingredients": [
+          "돼지고기 앞다리살"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:39",
+        "endTime": "00:00:40",
+        "type": "cooking",
+        "visual": "칼로 돼지고기 써는 동작 마무리",
+        "ingredients": [
+          "돼지고기 앞다리살"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:40",
+        "endTime": "00:01:24",
+        "type": "non_cooking",
+        "visual": "제육볶음 양념장 만들기를 준비하며 비율을 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:24",
+        "endTime": "00:01:25",
+        "type": "cooking",
+        "visual": "반찬통에 설탕을 넣음",
+        "ingredients": [
+          "설탕 2T"
+        ],
+        "tools": [
+          "반찬통",
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:01:25",
+        "endTime": "00:01:26",
+        "type": "cooking",
+        "visual": "반찬통에 두 번째 숟가락의 설탕을 넣음",
+        "ingredients": [
+          "설탕 2T"
+        ],
+        "tools": [
+          "반찬통",
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:01:26",
+        "endTime": "00:01:27",
+        "type": "cooking",
+        "visual": "숟가락에 묻은 설탕을 털어냄",
+        "ingredients": [
+          "설탕 2T"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:01:27",
+        "endTime": "00:01:35",
+        "type": "non_cooking",
+        "visual": "양념 넣는 순서에 대해 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:35",
+        "endTime": "00:01:36",
+        "type": "cooking",
+        "visual": "숟가락에 간장을 따름",
+        "ingredients": [
+          "간장 3T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:01:36",
+        "endTime": "00:01:37",
+        "type": "cooking",
+        "visual": "반찬통에 간장을 넣음",
+        "ingredients": [
+          "간장 3T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:01:37",
+        "endTime": "00:01:38",
+        "type": "cooking",
+        "visual": "반찬통에 두 번째 간장을 넣음",
+        "ingredients": [
+          "간장 3T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:01:38",
+        "endTime": "00:01:39",
+        "type": "cooking",
+        "visual": "반찬통에 세 번째 간장을 넣음",
+        "ingredients": [
+          "간장 3T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:01:39",
+        "endTime": "00:01:40",
+        "type": "cooking",
+        "visual": "숟가락으로 간장과 설탕을 저음",
+        "ingredients": [
+          "간장 3T",
+          "설탕 2T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:01:40",
+        "endTime": "00:01:51",
+        "type": "non_cooking",
+        "visual": "고추장을 담뿍 넣는 방법에 대해 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:51",
+        "endTime": "00:01:52",
+        "type": "cooking",
+        "visual": "손가락을 이용해 숟가락에 묻은 고추장을 반찬통에 덜어냄",
+        "ingredients": [
+          "고추장 담뿍 3T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통",
+          "손가락"
+        ]
+      },
+      {
+        "time": "00:01:52",
+        "endTime": "00:01:53",
+        "type": "cooking",
+        "visual": "두 번째 숟가락의 고추장을 손가락으로 밀어 넣음",
+        "ingredients": [
+          "고추장 담뿍 3T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통",
+          "손가락"
+        ]
+      },
+      {
+        "time": "00:01:53",
+        "endTime": "00:01:54",
+        "type": "cooking",
+        "visual": "세 번째 숟가락의 고추장을 손가락으로 밀어 넣음",
+        "ingredients": [
+          "고추장 담뿍 3T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통",
+          "손가락"
+        ]
+      },
+      {
+        "time": "00:01:54",
+        "endTime": "00:01:55",
+        "type": "cooking",
+        "visual": "반찬통 안의 고추장, 간장, 설탕을 숟가락으로 섞음",
+        "ingredients": [
+          "고추장",
+          "간장",
+          "설탕"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:01:55",
+        "endTime": "00:01:56",
+        "type": "cooking",
+        "visual": "양념을 숟가락으로 계속 섞음",
+        "ingredients": [
+          "고추장",
+          "간장",
+          "설탕"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:01:56",
+        "endTime": "00:02:19",
+        "type": "non_cooking",
+        "visual": "비싼 배 대신 가성비 좋은 배 음료를 사용하는 꿀팁을 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:19",
+        "endTime": "00:02:20",
+        "type": "cooking",
+        "visual": "반찬통에 배 음료를 부음",
+        "ingredients": [
+          "배 음료"
+        ],
+        "tools": [
+          "캔",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:20",
+        "endTime": "00:02:21",
+        "type": "cooking",
+        "visual": "반찬통에 배 음료를 계속 부음",
+        "ingredients": [
+          "배 음료"
+        ],
+        "tools": [
+          "캔",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:21",
+        "endTime": "00:02:22",
+        "type": "cooking",
+        "visual": "반찬통에 배 음료를 붓는 동작 계속",
+        "ingredients": [
+          "배 음료"
+        ],
+        "tools": [
+          "캔",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:22",
+        "endTime": "00:02:23",
+        "type": "cooking",
+        "visual": "반찬통에 배 음료 붓기 마무리",
+        "ingredients": [
+          "배 음료"
+        ],
+        "tools": [
+          "캔",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:23",
+        "endTime": "00:02:24",
+        "type": "cooking",
+        "visual": "숟가락으로 양념과 배 음료를 섞음",
+        "ingredients": [
+          "양념",
+          "배 음료"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:24",
+        "endTime": "00:02:25",
+        "type": "cooking",
+        "visual": "양념을 숟가락으로 계속 섞음",
+        "ingredients": [
+          "양념",
+          "배 음료"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:25",
+        "endTime": "00:02:28",
+        "type": "non_cooking",
+        "visual": "양념을 섞기 위해 뚜껑을 덮는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:28",
+        "endTime": "00:02:29",
+        "type": "cooking",
+        "visual": "반찬통 뚜껑을 닫고 위아래로 흔듦",
+        "ingredients": [
+          "양념장"
+        ],
+        "tools": [
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:29",
+        "endTime": "00:02:30",
+        "type": "cooking",
+        "visual": "반찬통을 계속 세게 흔듦",
+        "ingredients": [
+          "양념장"
+        ],
+        "tools": [
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:30",
+        "endTime": "00:02:31",
+        "type": "cooking",
+        "visual": "반찬통을 흔드는 동작 계속",
+        "ingredients": [
+          "양념장"
+        ],
+        "tools": [
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:31",
+        "endTime": "00:02:39",
+        "type": "non_cooking",
+        "visual": "잘 섞인 양념장의 색깔을 보여주며 감탄하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:39",
+        "endTime": "00:02:40",
+        "type": "cooking",
+        "visual": "마늘 다지기로 마늘을 으깸",
+        "ingredients": [
+          "마늘"
+        ],
+        "tools": [
+          "마늘 다지기"
+        ]
+      },
+      {
+        "time": "00:02:40",
+        "endTime": "00:02:41",
+        "type": "cooking",
+        "visual": "마늘 다지기로 마늘을 으깨는 동작 계속",
+        "ingredients": [
+          "마늘"
+        ],
+        "tools": [
+          "마늘 다지기"
+        ]
+      },
+      {
+        "time": "00:02:41",
+        "endTime": "00:02:42",
+        "type": "cooking",
+        "visual": "으깬 다진 마늘을 양념장에 넣음",
+        "ingredients": [
+          "다진 마늘 1T",
+          "양념장"
+        ],
+        "tools": [
+          "마늘 다지기",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:42",
+        "endTime": "00:02:43",
+        "type": "cooking",
+        "visual": "다진 마늘을 양념장에 계속 넣음",
+        "ingredients": [
+          "다진 마늘 1T",
+          "양념장"
+        ],
+        "tools": [
+          "마늘 다지기",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:02:43",
+        "endTime": "00:03:24",
+        "type": "non_cooking",
+        "visual": "스태프가 양념장 맛을 보고 떡볶이 국물 맛이라며 좋아하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:03:24",
+        "endTime": "00:03:25",
+        "type": "cooking",
+        "visual": "양념장이 담긴 반찬통에 썰어둔 돼지고기를 넣음",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "반찬통",
+          "손"
+        ]
+      },
+      {
+        "time": "00:03:25",
+        "endTime": "00:03:26",
+        "type": "cooking",
+        "visual": "돼지고기를 양념장에 마저 넣음",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "반찬통",
+          "손"
+        ]
+      },
+      {
+        "time": "00:03:26",
+        "endTime": "00:03:27",
+        "type": "cooking",
+        "visual": "돼지고기를 넣고 손을 뗌",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:27",
+        "endTime": "00:03:28",
+        "type": "cooking",
+        "visual": "숟가락으로 고기와 양념을 버무림",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:28",
+        "endTime": "00:03:29",
+        "type": "cooking",
+        "visual": "고기가 뭉치지 않게 숟가락으로 퍼트리며 섞음",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:29",
+        "endTime": "00:03:30",
+        "type": "cooking",
+        "visual": "고기를 양념에 골고루 묻히며 섞음",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:30",
+        "endTime": "00:03:31",
+        "type": "cooking",
+        "visual": "양념과 고기를 섞는 동작 계속",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:31",
+        "endTime": "00:03:32",
+        "type": "cooking",
+        "visual": "고기 버무리기 마무리",
+        "ingredients": [
+          "돼지고기",
+          "양념장"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:32",
+        "endTime": "00:03:52",
+        "type": "non_cooking",
+        "visual": "비장의 무기인 식초를 꺼내어 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:03:52",
+        "endTime": "00:03:53",
+        "type": "cooking",
+        "visual": "숟가락에 식초를 따름",
+        "ingredients": [
+          "식초 2T"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:03:53",
+        "endTime": "00:03:54",
+        "type": "cooking",
+        "visual": "고기가 담긴 반찬통에 식초를 부음",
+        "ingredients": [
+          "식초 2T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:54",
+        "endTime": "00:03:55",
+        "type": "cooking",
+        "visual": "두 번째 식초를 숟가락에 따름",
+        "ingredients": [
+          "식초 2T"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:03:55",
+        "endTime": "00:03:56",
+        "type": "cooking",
+        "visual": "고기가 담긴 반찬통에 두 번째 식초를 부음",
+        "ingredients": [
+          "식초 2T"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:56",
+        "endTime": "00:03:57",
+        "type": "cooking",
+        "visual": "식초를 넣고 숟가락으로 고기를 저음",
+        "ingredients": [
+          "식초",
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:57",
+        "endTime": "00:03:58",
+        "type": "cooking",
+        "visual": "고기를 숟가락으로 계속 섞음",
+        "ingredients": [
+          "식초",
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:58",
+        "endTime": "00:03:59",
+        "type": "cooking",
+        "visual": "고기를 섞는 동작 마무리",
+        "ingredients": [
+          "식초",
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:03:59",
+        "endTime": "00:04:37",
+        "type": "non_cooking",
+        "visual": "제육볶음에 식초를 넣는 이유(보존 기간, 연육 등)를 길게 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:04:37",
+        "endTime": "00:04:38",
+        "type": "cooking",
+        "visual": "숟가락에 참기름을 따름",
+        "ingredients": [
+          "고소한 참기름"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:04:38",
+        "endTime": "00:04:39",
+        "type": "cooking",
+        "visual": "고기가 담긴 반찬통에 참기름을 부음",
+        "ingredients": [
+          "고소한 참기름"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:04:39",
+        "endTime": "00:04:40",
+        "type": "cooking",
+        "visual": "숟가락에 남은 참기름을 마저 부음",
+        "ingredients": [
+          "고소한 참기름"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:04:40",
+        "endTime": "00:04:41",
+        "type": "cooking",
+        "visual": "참기름 붓기 완료",
+        "ingredients": [
+          "고소한 참기름"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:04:41",
+        "endTime": "00:04:47",
+        "type": "non_cooking",
+        "visual": "참기름을 넣는 것에 대해 이야기하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:04:47",
+        "endTime": "00:04:48",
+        "type": "cooking",
+        "visual": "숟가락으로 고기와 참기름을 섞음",
+        "ingredients": [
+          "고소한 참기름",
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:04:48",
+        "endTime": "00:04:49",
+        "type": "cooking",
+        "visual": "고기를 숟가락으로 계속 뒤적임",
+        "ingredients": [
+          "고소한 참기름",
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:04:49",
+        "endTime": "00:04:50",
+        "type": "cooking",
+        "visual": "고기를 섞는 동작 계속",
+        "ingredients": [
+          "고소한 참기름",
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:04:50",
+        "endTime": "00:04:51",
+        "type": "cooking",
+        "visual": "고기 버무리기 완료",
+        "ingredients": [
+          "고소한 참기름",
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:04:51",
+        "endTime": "00:05:08",
+        "type": "non_cooking",
+        "visual": "스태프들이 냄새를 맡고 감탄하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:05:08",
+        "endTime": "00:05:09",
+        "type": "cooking",
+        "visual": "양념된 제육을 숟가락으로 저음",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:09",
+        "endTime": "00:05:10",
+        "type": "cooking",
+        "visual": "양념 제육을 계속 저음",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:10",
+        "endTime": "00:05:11",
+        "type": "cooking",
+        "visual": "숟가락으로 고기를 뒤적임",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "숟가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:11",
+        "endTime": "00:05:16",
+        "type": "non_cooking",
+        "visual": "채소를 올리기 위해 준비하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:05:16",
+        "endTime": "00:05:17",
+        "type": "cooking",
+        "visual": "도마 위에서 칼로 대파를 어슷썰기 함",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:05:17",
+        "endTime": "00:05:18",
+        "type": "cooking",
+        "visual": "칼로 대파를 계속 어슷썰기 함",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:05:18",
+        "endTime": "00:05:19",
+        "type": "cooking",
+        "visual": "대파 어슷썰기 계속",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:05:19",
+        "endTime": "00:05:20",
+        "type": "cooking",
+        "visual": "썬 대파를 고기 위에 올림",
+        "ingredients": [
+          "대파",
+          "양념 고기"
+        ],
+        "tools": [
+          "손",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:20",
+        "endTime": "00:05:21",
+        "type": "cooking",
+        "visual": "썬 대파를 고기 위에 계속 올림",
+        "ingredients": [
+          "대파",
+          "양념 고기"
+        ],
+        "tools": [
+          "손",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:21",
+        "endTime": "00:05:22",
+        "type": "cooking",
+        "visual": "남은 대파를 모두 올림",
+        "ingredients": [
+          "대파",
+          "양념 고기"
+        ],
+        "tools": [
+          "손",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:22",
+        "endTime": "00:05:23",
+        "type": "cooking",
+        "visual": "채 썬 양파를 고기와 대파 위에 살포시 올림",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "손",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:23",
+        "endTime": "00:05:24",
+        "type": "cooking",
+        "visual": "채 썬 양파를 계속 올림",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "손",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:24",
+        "endTime": "00:05:25",
+        "type": "cooking",
+        "visual": "양파를 덮듯이 올림",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "손",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:25",
+        "endTime": "00:05:26",
+        "type": "cooking",
+        "visual": "양파를 손으로 살짝 누름",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "손",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:26",
+        "endTime": "00:05:30",
+        "type": "non_cooking",
+        "visual": "야채 위에 소금을 뿌리겠다고 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:05:30",
+        "endTime": "00:05:31",
+        "type": "cooking",
+        "visual": "손가락으로 소금을 한 꼬집 집음",
+        "ingredients": [
+          "소금"
+        ],
+        "tools": [
+          "유리병",
+          "손가락"
+        ]
+      },
+      {
+        "time": "00:05:31",
+        "endTime": "00:05:32",
+        "type": "cooking",
+        "visual": "소금을 집어 올리는 동작",
+        "ingredients": [
+          "소금"
+        ],
+        "tools": [
+          "손가락"
+        ]
+      },
+      {
+        "time": "00:05:32",
+        "endTime": "00:05:33",
+        "type": "cooking",
+        "visual": "집은 소금을 옮기는 중",
+        "ingredients": [
+          "소금"
+        ],
+        "tools": [
+          "손가락"
+        ]
+      },
+      {
+        "time": "00:05:33",
+        "endTime": "00:05:34",
+        "type": "cooking",
+        "visual": "야채 위에 소금을 한 꼬집 뿌림",
+        "ingredients": [
+          "소금",
+          "야채"
+        ],
+        "tools": [
+          "손가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:34",
+        "endTime": "00:05:35",
+        "type": "cooking",
+        "visual": "소금을 뿌리는 동작 계속",
+        "ingredients": [
+          "소금",
+          "야채"
+        ],
+        "tools": [
+          "손가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:35",
+        "endTime": "00:05:36",
+        "type": "cooking",
+        "visual": "야채에 소금 뿌리기 완료",
+        "ingredients": [
+          "소금",
+          "야채"
+        ],
+        "tools": [
+          "손가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:05:36",
+        "endTime": "00:06:16",
+        "type": "non_cooking",
+        "visual": "보관 방법과 기간에 대해 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:16",
+        "endTime": "00:06:17",
+        "type": "cooking",
+        "visual": "젓가락으로 반찬통 위쪽에 덮인 채소를 걷어냄",
+        "ingredients": [
+          "채소",
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:06:17",
+        "endTime": "00:06:18",
+        "type": "cooking",
+        "visual": "젓가락으로 채소를 계속 옆으로 치움",
+        "ingredients": [
+          "채소",
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:06:18",
+        "endTime": "00:06:19",
+        "type": "cooking",
+        "visual": "고기가 보이도록 채소를 걷어냄",
+        "ingredients": [
+          "채소",
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:06:19",
+        "endTime": "00:06:20",
+        "type": "cooking",
+        "visual": "채소 걷어내기 마무리",
+        "ingredients": [
+          "채소",
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "반찬통"
+        ]
+      },
+      {
+        "time": "00:06:20",
+        "endTime": "00:06:21",
+        "type": "cooking",
+        "visual": "젓가락으로 걷어낸 고기를 집음",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락"
+        ]
+      },
+      {
+        "time": "00:06:21",
+        "endTime": "00:06:22",
+        "type": "cooking",
+        "visual": "고기를 집어 올리는 동작 계속",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락"
+        ]
+      },
+      {
+        "time": "00:06:22",
+        "endTime": "00:06:23",
+        "type": "cooking",
+        "visual": "집은 고기를 프라이팬에 올림",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:23",
+        "endTime": "00:06:24",
+        "type": "cooking",
+        "visual": "프라이팬에 두 번째 고기를 올림",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:24",
+        "endTime": "00:06:25",
+        "type": "cooking",
+        "visual": "고기를 계속 프라이팬에 올림",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:25",
+        "endTime": "00:06:26",
+        "type": "cooking",
+        "visual": "고기를 프라이팬에 올리는 동작 계속",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:26",
+        "endTime": "00:06:27",
+        "type": "cooking",
+        "visual": "고기를 프라이팬에 올리는 동작 계속",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:27",
+        "endTime": "00:06:28",
+        "type": "cooking",
+        "visual": "고기를 프라이팬에 올리기 마무리",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:28",
+        "endTime": "00:06:29",
+        "type": "cooking",
+        "visual": "프라이팬에서 고기가 익어가는 모습",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:29",
+        "endTime": "00:06:30",
+        "type": "cooking",
+        "visual": "프라이팬의 고기를 근접해서 보여줌",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:30",
+        "endTime": "00:06:31",
+        "type": "cooking",
+        "visual": "젓가락으로 프라이팬의 고기를 살짝 뒤적임",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:31",
+        "endTime": "00:06:32",
+        "type": "cooking",
+        "visual": "젓가락으로 고기를 펴줌",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:32",
+        "endTime": "00:06:50",
+        "type": "non_cooking",
+        "visual": "고기를 뒤집지 않고 기다리는 이유를 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:06:50",
+        "endTime": "00:06:51",
+        "type": "cooking",
+        "visual": "젓가락으로 프라이팬의 고기를 뒤집음, 거뭇한 부분 확인",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:51",
+        "endTime": "00:06:52",
+        "type": "cooking",
+        "visual": "고기를 계속 뒤적임, 거뭇한 부분이 보임",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:52",
+        "endTime": "00:06:53",
+        "type": "cooking",
+        "visual": "고기를 뒤집으며 굽는 동작 계속",
+        "ingredients": [
+          "양념 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:06:53",
+        "endTime": "00:07:23",
+        "type": "non_cooking",
+        "visual": "마이야르 반응과 거뭇한 부분에 대해 설명하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:23",
+        "endTime": "00:07:24",
+        "type": "cooking",
+        "visual": "젓가락으로 거뭇해진 고기를 골고루 섞어줌",
+        "ingredients": [
+          "구워진 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:24",
+        "endTime": "00:07:25",
+        "type": "cooking",
+        "visual": "젓가락으로 고기를 계속 뒤적이며 섞음",
+        "ingredients": [
+          "구워진 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:25",
+        "endTime": "00:07:26",
+        "type": "cooking",
+        "visual": "고기를 섞는 동작 계속",
+        "ingredients": [
+          "구워진 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:26",
+        "endTime": "00:07:27",
+        "type": "cooking",
+        "visual": "고기를 넓게 펴줌",
+        "ingredients": [
+          "구워진 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:27",
+        "endTime": "00:07:28",
+        "type": "cooking",
+        "visual": "고기 섞기 마무리",
+        "ingredients": [
+          "구워진 고기"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:28",
+        "endTime": "00:07:30",
+        "type": "non_cooking",
+        "visual": "남은 야채를 넣을 준비를 하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:30",
+        "endTime": "00:07:31",
+        "type": "cooking",
+        "visual": "반찬통에 남아있던 야채(양파, 대파)를 프라이팬에 쏟아 넣음",
+        "ingredients": [
+          "채소",
+          "고기"
+        ],
+        "tools": [
+          "반찬통",
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:31",
+        "endTime": "00:07:32",
+        "type": "cooking",
+        "visual": "젓가락으로 남은 야채를 밀어 넣음",
+        "ingredients": [
+          "채소",
+          "고기"
+        ],
+        "tools": [
+          "반찬통",
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:32",
+        "endTime": "00:07:33",
+        "type": "cooking",
+        "visual": "야채 넣기 계속",
+        "ingredients": [
+          "채소",
+          "고기"
+        ],
+        "tools": [
+          "반찬통",
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:33",
+        "endTime": "00:07:40",
+        "type": "non_cooking",
+        "visual": "야채가 익는 모습을 보여주는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:40",
+        "endTime": "00:07:41",
+        "type": "cooking",
+        "visual": "반찬통에 남은 양념 국물을 프라이팬에 부음",
+        "ingredients": [
+          "양념 국물",
+          "고기",
+          "채소"
+        ],
+        "tools": [
+          "반찬통",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:41",
+        "endTime": "00:07:42",
+        "type": "cooking",
+        "visual": "양념 국물을 계속 부음",
+        "ingredients": [
+          "양념 국물",
+          "고기",
+          "채소"
+        ],
+        "tools": [
+          "반찬통",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:42",
+        "endTime": "00:07:43",
+        "type": "cooking",
+        "visual": "양념 국물을 모두 부음",
+        "ingredients": [
+          "양념 국물",
+          "고기",
+          "채소"
+        ],
+        "tools": [
+          "반찬통",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:43",
+        "endTime": "00:07:44",
+        "type": "cooking",
+        "visual": "양념 국물 붓기 완료",
+        "ingredients": [
+          "양념 국물",
+          "고기",
+          "채소"
+        ],
+        "tools": [
+          "반찬통",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:44",
+        "endTime": "00:07:45",
+        "type": "cooking",
+        "visual": "젓가락으로 고기, 야채, 양념을 섞음",
+        "ingredients": [
+          "제육볶음 재료"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:45",
+        "endTime": "00:07:46",
+        "type": "cooking",
+        "visual": "젓가락으로 재료들을 계속 뒤적임",
+        "ingredients": [
+          "제육볶음 재료"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:46",
+        "endTime": "00:07:47",
+        "type": "cooking",
+        "visual": "재료들을 골고루 섞음",
+        "ingredients": [
+          "제육볶음 재료"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:47",
+        "endTime": "00:07:48",
+        "type": "cooking",
+        "visual": "재료 섞는 동작 계속",
+        "ingredients": [
+          "제육볶음 재료"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:48",
+        "endTime": "00:07:49",
+        "type": "cooking",
+        "visual": "재료 섞기 마무리",
+        "ingredients": [
+          "제육볶음 재료"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:49",
+        "endTime": "00:07:54",
+        "type": "non_cooking",
+        "visual": "뚜껑을 덮을 준비를 하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:07:54",
+        "endTime": "00:07:55",
+        "type": "cooking",
+        "visual": "프라이팬 뚜껑을 덮음 (뚜껑 덮고 약불 조리)",
+        "ingredients": [
+          "제육볶음"
+        ],
+        "tools": [
+          "프라이팬 뚜껑",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:55",
+        "endTime": "00:07:56",
+        "type": "cooking",
+        "visual": "프라이팬 뚜껑을 덮은 상태 유지",
+        "ingredients": [
+          "제육볶음"
+        ],
+        "tools": [
+          "프라이팬 뚜껑",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:56",
+        "endTime": "00:07:57",
+        "type": "cooking",
+        "visual": "뚜껑을 덮은 프라이팬을 보여줌",
+        "ingredients": [
+          "제육볶음"
+        ],
+        "tools": [
+          "프라이팬 뚜껑",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:07:57",
+        "endTime": "00:08:23",
+        "type": "non_cooking",
+        "visual": "뚜껑을 덮고 익히는 이유와 냄새에 대해 이야기하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:23",
+        "endTime": "00:08:24",
+        "type": "cooking",
+        "visual": "프라이팬 뚜껑을 엶, 김이 모락모락 남",
+        "ingredients": [
+          "제육볶음"
+        ],
+        "tools": [
+          "프라이팬 뚜껑",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:24",
+        "endTime": "00:08:25",
+        "type": "cooking",
+        "visual": "뚜껑을 완전히 열고 조리된 제육볶음을 보여줌",
+        "ingredients": [
+          "제육볶음"
+        ],
+        "tools": [
+          "프라이팬 뚜껑",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:25",
+        "endTime": "00:08:42",
+        "type": "non_cooking",
+        "visual": "완성된 제육볶음의 비주얼을 감상하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:42",
+        "endTime": "00:08:43",
+        "type": "cooking",
+        "visual": "젓가락으로 완성된 제육볶음을 섞으며 보여줌",
+        "ingredients": [
+          "완성된 제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:43",
+        "endTime": "00:08:44",
+        "type": "cooking",
+        "visual": "제육볶음을 뒤적임",
+        "ingredients": [
+          "완성된 제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:44",
+        "endTime": "00:08:45",
+        "type": "cooking",
+        "visual": "제육볶음 뒤적이기 계속",
+        "ingredients": [
+          "완성된 제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:45",
+        "endTime": "00:08:52",
+        "type": "non_cooking",
+        "visual": "마지막에 마늘을 넣을 준비를 하는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:52",
+        "endTime": "00:08:53",
+        "type": "cooking",
+        "visual": "마늘 다지기로 다진 마늘을 조리 중인 제육볶음 위에 짬",
+        "ingredients": [
+          "다진 마늘 1T",
+          "제육볶음"
+        ],
+        "tools": [
+          "마늘 다지기",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:53",
+        "endTime": "00:08:54",
+        "type": "cooking",
+        "visual": "다진 마늘을 계속 짬",
+        "ingredients": [
+          "다진 마늘 1T",
+          "제육볶음"
+        ],
+        "tools": [
+          "마늘 다지기",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:54",
+        "endTime": "00:08:55",
+        "type": "cooking",
+        "visual": "다진 마늘이 제육 위에 떨어짐",
+        "ingredients": [
+          "다진 마늘 1T",
+          "제육볶음"
+        ],
+        "tools": [
+          "마늘 다지기",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:08:55",
+        "endTime": "00:08:59",
+        "type": "non_cooking",
+        "visual": "마늘이 올라간 제육볶음을 보여주는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:08:59",
+        "endTime": "00:09:00",
+        "type": "cooking",
+        "visual": "젓가락으로 다진 마늘을 제육볶음과 섞음",
+        "ingredients": [
+          "다진 마늘",
+          "제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:09:00",
+        "endTime": "00:09:01",
+        "type": "cooking",
+        "visual": "마늘과 제육볶음을 골고루 섞음",
+        "ingredients": [
+          "다진 마늘",
+          "제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:09:01",
+        "endTime": "00:09:02",
+        "type": "cooking",
+        "visual": "젓가락으로 계속 뒤적임",
+        "ingredients": [
+          "다진 마늘",
+          "제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:09:02",
+        "endTime": "00:09:03",
+        "type": "cooking",
+        "visual": "마늘 섞기 계속",
+        "ingredients": [
+          "다진 마늘",
+          "제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:09:03",
+        "endTime": "00:09:04",
+        "type": "cooking",
+        "visual": "마늘 섞기 마무리",
+        "ingredients": [
+          "다진 마늘",
+          "제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:09:04",
+        "endTime": "00:09:05",
+        "type": "cooking",
+        "visual": "후추 그라인더를 돌려 후추를 살짝 뿌림",
+        "ingredients": [
+          "후추"
+        ],
+        "tools": [
+          "후추 그라인더"
+        ]
+      },
+      {
+        "time": "00:09:05",
+        "endTime": "00:09:06",
+        "type": "cooking",
+        "visual": "후추를 뿌리는 동작 마무리",
+        "ingredients": [
+          "후추"
+        ],
+        "tools": [
+          "후추 그라인더"
+        ]
+      },
+      {
+        "time": "00:09:06",
+        "endTime": "00:09:07",
+        "type": "cooking",
+        "visual": "젓가락으로 후추와 제육볶음을 섞음",
+        "ingredients": [
+          "제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:09:07",
+        "endTime": "00:09:08",
+        "type": "cooking",
+        "visual": "제육볶음을 섞는 동작 마무리",
+        "ingredients": [
+          "제육볶음"
+        ],
+        "tools": [
+          "젓가락",
+          "프라이팬"
+        ]
+      },
+      {
+        "time": "00:09:08",
+        "endTime": "00:09:17",
+        "type": "non_cooking",
+        "visual": "접시에 담긴 제육볶음을 보여주는 장면",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:09:17",
+        "endTime": "00:09:18",
+        "type": "cooking",
+        "visual": "숟가락으로 제육볶음을 퍼서 밥 위에 올리고 비빔",
+        "ingredients": [
+          "제육볶음",
+          "밥"
+        ],
+        "tools": [
+          "숟가락",
+          "밥그릇"
+        ]
+      },
+      {
+        "time": "00:09:18",
+        "endTime": "00:09:19",
+        "type": "cooking",
+        "visual": "숟가락으로 밥과 제육볶음을 비비는 동작 계속",
+        "ingredients": [
+          "제육볶음",
+          "밥"
+        ],
+        "tools": [
+          "숟가락",
+          "밥그릇"
+        ]
+      },
+      {
+        "time": "00:09:19",
+        "endTime": "00:09:20",
+        "type": "cooking",
+        "visual": "밥과 제육볶음을 골고루 비빔",
+        "ingredients": [
+          "제육볶음",
+          "밥"
+        ],
+        "tools": [
+          "숟가락",
+          "밥그릇"
+        ]
+      },
+      {
+        "time": "00:09:20",
+        "endTime": "00:09:21",
+        "type": "cooking",
+        "visual": "제육 비빔밥을 한 숟가락 크게 뜸",
+        "ingredients": [
+          "제육 비빔밥"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:09:21",
+        "endTime": "00:09:45",
+        "type": "outro",
+        "visual": "완성된 제육볶음을 맛있게 먹고 감탄하는 마무리 장면",
+        "ingredients": null,
+        "tools": null
+      }
+    ]
+  }
+}

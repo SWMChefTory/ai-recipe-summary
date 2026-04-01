@@ -1,0 +1,2325 @@
+{
+  "name": "봄동비빔밥 (김대석 셰프)",
+  "url": "https://www.youtube.com/watch?v=s4yHtjJEjc0",
+  "videoId": "s4yHtjJEjc0",
+  "collectedAt": "2026-03-23T16:52:17.272Z",
+  "subtitles": [],
+  "videoInfo": {
+    "description": "",
+    "title": "",
+    "channelName": ""
+  },
+  "visualAnalysis": {
+    "raw": "[\n  {\n    \"time\": \"00:00:00\",\n    \"endTime\": \"00:00:11\",\n    \"type\": \"intro\",\n    \"visual\": \"완성된 요리를 버무리는 장면과 셰프의 채널 로고가 화면에 나타남\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:11\",\n    \"endTime\": \"00:00:32\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"조리대 위에 놓인 봄동 한 포기, 각종 양념, 계란, 프라이팬 등 재료를 소개함\",\n    \"ingredients\": [\"봄동\", \"계란\", \"양념장\"],\n    \"tools\": [\"프라이팬\", \"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:00:32\",\n    \"endTime\": \"00:00:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 도마 위에서 봄동을 손으로 들고 밑동 부분을 보여줌\",\n    \"ingredients\": [\"봄동 한 포기 260g\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:33\",\n    \"endTime\": \"00:00:34\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동의 잎이 아래로 향하도록 도마 위에 엎어서 내려놓음\",\n    \"ingredients\": [\"봄동 한 포기 260g\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:34\",\n    \"endTime\": \"00:00:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동을 자르기 위해 손으로 위치를 고정함\",\n    \"ingredients\": [\"봄동 한 포기 260g\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:35\",\n    \"endTime\": \"00:00:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼을 가져와 봄동의 중앙 밑동 부분에 겨냥함\",\n    \"ingredients\": [\"봄동 한 포기 260g\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:36\",\n    \"endTime\": \"00:00:37\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼을 사용하여 봄동을 반으로 가르기 시작함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:37\",\n    \"endTime\": \"00:00:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동을 완전히 반으로 절단함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:38\",\n    \"endTime\": \"00:00:39\",\n    \"type\": \"cooking\",\n    \"visual\": \"잘라진 봄동 반쪽을 손으로 벌려 분리함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:39\",\n    \"endTime\": \"00:00:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동 반쪽 중 하나를 도마 중앙으로 가져옴\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:40\",\n    \"endTime\": \"00:00:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"가져온 봄동 반쪽을 칼로 다시 반으로(4등분) 자름\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:41\",\n    \"endTime\": \"00:00:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"4등분된 봄동 조각을 분리함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:42\",\n    \"endTime\": \"00:00:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"4등분 된 조각의 단단한 밑동(뿌리) 부분을 칼로 썰어냄\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:43\",\n    \"endTime\": \"00:00:44\",\n    \"type\": \"cooking\",\n    \"visual\": \"잘라낸 뿌리 부분을 칼 옆면으로 밀어냄\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:44\",\n    \"endTime\": \"00:00:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"뿌리가 잘려 낱장으로 분리된 봄동 잎들을 손으로 흐트러뜨림\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:45\",\n    \"endTime\": \"00:00:46\",\n    \"type\": \"cooking\",\n    \"visual\": \"작은 크기의 속잎들을 손으로 집어 듦\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:46\",\n    \"endTime\": \"00:00:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"손으로 속잎들을 한 장씩 떼어내어 분리함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:47\",\n    \"endTime\": \"00:00:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"분리한 작은 잎들을 도마 한쪽에 내려놓음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:48\",\n    \"endTime\": \"00:00:49\",\n    \"type\": \"cooking\",\n    \"visual\": \"나머지 4등분 조각을 도마 중앙으로 가져옴\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:49\",\n    \"endTime\": \"00:00:50\",\n    \"type\": \"cooking\",\n    \"visual\": \"두 번째 조각의 밑동을 칼로 썰어냄\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:50\",\n    \"endTime\": \"00:00:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"잘라낸 밑동 찌꺼기를 손으로 치움\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:51\",\n    \"endTime\": \"00:00:52\",\n    \"type\": \"cooking\",\n    \"visual\": \"낱장으로 떨어진 잎들을 손으로 정리함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:52\",\n    \"endTime\": \"00:00:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"크기가 큰 겉잎 하나를 골라서 도마 위에 반듯하게 놓음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:53\",\n    \"endTime\": \"00:00:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"큰 잎을 세로로 길게 반으로 가르며 칼질함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:54\",\n    \"endTime\": \"00:00:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼끝으로 잎의 끝부분까지 완전히 절단함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"칼\", \"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:55\",\n    \"endTime\": \"00:00:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"반으로 잘린 큰 잎을 손으로 치움\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"나무 도마\"]\n  },\n  {\n    \"time\": \"00:00:56\",\n    \"endTime\": \"00:00:58\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"손질이 끝난 봄동 잎들이 검은색 접시에 수북이 담겨 있는 모습\",\n    \"ingredients\": [\"손질된 봄동\"],\n    \"tools\": [\"접시\"]\n  },\n  {\n    \"time\": \"00:00:58\",\n    \"endTime\": \"00:00:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"싱크대에서 스텐 볼에 수돗물을 틀어 받기 시작함\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\", \"수전\"]\n  },\n  {\n    \"time\": \"00:00:59\",\n    \"endTime\": \"00:01:00\",\n    \"type\": \"cooking\",\n    \"visual\": \"물이 스텐 볼에 계속 채워짐\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:00\",\n    \"endTime\": \"00:01:01\",\n    \"type\": \"cooking\",\n    \"visual\": \"흐르는 물에 손을 대어 미지근한 온도인지 확인함\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:01\",\n    \"endTime\": \"00:01:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"손으로 물의 온도를 계속 체크함\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:02\",\n    \"endTime\": \"00:01:03\",\n    \"type\": \"cooking\",\n    \"visual\": \"물의 온도를 확인하고 손을 뺌\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:03\",\n    \"endTime\": \"00:01:04\",\n    \"type\": \"cooking\",\n    \"visual\": \"접시에 담긴 손질된 봄동을 싱크대로 가져옴\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"접시\", \"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:04\",\n    \"endTime\": \"00:01:05\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반이 받쳐진 스텐 볼 안으로 봄동을 한꺼번에 쏟아 부음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"접시\", \"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:05\",\n    \"endTime\": \"00:01:06\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동 잎들이 물속으로 떨어짐\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:06\",\n    \"endTime\": \"00:01:07\",\n    \"type\": \"cooking\",\n    \"visual\": \"손으로 수북한 봄동 잎들을 물속으로 꾹꾹 눌러 담음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:07\",\n    \"endTime\": \"00:01:08\",\n    \"type\": \"cooking\",\n    \"visual\": \"흐르는 물줄기 아래에서 특정 잎을 뒤적이며 씻음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:08\",\n    \"endTime\": \"00:01:09\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎들을 계속해서 뒤집으며 물에 적심\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:09\",\n    \"endTime\": \"00:01:10\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손을 사용하여 물속의 봄동을 살살 누름\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:10\",\n    \"endTime\": \"00:01:11\",\n    \"type\": \"cooking\",\n    \"visual\": \"물속에서 잎들을 찰랑찰랑 흔들어가며 흙먼지를 씻어냄\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:11\",\n    \"endTime\": \"00:01:12\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손으로 번갈아가며 잎사귀들을 물속에서 뒤적임\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:12\",\n    \"endTime\": \"00:01:13\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎들을 살짝 들어 올렸다가 다시 물속으로 가라앉힘\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:13\",\n    \"endTime\": \"00:01:14\",\n    \"type\": \"cooking\",\n    \"visual\": \"물속에서 봄동을 둥글게 저어주며 세척함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:14\",\n    \"endTime\": \"00:01:15\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎 사이사이에 물이 통과하도록 계속해서 뒤적임\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:15\",\n    \"endTime\": \"00:01:16\",\n    \"type\": \"cooking\",\n    \"visual\": \"계속해서 부드럽게 봄동을 세척함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:16\",\n    \"endTime\": \"00:01:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"첫 번째 세척을 마무리하며 잎들을 가운데로 모음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:17\",\n    \"endTime\": \"00:01:18\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동이 담긴 채반의 가장자리를 양손으로 잡음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:18\",\n    \"endTime\": \"00:01:19\",\n    \"type\": \"cooking\",\n    \"visual\": \"스텐 볼에서 채반을 위로 들어 올려 물기를 뺌\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\"]\n  },\n  {\n    \"time\": \"00:01:19\",\n    \"endTime\": \"00:01:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"흙이 섞인 첫 번째 세척수를 싱크대에 버림\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:20\",\n    \"endTime\": \"00:01:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"물을 버린 빈 스텐 볼을 다시 싱크대에 내려놓음\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:21\",\n    \"endTime\": \"00:01:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"다시 수돗물을 틀고 채반을 스텐 볼 위에 올려놓음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:22\",\n    \"endTime\": \"00:01:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"두 번째 세척을 위해 물을 받으며 잎 하나를 손으로 집어 듦\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:23\",\n    \"endTime\": \"00:01:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"손에 든 잎의 끝부분을 카메라를 향해 보여줌\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"수전\"]\n  },\n  {\n    \"time\": \"00:01:24\",\n    \"endTime\": \"00:01:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎의 노란색 가장자리 부분을 손가락으로 가리킴\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"수전\"]\n  },\n  {\n    \"time\": \"00:01:25\",\n    \"endTime\": \"00:01:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎의 노란색 부분을 계속 가리키며 보여줌\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"수전\"]\n  },\n  {\n    \"time\": \"00:01:26\",\n    \"endTime\": \"00:01:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"흐르는 물줄기 아래에서 잎을 계속 들고 있음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"수전\"]\n  },\n  {\n    \"time\": \"00:01:27\",\n    \"endTime\": \"00:01:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎을 돌려가며 앞뒷면을 가볍게 씻음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"수전\"]\n  },\n  {\n    \"time\": \"00:01:28\",\n    \"endTime\": \"00:01:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎을 다시 채반 위로 내려놓음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:29\",\n    \"endTime\": \"00:01:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손을 이용해 물이 찬 채반 안의 봄동을 누름\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:30\",\n    \"endTime\": \"00:01:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"두 번째로 찰랑찰랑 물속에서 잎들을 헹굼\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:31\",\n    \"endTime\": \"00:01:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반 양쪽을 손으로 잡고 위로 들어 올림\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\"]\n  },\n  {\n    \"time\": \"00:01:32\",\n    \"endTime\": \"00:01:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반을 들어 올려 물기를 털어냄\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\"]\n  },\n  {\n    \"time\": \"00:01:33\",\n    \"endTime\": \"00:01:34\",\n    \"type\": \"cooking\",\n    \"visual\": \"스텐 볼에 고인 두 번째 세척수를 버림\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:34\",\n    \"endTime\": \"00:01:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"물을 버린 빈 볼을 다시 세팅함\",\n    \"ingredients\": null,\n    \"tools\": [\"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:35\",\n    \"endTime\": \"00:01:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"세 번째 세척을 위해 다시 수돗물을 받고 채반을 담금\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:36\",\n    \"endTime\": \"00:01:37\",\n    \"type\": \"cooking\",\n    \"visual\": \"물속에서 마지막으로 가볍게 봄동을 흔들어 씻음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:37\",\n    \"endTime\": \"00:01:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎들을 위아래로 살살 뒤집어줌\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:38\",\n    \"endTime\": \"00:01:39\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손으로 잎사귀 전체를 쥐었다 폈다 하며 헹굼\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:39\",\n    \"endTime\": \"00:01:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"세척 과정을 계속 진행함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:40\",\n    \"endTime\": \"00:01:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"물속에서 잎들을 둥글게 저어줌\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:41\",\n    \"endTime\": \"00:01:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎들을 한데 모아 들어 올릴 준비를 함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:42\",\n    \"endTime\": \"00:01:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"손으로 잎들을 크게 쥐어 물기를 털어내며 들어 올림\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 볼\"]\n  },\n  {\n    \"time\": \"00:01:43\",\n    \"endTime\": \"00:01:44\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반 안으로 건져 올린 잎들을 모아 담음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\"]\n  },\n  {\n    \"time\": \"00:01:44\",\n    \"endTime\": \"00:01:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"물에서 건진 채반을 흐르는 수돗물 아래로 가져감\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:45\",\n    \"endTime\": \"00:01:46\",\n    \"type\": \"cooking\",\n    \"visual\": \"샤워기 물줄기 아래에서 채반을 가볍게 흔들어줌\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:46\",\n    \"endTime\": \"00:01:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"마지막 헹굼을 위해 물줄기를 고루 맞힘\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"수전\"]\n  },\n  {\n    \"time\": \"00:01:47\",\n    \"endTime\": \"00:01:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"수돗물을 끄고 채반을 위아래로 털어 물기를 제거함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\"]\n  },\n  {\n    \"time\": \"00:01:48\",\n    \"endTime\": \"00:01:52\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"조리대 위에 빈 대형 스텐 믹싱볼이 준비된 모습\",\n    \"ingredients\": null,\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:01:52\",\n    \"endTime\": \"00:01:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"오른쪽에 물기를 뺀 봄동이 담긴 채반을 가져옴\",\n    \"ingredients\": [\"물기 뺀 봄동\"],\n    \"tools\": [\"스텐 채반\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:01:53\",\n    \"endTime\": \"00:01:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반을 양손으로 잡고 믹싱볼 위로 들어 올림\",\n    \"ingredients\": [\"물기 뺀 봄동\"],\n    \"tools\": [\"스텐 채반\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:01:54\",\n    \"endTime\": \"00:01:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반을 흔들어 남은 물기를 탈탈 털어냄\",\n    \"ingredients\": [\"물기 뺀 봄동\"],\n    \"tools\": [\"스텐 채반\"]\n  },\n  {\n    \"time\": \"00:01:55\",\n    \"endTime\": \"00:01:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반을 기울여 봄동을 믹싱볼 안으로 쏟을 준비를 함\",\n    \"ingredients\": [\"물기 뺀 봄동\"],\n    \"tools\": [\"스텐 채반\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:01:56\",\n    \"endTime\": \"00:01:57\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동 잎들이 믹싱볼 안으로 와르르 쏟아짐\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:01:57\",\n    \"endTime\": \"00:01:58\",\n    \"type\": \"cooking\",\n    \"visual\": \"채반에 붙어있는 나머지 잎들을 손으로 쓸어내림\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"스텐 채반\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:01:58\",\n    \"endTime\": \"00:01:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"빈 채반을 프레임 밖으로 치움\",\n    \"ingredients\": null,\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:01:59\",\n    \"endTime\": \"00:02:00\",\n    \"type\": \"cooking\",\n    \"visual\": \"믹싱볼에 담긴 봄동을 손으로 펼쳐 평평하게 만듦\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:00\",\n    \"endTime\": \"00:02:01\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎들이 고르게 펴지도록 손으로 한 번 더 정돈함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:01\",\n    \"endTime\": \"00:02:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"양념을 넣기 위해 손을 뺌\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:02\",\n    \"endTime\": \"00:02:03\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 숟가락으로 고춧가루 통에서 고춧가루를 듬뿍 뜸 (텍스트: 고춧가루 3스푼)\",\n    \"ingredients\": [\"고춧가루 3스푼\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"고춧가루 통\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:03\",\n    \"endTime\": \"00:02:04\",\n    \"type\": \"cooking\",\n    \"visual\": \"첫 번째 고춧가루 1스푼을 봄동 위에 흩뿌림\",\n    \"ingredients\": [\"고춧가루\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:04\",\n    \"endTime\": \"00:02:05\",\n    \"type\": \"cooking\",\n    \"visual\": \"다시 고춧가루 통에서 두 번째 고춧가루를 뜸\",\n    \"ingredients\": [\"고춧가루\"],\n    \"tools\": [\"나무 숟가락\", \"고춧가루 통\"]\n  },\n  {\n    \"time\": \"00:02:05\",\n    \"endTime\": \"00:02:06\",\n    \"type\": \"cooking\",\n    \"visual\": \"두 번째 고춧가루 1스푼을 봄동 위에 뿌림\",\n    \"ingredients\": [\"고춧가루\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:06\",\n    \"endTime\": \"00:02:07\",\n    \"type\": \"cooking\",\n    \"visual\": \"세 번째 고춧가루를 통에서 떠올림\",\n    \"ingredients\": [\"고춧가루\"],\n    \"tools\": [\"나무 숟가락\", \"고춧가루 통\"]\n  },\n  {\n    \"time\": \"00:02:07\",\n    \"endTime\": \"00:02:08\",\n    \"type\": \"cooking\",\n    \"visual\": \"세 번째 고춧가루 1스푼을 골고루 뿌려줌\",\n    \"ingredients\": [\"고춧가루\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:08\",\n    \"endTime\": \"00:02:09\",\n    \"type\": \"cooking\",\n    \"visual\": \"빈 숟가락을 치우며 고춧가루 투입을 마무리함\",\n    \"ingredients\": [\"고춧가루\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:09\",\n    \"endTime\": \"00:02:10\",\n    \"type\": \"cooking\",\n    \"visual\": \"다진 마늘이 수북이 담긴 나무 숟가락을 가져옴 (텍스트: 다진마늘 1스푼)\",\n    \"ingredients\": [\"다진마늘 1스푼\"],\n    \"tools\": [\"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:10\",\n    \"endTime\": \"00:02:11\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락을 기울여 다진 마늘을 믹싱볼 중앙에 떨어뜨림\",\n    \"ingredients\": [\"다진마늘\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:11\",\n    \"endTime\": \"00:02:12\",\n    \"type\": \"cooking\",\n    \"visual\": \"다른 작은 숟가락(플라스틱 계량스푼 형태)으로 나무 숟가락에 묻은 마늘을 긁어냄\",\n    \"ingredients\": [\"다진마늘\"],\n    \"tools\": [\"나무 숟가락\", \"작은 스푼\"]\n  },\n  {\n    \"time\": \"00:02:12\",\n    \"endTime\": \"00:02:13\",\n    \"type\": \"cooking\",\n    \"visual\": \"남은 마늘을 마저 긁어 떨어뜨림\",\n    \"ingredients\": [\"다진마늘\"],\n    \"tools\": [\"나무 숟가락\", \"작은 스푼\"]\n  },\n  {\n    \"time\": \"00:02:13\",\n    \"endTime\": \"00:02:14\",\n    \"type\": \"cooking\",\n    \"visual\": \"마늘이 봄동 위에 모두 올려짐\",\n    \"ingredients\": [\"다진마늘\", \"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:14\",\n    \"endTime\": \"00:02:15\",\n    \"type\": \"cooking\",\n    \"visual\": \"사용한 스푼들을 치움\",\n    \"ingredients\": null,\n    \"tools\": [\"나무 숟가락\", \"작은 스푼\"]\n  },\n  {\n    \"time\": \"00:02:15\",\n    \"endTime\": \"00:02:16\",\n    \"type\": \"cooking\",\n    \"visual\": \"까나리액젓 병을 기울여 나무 숟가락에 따름 (텍스트: 까나리액젓 1스푼)\",\n    \"ingredients\": [\"까나리액젓 1스푼\"],\n    \"tools\": [\"액젓 병\", \"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:16\",\n    \"endTime\": \"00:02:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락에 액젓이 가득 채워짐\",\n    \"ingredients\": [\"까나리액젓\"],\n    \"tools\": [\"액젓 병\", \"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:17\",\n    \"endTime\": \"00:02:18\",\n    \"type\": \"cooking\",\n    \"visual\": \"채워진 액젓을 봄동 위에 원을 그리며 부어줌\",\n    \"ingredients\": [\"까나리액젓\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:18\",\n    \"endTime\": \"00:02:19\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락을 비우고 병을 치움\",\n    \"ingredients\": null,\n    \"tools\": [\"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:19\",\n    \"endTime\": \"00:02:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"진간장 용기를 기울여 숟가락에 첫 번째 스푼을 따름 (텍스트: 진간장 2스푼)\",\n    \"ingredients\": [\"진간장 2스푼\"],\n    \"tools\": [\"진간장 용기\", \"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:20\",\n    \"endTime\": \"00:02:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"첫 번째 진간장을 믹싱볼에 흩뿌림\",\n    \"ingredients\": [\"진간장\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:21\",\n    \"endTime\": \"00:02:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"바로 이어서 두 번째 진간장을 숟가락에 따라 믹싱볼에 뿌림\",\n    \"ingredients\": [\"진간장\", \"봄동\"],\n    \"tools\": [\"진간장 용기\", \"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:22\",\n    \"endTime\": \"00:02:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락에 남은 간장을 마저 털어 넣음\",\n    \"ingredients\": [\"진간장\"],\n    \"tools\": [\"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:23\",\n    \"endTime\": \"00:02:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"매실청 병을 기울여 숟가락에 따름 (텍스트: 매실청 1스푼)\",\n    \"ingredients\": [\"매실청 1스푼\"],\n    \"tools\": [\"매실청 병\", \"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:24\",\n    \"endTime\": \"00:02:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"가득 찬 매실청을 봄동 위에 뿌림\",\n    \"ingredients\": [\"매실청\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:25\",\n    \"endTime\": \"00:02:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락을 기울여 마지막 한 방울까지 떨어뜨림\",\n    \"ingredients\": [\"매실청\"],\n    \"tools\": [\"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:26\",\n    \"endTime\": \"00:02:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"빈 숟가락을 들어 올림\",\n    \"ingredients\": null,\n    \"tools\": [\"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:27\",\n    \"endTime\": \"00:02:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"물엿 통을 기울여 숟가락의 절반 정도만 따름 (텍스트: 물엿 1/2스푼)\",\n    \"ingredients\": [\"물엿 1/2스푼\"],\n    \"tools\": [\"물엿 통\", \"나무 숟가락\"]\n  },\n  {\n    \"time\": \"00:02:28\",\n    \"endTime\": \"00:02:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"점성이 있는 물엿을 봄동 위에 천천히 부음\",\n    \"ingredients\": [\"물엿\", \"봄동\"],\n    \"tools\": [\"나무 숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:29\",\n    \"endTime\": \"00:02:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"작은 스푼을 가져와 나무 숟가락에 묻은 물엿을 긁어내기 시작함\",\n    \"ingredients\": [\"물엿\"],\n    \"tools\": [\"나무 숟가락\", \"작은 스푼\"]\n  },\n  {\n    \"time\": \"00:02:30\",\n    \"endTime\": \"00:02:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"끈적한 물엿을 꼼꼼히 긁어 떨어뜨림\",\n    \"ingredients\": [\"물엿\"],\n    \"tools\": [\"나무 숟가락\", \"작은 스푼\"]\n  },\n  {\n    \"time\": \"00:02:31\",\n    \"endTime\": \"00:02:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"마지막 남은 물엿까지 모두 긁어냄\",\n    \"ingredients\": [\"물엿\"],\n    \"tools\": [\"나무 숟가락\", \"작은 스푼\"]\n  },\n  {\n    \"time\": \"00:02:32\",\n    \"endTime\": \"00:02:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"도구들을 치우고 손으로 버무릴 준비를 함\",\n    \"ingredients\": null,\n    \"tools\": [\"나무 숟가락\", \"작은 스푼\"]\n  },\n  {\n    \"time\": \"00:02:33\",\n    \"endTime\": \"00:02:34\",\n    \"type\": \"cooking\",\n    \"visual\": \"위생장갑을 낀 양손을 믹싱볼 안으로 넣어 잎들을 크게 쥠\",\n    \"ingredients\": [\"봄동\", \"각종 양념\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:34\",\n    \"endTime\": \"00:02:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"아래쪽 잎을 위로 들어 올리며 양념을 가볍게 뒤섞음\",\n    \"ingredients\": [\"봄동\", \"양념\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:35\",\n    \"endTime\": \"00:02:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"다시 한번 크게 뒤적이며 섞어주다가 멈춤\",\n    \"ingredients\": [\"봄동\", \"양념\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:36\",\n    \"endTime\": \"00:02:37\",\n    \"type\": \"cooking\",\n    \"visual\": \"통깨가 담긴 용기를 가져옴 (텍스트: 통깨 1스푼)\",\n    \"ingredients\": [\"통깨 1스푼\"],\n    \"tools\": [\"통깨 용기\"]\n  },\n  {\n    \"time\": \"00:02:37\",\n    \"endTime\": \"00:02:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"위에서부터 톡톡 치며 통깨를 흩뿌림\",\n    \"ingredients\": [\"통깨\", \"양념된 봄동\"],\n    \"tools\": [\"통깨 용기\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:38\",\n    \"endTime\": \"00:02:39\",\n    \"type\": \"cooking\",\n    \"visual\": \"봄동 위로 통깨가 넓게 퍼지며 뿌려짐\",\n    \"ingredients\": [\"통깨\", \"양념된 봄동\"],\n    \"tools\": [\"통깨 용기\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:39\",\n    \"endTime\": \"00:02:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"충분한 양의 통깨를 뿌린 후 용기를 치움\",\n    \"ingredients\": [\"통깨\"],\n    \"tools\": [\"통깨 용기\"]\n  },\n  {\n    \"time\": \"00:02:40\",\n    \"endTime\": \"00:02:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손을 다시 넣어 봄동을 털어가며 본격적으로 버무리기 시작함\",\n    \"ingredients\": [\"봄동\", \"양념\", \"통깨\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:41\",\n    \"endTime\": \"00:02:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"잎이 숨이 죽지 않게 살금살금 털어주며 뒤적임\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:42\",\n    \"endTime\": \"00:02:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"바닥에 가라앉은 양념을 위로 끌어올리며 섞음\",\n    \"ingredients\": [\"봄동\", \"양념\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:43\",\n    \"endTime\": \"00:02:44\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손으로 번갈아가며 리듬감 있게 버무림\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:44\",\n    \"endTime\": \"00:02:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"붉은 고춧가루 양념이 잎사귀 전체에 골고루 묻어남\",\n    \"ingredients\": [\"봄동 겉절이\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:45\",\n    \"endTime\": \"00:02:46\",\n    \"type\": \"cooking\",\n    \"visual\": \"버무린 봄동 겉절이를 볼 중앙으로 소복하게 모음\",\n    \"ingredients\": [\"봄동 겉절이\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:46\",\n    \"endTime\": \"00:02:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"모아진 겉절이를 손으로 가볍게 눌러 정돈함\",\n    \"ingredients\": [\"봄동 겉절이\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:02:47\",\n    \"endTime\": \"00:02:50\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"윤기가 흐르고 양념이 잘 배어든 봄동 겉절이의 클로즈업 샷\",\n    \"ingredients\": [\"완성된 봄동 겉절이\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:50\",\n    \"endTime\": \"00:02:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"가열된 사각 프라이팬 위에서 계란 껍데기를 깨뜨림 (텍스트: 계란 1개)\",\n    \"ingredients\": [\"계란 1개\", \"식용유\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:51\",\n    \"endTime\": \"00:02:52\",\n    \"type\": \"cooking\",\n    \"visual\": \"깨진 틈으로 계란 내용물이 프라이팬 위로 미끄러져 떨어짐\",\n    \"ingredients\": [\"계란\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:52\",\n    \"endTime\": \"00:02:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"투명한 흰자가 열을 받아 하얗게 익기 시작함\",\n    \"ingredients\": [\"계란\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:53\",\n    \"endTime\": \"00:02:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"손가락으로 소금을 집어 계란 노른자 주변에 뿌림 (텍스트: 소금 살짝)\",\n    \"ingredients\": [\"계란\", \"소금 살짝\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:54\",\n    \"endTime\": \"00:02:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"소금을 한 번 더 골고루 뿌려줌\",\n    \"ingredients\": [\"계란\", \"소금\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:55\",\n    \"endTime\": \"00:02:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"기름에 튀겨지듯 흰자의 가장자리가 익어감\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:56\",\n    \"endTime\": \"00:02:57\",\n    \"type\": \"cooking\",\n    \"visual\": \"계속해서 계란 프라이가 조리되는 모습\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:57\",\n    \"endTime\": \"00:02:58\",\n    \"type\": \"cooking\",\n    \"visual\": \"노른자의 형태가 동그랗게 유지되며 익음\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:58\",\n    \"endTime\": \"00:02:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"흰자가 거의 완전히 불투명한 흰색으로 변함\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:02:59\",\n    \"endTime\": \"00:03:00\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬 위에서 계란이 지글지글 소리를 내며 익는 모습\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:03:00\",\n    \"endTime\": \"00:03:01\",\n    \"type\": \"cooking\",\n    \"visual\": \"가장자리가 살짝 노릇하게 변하기 시작함\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:03:01\",\n    \"endTime\": \"00:03:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"프라이팬의 손잡이를 잡아 살짝 흔들며 들러붙지 않게 함\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"사각 프라이팬\"]\n  },\n  {\n    \"time\": \"00:03:02\",\n    \"endTime\": \"00:03:03\",\n    \"type\": \"cooking\",\n    \"visual\": \"전기밥솥 내솥에서 주걱으로 김이 모락모락 나는 흰밥을 크게 푹 뜸\",\n    \"ingredients\": [\"흰 쌀밥\"],\n    \"tools\": [\"밥솥 내솥\", \"주걱\"]\n  },\n  {\n    \"time\": \"00:03:03\",\n    \"endTime\": \"00:03:04\",\n    \"type\": \"cooking\",\n    \"visual\": \"주걱에 밥을 둥글게 모음\",\n    \"ingredients\": [\"흰 쌀밥\"],\n    \"tools\": [\"주걱\"]\n  },\n  {\n    \"time\": \"00:03:04\",\n    \"endTime\": \"00:03:05\",\n    \"type\": \"cooking\",\n    \"visual\": \"밥을 가득 푼 주걱을 들어 올림\",\n    \"ingredients\": [\"흰 쌀밥\"],\n    \"tools\": [\"주걱\"]\n  },\n  {\n    \"time\": \"00:03:05\",\n    \"endTime\": \"00:03:06\",\n    \"type\": \"cooking\",\n    \"visual\": \"밥이 담긴 주걱을 봄동 겉절이가 있는 믹싱볼 쪽으로 이동함\",\n    \"ingredients\": [\"흰 쌀밥\", \"봄동 겉절이\"],\n    \"tools\": [\"주걱\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:06\",\n    \"endTime\": \"00:03:07\",\n    \"type\": \"cooking\",\n    \"visual\": \"겉절이 중앙의 빈 공간에 흰밥을 털어 넣음\",\n    \"ingredients\": [\"흰 쌀밥\"],\n    \"tools\": [\"주걱\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:07\",\n    \"endTime\": \"00:03:08\",\n    \"type\": \"cooking\",\n    \"visual\": \"내솥에서 남은 밥을 조금 더 퍼서 겉절이 위에 얹음\",\n    \"ingredients\": [\"흰 쌀밥\"],\n    \"tools\": [\"주걱\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:08\",\n    \"endTime\": \"00:03:09\",\n    \"type\": \"cooking\",\n    \"visual\": \"손으로 주걱에 붙은 밥알을 훑어서 마저 넣고 정돈함\",\n    \"ingredients\": [\"흰 쌀밥\"],\n    \"tools\": [\"주걱\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:09\",\n    \"endTime\": \"00:03:10\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"붉은 양념의 봄동 겉절이 한가운데에 흰밥이 소복이 담긴 클로즈업 샷\",\n    \"ingredients\": [\"봄동 겉절이\", \"흰 쌀밥\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:10\",\n    \"endTime\": \"00:03:11\",\n    \"type\": \"cooking\",\n    \"visual\": \"검은색 뒤집개로 반숙으로 익은 계란 프라이를 떠서 가져옴\",\n    \"ingredients\": [\"계란 프라이\"],\n    \"tools\": [\"뒤집개\"]\n  },\n  {\n    \"time\": \"00:03:11\",\n    \"endTime\": \"00:03:12\",\n    \"type\": \"cooking\",\n    \"visual\": \"밥 한가운데로 뒤집개를 가져가 계란 프라이를 기울여 미끄러뜨림\",\n    \"ingredients\": [\"계란 프라이\", \"흰 쌀밥\"],\n    \"tools\": [\"뒤집개\"]\n  },\n  {\n    \"time\": \"00:03:12\",\n    \"endTime\": \"00:03:13\",\n    \"type\": \"cooking\",\n    \"visual\": \"계란 프라이가 밥 위로 완벽하게 안착함\",\n    \"ingredients\": [\"계란 프라이\", \"흰 쌀밥\"],\n    \"tools\": [\"뒤집개\"]\n  },\n  {\n    \"time\": \"00:03:13\",\n    \"endTime\": \"00:03:14\",\n    \"type\": \"cooking\",\n    \"visual\": \"뒤집개를 프레임 밖으로 치움\",\n    \"ingredients\": null,\n    \"tools\": [\"뒤집개\"]\n  },\n  {\n    \"time\": \"00:03:14\",\n    \"endTime\": \"00:03:15\",\n    \"type\": \"cooking\",\n    \"visual\": \"참기름 병을 거꾸로 들어 밥과 계란 위에 짜기 시작함 (텍스트: 참기름 2바퀴)\",\n    \"ingredients\": [\"참기름 2바퀴\", \"계란 프라이\", \"밥\", \"봄동\"],\n    \"tools\": [\"참기름 병\"]\n  },\n  {\n    \"time\": \"00:03:15\",\n    \"endTime\": \"00:03:16\",\n    \"type\": \"cooking\",\n    \"visual\": \"원을 그리며 참기름을 듬뿍 두 바퀴 둘러줌\",\n    \"ingredients\": [\"참기름\"],\n    \"tools\": [\"참기름 병\"]\n  },\n  {\n    \"time\": \"00:03:16\",\n    \"endTime\": \"00:03:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"참기름 병을 세워서 짜는 것을 멈춤\",\n    \"ingredients\": [\"참기름\"],\n    \"tools\": [\"참기름 병\"]\n  },\n  {\n    \"time\": \"00:03:17\",\n    \"endTime\": \"00:03:18\",\n    \"type\": \"cooking\",\n    \"visual\": \"통깨 통을 가져와 왼손 바닥에 쏟아부음 (텍스트: 통깨 살짝)\",\n    \"ingredients\": [\"통깨 살짝\"],\n    \"tools\": [\"통깨 통\"]\n  },\n  {\n    \"time\": \"00:03:18\",\n    \"endTime\": \"00:03:19\",\n    \"type\": \"cooking\",\n    \"visual\": \"왼손 바닥에 적당량의 통깨가 고임\",\n    \"ingredients\": [\"통깨\"],\n    \"tools\": [\"통깨 통\"]\n  },\n  {\n    \"time\": \"00:03:19\",\n    \"endTime\": \"00:03:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"원하는 양만큼 통깨를 손바닥에 계속 부음\",\n    \"ingredients\": [\"통깨\"],\n    \"tools\": [\"통깨 통\"]\n  },\n  {\n    \"time\": \"00:03:20\",\n    \"endTime\": \"00:03:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"통깨 통을 치움\",\n    \"ingredients\": null,\n    \"tools\": [\"통깨 통\"]\n  },\n  {\n    \"time\": \"00:03:21\",\n    \"endTime\": \"00:03:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"통깨가 담긴 손바닥을 펼쳐 카메라에 보여줌\",\n    \"ingredients\": [\"통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:22\",\n    \"endTime\": \"00:03:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"오른손을 가져와 왼손 바닥의 통깨를 덮음\",\n    \"ingredients\": [\"통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:23\",\n    \"endTime\": \"00:03:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"계란 프라이 바로 위에서 양손 바닥을 비비기 시작함\",\n    \"ingredients\": [\"통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:24\",\n    \"endTime\": \"00:03:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"손바닥 마찰력으로 통깨가 으깨지며 밥과 계란 위로 솔솔 떨어짐\",\n    \"ingredients\": [\"으깬 통깨\", \"계란 프라이\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:25\",\n    \"endTime\": \"00:03:26\",\n    \"type\": \"cooking\",\n    \"visual\": \"고소한 향이 나도록 계속해서 손바닥을 강하게 비빔\",\n    \"ingredients\": [\"으깬 통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:26\",\n    \"endTime\": \"00:03:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"으깨진 깻가루가 노른자와 흰 밥 위로 소복하게 눈처럼 쌓임\",\n    \"ingredients\": [\"으깬 통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:27\",\n    \"endTime\": \"00:03:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"마지막 남은 통깨까지 완전히 으깨어 떨어뜨림\",\n    \"ingredients\": [\"으깬 통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:28\",\n    \"endTime\": \"00:03:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손을 가볍게 털어 손에 묻은 잔여 깻가루를 제거함\",\n    \"ingredients\": [\"으깬 통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:29\",\n    \"endTime\": \"00:03:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"통깨 부수기를 완료함\",\n    \"ingredients\": [\"으깬 통깨\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:30\",\n    \"endTime\": \"00:03:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"손을 프레임 밖으로 거둠\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:31\",\n    \"endTime\": \"00:03:50\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"완성된 봄동 비빔밥(겉절이, 밥, 계란 프라이, 깨)의 먹음직스러운 모습이 여러 각도로 화면에 나타나며 화자의 코멘트가 자막과 함께 나옴\",\n    \"ingredients\": [\"완성된 봄동 비빔밥\"],\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:03:50\",\n    \"endTime\": \"00:03:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"이전 조리 과정 중 손으로 겉절이를 버무리는 장면이 B-roll 형식으로 다시 나옴\",\n    \"ingredients\": [\"봄동\", \"양념\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:51\",\n    \"endTime\": \"00:03:52\",\n    \"type\": \"cooking\",\n    \"visual\": \"양손으로 잎사귀들을 크게 뒤적이며 섞음\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:52\",\n    \"endTime\": \"00:03:53\",\n    \"type\": \"cooking\",\n    \"visual\": \"위아래로 크게 털어주며 버무리는 동작을 반복함\",\n    \"ingredients\": [\"봄동\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:53\",\n    \"endTime\": \"00:03:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"버무린 겉절이를 볼 가운데로 모아줌\",\n    \"ingredients\": [\"봄동 겉절이\"],\n    \"tools\": [\"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:54\",\n    \"endTime\": \"00:03:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"금속 숟가락으로 완성된 봄동 비빔밥(밥, 계란, 겉절이)을 푹푹 찌르며 비비기 시작함\",\n    \"ingredients\": [\"밥\", \"계란\", \"봄동 겉절이\"],\n    \"tools\": [\"숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:55\",\n    \"endTime\": \"00:03:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락으로 밥알과 붉은 양념의 겉절이가 골고루 섞이도록 세차게 뒤적임\",\n    \"ingredients\": [\"비빔밥 재료\"],\n    \"tools\": [\"숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:56\",\n    \"endTime\": \"00:03:57\",\n    \"type\": \"cooking\",\n    \"visual\": \"계란 노른자가 터지면서 밥알과 어우러지게 비빔\",\n    \"ingredients\": [\"비빔밥 재료\"],\n    \"tools\": [\"숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:57\",\n    \"endTime\": \"00:03:58\",\n    \"type\": \"cooking\",\n    \"visual\": \"바닥에 깔린 양념을 긁어모아 위로 퍼 올리며 완전히 섞어줌\",\n    \"ingredients\": [\"비빔밥 재료\"],\n    \"tools\": [\"숟가락\", \"대형 스텐 믹싱볼\"]\n  },\n  {\n    \"time\": \"00:03:58\",\n    \"endTime\": \"00:03:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"잘 비벼진 붉은빛의 비빔밥을 숟가락에 크게 한술 퍼 올림\",\n    \"ingredients\": [\"잘 비벼진 비빔밥\"],\n    \"tools\": [\"숟가락\"]\n  },\n  {\n    \"time\": \"00:03:59\",\n    \"endTime\": \"00:04:00\",\n    \"type\": \"cooking\",\n    \"visual\": \"퍼 올린 한 숟가락의 비빔밥을 카메라 쪽으로 들어 올려 먹음직스럽게 보여줌\",\n    \"ingredients\": [\"잘 비벼진 비빔밥\"],\n    \"tools\": [\"숟가락\"]\n  },\n  {\n    \"time\": \"00:04:00\",\n    \"endTime\": \"00:04:06\",\n    \"type\": \"outro\",\n    \"visual\": \"비비기 전 온전한 형태의 봄동 비빔밥 컷이 등장하고, 요리가 완성되었다는 자막과 함께 영상이 마무리됨\",\n    \"ingredients\": [\"완성된 봄동 비빔밥\"],\n    \"tools\": null\n  }\n]",
+    "parsed": [
+      {
+        "time": "00:00:00",
+        "endTime": "00:00:11",
+        "type": "intro",
+        "visual": "완성된 요리를 버무리는 장면과 셰프의 채널 로고가 화면에 나타남",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:11",
+        "endTime": "00:00:32",
+        "type": "non_cooking",
+        "visual": "조리대 위에 놓인 봄동 한 포기, 각종 양념, 계란, 프라이팬 등 재료를 소개함",
+        "ingredients": [
+          "봄동",
+          "계란",
+          "양념장"
+        ],
+        "tools": [
+          "프라이팬",
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:00:32",
+        "endTime": "00:00:33",
+        "type": "cooking",
+        "visual": "나무 도마 위에서 봄동을 손으로 들고 밑동 부분을 보여줌",
+        "ingredients": [
+          "봄동 한 포기 260g"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:33",
+        "endTime": "00:00:34",
+        "type": "cooking",
+        "visual": "봄동의 잎이 아래로 향하도록 도마 위에 엎어서 내려놓음",
+        "ingredients": [
+          "봄동 한 포기 260g"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:34",
+        "endTime": "00:00:35",
+        "type": "cooking",
+        "visual": "봄동을 자르기 위해 손으로 위치를 고정함",
+        "ingredients": [
+          "봄동 한 포기 260g"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:35",
+        "endTime": "00:00:36",
+        "type": "cooking",
+        "visual": "칼을 가져와 봄동의 중앙 밑동 부분에 겨냥함",
+        "ingredients": [
+          "봄동 한 포기 260g"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:36",
+        "endTime": "00:00:37",
+        "type": "cooking",
+        "visual": "칼을 사용하여 봄동을 반으로 가르기 시작함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:37",
+        "endTime": "00:00:38",
+        "type": "cooking",
+        "visual": "봄동을 완전히 반으로 절단함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:38",
+        "endTime": "00:00:39",
+        "type": "cooking",
+        "visual": "잘라진 봄동 반쪽을 손으로 벌려 분리함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:39",
+        "endTime": "00:00:40",
+        "type": "cooking",
+        "visual": "봄동 반쪽 중 하나를 도마 중앙으로 가져옴",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:40",
+        "endTime": "00:00:41",
+        "type": "cooking",
+        "visual": "가져온 봄동 반쪽을 칼로 다시 반으로(4등분) 자름",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:41",
+        "endTime": "00:00:42",
+        "type": "cooking",
+        "visual": "4등분된 봄동 조각을 분리함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:42",
+        "endTime": "00:00:43",
+        "type": "cooking",
+        "visual": "4등분 된 조각의 단단한 밑동(뿌리) 부분을 칼로 썰어냄",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:43",
+        "endTime": "00:00:44",
+        "type": "cooking",
+        "visual": "잘라낸 뿌리 부분을 칼 옆면으로 밀어냄",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:44",
+        "endTime": "00:00:45",
+        "type": "cooking",
+        "visual": "뿌리가 잘려 낱장으로 분리된 봄동 잎들을 손으로 흐트러뜨림",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:45",
+        "endTime": "00:00:46",
+        "type": "cooking",
+        "visual": "작은 크기의 속잎들을 손으로 집어 듦",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:46",
+        "endTime": "00:00:47",
+        "type": "cooking",
+        "visual": "손으로 속잎들을 한 장씩 떼어내어 분리함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:47",
+        "endTime": "00:00:48",
+        "type": "cooking",
+        "visual": "분리한 작은 잎들을 도마 한쪽에 내려놓음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:48",
+        "endTime": "00:00:49",
+        "type": "cooking",
+        "visual": "나머지 4등분 조각을 도마 중앙으로 가져옴",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:49",
+        "endTime": "00:00:50",
+        "type": "cooking",
+        "visual": "두 번째 조각의 밑동을 칼로 썰어냄",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:50",
+        "endTime": "00:00:51",
+        "type": "cooking",
+        "visual": "잘라낸 밑동 찌꺼기를 손으로 치움",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:51",
+        "endTime": "00:00:52",
+        "type": "cooking",
+        "visual": "낱장으로 떨어진 잎들을 손으로 정리함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:52",
+        "endTime": "00:00:53",
+        "type": "cooking",
+        "visual": "크기가 큰 겉잎 하나를 골라서 도마 위에 반듯하게 놓음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:53",
+        "endTime": "00:00:54",
+        "type": "cooking",
+        "visual": "큰 잎을 세로로 길게 반으로 가르며 칼질함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:54",
+        "endTime": "00:00:55",
+        "type": "cooking",
+        "visual": "칼끝으로 잎의 끝부분까지 완전히 절단함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "칼",
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:55",
+        "endTime": "00:00:56",
+        "type": "cooking",
+        "visual": "반으로 잘린 큰 잎을 손으로 치움",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "나무 도마"
+        ]
+      },
+      {
+        "time": "00:00:56",
+        "endTime": "00:00:58",
+        "type": "non_cooking",
+        "visual": "손질이 끝난 봄동 잎들이 검은색 접시에 수북이 담겨 있는 모습",
+        "ingredients": [
+          "손질된 봄동"
+        ],
+        "tools": [
+          "접시"
+        ]
+      },
+      {
+        "time": "00:00:58",
+        "endTime": "00:00:59",
+        "type": "cooking",
+        "visual": "싱크대에서 스텐 볼에 수돗물을 틀어 받기 시작함",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:00:59",
+        "endTime": "00:01:00",
+        "type": "cooking",
+        "visual": "물이 스텐 볼에 계속 채워짐",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:00",
+        "endTime": "00:01:01",
+        "type": "cooking",
+        "visual": "흐르는 물에 손을 대어 미지근한 온도인지 확인함",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:01",
+        "endTime": "00:01:02",
+        "type": "cooking",
+        "visual": "손으로 물의 온도를 계속 체크함",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:02",
+        "endTime": "00:01:03",
+        "type": "cooking",
+        "visual": "물의 온도를 확인하고 손을 뺌",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:03",
+        "endTime": "00:01:04",
+        "type": "cooking",
+        "visual": "접시에 담긴 손질된 봄동을 싱크대로 가져옴",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "접시",
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:04",
+        "endTime": "00:01:05",
+        "type": "cooking",
+        "visual": "채반이 받쳐진 스텐 볼 안으로 봄동을 한꺼번에 쏟아 부음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "접시",
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:05",
+        "endTime": "00:01:06",
+        "type": "cooking",
+        "visual": "봄동 잎들이 물속으로 떨어짐",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:06",
+        "endTime": "00:01:07",
+        "type": "cooking",
+        "visual": "손으로 수북한 봄동 잎들을 물속으로 꾹꾹 눌러 담음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:07",
+        "endTime": "00:01:08",
+        "type": "cooking",
+        "visual": "흐르는 물줄기 아래에서 특정 잎을 뒤적이며 씻음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:08",
+        "endTime": "00:01:09",
+        "type": "cooking",
+        "visual": "잎들을 계속해서 뒤집으며 물에 적심",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:09",
+        "endTime": "00:01:10",
+        "type": "cooking",
+        "visual": "양손을 사용하여 물속의 봄동을 살살 누름",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:10",
+        "endTime": "00:01:11",
+        "type": "cooking",
+        "visual": "물속에서 잎들을 찰랑찰랑 흔들어가며 흙먼지를 씻어냄",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:11",
+        "endTime": "00:01:12",
+        "type": "cooking",
+        "visual": "양손으로 번갈아가며 잎사귀들을 물속에서 뒤적임",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:12",
+        "endTime": "00:01:13",
+        "type": "cooking",
+        "visual": "잎들을 살짝 들어 올렸다가 다시 물속으로 가라앉힘",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:13",
+        "endTime": "00:01:14",
+        "type": "cooking",
+        "visual": "물속에서 봄동을 둥글게 저어주며 세척함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:14",
+        "endTime": "00:01:15",
+        "type": "cooking",
+        "visual": "잎 사이사이에 물이 통과하도록 계속해서 뒤적임",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:15",
+        "endTime": "00:01:16",
+        "type": "cooking",
+        "visual": "계속해서 부드럽게 봄동을 세척함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:16",
+        "endTime": "00:01:17",
+        "type": "cooking",
+        "visual": "첫 번째 세척을 마무리하며 잎들을 가운데로 모음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:17",
+        "endTime": "00:01:18",
+        "type": "cooking",
+        "visual": "봄동이 담긴 채반의 가장자리를 양손으로 잡음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:18",
+        "endTime": "00:01:19",
+        "type": "cooking",
+        "visual": "스텐 볼에서 채반을 위로 들어 올려 물기를 뺌",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반"
+        ]
+      },
+      {
+        "time": "00:01:19",
+        "endTime": "00:01:20",
+        "type": "cooking",
+        "visual": "흙이 섞인 첫 번째 세척수를 싱크대에 버림",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:20",
+        "endTime": "00:01:21",
+        "type": "cooking",
+        "visual": "물을 버린 빈 스텐 볼을 다시 싱크대에 내려놓음",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:21",
+        "endTime": "00:01:22",
+        "type": "cooking",
+        "visual": "다시 수돗물을 틀고 채반을 스텐 볼 위에 올려놓음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:22",
+        "endTime": "00:01:23",
+        "type": "cooking",
+        "visual": "두 번째 세척을 위해 물을 받으며 잎 하나를 손으로 집어 듦",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:23",
+        "endTime": "00:01:24",
+        "type": "cooking",
+        "visual": "손에 든 잎의 끝부분을 카메라를 향해 보여줌",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:24",
+        "endTime": "00:01:25",
+        "type": "cooking",
+        "visual": "잎의 노란색 가장자리 부분을 손가락으로 가리킴",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:25",
+        "endTime": "00:01:26",
+        "type": "cooking",
+        "visual": "잎의 노란색 부분을 계속 가리키며 보여줌",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:26",
+        "endTime": "00:01:27",
+        "type": "cooking",
+        "visual": "흐르는 물줄기 아래에서 잎을 계속 들고 있음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:27",
+        "endTime": "00:01:28",
+        "type": "cooking",
+        "visual": "잎을 돌려가며 앞뒷면을 가볍게 씻음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:28",
+        "endTime": "00:01:29",
+        "type": "cooking",
+        "visual": "잎을 다시 채반 위로 내려놓음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:29",
+        "endTime": "00:01:30",
+        "type": "cooking",
+        "visual": "양손을 이용해 물이 찬 채반 안의 봄동을 누름",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:30",
+        "endTime": "00:01:31",
+        "type": "cooking",
+        "visual": "두 번째로 찰랑찰랑 물속에서 잎들을 헹굼",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:31",
+        "endTime": "00:01:32",
+        "type": "cooking",
+        "visual": "채반 양쪽을 손으로 잡고 위로 들어 올림",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반"
+        ]
+      },
+      {
+        "time": "00:01:32",
+        "endTime": "00:01:33",
+        "type": "cooking",
+        "visual": "채반을 들어 올려 물기를 털어냄",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반"
+        ]
+      },
+      {
+        "time": "00:01:33",
+        "endTime": "00:01:34",
+        "type": "cooking",
+        "visual": "스텐 볼에 고인 두 번째 세척수를 버림",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:34",
+        "endTime": "00:01:35",
+        "type": "cooking",
+        "visual": "물을 버린 빈 볼을 다시 세팅함",
+        "ingredients": null,
+        "tools": [
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:35",
+        "endTime": "00:01:36",
+        "type": "cooking",
+        "visual": "세 번째 세척을 위해 다시 수돗물을 받고 채반을 담금",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:36",
+        "endTime": "00:01:37",
+        "type": "cooking",
+        "visual": "물속에서 마지막으로 가볍게 봄동을 흔들어 씻음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:37",
+        "endTime": "00:01:38",
+        "type": "cooking",
+        "visual": "잎들을 위아래로 살살 뒤집어줌",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:38",
+        "endTime": "00:01:39",
+        "type": "cooking",
+        "visual": "양손으로 잎사귀 전체를 쥐었다 폈다 하며 헹굼",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:39",
+        "endTime": "00:01:40",
+        "type": "cooking",
+        "visual": "세척 과정을 계속 진행함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:40",
+        "endTime": "00:01:41",
+        "type": "cooking",
+        "visual": "물속에서 잎들을 둥글게 저어줌",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:41",
+        "endTime": "00:01:42",
+        "type": "cooking",
+        "visual": "잎들을 한데 모아 들어 올릴 준비를 함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:42",
+        "endTime": "00:01:43",
+        "type": "cooking",
+        "visual": "손으로 잎들을 크게 쥐어 물기를 털어내며 들어 올림",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 볼"
+        ]
+      },
+      {
+        "time": "00:01:43",
+        "endTime": "00:01:44",
+        "type": "cooking",
+        "visual": "채반 안으로 건져 올린 잎들을 모아 담음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반"
+        ]
+      },
+      {
+        "time": "00:01:44",
+        "endTime": "00:01:45",
+        "type": "cooking",
+        "visual": "물에서 건진 채반을 흐르는 수돗물 아래로 가져감",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:45",
+        "endTime": "00:01:46",
+        "type": "cooking",
+        "visual": "샤워기 물줄기 아래에서 채반을 가볍게 흔들어줌",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:46",
+        "endTime": "00:01:47",
+        "type": "cooking",
+        "visual": "마지막 헹굼을 위해 물줄기를 고루 맞힘",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "수전"
+        ]
+      },
+      {
+        "time": "00:01:47",
+        "endTime": "00:01:48",
+        "type": "cooking",
+        "visual": "수돗물을 끄고 채반을 위아래로 털어 물기를 제거함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반"
+        ]
+      },
+      {
+        "time": "00:01:48",
+        "endTime": "00:01:52",
+        "type": "non_cooking",
+        "visual": "조리대 위에 빈 대형 스텐 믹싱볼이 준비된 모습",
+        "ingredients": null,
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:01:52",
+        "endTime": "00:01:53",
+        "type": "cooking",
+        "visual": "오른쪽에 물기를 뺀 봄동이 담긴 채반을 가져옴",
+        "ingredients": [
+          "물기 뺀 봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:01:53",
+        "endTime": "00:01:54",
+        "type": "cooking",
+        "visual": "채반을 양손으로 잡고 믹싱볼 위로 들어 올림",
+        "ingredients": [
+          "물기 뺀 봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:01:54",
+        "endTime": "00:01:55",
+        "type": "cooking",
+        "visual": "채반을 흔들어 남은 물기를 탈탈 털어냄",
+        "ingredients": [
+          "물기 뺀 봄동"
+        ],
+        "tools": [
+          "스텐 채반"
+        ]
+      },
+      {
+        "time": "00:01:55",
+        "endTime": "00:01:56",
+        "type": "cooking",
+        "visual": "채반을 기울여 봄동을 믹싱볼 안으로 쏟을 준비를 함",
+        "ingredients": [
+          "물기 뺀 봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:01:56",
+        "endTime": "00:01:57",
+        "type": "cooking",
+        "visual": "봄동 잎들이 믹싱볼 안으로 와르르 쏟아짐",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:01:57",
+        "endTime": "00:01:58",
+        "type": "cooking",
+        "visual": "채반에 붙어있는 나머지 잎들을 손으로 쓸어내림",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "스텐 채반",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:01:58",
+        "endTime": "00:01:59",
+        "type": "cooking",
+        "visual": "빈 채반을 프레임 밖으로 치움",
+        "ingredients": null,
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:01:59",
+        "endTime": "00:02:00",
+        "type": "cooking",
+        "visual": "믹싱볼에 담긴 봄동을 손으로 펼쳐 평평하게 만듦",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:00",
+        "endTime": "00:02:01",
+        "type": "cooking",
+        "visual": "잎들이 고르게 펴지도록 손으로 한 번 더 정돈함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:01",
+        "endTime": "00:02:02",
+        "type": "cooking",
+        "visual": "양념을 넣기 위해 손을 뺌",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:02",
+        "endTime": "00:02:03",
+        "type": "cooking",
+        "visual": "나무 숟가락으로 고춧가루 통에서 고춧가루를 듬뿍 뜸 (텍스트: 고춧가루 3스푼)",
+        "ingredients": [
+          "고춧가루 3스푼",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "고춧가루 통",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:03",
+        "endTime": "00:02:04",
+        "type": "cooking",
+        "visual": "첫 번째 고춧가루 1스푼을 봄동 위에 흩뿌림",
+        "ingredients": [
+          "고춧가루",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:04",
+        "endTime": "00:02:05",
+        "type": "cooking",
+        "visual": "다시 고춧가루 통에서 두 번째 고춧가루를 뜸",
+        "ingredients": [
+          "고춧가루"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "고춧가루 통"
+        ]
+      },
+      {
+        "time": "00:02:05",
+        "endTime": "00:02:06",
+        "type": "cooking",
+        "visual": "두 번째 고춧가루 1스푼을 봄동 위에 뿌림",
+        "ingredients": [
+          "고춧가루",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:06",
+        "endTime": "00:02:07",
+        "type": "cooking",
+        "visual": "세 번째 고춧가루를 통에서 떠올림",
+        "ingredients": [
+          "고춧가루"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "고춧가루 통"
+        ]
+      },
+      {
+        "time": "00:02:07",
+        "endTime": "00:02:08",
+        "type": "cooking",
+        "visual": "세 번째 고춧가루 1스푼을 골고루 뿌려줌",
+        "ingredients": [
+          "고춧가루",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:08",
+        "endTime": "00:02:09",
+        "type": "cooking",
+        "visual": "빈 숟가락을 치우며 고춧가루 투입을 마무리함",
+        "ingredients": [
+          "고춧가루",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:09",
+        "endTime": "00:02:10",
+        "type": "cooking",
+        "visual": "다진 마늘이 수북이 담긴 나무 숟가락을 가져옴 (텍스트: 다진마늘 1스푼)",
+        "ingredients": [
+          "다진마늘 1스푼"
+        ],
+        "tools": [
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:10",
+        "endTime": "00:02:11",
+        "type": "cooking",
+        "visual": "숟가락을 기울여 다진 마늘을 믹싱볼 중앙에 떨어뜨림",
+        "ingredients": [
+          "다진마늘",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:11",
+        "endTime": "00:02:12",
+        "type": "cooking",
+        "visual": "다른 작은 숟가락(플라스틱 계량스푼 형태)으로 나무 숟가락에 묻은 마늘을 긁어냄",
+        "ingredients": [
+          "다진마늘"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "작은 스푼"
+        ]
+      },
+      {
+        "time": "00:02:12",
+        "endTime": "00:02:13",
+        "type": "cooking",
+        "visual": "남은 마늘을 마저 긁어 떨어뜨림",
+        "ingredients": [
+          "다진마늘"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "작은 스푼"
+        ]
+      },
+      {
+        "time": "00:02:13",
+        "endTime": "00:02:14",
+        "type": "cooking",
+        "visual": "마늘이 봄동 위에 모두 올려짐",
+        "ingredients": [
+          "다진마늘",
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:14",
+        "endTime": "00:02:15",
+        "type": "cooking",
+        "visual": "사용한 스푼들을 치움",
+        "ingredients": null,
+        "tools": [
+          "나무 숟가락",
+          "작은 스푼"
+        ]
+      },
+      {
+        "time": "00:02:15",
+        "endTime": "00:02:16",
+        "type": "cooking",
+        "visual": "까나리액젓 병을 기울여 나무 숟가락에 따름 (텍스트: 까나리액젓 1스푼)",
+        "ingredients": [
+          "까나리액젓 1스푼"
+        ],
+        "tools": [
+          "액젓 병",
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:16",
+        "endTime": "00:02:17",
+        "type": "cooking",
+        "visual": "숟가락에 액젓이 가득 채워짐",
+        "ingredients": [
+          "까나리액젓"
+        ],
+        "tools": [
+          "액젓 병",
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:17",
+        "endTime": "00:02:18",
+        "type": "cooking",
+        "visual": "채워진 액젓을 봄동 위에 원을 그리며 부어줌",
+        "ingredients": [
+          "까나리액젓",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:18",
+        "endTime": "00:02:19",
+        "type": "cooking",
+        "visual": "숟가락을 비우고 병을 치움",
+        "ingredients": null,
+        "tools": [
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:19",
+        "endTime": "00:02:20",
+        "type": "cooking",
+        "visual": "진간장 용기를 기울여 숟가락에 첫 번째 스푼을 따름 (텍스트: 진간장 2스푼)",
+        "ingredients": [
+          "진간장 2스푼"
+        ],
+        "tools": [
+          "진간장 용기",
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:20",
+        "endTime": "00:02:21",
+        "type": "cooking",
+        "visual": "첫 번째 진간장을 믹싱볼에 흩뿌림",
+        "ingredients": [
+          "진간장",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:21",
+        "endTime": "00:02:22",
+        "type": "cooking",
+        "visual": "바로 이어서 두 번째 진간장을 숟가락에 따라 믹싱볼에 뿌림",
+        "ingredients": [
+          "진간장",
+          "봄동"
+        ],
+        "tools": [
+          "진간장 용기",
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:22",
+        "endTime": "00:02:23",
+        "type": "cooking",
+        "visual": "숟가락에 남은 간장을 마저 털어 넣음",
+        "ingredients": [
+          "진간장"
+        ],
+        "tools": [
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:23",
+        "endTime": "00:02:24",
+        "type": "cooking",
+        "visual": "매실청 병을 기울여 숟가락에 따름 (텍스트: 매실청 1스푼)",
+        "ingredients": [
+          "매실청 1스푼"
+        ],
+        "tools": [
+          "매실청 병",
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:24",
+        "endTime": "00:02:25",
+        "type": "cooking",
+        "visual": "가득 찬 매실청을 봄동 위에 뿌림",
+        "ingredients": [
+          "매실청",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:25",
+        "endTime": "00:02:26",
+        "type": "cooking",
+        "visual": "숟가락을 기울여 마지막 한 방울까지 떨어뜨림",
+        "ingredients": [
+          "매실청"
+        ],
+        "tools": [
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:26",
+        "endTime": "00:02:27",
+        "type": "cooking",
+        "visual": "빈 숟가락을 들어 올림",
+        "ingredients": null,
+        "tools": [
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:27",
+        "endTime": "00:02:28",
+        "type": "cooking",
+        "visual": "물엿 통을 기울여 숟가락의 절반 정도만 따름 (텍스트: 물엿 1/2스푼)",
+        "ingredients": [
+          "물엿 1/2스푼"
+        ],
+        "tools": [
+          "물엿 통",
+          "나무 숟가락"
+        ]
+      },
+      {
+        "time": "00:02:28",
+        "endTime": "00:02:29",
+        "type": "cooking",
+        "visual": "점성이 있는 물엿을 봄동 위에 천천히 부음",
+        "ingredients": [
+          "물엿",
+          "봄동"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:29",
+        "endTime": "00:02:30",
+        "type": "cooking",
+        "visual": "작은 스푼을 가져와 나무 숟가락에 묻은 물엿을 긁어내기 시작함",
+        "ingredients": [
+          "물엿"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "작은 스푼"
+        ]
+      },
+      {
+        "time": "00:02:30",
+        "endTime": "00:02:31",
+        "type": "cooking",
+        "visual": "끈적한 물엿을 꼼꼼히 긁어 떨어뜨림",
+        "ingredients": [
+          "물엿"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "작은 스푼"
+        ]
+      },
+      {
+        "time": "00:02:31",
+        "endTime": "00:02:32",
+        "type": "cooking",
+        "visual": "마지막 남은 물엿까지 모두 긁어냄",
+        "ingredients": [
+          "물엿"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "작은 스푼"
+        ]
+      },
+      {
+        "time": "00:02:32",
+        "endTime": "00:02:33",
+        "type": "cooking",
+        "visual": "도구들을 치우고 손으로 버무릴 준비를 함",
+        "ingredients": null,
+        "tools": [
+          "나무 숟가락",
+          "작은 스푼"
+        ]
+      },
+      {
+        "time": "00:02:33",
+        "endTime": "00:02:34",
+        "type": "cooking",
+        "visual": "위생장갑을 낀 양손을 믹싱볼 안으로 넣어 잎들을 크게 쥠",
+        "ingredients": [
+          "봄동",
+          "각종 양념"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:34",
+        "endTime": "00:02:35",
+        "type": "cooking",
+        "visual": "아래쪽 잎을 위로 들어 올리며 양념을 가볍게 뒤섞음",
+        "ingredients": [
+          "봄동",
+          "양념"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:35",
+        "endTime": "00:02:36",
+        "type": "cooking",
+        "visual": "다시 한번 크게 뒤적이며 섞어주다가 멈춤",
+        "ingredients": [
+          "봄동",
+          "양념"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:36",
+        "endTime": "00:02:37",
+        "type": "cooking",
+        "visual": "통깨가 담긴 용기를 가져옴 (텍스트: 통깨 1스푼)",
+        "ingredients": [
+          "통깨 1스푼"
+        ],
+        "tools": [
+          "통깨 용기"
+        ]
+      },
+      {
+        "time": "00:02:37",
+        "endTime": "00:02:38",
+        "type": "cooking",
+        "visual": "위에서부터 톡톡 치며 통깨를 흩뿌림",
+        "ingredients": [
+          "통깨",
+          "양념된 봄동"
+        ],
+        "tools": [
+          "통깨 용기",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:38",
+        "endTime": "00:02:39",
+        "type": "cooking",
+        "visual": "봄동 위로 통깨가 넓게 퍼지며 뿌려짐",
+        "ingredients": [
+          "통깨",
+          "양념된 봄동"
+        ],
+        "tools": [
+          "통깨 용기",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:39",
+        "endTime": "00:02:40",
+        "type": "cooking",
+        "visual": "충분한 양의 통깨를 뿌린 후 용기를 치움",
+        "ingredients": [
+          "통깨"
+        ],
+        "tools": [
+          "통깨 용기"
+        ]
+      },
+      {
+        "time": "00:02:40",
+        "endTime": "00:02:41",
+        "type": "cooking",
+        "visual": "양손을 다시 넣어 봄동을 털어가며 본격적으로 버무리기 시작함",
+        "ingredients": [
+          "봄동",
+          "양념",
+          "통깨"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:41",
+        "endTime": "00:02:42",
+        "type": "cooking",
+        "visual": "잎이 숨이 죽지 않게 살금살금 털어주며 뒤적임",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:42",
+        "endTime": "00:02:43",
+        "type": "cooking",
+        "visual": "바닥에 가라앉은 양념을 위로 끌어올리며 섞음",
+        "ingredients": [
+          "봄동",
+          "양념"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:43",
+        "endTime": "00:02:44",
+        "type": "cooking",
+        "visual": "양손으로 번갈아가며 리듬감 있게 버무림",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:44",
+        "endTime": "00:02:45",
+        "type": "cooking",
+        "visual": "붉은 고춧가루 양념이 잎사귀 전체에 골고루 묻어남",
+        "ingredients": [
+          "봄동 겉절이"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:45",
+        "endTime": "00:02:46",
+        "type": "cooking",
+        "visual": "버무린 봄동 겉절이를 볼 중앙으로 소복하게 모음",
+        "ingredients": [
+          "봄동 겉절이"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:46",
+        "endTime": "00:02:47",
+        "type": "cooking",
+        "visual": "모아진 겉절이를 손으로 가볍게 눌러 정돈함",
+        "ingredients": [
+          "봄동 겉절이"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:02:47",
+        "endTime": "00:02:50",
+        "type": "non_cooking",
+        "visual": "윤기가 흐르고 양념이 잘 배어든 봄동 겉절이의 클로즈업 샷",
+        "ingredients": [
+          "완성된 봄동 겉절이"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:02:50",
+        "endTime": "00:02:51",
+        "type": "cooking",
+        "visual": "가열된 사각 프라이팬 위에서 계란 껍데기를 깨뜨림 (텍스트: 계란 1개)",
+        "ingredients": [
+          "계란 1개",
+          "식용유"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:51",
+        "endTime": "00:02:52",
+        "type": "cooking",
+        "visual": "깨진 틈으로 계란 내용물이 프라이팬 위로 미끄러져 떨어짐",
+        "ingredients": [
+          "계란"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:52",
+        "endTime": "00:02:53",
+        "type": "cooking",
+        "visual": "투명한 흰자가 열을 받아 하얗게 익기 시작함",
+        "ingredients": [
+          "계란"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:53",
+        "endTime": "00:02:54",
+        "type": "cooking",
+        "visual": "손가락으로 소금을 집어 계란 노른자 주변에 뿌림 (텍스트: 소금 살짝)",
+        "ingredients": [
+          "계란",
+          "소금 살짝"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:54",
+        "endTime": "00:02:55",
+        "type": "cooking",
+        "visual": "소금을 한 번 더 골고루 뿌려줌",
+        "ingredients": [
+          "계란",
+          "소금"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:55",
+        "endTime": "00:02:56",
+        "type": "cooking",
+        "visual": "기름에 튀겨지듯 흰자의 가장자리가 익어감",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:56",
+        "endTime": "00:02:57",
+        "type": "cooking",
+        "visual": "계속해서 계란 프라이가 조리되는 모습",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:57",
+        "endTime": "00:02:58",
+        "type": "cooking",
+        "visual": "노른자의 형태가 동그랗게 유지되며 익음",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:58",
+        "endTime": "00:02:59",
+        "type": "cooking",
+        "visual": "흰자가 거의 완전히 불투명한 흰색으로 변함",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:02:59",
+        "endTime": "00:03:00",
+        "type": "cooking",
+        "visual": "프라이팬 위에서 계란이 지글지글 소리를 내며 익는 모습",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:03:00",
+        "endTime": "00:03:01",
+        "type": "cooking",
+        "visual": "가장자리가 살짝 노릇하게 변하기 시작함",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:03:01",
+        "endTime": "00:03:02",
+        "type": "cooking",
+        "visual": "프라이팬의 손잡이를 잡아 살짝 흔들며 들러붙지 않게 함",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "사각 프라이팬"
+        ]
+      },
+      {
+        "time": "00:03:02",
+        "endTime": "00:03:03",
+        "type": "cooking",
+        "visual": "전기밥솥 내솥에서 주걱으로 김이 모락모락 나는 흰밥을 크게 푹 뜸",
+        "ingredients": [
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "밥솥 내솥",
+          "주걱"
+        ]
+      },
+      {
+        "time": "00:03:03",
+        "endTime": "00:03:04",
+        "type": "cooking",
+        "visual": "주걱에 밥을 둥글게 모음",
+        "ingredients": [
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "주걱"
+        ]
+      },
+      {
+        "time": "00:03:04",
+        "endTime": "00:03:05",
+        "type": "cooking",
+        "visual": "밥을 가득 푼 주걱을 들어 올림",
+        "ingredients": [
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "주걱"
+        ]
+      },
+      {
+        "time": "00:03:05",
+        "endTime": "00:03:06",
+        "type": "cooking",
+        "visual": "밥이 담긴 주걱을 봄동 겉절이가 있는 믹싱볼 쪽으로 이동함",
+        "ingredients": [
+          "흰 쌀밥",
+          "봄동 겉절이"
+        ],
+        "tools": [
+          "주걱",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:06",
+        "endTime": "00:03:07",
+        "type": "cooking",
+        "visual": "겉절이 중앙의 빈 공간에 흰밥을 털어 넣음",
+        "ingredients": [
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "주걱",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:07",
+        "endTime": "00:03:08",
+        "type": "cooking",
+        "visual": "내솥에서 남은 밥을 조금 더 퍼서 겉절이 위에 얹음",
+        "ingredients": [
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "주걱",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:08",
+        "endTime": "00:03:09",
+        "type": "cooking",
+        "visual": "손으로 주걱에 붙은 밥알을 훑어서 마저 넣고 정돈함",
+        "ingredients": [
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "주걱",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:09",
+        "endTime": "00:03:10",
+        "type": "non_cooking",
+        "visual": "붉은 양념의 봄동 겉절이 한가운데에 흰밥이 소복이 담긴 클로즈업 샷",
+        "ingredients": [
+          "봄동 겉절이",
+          "흰 쌀밥"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:10",
+        "endTime": "00:03:11",
+        "type": "cooking",
+        "visual": "검은색 뒤집개로 반숙으로 익은 계란 프라이를 떠서 가져옴",
+        "ingredients": [
+          "계란 프라이"
+        ],
+        "tools": [
+          "뒤집개"
+        ]
+      },
+      {
+        "time": "00:03:11",
+        "endTime": "00:03:12",
+        "type": "cooking",
+        "visual": "밥 한가운데로 뒤집개를 가져가 계란 프라이를 기울여 미끄러뜨림",
+        "ingredients": [
+          "계란 프라이",
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "뒤집개"
+        ]
+      },
+      {
+        "time": "00:03:12",
+        "endTime": "00:03:13",
+        "type": "cooking",
+        "visual": "계란 프라이가 밥 위로 완벽하게 안착함",
+        "ingredients": [
+          "계란 프라이",
+          "흰 쌀밥"
+        ],
+        "tools": [
+          "뒤집개"
+        ]
+      },
+      {
+        "time": "00:03:13",
+        "endTime": "00:03:14",
+        "type": "cooking",
+        "visual": "뒤집개를 프레임 밖으로 치움",
+        "ingredients": null,
+        "tools": [
+          "뒤집개"
+        ]
+      },
+      {
+        "time": "00:03:14",
+        "endTime": "00:03:15",
+        "type": "cooking",
+        "visual": "참기름 병을 거꾸로 들어 밥과 계란 위에 짜기 시작함 (텍스트: 참기름 2바퀴)",
+        "ingredients": [
+          "참기름 2바퀴",
+          "계란 프라이",
+          "밥",
+          "봄동"
+        ],
+        "tools": [
+          "참기름 병"
+        ]
+      },
+      {
+        "time": "00:03:15",
+        "endTime": "00:03:16",
+        "type": "cooking",
+        "visual": "원을 그리며 참기름을 듬뿍 두 바퀴 둘러줌",
+        "ingredients": [
+          "참기름"
+        ],
+        "tools": [
+          "참기름 병"
+        ]
+      },
+      {
+        "time": "00:03:16",
+        "endTime": "00:03:17",
+        "type": "cooking",
+        "visual": "참기름 병을 세워서 짜는 것을 멈춤",
+        "ingredients": [
+          "참기름"
+        ],
+        "tools": [
+          "참기름 병"
+        ]
+      },
+      {
+        "time": "00:03:17",
+        "endTime": "00:03:18",
+        "type": "cooking",
+        "visual": "통깨 통을 가져와 왼손 바닥에 쏟아부음 (텍스트: 통깨 살짝)",
+        "ingredients": [
+          "통깨 살짝"
+        ],
+        "tools": [
+          "통깨 통"
+        ]
+      },
+      {
+        "time": "00:03:18",
+        "endTime": "00:03:19",
+        "type": "cooking",
+        "visual": "왼손 바닥에 적당량의 통깨가 고임",
+        "ingredients": [
+          "통깨"
+        ],
+        "tools": [
+          "통깨 통"
+        ]
+      },
+      {
+        "time": "00:03:19",
+        "endTime": "00:03:20",
+        "type": "cooking",
+        "visual": "원하는 양만큼 통깨를 손바닥에 계속 부음",
+        "ingredients": [
+          "통깨"
+        ],
+        "tools": [
+          "통깨 통"
+        ]
+      },
+      {
+        "time": "00:03:20",
+        "endTime": "00:03:21",
+        "type": "cooking",
+        "visual": "통깨 통을 치움",
+        "ingredients": null,
+        "tools": [
+          "통깨 통"
+        ]
+      },
+      {
+        "time": "00:03:21",
+        "endTime": "00:03:22",
+        "type": "cooking",
+        "visual": "통깨가 담긴 손바닥을 펼쳐 카메라에 보여줌",
+        "ingredients": [
+          "통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:22",
+        "endTime": "00:03:23",
+        "type": "cooking",
+        "visual": "오른손을 가져와 왼손 바닥의 통깨를 덮음",
+        "ingredients": [
+          "통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:23",
+        "endTime": "00:03:24",
+        "type": "cooking",
+        "visual": "계란 프라이 바로 위에서 양손 바닥을 비비기 시작함",
+        "ingredients": [
+          "통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:24",
+        "endTime": "00:03:25",
+        "type": "cooking",
+        "visual": "손바닥 마찰력으로 통깨가 으깨지며 밥과 계란 위로 솔솔 떨어짐",
+        "ingredients": [
+          "으깬 통깨",
+          "계란 프라이"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:25",
+        "endTime": "00:03:26",
+        "type": "cooking",
+        "visual": "고소한 향이 나도록 계속해서 손바닥을 강하게 비빔",
+        "ingredients": [
+          "으깬 통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:26",
+        "endTime": "00:03:27",
+        "type": "cooking",
+        "visual": "으깨진 깻가루가 노른자와 흰 밥 위로 소복하게 눈처럼 쌓임",
+        "ingredients": [
+          "으깬 통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:27",
+        "endTime": "00:03:28",
+        "type": "cooking",
+        "visual": "마지막 남은 통깨까지 완전히 으깨어 떨어뜨림",
+        "ingredients": [
+          "으깬 통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:28",
+        "endTime": "00:03:29",
+        "type": "cooking",
+        "visual": "양손을 가볍게 털어 손에 묻은 잔여 깻가루를 제거함",
+        "ingredients": [
+          "으깬 통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:29",
+        "endTime": "00:03:30",
+        "type": "cooking",
+        "visual": "통깨 부수기를 완료함",
+        "ingredients": [
+          "으깬 통깨"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:30",
+        "endTime": "00:03:31",
+        "type": "cooking",
+        "visual": "손을 프레임 밖으로 거둠",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:03:31",
+        "endTime": "00:03:50",
+        "type": "non_cooking",
+        "visual": "완성된 봄동 비빔밥(겉절이, 밥, 계란 프라이, 깨)의 먹음직스러운 모습이 여러 각도로 화면에 나타나며 화자의 코멘트가 자막과 함께 나옴",
+        "ingredients": [
+          "완성된 봄동 비빔밥"
+        ],
+        "tools": null
+      },
+      {
+        "time": "00:03:50",
+        "endTime": "00:03:51",
+        "type": "cooking",
+        "visual": "이전 조리 과정 중 손으로 겉절이를 버무리는 장면이 B-roll 형식으로 다시 나옴",
+        "ingredients": [
+          "봄동",
+          "양념"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:51",
+        "endTime": "00:03:52",
+        "type": "cooking",
+        "visual": "양손으로 잎사귀들을 크게 뒤적이며 섞음",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:52",
+        "endTime": "00:03:53",
+        "type": "cooking",
+        "visual": "위아래로 크게 털어주며 버무리는 동작을 반복함",
+        "ingredients": [
+          "봄동"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:53",
+        "endTime": "00:03:54",
+        "type": "cooking",
+        "visual": "버무린 겉절이를 볼 가운데로 모아줌",
+        "ingredients": [
+          "봄동 겉절이"
+        ],
+        "tools": [
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:54",
+        "endTime": "00:03:55",
+        "type": "cooking",
+        "visual": "금속 숟가락으로 완성된 봄동 비빔밥(밥, 계란, 겉절이)을 푹푹 찌르며 비비기 시작함",
+        "ingredients": [
+          "밥",
+          "계란",
+          "봄동 겉절이"
+        ],
+        "tools": [
+          "숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:55",
+        "endTime": "00:03:56",
+        "type": "cooking",
+        "visual": "숟가락으로 밥알과 붉은 양념의 겉절이가 골고루 섞이도록 세차게 뒤적임",
+        "ingredients": [
+          "비빔밥 재료"
+        ],
+        "tools": [
+          "숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:56",
+        "endTime": "00:03:57",
+        "type": "cooking",
+        "visual": "계란 노른자가 터지면서 밥알과 어우러지게 비빔",
+        "ingredients": [
+          "비빔밥 재료"
+        ],
+        "tools": [
+          "숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:57",
+        "endTime": "00:03:58",
+        "type": "cooking",
+        "visual": "바닥에 깔린 양념을 긁어모아 위로 퍼 올리며 완전히 섞어줌",
+        "ingredients": [
+          "비빔밥 재료"
+        ],
+        "tools": [
+          "숟가락",
+          "대형 스텐 믹싱볼"
+        ]
+      },
+      {
+        "time": "00:03:58",
+        "endTime": "00:03:59",
+        "type": "cooking",
+        "visual": "잘 비벼진 붉은빛의 비빔밥을 숟가락에 크게 한술 퍼 올림",
+        "ingredients": [
+          "잘 비벼진 비빔밥"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:03:59",
+        "endTime": "00:04:00",
+        "type": "cooking",
+        "visual": "퍼 올린 한 숟가락의 비빔밥을 카메라 쪽으로 들어 올려 먹음직스럽게 보여줌",
+        "ingredients": [
+          "잘 비벼진 비빔밥"
+        ],
+        "tools": [
+          "숟가락"
+        ]
+      },
+      {
+        "time": "00:04:00",
+        "endTime": "00:04:06",
+        "type": "outro",
+        "visual": "비비기 전 온전한 형태의 봄동 비빔밥 컷이 등장하고, 요리가 완성되었다는 자막과 함께 영상이 마무리됨",
+        "ingredients": [
+          "완성된 봄동 비빔밥"
+        ],
+        "tools": null
+      }
+    ]
+  }
+}

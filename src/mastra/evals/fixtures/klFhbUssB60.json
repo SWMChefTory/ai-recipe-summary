@@ -1,0 +1,1424 @@
+{
+  "name": "된장솥밥",
+  "url": "https://www.youtube.com/watch?v=klFhbUssB60",
+  "videoId": "klFhbUssB60",
+  "collectedAt": "2026-03-23T15:18:09.567Z",
+  "subtitles": [],
+  "videoInfo": {
+    "description": "#정호영 #된장술밥 #된장찌개 \n\n[차돌 된장 술밥]\n따뜻한 국물이 생각나는 요즘 날씨에 먹기 딱 좋은 ‘차돌 된장 술밥’!! \n밥과 함께 먹어도, 술과 함께 먹어도 너무 훌륭하죠~\n정 셰프가 보장하는 맛! 꼭 한 번 드셔보세요^^\n\n※ 재료\n차돌박이(200g), 두부(1/2모), 애호박(1/3개), 양파(1/2개), 대파(1대), 다진 마늘(1큰술)\n\n※ 된장찌개 양념 \n된장(2큰술), 고추장(1큰술), 고춧가루(2큰술), 물(500ml), 굴소스(1큰술), 참치액젓(1큰술)\n\n1. 두부, 호박, 양파는 깍둑썰기로 썰어 준비한다.\n2. 냄비에 차돌박이를 넣고 볶아준다.\n3. 차돌박이가 살짝 익으면 다진 마늘을 넣고, 된장과 고추장을 넣고 볶아준다.\n4. 차돌박이 기름이 올라오면 고춧가루를 넣고 볶아준다. (**약불로 볶아주세요)\n5. 물을 붓고 굴소스, 참치액으로 간을 하고 썰어둔 채소를 넣는다.\n6. 된장찌개가 끓어오르면 두부를 넣고 자작하게 한 번 더 끓여 준다.\n7. 뚝배기에 밥을 넣고 차돌 된장찌개를 부어 바글바글 끓이면서 먹으면 끝!!!\n\n🎵Music provided by 브금대통령\n\n🎵Track : Brunch - https://youtu.be/bO5FQBl77VU\n🎵Track : Piece of Cake 2 - https://youtu.be/B-4vvVxJX1I\n🎵Track : 에어컨 아래에서 - https://youtu.be/f8nd8Fq90lU\n🎵Track : Motion Picture - https://www.youtube.com/watch?v=S2JOak2Fdaw",
+    "title": "아껴놨던 초간단 된장술밥 레시피 풉니다~!",
+    "channelName": "정호영의 오늘도 요리 Kitchen Caden"
+  },
+  "visualAnalysis": {
+    "raw": "```json\n[\n  {\n    \"time\": \"00:00:00\",\n    \"endTime\": \"00:00:26\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"두 셰프가 주방에 서서 오프닝 인사를 하고 요리에 대해 설명함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:26\",\n    \"endTime\": \"00:00:27\",\n    \"type\": \"cooking\",\n    \"visual\": \"가열된 팬에 고기를 올림. 화면에 '차돌박이' 자막 표시됨\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:00:27\",\n    \"endTime\": \"00:00:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"팬 위에서 고기가 익어감\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:00:28\",\n    \"endTime\": \"00:00:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"팬 위에서 고기가 익어감\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:00:29\",\n    \"endTime\": \"00:00:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"팬 위에서 고기가 익어감\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:00:30\",\n    \"endTime\": \"00:00:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"팬 위에서 고기가 익어감\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:00:31\",\n    \"endTime\": \"00:00:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"도마 위에서 칼로 두부를 깍둑썰기 함\",\n    \"ingredients\": [\"두부\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:32\",\n    \"endTime\": \"00:00:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"도마 위에서 칼로 두부를 깍둑썰기 함\",\n    \"ingredients\": [\"두부\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:33\",\n    \"endTime\": \"00:00:34\",\n    \"type\": \"cooking\",\n    \"visual\": \"두부 깍둑썰기를 마무리함\",\n    \"ingredients\": [\"두부\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:34\",\n    \"endTime\": \"00:00:39\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"셰프들이 두부를 써는 크기에 대해 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:39\",\n    \"endTime\": \"00:00:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"칼로 애호박을 길게 썰어줌. 화면에 '애호박' 자막 표시됨\",\n    \"ingredients\": [\"애호박\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:40\",\n    \"endTime\": \"00:00:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"길게 썬 애호박을 작게 깍둑썰기 함\",\n    \"ingredients\": [\"애호박\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:41\",\n    \"endTime\": \"00:00:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"애호박을 깍둑썰기 함\",\n    \"ingredients\": [\"애호박\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:42\",\n    \"endTime\": \"00:00:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"애호박을 깍둑썰기 함\",\n    \"ingredients\": [\"애호박\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:43\",\n    \"endTime\": \"00:00:44\",\n    \"type\": \"cooking\",\n    \"visual\": \"애호박을 깍둑썰기 함\",\n    \"ingredients\": [\"애호박\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:44\",\n    \"endTime\": \"00:00:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"양파를 작게 깍둑썰기 함. 화면에 '양파' 자막 표시됨\",\n    \"ingredients\": [\"양파\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:45\",\n    \"endTime\": \"00:00:46\",\n    \"type\": \"cooking\",\n    \"visual\": \"양파를 깍둑썰기 함\",\n    \"ingredients\": [\"양파\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:46\",\n    \"endTime\": \"00:00:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"대파를 송송 썰어줌\",\n    \"ingredients\": [\"대파\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:47\",\n    \"endTime\": \"00:00:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"대파를 송송 썰어줌\",\n    \"ingredients\": [\"대파\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:48\",\n    \"endTime\": \"00:00:49\",\n    \"type\": \"cooking\",\n    \"visual\": \"대파를 송송 썰어줌\",\n    \"ingredients\": [\"대파\"],\n    \"tools\": [\"칼\", \"도마\"]\n  },\n  {\n    \"time\": \"00:00:49\",\n    \"endTime\": \"00:00:50\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 팬 안의 고기를 저으며 볶아줌\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:00:50\",\n    \"endTime\": \"00:00:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 팬 안의 고기를 볶아줌\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:00:51\",\n    \"endTime\": \"00:00:52\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 팬 안의 고기를 볶아줌\",\n    \"ingredients\": [\"차돌박이\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:00:52\",\n    \"endTime\": \"00:00:54\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"다음 재료를 넣을 준비를 하며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:54\",\n    \"endTime\": \"00:00:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"작은 그릇에 담긴 다진 마늘을 팬에 넣음. 화면에 '다진마늘 1T' 자막 표시됨\",\n    \"ingredients\": [\"다진 마늘 1T\"],\n    \"tools\": [\"작은 그릇\", \"팬\"]\n  },\n  {\n    \"time\": \"00:00:55\",\n    \"endTime\": \"00:00:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 마늘과 고기를 섞어줌\",\n    \"ingredients\": [\"차돌박이\", \"다진 마늘\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:00:56\",\n    \"endTime\": \"00:00:57\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"된장을 준비하며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:00:57\",\n    \"endTime\": \"00:00:58\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 숟가락으로 된장을 떠서 팬에 넣음. 화면에 '된장 2T' 자막 표시됨\",\n    \"ingredients\": [\"된장 2T\"],\n    \"tools\": [\"나무 숟가락\", \"팬\", \"작은 용기\"]\n  },\n  {\n    \"time\": \"00:00:58\",\n    \"endTime\": \"00:00:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"된장을 팬에 밀어 넣음\",\n    \"ingredients\": [\"된장\"],\n    \"tools\": [\"나무 숟가락\", \"팬\"]\n  },\n  {\n    \"time\": \"00:00:59\",\n    \"endTime\": \"00:01:00\",\n    \"type\": \"cooking\",\n    \"visual\": \"된장을 팬에 밀어 넣음\",\n    \"ingredients\": [\"된장\"],\n    \"tools\": [\"나무 숟가락\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:00\",\n    \"endTime\": \"00:01:01\",\n    \"type\": \"cooking\",\n    \"visual\": \"된장을 팬에 밀어 넣음\",\n    \"ingredients\": [\"된장\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:01\",\n    \"endTime\": \"00:01:02\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 된장과 고기를 고루 섞으며 볶음\",\n    \"ingredients\": [\"된장\", \"차돌박이\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:02\",\n    \"endTime\": \"00:01:03\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 된장과 고기를 섞으며 볶음\",\n    \"ingredients\": [\"된장\", \"차돌박이\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:03\",\n    \"endTime\": \"00:01:05\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"고추장을 준비하며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:05\",\n    \"endTime\": \"00:01:06\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 숟가락으로 고추장을 떠서 팬에 넣음. 화면에 '고추장 1T' 자막 표시됨\",\n    \"ingredients\": [\"고추장 1T\"],\n    \"tools\": [\"나무 숟가락\", \"팬\", \"유리볼\"]\n  },\n  {\n    \"time\": \"00:01:06\",\n    \"endTime\": \"00:01:07\",\n    \"type\": \"cooking\",\n    \"visual\": \"고추장을 팬에 밀어 넣음\",\n    \"ingredients\": [\"고추장\"],\n    \"tools\": [\"나무 숟가락\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:07\",\n    \"endTime\": \"00:01:08\",\n    \"type\": \"cooking\",\n    \"visual\": \"고추장을 팬에 밀어 넣음\",\n    \"ingredients\": [\"고추장\"],\n    \"tools\": [\"나무 숟가락\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:08\",\n    \"endTime\": \"00:01:09\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료들을 고루 섞으며 볶아줌\",\n    \"ingredients\": [\"고추장\", \"된장\", \"차돌박이\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:09\",\n    \"endTime\": \"00:01:10\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료들을 고루 섞으며 볶아줌\",\n    \"ingredients\": [\"고추장\", \"된장\", \"차돌박이\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:10\",\n    \"endTime\": \"00:01:15\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"조리 과정과 팁에 대해 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:15\",\n    \"endTime\": \"00:01:16\",\n    \"type\": \"cooking\",\n    \"visual\": \"유리볼에 담긴 고춧가루를 보여줌. 화면에 '고추가루 2T' 자막 표시됨\",\n    \"ingredients\": [\"고추가루 2T\"],\n    \"tools\": [\"유리볼\"]\n  },\n  {\n    \"time\": \"00:01:16\",\n    \"endTime\": \"00:01:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"유리볼의 고춧가루를 팬에 부어줌\",\n    \"ingredients\": [\"고춧가루\"],\n    \"tools\": [\"유리볼\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:17\",\n    \"endTime\": \"00:01:18\",\n    \"type\": \"cooking\",\n    \"visual\": \"고춧가루를 팬에 모두 부어줌\",\n    \"ingredients\": [\"고춧가루\"],\n    \"tools\": [\"유리볼\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:18\",\n    \"endTime\": \"00:01:19\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 모든 재료를 잘 섞어가며 볶음\",\n    \"ingredients\": [\"고춧가루\", \"양념\", \"고기\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:19\",\n    \"endTime\": \"00:01:20\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료를 볶음\",\n    \"ingredients\": [\"고춧가루\", \"양념\", \"고기\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:20\",\n    \"endTime\": \"00:01:21\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료를 볶음\",\n    \"ingredients\": [\"고춧가루\", \"양념\", \"고기\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:21\",\n    \"endTime\": \"00:01:22\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료를 볶음\",\n    \"ingredients\": [\"고춧가루\", \"양념\", \"고기\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:22\",\n    \"endTime\": \"00:01:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료를 볶음\",\n    \"ingredients\": [\"고춧가루\", \"양념\", \"고기\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:23\",\n    \"endTime\": \"00:01:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료를 볶음\",\n    \"ingredients\": [\"고춧가루\", \"양념\", \"고기\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:24\",\n    \"endTime\": \"00:01:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 재료를 볶음\",\n    \"ingredients\": [\"고춧가루\", \"양념\", \"고기\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:25\",\n    \"endTime\": \"00:01:27\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"물을 붓기 위해 그릇을 들어 올리며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:27\",\n    \"endTime\": \"00:01:28\",\n    \"type\": \"cooking\",\n    \"visual\": \"물이 담긴 그릇을 보여줌. 화면에 '물 500cc' 자막 표시됨\",\n    \"ingredients\": [\"물 500cc\"],\n    \"tools\": [\"그릇\"]\n  },\n  {\n    \"time\": \"00:01:28\",\n    \"endTime\": \"00:01:29\",\n    \"type\": \"cooking\",\n    \"visual\": \"팬에 물을 부어줌\",\n    \"ingredients\": [\"물\"],\n    \"tools\": [\"그릇\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:29\",\n    \"endTime\": \"00:01:30\",\n    \"type\": \"cooking\",\n    \"visual\": \"팬에 물을 마저 부어줌\",\n    \"ingredients\": [\"물\"],\n    \"tools\": [\"그릇\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:30\",\n    \"endTime\": \"00:01:31\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 찌개 국물을 가볍게 저어줌\",\n    \"ingredients\": [\"찌개 국물\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:31\",\n    \"endTime\": \"00:01:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"유리볼에 담긴 굴소스를 보여줌. 화면에 '굴소스 1T' 자막 표시됨\",\n    \"ingredients\": [\"굴소스 1T\"],\n    \"tools\": [\"유리볼\"]\n  },\n  {\n    \"time\": \"00:01:32\",\n    \"endTime\": \"00:01:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"굴소스를 팬에 부어줌\",\n    \"ingredients\": [\"굴소스\"],\n    \"tools\": [\"유리볼\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:33\",\n    \"endTime\": \"00:01:34\",\n    \"type\": \"cooking\",\n    \"visual\": \"굴소스를 팬에 부어줌\",\n    \"ingredients\": [\"굴소스\"],\n    \"tools\": [\"유리볼\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:34\",\n    \"endTime\": \"00:01:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"유리볼에 담긴 참치액을 팬에 부어줌. 화면에 '참치액 1T' 자막 표시됨\",\n    \"ingredients\": [\"참치액 1T\"],\n    \"tools\": [\"유리볼\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:35\",\n    \"endTime\": \"00:01:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 국물을 섞어줌\",\n    \"ingredients\": [\"국물\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:36\",\n    \"endTime\": \"00:01:37\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 국물을 섞어줌\",\n    \"ingredients\": [\"국물\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:37\",\n    \"endTime\": \"00:01:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 국물을 섞어줌\",\n    \"ingredients\": [\"국물\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:38\",\n    \"endTime\": \"00:01:40\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"썰어둔 채소가 담긴 쟁반을 들고 냄비로 가져가며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:40\",\n    \"endTime\": \"00:01:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"쟁반에 든 썰어둔 양파, 애호박, 대파를 손으로 팬에 밀어 넣음. 화면에 '손질한 채소들을 모두 다 넣어주세요' 자막 표시됨\",\n    \"ingredients\": [\"양파\", \"애호박\", \"대파\"],\n    \"tools\": [\"쟁반\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:41\",\n    \"endTime\": \"00:01:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"채소를 손으로 쓸어 팬에 넣음\",\n    \"ingredients\": [\"양파\", \"애호박\", \"대파\"],\n    \"tools\": [\"쟁반\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:42\",\n    \"endTime\": \"00:01:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"채소를 손으로 쓸어 팬에 넣음\",\n    \"ingredients\": [\"양파\", \"애호박\", \"대파\"],\n    \"tools\": [\"쟁반\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:43\",\n    \"endTime\": \"00:01:44\",\n    \"type\": \"cooking\",\n    \"visual\": \"채소를 손으로 쓸어 팬에 넣음\",\n    \"ingredients\": [\"양파\", \"애호박\", \"대파\"],\n    \"tools\": [\"쟁반\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:44\",\n    \"endTime\": \"00:01:45\",\n    \"type\": \"cooking\",\n    \"visual\": \"마지막 남은 채소들을 팬에 털어 넣음\",\n    \"ingredients\": [\"채소류\"],\n    \"tools\": [\"쟁반\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:45\",\n    \"endTime\": \"00:01:46\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 팬 안의 채소와 국물을 고루 섞어줌\",\n    \"ingredients\": [\"채소류\", \"국물\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:46\",\n    \"endTime\": \"00:01:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 찌개를 저어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:47\",\n    \"endTime\": \"00:01:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 찌개를 저어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:48\",\n    \"endTime\": \"00:01:49\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 찌개를 저어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:49\",\n    \"endTime\": \"00:01:58\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"찌개가 끓기를 기다리며 여러 가지 팁과 요리 활용법에 대해 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:01:58\",\n    \"endTime\": \"00:01:59\",\n    \"type\": \"cooking\",\n    \"visual\": \"주걱으로 끓어오르는 찌개를 가볍게 뒤적여줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:01:59\",\n    \"endTime\": \"00:02:00\",\n    \"type\": \"cooking\",\n    \"visual\": \"주걱으로 찌개를 뒤적임\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:02:00\",\n    \"endTime\": \"00:02:08\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"조리법에 대해 계속해서 설명하며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:08\",\n    \"endTime\": \"00:02:09\",\n    \"type\": \"cooking\",\n    \"visual\": \"보글보글 끓고 있는 찌개의 클로즈업 화면을 보여주며 주걱으로 살짝 저음\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"팬\", \"나무 주걱\"]\n  },\n  {\n    \"time\": \"00:02:09\",\n    \"endTime\": \"00:02:10\",\n    \"type\": \"cooking\",\n    \"visual\": \"보글보글 끓고 있는 찌개를 보여줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"팬\", \"나무 주걱\"]\n  },\n  {\n    \"time\": \"00:02:10\",\n    \"endTime\": \"00:02:11\",\n    \"type\": \"cooking\",\n    \"visual\": \"보글보글 끓고 있는 찌개를 보여줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"팬\", \"나무 주걱\"]\n  },\n  {\n    \"time\": \"00:02:11\",\n    \"endTime\": \"00:02:14\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"썰어둔 두부가 있는 도마를 가져오며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:14\",\n    \"endTime\": \"00:02:15\",\n    \"type\": \"cooking\",\n    \"visual\": \"도마에 올려진 깍둑 썬 두부를 팬에 주르륵 쏟아 넣음. 화면에 '두부 투하' 자막 표시됨\",\n    \"ingredients\": [\"두부\"],\n    \"tools\": [\"도마\", \"팬\"]\n  },\n  {\n    \"time\": \"00:02:15\",\n    \"endTime\": \"00:02:16\",\n    \"type\": \"cooking\",\n    \"visual\": \"도마의 두부를 팬에 마저 쏟아 넣음\",\n    \"ingredients\": [\"두부\"],\n    \"tools\": [\"도마\", \"팬\"]\n  },\n  {\n    \"time\": \"00:02:16\",\n    \"endTime\": \"00:02:17\",\n    \"type\": \"cooking\",\n    \"visual\": \"나무 주걱으로 두부가 국물에 잠기도록 가볍게 저어줌\",\n    \"ingredients\": [\"두부\", \"찌개 국물\"],\n    \"tools\": [\"나무 주걱\", \"팬\"]\n  },\n  {\n    \"time\": \"00:02:17\",\n    \"endTime\": \"00:02:22\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"완성된 찌개의 맛과 비주얼에 감탄하며 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:22\",\n    \"endTime\": \"00:02:23\",\n    \"type\": \"cooking\",\n    \"visual\": \"재료가 모두 들어가 자작하게 끓고 있는 완성된 찌개의 모습을 클로즈업함\",\n    \"ingredients\": [\"완성된 찌개\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:02:23\",\n    \"endTime\": \"00:02:24\",\n    \"type\": \"cooking\",\n    \"visual\": \"끓고 있는 찌개의 모습을 보여줌\",\n    \"ingredients\": [\"완성된 찌개\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:02:24\",\n    \"endTime\": \"00:02:25\",\n    \"type\": \"cooking\",\n    \"visual\": \"끓고 있는 찌개의 모습을 보여줌\",\n    \"ingredients\": [\"완성된 찌개\"],\n    \"tools\": [\"팬\"]\n  },\n  {\n    \"time\": \"00:02:25\",\n    \"endTime\": \"00:02:31\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"뚝배기에 밥을 말아 먹자며 뚝배기와 밥을 준비함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:31\",\n    \"endTime\": \"00:02:32\",\n    \"type\": \"cooking\",\n    \"visual\": \"빈 뚝배기를 가스버너 위에 올림\",\n    \"ingredients\": null,\n    \"tools\": [\"뚝배기\", \"가스버너\"]\n  },\n  {\n    \"time\": \"00:02:32\",\n    \"endTime\": \"00:02:33\",\n    \"type\": \"cooking\",\n    \"visual\": \"밥공기에 담긴 흰쌀밥을 뚝배기 안에 엎어서 털어 넣음\",\n    \"ingredients\": [\"흰쌀밥\"],\n    \"tools\": [\"밥공기\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:33\",\n    \"endTime\": \"00:02:34\",\n    \"type\": \"cooking\",\n    \"visual\": \"밥을 뚝배기에 넣음. 화면에 '공기밥 투하' 자막 표시됨\",\n    \"ingredients\": [\"밥\"],\n    \"tools\": [\"밥공기\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:34\",\n    \"endTime\": \"00:02:35\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚝배기 안에 밥이 담겨 있는 모습\",\n    \"ingredients\": [\"밥\"],\n    \"tools\": [\"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:35\",\n    \"endTime\": \"00:02:36\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 끓인 찌개를 크게 떠서 뚝배기의 밥 위에 덜어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:36\",\n    \"endTime\": \"00:02:37\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 찌개를 덜어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:37\",\n    \"endTime\": \"00:02:38\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 찌개를 계속해서 덜어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:38\",\n    \"endTime\": \"00:02:39\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 찌개를 덜어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:39\",\n    \"endTime\": \"00:02:40\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 찌개와 건더기를 뚝배기에 담음\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:40\",\n    \"endTime\": \"00:02:41\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 찌개를 덜어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:41\",\n    \"endTime\": \"00:02:42\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 찌개를 덜어줌\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:42\",\n    \"endTime\": \"00:02:43\",\n    \"type\": \"cooking\",\n    \"visual\": \"국자로 찌개를 덜어 마무리함\",\n    \"ingredients\": [\"찌개\"],\n    \"tools\": [\"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:43\",\n    \"endTime\": \"00:02:46\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"포장에 대해 유머러스하게 대화함\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:46\",\n    \"endTime\": \"00:02:47\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚝배기 안에서 찌개와 밥이 보글보글 끓고 있는 모습을 클로즈업함. 화면에 '된장술밥 완성' 자막 표시됨\",\n    \"ingredients\": [\"찌개\", \"밥\"],\n    \"tools\": [\"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:47\",\n    \"endTime\": \"00:02:48\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚝배기 안에서 된장술밥이 끓는 모습을 보여줌\",\n    \"ingredients\": [\"된장술밥\"],\n    \"tools\": [\"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:48\",\n    \"endTime\": \"00:02:49\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚝배기 안에서 된장술밥이 끓는 모습을 보여줌\",\n    \"ingredients\": [\"된장술밥\"],\n    \"tools\": [\"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:49\",\n    \"endTime\": \"00:02:50\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚝배기 안에서 된장술밥이 끓는 모습을 보여줌\",\n    \"ingredients\": [\"된장술밥\"],\n    \"tools\": [\"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:50\",\n    \"endTime\": \"00:02:51\",\n    \"type\": \"cooking\",\n    \"visual\": \"뚝배기 안에서 된장술밥이 끓는 모습을 보여줌\",\n    \"ingredients\": [\"된장술밥\"],\n    \"tools\": [\"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:51\",\n    \"endTime\": \"00:02:53\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"'오늘도 요리' 타이틀 그래픽이 나타남 (화면 전환용)\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:02:53\",\n    \"endTime\": \"00:02:54\",\n    \"type\": \"cooking\",\n    \"visual\": \"끓고 있는 뚝배기 안의 밥과 찌개를 숟가락과 국자로 섞어줌\",\n    \"ingredients\": [\"밥\", \"찌개\"],\n    \"tools\": [\"숟가락\", \"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:54\",\n    \"endTime\": \"00:02:55\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락과 국자로 뚝배기 안을 섞어줌\",\n    \"ingredients\": [\"밥\", \"찌개\"],\n    \"tools\": [\"숟가락\", \"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:55\",\n    \"endTime\": \"00:02:56\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락과 국자로 뚝배기 안을 섞어줌\",\n    \"ingredients\": [\"밥\", \"찌개\"],\n    \"tools\": [\"숟가락\", \"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:56\",\n    \"endTime\": \"00:02:57\",\n    \"type\": \"cooking\",\n    \"visual\": \"숟가락과 국자로 뚝배기 안을 섞어줌\",\n    \"ingredients\": [\"밥\", \"찌개\"],\n    \"tools\": [\"숟가락\", \"국자\", \"뚝배기\"]\n  },\n  {\n    \"time\": \"00:02:57\",\n    \"endTime\": \"00:05:15\",\n    \"type\": \"non_cooking\",\n    \"visual\": \"완성된 요리를 각자의 그릇에 덜어 먹으며 맛을 평가하고 시식 평을 나눔. (중간에 일회용 용기에 담은 포장 화면 등장함)\",\n    \"ingredients\": null,\n    \"tools\": null\n  },\n  {\n    \"time\": \"00:05:15\",\n    \"endTime\": \"00:05:28\",\n    \"type\": \"outro\",\n    \"visual\": \"'오늘도 요리' 타이틀 그래픽이 나오며 영상 종료됨\",\n    \"ingredients\": null,\n    \"tools\": null\n  }\n]\n```",
+    "parsed": [
+      {
+        "time": "00:00:00",
+        "endTime": "00:00:26",
+        "type": "non_cooking",
+        "visual": "두 셰프가 주방에 서서 오프닝 인사를 하고 요리에 대해 설명함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:26",
+        "endTime": "00:00:27",
+        "type": "cooking",
+        "visual": "가열된 팬에 고기를 올림. 화면에 '차돌박이' 자막 표시됨",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:27",
+        "endTime": "00:00:28",
+        "type": "cooking",
+        "visual": "팬 위에서 고기가 익어감",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:28",
+        "endTime": "00:00:29",
+        "type": "cooking",
+        "visual": "팬 위에서 고기가 익어감",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:29",
+        "endTime": "00:00:30",
+        "type": "cooking",
+        "visual": "팬 위에서 고기가 익어감",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:30",
+        "endTime": "00:00:31",
+        "type": "cooking",
+        "visual": "팬 위에서 고기가 익어감",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:31",
+        "endTime": "00:00:32",
+        "type": "cooking",
+        "visual": "도마 위에서 칼로 두부를 깍둑썰기 함",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:32",
+        "endTime": "00:00:33",
+        "type": "cooking",
+        "visual": "도마 위에서 칼로 두부를 깍둑썰기 함",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:33",
+        "endTime": "00:00:34",
+        "type": "cooking",
+        "visual": "두부 깍둑썰기를 마무리함",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:34",
+        "endTime": "00:00:39",
+        "type": "non_cooking",
+        "visual": "셰프들이 두부를 써는 크기에 대해 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:39",
+        "endTime": "00:00:40",
+        "type": "cooking",
+        "visual": "칼로 애호박을 길게 썰어줌. 화면에 '애호박' 자막 표시됨",
+        "ingredients": [
+          "애호박"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:40",
+        "endTime": "00:00:41",
+        "type": "cooking",
+        "visual": "길게 썬 애호박을 작게 깍둑썰기 함",
+        "ingredients": [
+          "애호박"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:41",
+        "endTime": "00:00:42",
+        "type": "cooking",
+        "visual": "애호박을 깍둑썰기 함",
+        "ingredients": [
+          "애호박"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:42",
+        "endTime": "00:00:43",
+        "type": "cooking",
+        "visual": "애호박을 깍둑썰기 함",
+        "ingredients": [
+          "애호박"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:43",
+        "endTime": "00:00:44",
+        "type": "cooking",
+        "visual": "애호박을 깍둑썰기 함",
+        "ingredients": [
+          "애호박"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:44",
+        "endTime": "00:00:45",
+        "type": "cooking",
+        "visual": "양파를 작게 깍둑썰기 함. 화면에 '양파' 자막 표시됨",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:45",
+        "endTime": "00:00:46",
+        "type": "cooking",
+        "visual": "양파를 깍둑썰기 함",
+        "ingredients": [
+          "양파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:46",
+        "endTime": "00:00:47",
+        "type": "cooking",
+        "visual": "대파를 송송 썰어줌",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:47",
+        "endTime": "00:00:48",
+        "type": "cooking",
+        "visual": "대파를 송송 썰어줌",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:48",
+        "endTime": "00:00:49",
+        "type": "cooking",
+        "visual": "대파를 송송 썰어줌",
+        "ingredients": [
+          "대파"
+        ],
+        "tools": [
+          "칼",
+          "도마"
+        ]
+      },
+      {
+        "time": "00:00:49",
+        "endTime": "00:00:50",
+        "type": "cooking",
+        "visual": "나무 주걱으로 팬 안의 고기를 저으며 볶아줌",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:50",
+        "endTime": "00:00:51",
+        "type": "cooking",
+        "visual": "나무 주걱으로 팬 안의 고기를 볶아줌",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:51",
+        "endTime": "00:00:52",
+        "type": "cooking",
+        "visual": "나무 주걱으로 팬 안의 고기를 볶아줌",
+        "ingredients": [
+          "차돌박이"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:52",
+        "endTime": "00:00:54",
+        "type": "non_cooking",
+        "visual": "다음 재료를 넣을 준비를 하며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:54",
+        "endTime": "00:00:55",
+        "type": "cooking",
+        "visual": "작은 그릇에 담긴 다진 마늘을 팬에 넣음. 화면에 '다진마늘 1T' 자막 표시됨",
+        "ingredients": [
+          "다진 마늘 1T"
+        ],
+        "tools": [
+          "작은 그릇",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:55",
+        "endTime": "00:00:56",
+        "type": "cooking",
+        "visual": "나무 주걱으로 마늘과 고기를 섞어줌",
+        "ingredients": [
+          "차돌박이",
+          "다진 마늘"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:56",
+        "endTime": "00:00:57",
+        "type": "non_cooking",
+        "visual": "된장을 준비하며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:00:57",
+        "endTime": "00:00:58",
+        "type": "cooking",
+        "visual": "나무 숟가락으로 된장을 떠서 팬에 넣음. 화면에 '된장 2T' 자막 표시됨",
+        "ingredients": [
+          "된장 2T"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "팬",
+          "작은 용기"
+        ]
+      },
+      {
+        "time": "00:00:58",
+        "endTime": "00:00:59",
+        "type": "cooking",
+        "visual": "된장을 팬에 밀어 넣음",
+        "ingredients": [
+          "된장"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:00:59",
+        "endTime": "00:01:00",
+        "type": "cooking",
+        "visual": "된장을 팬에 밀어 넣음",
+        "ingredients": [
+          "된장"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:00",
+        "endTime": "00:01:01",
+        "type": "cooking",
+        "visual": "된장을 팬에 밀어 넣음",
+        "ingredients": [
+          "된장"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:01",
+        "endTime": "00:01:02",
+        "type": "cooking",
+        "visual": "나무 주걱으로 된장과 고기를 고루 섞으며 볶음",
+        "ingredients": [
+          "된장",
+          "차돌박이"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:02",
+        "endTime": "00:01:03",
+        "type": "cooking",
+        "visual": "나무 주걱으로 된장과 고기를 섞으며 볶음",
+        "ingredients": [
+          "된장",
+          "차돌박이"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:03",
+        "endTime": "00:01:05",
+        "type": "non_cooking",
+        "visual": "고추장을 준비하며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:05",
+        "endTime": "00:01:06",
+        "type": "cooking",
+        "visual": "나무 숟가락으로 고추장을 떠서 팬에 넣음. 화면에 '고추장 1T' 자막 표시됨",
+        "ingredients": [
+          "고추장 1T"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "팬",
+          "유리볼"
+        ]
+      },
+      {
+        "time": "00:01:06",
+        "endTime": "00:01:07",
+        "type": "cooking",
+        "visual": "고추장을 팬에 밀어 넣음",
+        "ingredients": [
+          "고추장"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:07",
+        "endTime": "00:01:08",
+        "type": "cooking",
+        "visual": "고추장을 팬에 밀어 넣음",
+        "ingredients": [
+          "고추장"
+        ],
+        "tools": [
+          "나무 숟가락",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:08",
+        "endTime": "00:01:09",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료들을 고루 섞으며 볶아줌",
+        "ingredients": [
+          "고추장",
+          "된장",
+          "차돌박이"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:09",
+        "endTime": "00:01:10",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료들을 고루 섞으며 볶아줌",
+        "ingredients": [
+          "고추장",
+          "된장",
+          "차돌박이"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:10",
+        "endTime": "00:01:15",
+        "type": "non_cooking",
+        "visual": "조리 과정과 팁에 대해 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:15",
+        "endTime": "00:01:16",
+        "type": "cooking",
+        "visual": "유리볼에 담긴 고춧가루를 보여줌. 화면에 '고추가루 2T' 자막 표시됨",
+        "ingredients": [
+          "고추가루 2T"
+        ],
+        "tools": [
+          "유리볼"
+        ]
+      },
+      {
+        "time": "00:01:16",
+        "endTime": "00:01:17",
+        "type": "cooking",
+        "visual": "유리볼의 고춧가루를 팬에 부어줌",
+        "ingredients": [
+          "고춧가루"
+        ],
+        "tools": [
+          "유리볼",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:17",
+        "endTime": "00:01:18",
+        "type": "cooking",
+        "visual": "고춧가루를 팬에 모두 부어줌",
+        "ingredients": [
+          "고춧가루"
+        ],
+        "tools": [
+          "유리볼",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:18",
+        "endTime": "00:01:19",
+        "type": "cooking",
+        "visual": "나무 주걱으로 모든 재료를 잘 섞어가며 볶음",
+        "ingredients": [
+          "고춧가루",
+          "양념",
+          "고기"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:19",
+        "endTime": "00:01:20",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료를 볶음",
+        "ingredients": [
+          "고춧가루",
+          "양념",
+          "고기"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:20",
+        "endTime": "00:01:21",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료를 볶음",
+        "ingredients": [
+          "고춧가루",
+          "양념",
+          "고기"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:21",
+        "endTime": "00:01:22",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료를 볶음",
+        "ingredients": [
+          "고춧가루",
+          "양념",
+          "고기"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:22",
+        "endTime": "00:01:23",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료를 볶음",
+        "ingredients": [
+          "고춧가루",
+          "양념",
+          "고기"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:23",
+        "endTime": "00:01:24",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료를 볶음",
+        "ingredients": [
+          "고춧가루",
+          "양념",
+          "고기"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:24",
+        "endTime": "00:01:25",
+        "type": "cooking",
+        "visual": "나무 주걱으로 재료를 볶음",
+        "ingredients": [
+          "고춧가루",
+          "양념",
+          "고기"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:25",
+        "endTime": "00:01:27",
+        "type": "non_cooking",
+        "visual": "물을 붓기 위해 그릇을 들어 올리며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:27",
+        "endTime": "00:01:28",
+        "type": "cooking",
+        "visual": "물이 담긴 그릇을 보여줌. 화면에 '물 500cc' 자막 표시됨",
+        "ingredients": [
+          "물 500cc"
+        ],
+        "tools": [
+          "그릇"
+        ]
+      },
+      {
+        "time": "00:01:28",
+        "endTime": "00:01:29",
+        "type": "cooking",
+        "visual": "팬에 물을 부어줌",
+        "ingredients": [
+          "물"
+        ],
+        "tools": [
+          "그릇",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:29",
+        "endTime": "00:01:30",
+        "type": "cooking",
+        "visual": "팬에 물을 마저 부어줌",
+        "ingredients": [
+          "물"
+        ],
+        "tools": [
+          "그릇",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:30",
+        "endTime": "00:01:31",
+        "type": "cooking",
+        "visual": "나무 주걱으로 찌개 국물을 가볍게 저어줌",
+        "ingredients": [
+          "찌개 국물"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:31",
+        "endTime": "00:01:32",
+        "type": "cooking",
+        "visual": "유리볼에 담긴 굴소스를 보여줌. 화면에 '굴소스 1T' 자막 표시됨",
+        "ingredients": [
+          "굴소스 1T"
+        ],
+        "tools": [
+          "유리볼"
+        ]
+      },
+      {
+        "time": "00:01:32",
+        "endTime": "00:01:33",
+        "type": "cooking",
+        "visual": "굴소스를 팬에 부어줌",
+        "ingredients": [
+          "굴소스"
+        ],
+        "tools": [
+          "유리볼",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:33",
+        "endTime": "00:01:34",
+        "type": "cooking",
+        "visual": "굴소스를 팬에 부어줌",
+        "ingredients": [
+          "굴소스"
+        ],
+        "tools": [
+          "유리볼",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:34",
+        "endTime": "00:01:35",
+        "type": "cooking",
+        "visual": "유리볼에 담긴 참치액을 팬에 부어줌. 화면에 '참치액 1T' 자막 표시됨",
+        "ingredients": [
+          "참치액 1T"
+        ],
+        "tools": [
+          "유리볼",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:35",
+        "endTime": "00:01:36",
+        "type": "cooking",
+        "visual": "나무 주걱으로 국물을 섞어줌",
+        "ingredients": [
+          "국물"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:36",
+        "endTime": "00:01:37",
+        "type": "cooking",
+        "visual": "나무 주걱으로 국물을 섞어줌",
+        "ingredients": [
+          "국물"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:37",
+        "endTime": "00:01:38",
+        "type": "cooking",
+        "visual": "나무 주걱으로 국물을 섞어줌",
+        "ingredients": [
+          "국물"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:38",
+        "endTime": "00:01:40",
+        "type": "non_cooking",
+        "visual": "썰어둔 채소가 담긴 쟁반을 들고 냄비로 가져가며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:40",
+        "endTime": "00:01:41",
+        "type": "cooking",
+        "visual": "쟁반에 든 썰어둔 양파, 애호박, 대파를 손으로 팬에 밀어 넣음. 화면에 '손질한 채소들을 모두 다 넣어주세요' 자막 표시됨",
+        "ingredients": [
+          "양파",
+          "애호박",
+          "대파"
+        ],
+        "tools": [
+          "쟁반",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:41",
+        "endTime": "00:01:42",
+        "type": "cooking",
+        "visual": "채소를 손으로 쓸어 팬에 넣음",
+        "ingredients": [
+          "양파",
+          "애호박",
+          "대파"
+        ],
+        "tools": [
+          "쟁반",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:42",
+        "endTime": "00:01:43",
+        "type": "cooking",
+        "visual": "채소를 손으로 쓸어 팬에 넣음",
+        "ingredients": [
+          "양파",
+          "애호박",
+          "대파"
+        ],
+        "tools": [
+          "쟁반",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:43",
+        "endTime": "00:01:44",
+        "type": "cooking",
+        "visual": "채소를 손으로 쓸어 팬에 넣음",
+        "ingredients": [
+          "양파",
+          "애호박",
+          "대파"
+        ],
+        "tools": [
+          "쟁반",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:44",
+        "endTime": "00:01:45",
+        "type": "cooking",
+        "visual": "마지막 남은 채소들을 팬에 털어 넣음",
+        "ingredients": [
+          "채소류"
+        ],
+        "tools": [
+          "쟁반",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:45",
+        "endTime": "00:01:46",
+        "type": "cooking",
+        "visual": "나무 주걱으로 팬 안의 채소와 국물을 고루 섞어줌",
+        "ingredients": [
+          "채소류",
+          "국물"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:46",
+        "endTime": "00:01:47",
+        "type": "cooking",
+        "visual": "나무 주걱으로 찌개를 저어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:47",
+        "endTime": "00:01:48",
+        "type": "cooking",
+        "visual": "나무 주걱으로 찌개를 저어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:48",
+        "endTime": "00:01:49",
+        "type": "cooking",
+        "visual": "나무 주걱으로 찌개를 저어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:49",
+        "endTime": "00:01:58",
+        "type": "non_cooking",
+        "visual": "찌개가 끓기를 기다리며 여러 가지 팁과 요리 활용법에 대해 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:01:58",
+        "endTime": "00:01:59",
+        "type": "cooking",
+        "visual": "주걱으로 끓어오르는 찌개를 가볍게 뒤적여줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:01:59",
+        "endTime": "00:02:00",
+        "type": "cooking",
+        "visual": "주걱으로 찌개를 뒤적임",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:02:00",
+        "endTime": "00:02:08",
+        "type": "non_cooking",
+        "visual": "조리법에 대해 계속해서 설명하며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:08",
+        "endTime": "00:02:09",
+        "type": "cooking",
+        "visual": "보글보글 끓고 있는 찌개의 클로즈업 화면을 보여주며 주걱으로 살짝 저음",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "팬",
+          "나무 주걱"
+        ]
+      },
+      {
+        "time": "00:02:09",
+        "endTime": "00:02:10",
+        "type": "cooking",
+        "visual": "보글보글 끓고 있는 찌개를 보여줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "팬",
+          "나무 주걱"
+        ]
+      },
+      {
+        "time": "00:02:10",
+        "endTime": "00:02:11",
+        "type": "cooking",
+        "visual": "보글보글 끓고 있는 찌개를 보여줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "팬",
+          "나무 주걱"
+        ]
+      },
+      {
+        "time": "00:02:11",
+        "endTime": "00:02:14",
+        "type": "non_cooking",
+        "visual": "썰어둔 두부가 있는 도마를 가져오며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:14",
+        "endTime": "00:02:15",
+        "type": "cooking",
+        "visual": "도마에 올려진 깍둑 썬 두부를 팬에 주르륵 쏟아 넣음. 화면에 '두부 투하' 자막 표시됨",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "도마",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:02:15",
+        "endTime": "00:02:16",
+        "type": "cooking",
+        "visual": "도마의 두부를 팬에 마저 쏟아 넣음",
+        "ingredients": [
+          "두부"
+        ],
+        "tools": [
+          "도마",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:02:16",
+        "endTime": "00:02:17",
+        "type": "cooking",
+        "visual": "나무 주걱으로 두부가 국물에 잠기도록 가볍게 저어줌",
+        "ingredients": [
+          "두부",
+          "찌개 국물"
+        ],
+        "tools": [
+          "나무 주걱",
+          "팬"
+        ]
+      },
+      {
+        "time": "00:02:17",
+        "endTime": "00:02:22",
+        "type": "non_cooking",
+        "visual": "완성된 찌개의 맛과 비주얼에 감탄하며 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:22",
+        "endTime": "00:02:23",
+        "type": "cooking",
+        "visual": "재료가 모두 들어가 자작하게 끓고 있는 완성된 찌개의 모습을 클로즈업함",
+        "ingredients": [
+          "완성된 찌개"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:02:23",
+        "endTime": "00:02:24",
+        "type": "cooking",
+        "visual": "끓고 있는 찌개의 모습을 보여줌",
+        "ingredients": [
+          "완성된 찌개"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:02:24",
+        "endTime": "00:02:25",
+        "type": "cooking",
+        "visual": "끓고 있는 찌개의 모습을 보여줌",
+        "ingredients": [
+          "완성된 찌개"
+        ],
+        "tools": [
+          "팬"
+        ]
+      },
+      {
+        "time": "00:02:25",
+        "endTime": "00:02:31",
+        "type": "non_cooking",
+        "visual": "뚝배기에 밥을 말아 먹자며 뚝배기와 밥을 준비함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:31",
+        "endTime": "00:02:32",
+        "type": "cooking",
+        "visual": "빈 뚝배기를 가스버너 위에 올림",
+        "ingredients": null,
+        "tools": [
+          "뚝배기",
+          "가스버너"
+        ]
+      },
+      {
+        "time": "00:02:32",
+        "endTime": "00:02:33",
+        "type": "cooking",
+        "visual": "밥공기에 담긴 흰쌀밥을 뚝배기 안에 엎어서 털어 넣음",
+        "ingredients": [
+          "흰쌀밥"
+        ],
+        "tools": [
+          "밥공기",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:33",
+        "endTime": "00:02:34",
+        "type": "cooking",
+        "visual": "밥을 뚝배기에 넣음. 화면에 '공기밥 투하' 자막 표시됨",
+        "ingredients": [
+          "밥"
+        ],
+        "tools": [
+          "밥공기",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:34",
+        "endTime": "00:02:35",
+        "type": "cooking",
+        "visual": "뚝배기 안에 밥이 담겨 있는 모습",
+        "ingredients": [
+          "밥"
+        ],
+        "tools": [
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:35",
+        "endTime": "00:02:36",
+        "type": "cooking",
+        "visual": "국자로 끓인 찌개를 크게 떠서 뚝배기의 밥 위에 덜어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:36",
+        "endTime": "00:02:37",
+        "type": "cooking",
+        "visual": "국자로 찌개를 덜어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:37",
+        "endTime": "00:02:38",
+        "type": "cooking",
+        "visual": "국자로 찌개를 계속해서 덜어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:38",
+        "endTime": "00:02:39",
+        "type": "cooking",
+        "visual": "국자로 찌개를 덜어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:39",
+        "endTime": "00:02:40",
+        "type": "cooking",
+        "visual": "국자로 찌개와 건더기를 뚝배기에 담음",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:40",
+        "endTime": "00:02:41",
+        "type": "cooking",
+        "visual": "국자로 찌개를 덜어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:41",
+        "endTime": "00:02:42",
+        "type": "cooking",
+        "visual": "국자로 찌개를 덜어줌",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:42",
+        "endTime": "00:02:43",
+        "type": "cooking",
+        "visual": "국자로 찌개를 덜어 마무리함",
+        "ingredients": [
+          "찌개"
+        ],
+        "tools": [
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:43",
+        "endTime": "00:02:46",
+        "type": "non_cooking",
+        "visual": "포장에 대해 유머러스하게 대화함",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:46",
+        "endTime": "00:02:47",
+        "type": "cooking",
+        "visual": "뚝배기 안에서 찌개와 밥이 보글보글 끓고 있는 모습을 클로즈업함. 화면에 '된장술밥 완성' 자막 표시됨",
+        "ingredients": [
+          "찌개",
+          "밥"
+        ],
+        "tools": [
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:47",
+        "endTime": "00:02:48",
+        "type": "cooking",
+        "visual": "뚝배기 안에서 된장술밥이 끓는 모습을 보여줌",
+        "ingredients": [
+          "된장술밥"
+        ],
+        "tools": [
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:48",
+        "endTime": "00:02:49",
+        "type": "cooking",
+        "visual": "뚝배기 안에서 된장술밥이 끓는 모습을 보여줌",
+        "ingredients": [
+          "된장술밥"
+        ],
+        "tools": [
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:49",
+        "endTime": "00:02:50",
+        "type": "cooking",
+        "visual": "뚝배기 안에서 된장술밥이 끓는 모습을 보여줌",
+        "ingredients": [
+          "된장술밥"
+        ],
+        "tools": [
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:50",
+        "endTime": "00:02:51",
+        "type": "cooking",
+        "visual": "뚝배기 안에서 된장술밥이 끓는 모습을 보여줌",
+        "ingredients": [
+          "된장술밥"
+        ],
+        "tools": [
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:51",
+        "endTime": "00:02:53",
+        "type": "non_cooking",
+        "visual": "'오늘도 요리' 타이틀 그래픽이 나타남 (화면 전환용)",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:02:53",
+        "endTime": "00:02:54",
+        "type": "cooking",
+        "visual": "끓고 있는 뚝배기 안의 밥과 찌개를 숟가락과 국자로 섞어줌",
+        "ingredients": [
+          "밥",
+          "찌개"
+        ],
+        "tools": [
+          "숟가락",
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:54",
+        "endTime": "00:02:55",
+        "type": "cooking",
+        "visual": "숟가락과 국자로 뚝배기 안을 섞어줌",
+        "ingredients": [
+          "밥",
+          "찌개"
+        ],
+        "tools": [
+          "숟가락",
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:55",
+        "endTime": "00:02:56",
+        "type": "cooking",
+        "visual": "숟가락과 국자로 뚝배기 안을 섞어줌",
+        "ingredients": [
+          "밥",
+          "찌개"
+        ],
+        "tools": [
+          "숟가락",
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:56",
+        "endTime": "00:02:57",
+        "type": "cooking",
+        "visual": "숟가락과 국자로 뚝배기 안을 섞어줌",
+        "ingredients": [
+          "밥",
+          "찌개"
+        ],
+        "tools": [
+          "숟가락",
+          "국자",
+          "뚝배기"
+        ]
+      },
+      {
+        "time": "00:02:57",
+        "endTime": "00:05:15",
+        "type": "non_cooking",
+        "visual": "완성된 요리를 각자의 그릇에 덜어 먹으며 맛을 평가하고 시식 평을 나눔. (중간에 일회용 용기에 담은 포장 화면 등장함)",
+        "ingredients": null,
+        "tools": null
+      },
+      {
+        "time": "00:05:15",
+        "endTime": "00:05:28",
+        "type": "outro",
+        "visual": "'오늘도 요리' 타이틀 그래픽이 나오며 영상 종료됨",
+        "ingredients": null,
+        "tools": null
+      }
+    ]
+  }
+}
