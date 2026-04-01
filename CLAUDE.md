@@ -31,7 +31,7 @@ pip install -r requirements.txt
 # 개발 서버 (Mastra agent playground)
 npm run dev
 
-# 전체 레시피 평가 (10개 스코어러, Braintrust)
+# 전체 레시피 평가 (10개 스코어러, Braintrust) — normal 태그만 실행
 npm run eval
 
 # Phase 1 시각 분석 단독 평가
@@ -78,7 +78,7 @@ DELETE /cleanup     → Gemini File 삭제
 `src/mastra/tools/analyze-video.ts`에서 YouTube URL → 레시피 JSON 추출을 5개 노드로 처리:
 
 ```
-Node1 (Flash 3, thinking:high) → 영상 → flat descriptions [{content, start, end}]
+Node1 (Flash 3, thinking:high) → 영상 → flat description [{content, start, end}]
                     ↓
          ┌─────────┼──────────┐
          ↓         ↓          ↓
@@ -89,13 +89,37 @@ Node2 (Flash 2.5)  Node3→5    Node4 (Flash-Lite)
             step 분할
                     │
             Node5 (Pro 2.5)
-            scene 추가
+            recommendScene만 반환
          └─────────┼──────────┘
                     ↓
-              결과 병합 → 최종 레시피 JSON
+         코드에서 Node3 + Node5 병합
+                    ↓
+         Python API 구조로 변환 → 최종 레시피 JSON
 ```
 
-실행 흐름: Node1 → parallel(Node2, Node3→Node5, Node4) → merge
+실행 흐름: Node1 → parallel(Node2, Node3→Node5, Node4) → merge → 구조 변환
+
+### 출력 구조 (Python API 호환)
+
+```json
+{
+  "title": "string",
+  "description": "string",
+  "ingredients": [{"name": "string", "amount": "number|null", "unit": "string|null"}],
+  "tags": ["string"],
+  "servings": "number",
+  "cook_time": "number",
+  "steps": [{
+    "subtitle": "string",
+    "start": "number (초)",
+    "descriptions": [{"text": "string", "start": "number (초)"}],
+    "scenes": [{"label": "string", "start": "number (초)", "end": "number (초)"}]
+  }]
+}
+```
+
+- Node5는 `recommend` 배열만 반환 → 코드에서 Node3의 steps와 order 기준으로 병합
+- 시간은 HH:MM:SS → 초(number)로 변환
 
 ### 프롬프트 관리
 
@@ -105,21 +129,28 @@ Node2 (Flash 2.5)  Node3→5    Node4 (Flash-Lite)
 
 ### 평가 시스템
 
-- `src/mastra/evals/dataset.ts` — 28개 테스트 케이스
+- `src/mastra/evals/dataset.ts` — 22개 테스트 케이스, tag 분류 (normal/multi/unusual)
+  - normal 16개: 일반 레시피 (eval 대상)
+  - multi 2개: 멀티 레시피 영상 (원팬 파스타, 멸치국수)
+  - unusual 4개: GT 깨짐/특이 케이스 (호떡, 순두부찌개, 봄동비빔밥, 짬뽕)
 - `src/mastra/evals/fixtures/` — Ground Truth JSON + 캐시된 레시피
-- `src/mastra/evals/scorers/` — 4개 파일: `helpers.ts`, `structure.ts`, `scene.ts`, `clarity.ts`
-- LLM Judge: Gemini 2.5-flash
+- `src/mastra/evals/scorers/` — 4개 파일:
+  - `helpers.ts` — ParsedRecipe 타입, geminiClassifier (Flash 3 thinking), withRetry, getAllScenes
+  - `structure.ts` — Completeness, IngredientRecall, AmountAccuracy, StepQuality
+  - `scene.ts` — SceneTimestampAccuracy, SceneCoverage, SceneLabelConciseness, SceneStepAlignment
+  - `clarity.ts` — CookingActionCoverage
 - 뷰포트 체크: Playwright 별도 프로세스
 
-### 모델 할당 (Eval)
+### 모델 할당
 
-| 노드 | 모델 | 용도 |
+| 역할 | 모델 | 용도 |
 |------|------|------|
 | Node1 | gemini-3-flash-preview (thinking:high) | 영상 직접 분석 |
 | Node2 | gemini-2.5-flash | 재료/도구 추출 |
 | Node3 | gemini-2.5-pro | step 분할 |
-| Node4 | gemini-3.1-flash-lite-preview | 메타데이터 |
-| Node5 | gemini-2.5-pro | scene 추가 |
+| Node4 | gemini-3.1-flash-lite-preview | 메타데이터 추출 |
+| Node5 | gemini-2.5-pro | recommendScene 생성 |
+| Scorer | gemini-3-flash-preview (thinking:medium) | LLM-as-Judge |
 
 ## Key Dependencies
 
@@ -142,3 +173,4 @@ Node2 (Flash 2.5)  Node3→5    Node4 (Flash-Lite)
 - Gemini Pro 2.5는 rate limit이 빡빡함 — Node3→Node5 순차 실행
 - `FORCE_REGENERATE=1`로 eval 캐시 무시 가능
 - Docker: `docker/Dockerfile` + `docker/docker-compose.prod.yml`, `cheftory_network` 외부 네트워크 사용
+- eval은 `normalDataset()`만 실행 (multi/unusual 제외)

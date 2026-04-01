@@ -16,6 +16,8 @@ from app.meta.extractor import MetaExtractor
 from app.meta.service import MetaService
 from app.step.generator import StepGenerator
 from app.step.service import StepService
+from app.scene.generator import SceneGenerator
+from app.scene.service import SceneService
 from app.verify.service import VerifyService
 from app.verify.client import VerifyClient
 from app.verify.generator import VerifyGenerator
@@ -33,6 +35,7 @@ class Container(containers.DeclarativeContainer):
             "app.meta",
             "app.step",
             "app.briefing",
+            "app.scene",
             "app.verify",
         ]
     )
@@ -114,6 +117,20 @@ class Container(containers.DeclarativeContainer):
         BriefingService,
         client=briefing_client,
         generator=briefing_generator,
+    )
+
+    # Scene
+    scene_generator = providers.Singleton(
+        SceneGenerator,
+        client=genai_client,
+        model=config.google.gemini.model_id,
+        fallback_model=config.google.gemini.fallback_model_id,
+        video_scene_tool_path=Path("app/scene/prompt/tool/video_scene.json"),
+        video_scene_user_prompt_path=Path("app/scene/prompt/user/video_scene.md"),
+    )
+    scene_service = providers.Factory(
+        SceneService,
+        generator=scene_generator,
     )
 
     # Verify

@@ -1,0 +1,59 @@
+[
+  {
+    "toolSpec": {
+      "name": "emit_recipe_scenes",
+      "description": "Extract all visible cooking scenes from the recipe video for each step.",
+      "inputSchema": {
+        "json": {
+          "type": "object",
+          "properties": {
+            "scenes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "step": {
+                    "type": "integer",
+                    "description": "Step number (1-based) this scene belongs to."
+                  },
+                  "label": {
+                    "type": "string",
+                    "description": "Action + target label (3-15 characters).",
+                    "minLength": 3,
+                    "maxLength": 15
+                  },
+                  "start": {
+                    "type": "string",
+                    "description": "Scene start timestamp as HH:MM:SS.",
+                    "pattern": "^\\d{2}:[0-5]\\d:[0-5]\\d$"
+                  },
+                  "end": {
+                    "type": "string",
+                    "description": "Scene end timestamp as HH:MM:SS.",
+                    "pattern": "^\\d{2}:[0-5]\\d:[0-5]\\d$"
+                  },
+                  "importantScore": {
+                    "type": "integer",
+                    "description": "Importance score for beginners (1-10). 10 = must watch, 1 = optional.",
+                    "minimum": 1,
+                    "maximum": 10
+                  }
+                },
+                "required": [
+                  "step",
+                  "label",
+                  "start",
+                  "end",
+                  "importantScore"
+                ]
+              }
+            }
+          },
+          "required": [
+            "scenes"
+          ]
+        }
+      }
+    }
+  }
+]

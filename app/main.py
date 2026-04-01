@@ -11,6 +11,7 @@ from app.briefing.router import router as briefing_router
 from app.container import container
 from app.exception import BusinessException
 from app.meta.router import router as meta_router
+from app.scene.router import router as scene_router
 from app.step.router import router as step_router
 from app.verify.router import router as verify_router
 
@@ -68,5 +69,6 @@ async def business_exception_handler(request: Request, exc: BusinessException):
 # 라우터 등록
 app.include_router(meta_router)
 app.include_router(step_router)
+app.include_router(scene_router)
 app.include_router(briefing_router)
 app.include_router(verify_router)
