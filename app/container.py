@@ -47,7 +47,7 @@ class Container(containers.DeclarativeContainer):
     config.google.gemini.model_id_lite.from_env("GEMINI_MODEL_ID_LITE")
     config.google.gemini.fallback_model_id.from_env(
         "GEMINI_FALLBACK_MODEL_ID",
-        default="gemini-3.0-flash",
+        default="gemini-3-flash-preview",
     )
     config.cloud_run.caption_urls.from_env(
         "CLOUD_RUN_CAPTION_URLS",
@@ -70,8 +70,8 @@ class Container(containers.DeclarativeContainer):
     meta_extractor = providers.Singleton(
         MetaExtractor,
         client=genai_client,
-        model=config.google.gemini.model_id,
-        fallback_model=config.google.gemini.fallback_model_id,
+        model="gemini-2.5-pro",
+        fallback_model="gemini-3.1-pro-preview",
 
         extract_ingredient_prompt_path=Path("app/meta/prompt/user/extract_ingredient.md"),
         extract_ingredient_tool_path=Path("app/meta/prompt/tool/extract_ingredient.json"),
@@ -89,8 +89,8 @@ class Container(containers.DeclarativeContainer):
     step_generator = providers.Singleton(
         StepGenerator,
         client=genai_client,
-        model=config.google.gemini.model_id,
-        fallback_model=config.google.gemini.fallback_model_id,
+        model="gemini-2.5-pro",
+        fallback_model="gemini-3.1-pro-preview",
         video_step_tool_path=Path("app/step/prompt/tool/video_step.json"),
         video_summarize_user_prompt_path=Path("app/step/prompt/user/video_summarize.md"),
     )
@@ -108,8 +108,8 @@ class Container(containers.DeclarativeContainer):
     briefing_generator = providers.Singleton(
         BriefingGenerator,
         client=genai_client,
-        model=config.google.gemini.model_id_lite,
-        fallback_model=config.google.gemini.fallback_model_id,
+        model="gemini-3.1-flash-lite-preview",
+        fallback_model="gemini-2.5-flash-lite",
         generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
         generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
     )
@@ -123,8 +123,8 @@ class Container(containers.DeclarativeContainer):
     scene_generator = providers.Singleton(
         SceneGenerator,
         client=genai_client,
-        model=config.google.gemini.fallback_model_id,
-        fallback_model="gemini-2.5-flash",
+        model="gemini-3-flash-preview",
+        fallback_model="gemini-2.5-flash-lite",
         video_scene_tool_path=Path("app/scene/prompt/tool/video_scene.json"),
         video_scene_user_prompt_path=Path("app/scene/prompt/user/video_scene.md"),
     )
@@ -146,8 +146,8 @@ class Container(containers.DeclarativeContainer):
     verify_generator = providers.Singleton(
         VerifyGenerator,
         client=genai_client,
-        model=config.google.gemini.model_id_lite,
-        fallback_model=config.google.gemini.fallback_model_id,
+        model="gemini-3.1-flash-lite-preview",
+        fallback_model="gemini-2.5-flash-lite",
         verify_user_prompt_path=Path("app/verify/prompt/user/verify.md"),
         verify_tool_path=Path("app/verify/prompt/tool/verify.json"),
     )
