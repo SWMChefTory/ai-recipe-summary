@@ -72,6 +72,7 @@ class Container(containers.DeclarativeContainer):
         client=genai_client,
         model="gemini-2.5-pro",
         fallback_model="gemini-3.1-pro-preview",
+        secondary_fallback_model="gemini-3-flash-preview",
 
         extract_ingredient_prompt_path=Path("app/meta/prompt/user/extract_ingredient.md"),
         extract_ingredient_tool_path=Path("app/meta/prompt/tool/extract_ingredient.json"),
@@ -91,6 +92,7 @@ class Container(containers.DeclarativeContainer):
         client=genai_client,
         model="gemini-2.5-pro",
         fallback_model="gemini-3.1-pro-preview",
+        secondary_fallback_model="gemini-3-flash-preview",
         video_step_tool_path=Path("app/step/prompt/tool/video_step.json"),
         video_summarize_user_prompt_path=Path("app/step/prompt/user/video_summarize.md"),
     )
