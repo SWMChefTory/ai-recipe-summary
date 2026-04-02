@@ -25,6 +25,7 @@ class MetaExtractor:
         client: genai.Client,
         model: str,
         fallback_model: str = "gemini-3.0-flash",
+        secondary_fallback_model: str = "gemini-3-flash-preview",
         extract_ingredient_prompt_path: Path,
         extract_ingredient_tool_path: Path,
         video_extract_prompt_path: Optional[Path] = None,
@@ -34,6 +35,7 @@ class MetaExtractor:
         self.client = client
         self.model = model
         self.fallback_model = fallback_model
+        self.secondary_fallback_model = secondary_fallback_model
 
         # ----- 프롬프트 / 툴 스펙 로드 -----
         self.extract_ingredient_prompt = extract_ingredient_prompt_path.read_text(
@@ -216,8 +218,30 @@ class MetaExtractor:
                         config=conf,
                     )
                 except (genai_errors.ClientError, genai_errors.ServerError) as fallback_error:
-                    self.logger.exception("Gemini fallback model invoke failed")
-                    raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from fallback_error
+                    if not (self._is_rate_limit_error(fallback_error) or self._is_server_error(fallback_error)):
+                        self.logger.exception("Gemini fallback model invoke failed")
+                        raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from fallback_error
+                    self.logger.warning(
+                        f"Fallback model also unavailable. secondary fallback={self.secondary_fallback_model}"
+                    )
+                    try:
+                        thinking_conf = types.GenerateContentConfig(
+                            system_instruction=conf.system_instruction,
+                            temperature=0.0,
+                            safety_settings=conf.safety_settings,
+                            thinking_config=types.ThinkingConfig(thinkingLevel="HIGH"),
+                            media_resolution=conf.media_resolution,
+                            tools=conf.tools,
+                            tool_config=conf.tool_config,
+                        )
+                        return self.client.models.generate_content(
+                            model=self.secondary_fallback_model,
+                            contents=contents,
+                            config=thinking_conf,
+                        )
+                    except Exception as secondary_error:
+                        self.logger.exception("Gemini secondary fallback model invoke failed")
+                        raise MetaException(MetaErrorCode.META_API_INVOKE_FAILED) from secondary_error
                 except Exception as fallback_error:
                     self.logger.exception("Unexpected error during Gemini fallback call")
                     raise MetaException(err_code) from fallback_error

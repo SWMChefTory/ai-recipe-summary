@@ -24,6 +24,7 @@ class StepGenerator:
         client: genai.Client,
         model: str,
         fallback_model: str = "gemini-3.0-flash",
+        secondary_fallback_model: str = "gemini-3-flash-preview",
         video_step_tool_path: Path,
         video_summarize_user_prompt_path: Path,
     ):
@@ -31,15 +32,30 @@ class StepGenerator:
         self.client = client
         self.model = model
         self.fallback_model = fallback_model
+        self.secondary_fallback_model = secondary_fallback_model
 
         self.video_summarize_user_prompt = video_summarize_user_prompt_path.read_text(encoding="utf-8")
         video_step_tool_spec = json.loads(video_step_tool_path.read_text(encoding="utf-8"))
         self.video_step_tool = self._build_tool_from_spec(video_step_tool_spec)
-        
+
         self.video_step_conf = types.GenerateContentConfig(
             temperature=0.0,
             media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
             safety_settings=relaxed_safety_settings(),
+            tools=[self.video_step_tool],
+            tool_config=types.ToolConfig(
+                function_calling_config=types.FunctionCallingConfig(
+                    mode="ANY",
+                    allowed_function_names=[self.VIDEO_ALLOWED_FUNCTION_NAME],
+                )
+            ),
+        )
+
+        self.video_step_conf_thinking = types.GenerateContentConfig(
+            temperature=0.0,
+            media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
+            safety_settings=relaxed_safety_settings(),
+            thinking_config=types.ThinkingConfig(thinkingLevel="HIGH"),
             tools=[self.video_step_tool],
             tool_config=types.ToolConfig(
                 function_calling_config=types.FunctionCallingConfig(
@@ -228,11 +244,23 @@ class StepGenerator:
                 self.logger.warning(
                     f"Primary Gemini model unavailable. fallback model={self.fallback_model}"
                 )
-                response = self._generate_content(
-                    model=self.fallback_model,
-                    contents=contents,
-                    config=self.video_step_conf,
-                )
+                try:
+                    response = self._generate_content(
+                        model=self.fallback_model,
+                        contents=contents,
+                        config=self.video_step_conf,
+                    )
+                except (genai_errors.ClientError, genai_errors.ServerError) as e2:
+                    if not (self._is_rate_limit_error(e2) or self._is_server_error(e2)):
+                        raise
+                    self.logger.warning(
+                        f"Fallback model also unavailable. secondary fallback={self.secondary_fallback_model}"
+                    )
+                    response = self._generate_content(
+                        model=self.secondary_fallback_model,
+                        contents=contents,
+                        config=self.video_step_conf_thinking,
+                    )
 
             step_args = self._extract_emit_steps_args(response, self.VIDEO_ALLOWED_FUNCTION_NAME)
             normalized_step_args = self._normalize_step_args(step_args)
