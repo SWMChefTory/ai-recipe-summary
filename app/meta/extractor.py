@@ -185,8 +185,8 @@ class MetaExtractor:
 
     @staticmethod
     def _is_server_error(err: Exception) -> bool:
-        status_code = getattr(err, "status_code", None)
-        return status_code is not None and 500 <= status_code < 600
+        code = getattr(err, "code", None)
+        return code is not None and 500 <= code < 600
 
     def _invoke_generate_content(
         self,

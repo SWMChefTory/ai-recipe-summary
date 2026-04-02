@@ -112,8 +112,8 @@ class StepGenerator:
 
     @staticmethod
     def _is_server_error(err: Exception) -> bool:
-        status_code = getattr(err, "status_code", None)
-        return status_code is not None and 500 <= status_code < 600
+        code = getattr(err, "code", None)
+        return code is not None and 500 <= code < 600
 
     def _generate_content(self, *, model: str, contents, config: types.GenerateContentConfig):
         return self.client.models.generate_content(

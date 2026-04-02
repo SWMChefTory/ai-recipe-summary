@@ -89,7 +89,7 @@ class VerifyGenerator:
                     or "rate limit" in message
                     or "resource_exhausted" in message
                 )
-                is_server_error = status_code is not None and 500 <= status_code < 600
+                is_server_error = code is not None and 500 <= code < 600
                 should_fallback = (
                     self.fallback_model
                     and self.fallback_model != self.model
