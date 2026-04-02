@@ -124,7 +124,7 @@ class Container(containers.DeclarativeContainer):
         SceneGenerator,
         client=genai_client,
         model=config.google.gemini.fallback_model_id,
-        fallback_model=config.google.gemini.fallback_model_id,
+        fallback_model="gemini-2.5-flash",
         video_scene_tool_path=Path("app/scene/prompt/tool/video_scene.json"),
         video_scene_user_prompt_path=Path("app/scene/prompt/user/video_scene.md"),
     )
