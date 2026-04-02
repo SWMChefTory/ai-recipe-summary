@@ -21,6 +21,9 @@ async def generate_scenes_by_video(
     country = (x_country_code or "").strip().upper()
     language = LanguageType.KR if country == "KR" else LanguageType.EN
 
+    if not request.steps:
+        return SceneResponse(scenes=[])
+
     # step 번호(1-based) → step_id 매핑 테이블
     step_number_to_id = {
         i + 1: s.step_id for i, s in enumerate(request.steps)

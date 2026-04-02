@@ -60,11 +60,17 @@ class SceneService:
             if step_id is None:
                 continue
 
+            try:
+                start = SceneService._timecode_to_seconds(scene["start"])
+                end = SceneService._timecode_to_seconds(scene["end"])
+            except (KeyError, ValueError, IndexError):
+                continue
+
             out.append(SceneOut(
                 step_id=step_id,
                 label=scene.get("label", ""),
-                start=SceneService._timecode_to_seconds(scene["start"]),
-                end=SceneService._timecode_to_seconds(scene["end"]),
+                start=start,
+                end=end,
                 important_score=scene.get("importantScore", 5),
             ))
         return out
