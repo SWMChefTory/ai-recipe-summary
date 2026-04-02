@@ -39,6 +39,9 @@ class SceneGenerator:
             temperature=0.0,
             media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
             safety_settings=relaxed_safety_settings(),
+            thinking_config=types.ThinkingConfig(
+                thinkingLevel="HIGH",
+            ),
             tools=[self.video_scene_tool],
             tool_config=types.ToolConfig(
                 function_calling_config=types.FunctionCallingConfig(
