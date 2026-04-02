@@ -93,6 +93,11 @@ class SceneGenerator:
             or "resource_exhausted" in message
         )
 
+    @staticmethod
+    def _is_server_error(err: Exception) -> bool:
+        status_code = getattr(err, "status_code", None)
+        return status_code is not None and 500 <= status_code < 600
+
     def _generate_content(self, *, model: str, contents, config: types.GenerateContentConfig):
         return self.client.models.generate_content(
             model=model,
@@ -190,17 +195,17 @@ class SceneGenerator:
                     contents=contents,
                     config=self.video_scene_conf,
                 )
-            except genai_errors.ClientError as e:
+            except (genai_errors.ClientError, genai_errors.ServerError) as e:
                 should_fallback = (
                     self.fallback_model
                     and self.fallback_model != self.model
-                    and self._is_rate_limit_error(e)
+                    and (self._is_rate_limit_error(e) or self._is_server_error(e))
                 )
                 if not should_fallback:
                     raise
 
                 self.logger.warning(
-                    f"Primary Gemini model rate-limited. fallback model={self.fallback_model}"
+                    f"Primary Gemini model unavailable. fallback model={self.fallback_model}"
                 )
                 response = self._generate_content(
                     model=self.fallback_model,
@@ -210,7 +215,7 @@ class SceneGenerator:
 
             scene_args = self._extract_function_args(response)
             return self._validate_scenes(scene_args)
-        except genai_errors.ClientError as e:
+        except (genai_errors.ClientError, genai_errors.ServerError) as e:
             self.logger.exception("Gemini API 호출 중 오류가 발생했습니다.")
             raise SceneException(SceneErrorCode.SCENE_GENERATE_FAILED) from e
         except SceneException:
