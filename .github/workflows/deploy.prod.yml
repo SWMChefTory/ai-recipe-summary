@@ -68,7 +68,19 @@ jobs:
             GEMINI_MODEL_ID_LITE=${{ secrets.GEMINI_MODEL_ID_LITE }}
             GEMINI_FALLBACK_MODEL_ID=${{ secrets.GEMINI_FALLBACK_MODEL_ID }}
             CLOUD_RUN_CAPTION_URLS=${{ secrets.CLOUD_RUN_CAPTION_URLS }}
+            VERTEX_AI_PROJECT_ID=${{ secrets.VERTEX_AI_PROJECT_ID }}
+            GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
             EOF
+
+      - name: Create GCP credentials file on VM
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            echo '${{ secrets.GCP_SA_KEY }}' > /home/ubuntu/cheftory-ai-recipe-summary-server/credentials.json
+            chmod 600 /home/ubuntu/cheftory-ai-recipe-summary-server/credentials.json
 
       - name: Copy docker-compose.prod.yml to VM
         uses: appleboy/scp-action@v0.1.7

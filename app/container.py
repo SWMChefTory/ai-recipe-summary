@@ -55,10 +55,15 @@ class Container(containers.DeclarativeContainer):
     )
     config.cloud_run.request_timeout_seconds.from_value(300)
 
-    # Gemini - Client 설정
+    # Gemini - Client 설정 (Vertex AI)
+    config.google.vertex.project.from_env("VERTEX_AI_PROJECT_ID")
+    config.google.vertex.credentials_path.from_env("GOOGLE_APPLICATION_CREDENTIALS")
+
     genai_client = providers.Singleton(
         genai.Client,
-        api_key=config.google.ai_api_key,
+        vertexai=True,
+        project=config.google.vertex.project,
+        location="global",
     )
 
     # Meta

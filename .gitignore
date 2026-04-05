@@ -11,6 +11,12 @@ dist/
 # Env
 .env
 
+# GCP credentials
+*.json
+!package.json
+!package-lock.json
+!app/**/prompt/**/*.json
+
 # OS
 **/.DS_Store
 
