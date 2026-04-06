@@ -19,11 +19,7 @@ from app.step.service import StepService
 from app.scene.generator import SceneGenerator
 from app.scene.service import SceneService
 from app.verify.service import VerifyService
-from app.verify.client import VerifyClient
 from app.verify.generator import VerifyGenerator
-
-def _resolve_caption_upload_urls(raw_urls: str):
-    return [url.strip() for url in (raw_urls or "").split(",") if url.strip()]
 
 
 class Container(containers.DeclarativeContainer):
@@ -41,24 +37,15 @@ class Container(containers.DeclarativeContainer):
     )
     config = providers.Configuration()
     config.google.api_key.from_env("GOOGLE_API_KEY")
-    config.google.ai_api_key.from_env("GOOGLE_AI_API_KEY")
 
-    config.google.gemini.model_id.from_env("GEMINI_MODEL_ID")
-    config.google.gemini.model_id_lite.from_env("GEMINI_MODEL_ID_LITE")
-    config.google.gemini.fallback_model_id.from_env(
-        "GEMINI_FALLBACK_MODEL_ID",
-        default="gemini-3-flash-preview",
-    )
-    config.cloud_run.caption_urls.from_env(
-        "CLOUD_RUN_CAPTION_URLS",
-        default="",
-    )
-    config.cloud_run.request_timeout_seconds.from_value(300)
+    # Gemini - Client 설정 (Vertex AI)
+    config.google.vertex.project.from_env("VERTEX_AI_PROJECT_ID")
 
-    # Gemini - Client 설정
     genai_client = providers.Singleton(
         genai.Client,
-        api_key=config.google.ai_api_key,
+        vertexai=True,
+        project=config.google.vertex.project,
+        location="global",
     )
 
     # Meta
@@ -136,15 +123,6 @@ class Container(containers.DeclarativeContainer):
     )
 
     # Verify
-    verify_client = providers.Singleton(
-        VerifyClient,
-        upload_service_urls=providers.Callable(
-            _resolve_caption_upload_urls,
-            config.cloud_run.caption_urls,
-        ),
-        request_timeout_seconds=config.cloud_run.request_timeout_seconds,
-    )
-
     verify_generator = providers.Singleton(
         VerifyGenerator,
         client=genai_client,
@@ -156,9 +134,7 @@ class Container(containers.DeclarativeContainer):
 
     verify_service = providers.Factory(
         VerifyService,
-        client=verify_client,
         generator=verify_generator,
-        genai_client=genai_client, # genai_client 주입 추가
     )
 
 

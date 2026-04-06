@@ -325,6 +325,7 @@ class MetaExtractor:
         response = self._invoke_generate_content(
             contents=[
                 types.Content(
+                    role="user",
                     parts=[
                         types.Part.from_uri(file_uri=file_uri, mime_type=mime_type),
                         types.Part.from_text(text=prompt),
