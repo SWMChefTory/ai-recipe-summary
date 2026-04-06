@@ -63,11 +63,6 @@ jobs:
           script: |
             cat <<EOF > /home/ubuntu/cheftory-ai-recipe-summary-server/.env
             GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
-            GOOGLE_AI_API_KEY=${{ secrets.GOOGLE_AI_API_KEY }}
-            GEMINI_MODEL_ID=${{ secrets.GEMINI_MODEL_ID }}
-            GEMINI_MODEL_ID_LITE=${{ secrets.GEMINI_MODEL_ID_LITE }}
-            GEMINI_FALLBACK_MODEL_ID=${{ secrets.GEMINI_FALLBACK_MODEL_ID }}
-            CLOUD_RUN_CAPTION_URLS=${{ secrets.CLOUD_RUN_CAPTION_URLS }}
             VERTEX_AI_PROJECT_ID=${{ secrets.VERTEX_AI_PROJECT_ID }}
             GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
             EOF

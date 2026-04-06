@@ -218,6 +218,7 @@ class StepGenerator:
         )
         contents = [
             types.Content(
+                role="user",
                 parts=[
                     types.Part.from_uri(file_uri=file_uri, mime_type=mime_type),
                     types.Part.from_text(text=user_prompt),
