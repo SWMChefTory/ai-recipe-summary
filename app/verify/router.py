@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from dependency_injector.wiring import Provide, inject
 
 from app.verify.service import VerifyService
-from app.verify.schema import VerificationRequest, VerificationResponse
+from app.verify.schema import VerificationRequest, VerificationResponse, CleanupResponse
 from app.container import Container
 
 router = APIRouter()
@@ -22,3 +22,10 @@ async def verify_endpoint(
 
     result = await verify_service.verify_recipe(request.video_id)
     return VerificationResponse(**result)
+
+@router.delete("/cleanup", response_model=CleanupResponse)
+async def cleanup_endpoint(
+    file_uri: str = Query(..., description="삭제할 Gemini File URI (하위호환용, no-op)"),
+) -> CleanupResponse:
+    """하위호환성을 위해 유지. 실제 동작 없이 성공을 반환합니다."""
+    return CleanupResponse(message="success")

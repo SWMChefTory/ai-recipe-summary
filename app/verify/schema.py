@@ -6,3 +6,6 @@ class VerificationRequest(BaseModel):
 class VerificationResponse(BaseModel):
     file_uri: str = Field(..., description="YouTube 영상 URL")
     mime_type: str = Field(..., description="MIME Type")
+
+class CleanupResponse(BaseModel):
+    message: str = Field(..., description="결과 메시지 (success)")
