@@ -52,7 +52,41 @@ POST /verify        → 레시피 영상 여부 검증 (YouTube URL → Gemini �
 
 ### 프롬프트 관리
 
-`app/*/prompt/` — 각 도메인별 프롬프트 (`.md` 유저 프롬프트 + `.json` 도구 스펙)
+모든 프롬프트는 `app/prompts/` 하위에서 **per-prompt versioning**으로 관리한다.
+
+레이아웃:
+```
+app/prompts/
+├── registry.py                       # ACTIVE_VERSIONS (도메인.이름 → vN)
+├── CHANGELOG.md                      # 인덱스
+├── {domain}/
+│   ├── {name}.v1.md                  # 유저 프롬프트 (버전별)
+│   ├── {name}.v1.changelog.md        # 변경 사유 sidecar
+│   ├── {name}.v2.md
+│   ├── {name}.v2.changelog.md
+│   └── {tool_name}.tool.json         # 도구 스펙 (버전 없음)
+```
+
+API:
+```python
+from app.prompts import prompt_path, tool_path
+prompt_path("step.video_summarize")          # registry 기본 버전
+prompt_path("step.video_summarize", "v1")    # 명시 버전 (평가/실험용)
+tool_path("step.video_step")                 # 도구 스펙
+```
+
+우선순위: 명시 인자 > `PROMPT_OVERRIDES` env > `ACTIVE_VERSIONS` registry.
+
+env override:
+```bash
+PROMPT_OVERRIDES="step.video_summarize=v1,meta.extract_ingredient=v2"
+```
+
+**새 버전 추가 절차 (필수)**:
+1. `{name}.v{N}.md` 작성 (이전 버전 복사 후 수정)
+2. `{name}.v{N}.changelog.md` 작성 — Why / Changes / Expected impact / Risks 포함
+3. `registry.py`의 `ACTIVE_VERSIONS`에서 해당 키를 v{N}으로 갱신 (또는 평가 후 갱신)
+4. `app/prompts/CHANGELOG.md`에 한 줄 추가
 
 환경변수:
 - `GOOGLE_API_KEY` — YouTube Data API
