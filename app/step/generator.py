@@ -51,20 +51,6 @@ class StepGenerator:
             ),
         )
 
-        self.video_step_conf_thinking = types.GenerateContentConfig(
-            temperature=0.0,
-            media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
-            safety_settings=relaxed_safety_settings(),
-            thinking_config=types.ThinkingConfig(thinkingLevel="HIGH"),
-            tools=[self.video_step_tool],
-            tool_config=types.ToolConfig(
-                function_calling_config=types.FunctionCallingConfig(
-                    mode="ANY",
-                    allowed_function_names=[self.VIDEO_ALLOWED_FUNCTION_NAME],
-                )
-            ),
-        )
-
     @staticmethod
     def _build_tool_from_spec(tool_list: list) -> types.Tool:
         if not tool_list:
@@ -257,10 +243,13 @@ class StepGenerator:
                     self.logger.warning(
                         f"Fallback model also unavailable. secondary fallback={self.secondary_fallback_model}"
                     )
+                    # Use the non-thinking conf. thinking_level=HIGH is
+                    # Gemini 3 only and gets rejected by GA Gemini 2.5 fallback
+                    # models with 400 INVALID_ARGUMENT.
                     response = self._generate_content(
                         model=self.secondary_fallback_model,
                         contents=contents,
-                        config=self.video_step_conf_thinking,
+                        config=self.video_step_conf,
                     )
 
             step_args = self._extract_emit_steps_args(response, self.VIDEO_ALLOWED_FUNCTION_NAME)

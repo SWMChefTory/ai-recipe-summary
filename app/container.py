@@ -4,10 +4,9 @@ from google import genai
 
 load_dotenv()
 
-from pathlib import Path
-
 from dependency_injector import containers, providers
 
+from app.prompts import prompt_path, tool_path
 from app.briefing.client import BriefingClient
 from app.briefing.generator import BriefingGenerator
 from app.briefing.service import BriefingService
@@ -58,14 +57,18 @@ class Container(containers.DeclarativeContainer):
         MetaExtractor,
         client=genai_client,
         model="gemini-2.5-pro",
-        fallback_model="gemini-3.1-pro-preview",
-        secondary_fallback_model="gemini-3-flash-preview",
+        # Fallbacks must be GA models. Preview fallbacks share system-limit
+        # throttling with primary and may also reject thinking_level (Gemini
+        # 2.5 vs 3 incompatibility), causing user-visible 500s. See incident
+        # 2026-04 (scene endpoint thinking_level bug).
+        fallback_model="gemini-2.5-flash",
+        secondary_fallback_model="gemini-2.5-flash-lite",
 
-        extract_ingredient_prompt_path=Path("app/meta/prompt/user/extract_ingredient.md"),
-        extract_ingredient_tool_path=Path("app/meta/prompt/tool/extract_ingredient.json"),
+        extract_ingredient_prompt_path=providers.Callable(prompt_path, "meta.extract_ingredient"),
+        extract_ingredient_tool_path=providers.Callable(tool_path, "meta.extract_ingredient"),
 
-        video_extract_prompt_path=Path("app/meta/prompt/user/video_extract.md"),
-        video_extract_tool_path=Path("app/meta/prompt/tool/video_meta.json"),
+        video_extract_prompt_path=providers.Callable(prompt_path, "meta.video_extract"),
+        video_extract_tool_path=providers.Callable(tool_path, "meta.video_meta"),
     )
     meta_service = providers.Factory(
         MetaService,
@@ -78,10 +81,11 @@ class Container(containers.DeclarativeContainer):
         StepGenerator,
         client=genai_client,
         model="gemini-2.5-pro",
-        fallback_model="gemini-3.1-pro-preview",
-        secondary_fallback_model="gemini-3-flash-preview",
-        video_step_tool_path=Path("app/step/prompt/tool/video_step.json"),
-        video_summarize_user_prompt_path=Path("app/step/prompt/user/video_summarize.md"),
+        # Same policy as meta: GA-only fallback chain.
+        fallback_model="gemini-2.5-flash",
+        secondary_fallback_model="gemini-2.5-flash-lite",
+        video_step_tool_path=providers.Callable(tool_path, "step.video_step"),
+        video_summarize_user_prompt_path=providers.Callable(prompt_path, "step.video_summarize"),
     )
     step_service = providers.Factory(
         StepService,
@@ -99,8 +103,8 @@ class Container(containers.DeclarativeContainer):
         client=genai_client,
         model="gemini-3.1-flash-lite-preview",
         fallback_model="gemini-2.5-flash-lite",
-        generate_user_prompt_path=Path("app/briefing/prompt/generator/user_prompt.md"),
-        generate_tool_path=Path("app/briefing/prompt/generator/emit_briefing.json"),
+        generate_user_prompt_path=providers.Callable(prompt_path, "briefing.user_prompt"),
+        generate_tool_path=providers.Callable(tool_path, "briefing.emit_briefing"),
     )
     briefing_service = providers.Factory(
         BriefingService,
@@ -113,9 +117,12 @@ class Container(containers.DeclarativeContainer):
         SceneGenerator,
         client=genai_client,
         model="gemini-3-flash-preview",
-        fallback_model="gemini-2.5-flash-lite",
-        video_scene_tool_path=Path("app/scene/prompt/tool/video_scene.json"),
-        video_scene_user_prompt_path=Path("app/scene/prompt/user/video_scene.md"),
+        # GA fallback (was: gemini-2.5-flash-lite). preview primary may hit
+        # system-limit throttling; fallback must be GA to recover. Uses
+        # video_scene_conf_fallback (no thinking_level) for Gemini 2.5 compat.
+        fallback_model="gemini-2.5-flash",
+        video_scene_tool_path=providers.Callable(tool_path, "scene.video_scene"),
+        video_scene_user_prompt_path=providers.Callable(prompt_path, "scene.video_scene"),
     )
     scene_service = providers.Factory(
         SceneService,
@@ -128,8 +135,8 @@ class Container(containers.DeclarativeContainer):
         client=genai_client,
         model="gemini-3.1-flash-lite-preview",
         fallback_model="gemini-2.5-flash-lite",
-        verify_user_prompt_path=Path("app/verify/prompt/user/verify.md"),
-        verify_tool_path=Path("app/verify/prompt/tool/verify.json"),
+        verify_user_prompt_path=providers.Callable(prompt_path, "verify.verify"),
+        verify_tool_path=providers.Callable(tool_path, "verify.verify"),
     )
 
     verify_service = providers.Factory(

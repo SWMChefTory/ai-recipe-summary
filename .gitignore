@@ -15,7 +15,7 @@ dist/
 *.json
 !package.json
 !package-lock.json
-!app/**/prompt/**/*.json
+!app/prompts/**/*.json
 
 # OS
 **/.DS_Store

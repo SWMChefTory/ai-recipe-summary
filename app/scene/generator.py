@@ -35,13 +35,29 @@ class SceneGenerator:
         video_scene_tool_spec = json.loads(video_scene_tool_path.read_text(encoding="utf-8"))
         self.video_scene_tool = self._build_tool_from_spec(video_scene_tool_spec)
 
+        # Primary config (Gemini 3 model) — uses thinking_level which is Gemini 3 only.
         self.video_scene_conf = types.GenerateContentConfig(
             temperature=0.0,
             media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
             safety_settings=relaxed_safety_settings(),
-            thinking_config=types.ThinkingConfig(
-                thinkingLevel="HIGH",
+            thinking_config=types.ThinkingConfig(thinking_level="HIGH"),
+            tools=[self.video_scene_tool],
+            tool_config=types.ToolConfig(
+                function_calling_config=types.FunctionCallingConfig(
+                    mode="ANY",
+                    allowed_function_names=[self.ALLOWED_FUNCTION_NAME],
+                )
             ),
+        )
+
+        # Fallback config (Gemini 2.5 model) — must NOT include thinking_level.
+        # Gemini 2.5 series uses thinking_budget; sending thinking_level returns
+        # 400 INVALID_ARGUMENT. Reusing the primary config on fallback was the
+        # root cause of fallback failures observed in production.
+        self.video_scene_conf_fallback = types.GenerateContentConfig(
+            temperature=0.0,
+            media_resolution=types.MediaResolution.MEDIA_RESOLUTION_LOW,
+            safety_settings=relaxed_safety_settings(),
             tools=[self.video_scene_tool],
             tool_config=types.ToolConfig(
                 function_calling_config=types.FunctionCallingConfig(
@@ -214,7 +230,7 @@ class SceneGenerator:
                 response = self._generate_content(
                     model=self.fallback_model,
                     contents=contents,
-                    config=self.video_scene_conf,
+                    config=self.video_scene_conf_fallback,
                 )
 
             scene_args = self._extract_function_args(response)

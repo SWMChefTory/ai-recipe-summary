@@ -224,20 +224,15 @@ class MetaExtractor:
                     self.logger.warning(
                         f"Fallback model also unavailable. secondary fallback={self.secondary_fallback_model}"
                     )
+                    # Reuse the original conf as-is. Previously this branch
+                    # injected thinking_level=HIGH, which is Gemini 3 only and
+                    # gets rejected by GA Gemini 2.5 fallback models with
+                    # 400 INVALID_ARGUMENT.
                     try:
-                        thinking_conf = types.GenerateContentConfig(
-                            system_instruction=conf.system_instruction,
-                            temperature=0.0,
-                            safety_settings=conf.safety_settings,
-                            thinking_config=types.ThinkingConfig(thinkingLevel="HIGH"),
-                            media_resolution=conf.media_resolution,
-                            tools=conf.tools,
-                            tool_config=conf.tool_config,
-                        )
                         return self.client.models.generate_content(
                             model=self.secondary_fallback_model,
                             contents=contents,
-                            config=thinking_conf,
+                            config=conf,
                         )
                     except Exception as secondary_error:
                         self.logger.exception("Gemini secondary fallback model invoke failed")
